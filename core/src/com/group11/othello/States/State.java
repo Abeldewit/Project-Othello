@@ -10,7 +10,7 @@ public abstract class State {
     private GameStateManager gsm;
 
 
-    public State(GameStateManager gsm){
+    public State(GameStateManager gsm) {
         this.gsm = gsm;
         camera = new OrthographicCamera();
         mouse = new Vector3();
@@ -26,18 +26,13 @@ public abstract class State {
         return camera;
     }
 
-    public Vector3 getMouse() {
+    public Vector3 getMouse()
+    {
         return mouse;
     }
 
-    public GameStateManager getGsm() {
+    public GameStateManager getGsm()
+    {
         return gsm;
     }
-
-
-
-
-
-
-
 }
