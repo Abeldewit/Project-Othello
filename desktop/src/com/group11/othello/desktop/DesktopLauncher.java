@@ -1,12 +1,14 @@
 package com.group11.othello.desktop;
 
+import com.group11.othello.Game.Othello;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.group11.othello.GameLogic;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new GameLogic(), config);
+		config.width = Othello.WIDTH;
+		config.height = Othello.HEIGHT;
+		new LwjglApplication(new Othello(), config);
 	}
 }

@@ -1,6 +1,5 @@
-package GameLogic;
+package com.group11.othello.Logic;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector3;
 
 public abstract class Pieces {
