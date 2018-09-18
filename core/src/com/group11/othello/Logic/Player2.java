@@ -1,12 +1,11 @@
 package com.group11.othello.Logic;
 
-public class Player2 {
+public class Player2 extends Player{
     private String color;
     private int score;
 
     public Player2(String color)
     {
-        this.color = color;
-        score = 0;
+        super(color);
     }
 }
