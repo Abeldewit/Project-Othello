@@ -4,11 +4,18 @@ public abstract class Player {
     private String color;
     private int score;
 
-    public Player(String color)
+    public Player()
     {
-        this.color = color;
+
         score = 0;
     }
+
+    public abstract int getScore();
+
+
+    public abstract void addScore(int score);
+
+    public abstract void subtractScore(int score);
 
 
 
