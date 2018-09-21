@@ -9,8 +9,8 @@ import com.group11.othello.States.GameStateManager;
 import com.group11.othello.States.MenuState;
 
 public class Othello extends ApplicationAdapter {
-    public static final int WIDTH = 400;
-    public static final int HEIGHT = 400;
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 900;
     public GameStateManager gsm;
     public SpriteBatch sb;
 
