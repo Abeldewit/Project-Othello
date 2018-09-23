@@ -1,13 +1,18 @@
 package com.group11.othello.Logic;
 
-public abstract class Player {
-
+public class Player {
     private String playerColor;
+    private int playerScore;
 
-    //places the piece on the Board
-    public void place(){};
-    //Flips the piece to the apposing players color
-    public void flip(){};
+    public Player(String playerColor) {
+        this.playerColor = playerColor;
+        this.playerScore =  0;
+    }
 
-
+    public void setPlayerScore(int newScore) {
+        playerScore = newScore;
+    }
+    public int getPlayerScore() {
+        return playerScore;
+    }
 }

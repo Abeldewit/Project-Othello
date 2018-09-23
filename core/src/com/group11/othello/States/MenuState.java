@@ -9,7 +9,7 @@ public class MenuState extends State {
 
    public MenuState(GameStateManager gsm){
        super(gsm);
-       othelloBoard = new Texture("OthelloBoard.png");
+       othelloBoard = new Texture("OthelloBoard2.png");
    }
 
     @Override
