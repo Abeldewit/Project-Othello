@@ -47,12 +47,12 @@ public class GameLogic {
             if(turnStatus > 0)
             {
                 changeTurn();
-                return new Chip("black");
+                return new Chip(player2);
             }
             else
                 {
                     changeTurn();
-                    return new Chip("whilte");
+                    return new Chip(player1);
                 }
     }
 
