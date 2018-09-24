@@ -1,11 +1,11 @@
 package com.group11.othello.Logic;
 
 public class GameLogic {
-    private int playerCount;
     private int turnStatus;
     private Player1 player1;
     private Player2 player2;
     private Bag bag;
+    private Board board;
 
 
 
@@ -14,6 +14,7 @@ public class GameLogic {
     {
         this.player1 = new Player1();
         bag = new Bag();
+        board = new Board();
     }
 
     public GameLogic(Player1 player1,Player2 player2)
@@ -25,7 +26,7 @@ public class GameLogic {
 
     public int getTurnStatus()
     {
-        return playerCount;
+        return turnStatus;
     }
 
 
@@ -44,7 +45,7 @@ public class GameLogic {
 
     public Chip createChip()
     {
-            if(turnStatus > 0)
+            if(turnStatus > 1)
             {
                 changeTurn();
                 return new Chip(player2);
@@ -58,7 +59,7 @@ public class GameLogic {
 
     public void changeTurn()
     {
-        if(turnStatus > 0)
+        if(turnStatus > 1)
         {
             turnStatus--;
         }
@@ -68,6 +69,11 @@ public class GameLogic {
             }
 
 
+    }
+
+    public void setChip(int i, int j)
+    {
+        board.setChip(i,j,turnStatus);
     }
 
 

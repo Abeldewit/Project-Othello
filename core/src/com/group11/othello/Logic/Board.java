@@ -2,14 +2,26 @@ package com.group11.othello.Logic;
 
 public class Board {
 
-    private Cell[][] board = new Cell[8][8];
+    private int[][] board = new int[8][8];
 
-    public Board() {
-        //setup of cells
-        for(int i = 0; i < 8; i++) {
-            for(int j = 0; j < 8; j++) {
-                board[i][j] = new Cell(i, j);
+    public Board()
+    {
+        for(int i = 0; i < 9; )
+        {
+            for(int j = 0; j < 9; )
+            {
+                board[i][j] = 0;
             }
         }
     }
+
+    public void setChip(int i, int j, int player)
+    {
+        board [i][j] = player;
+    }
+
+
+
+
+
 }
