@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff931b44-9348-48ff-a8f9-aad3b9d532af" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Game/Othello.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Game/Othello.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Pieces.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -21,7 +15,6 @@
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,98 +25,113 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="274919717">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="271" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="271" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Player2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player2.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Bag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-              <folding>
-                <element signature="e#1228#1229#0" expanded="true" />
-                <element signature="e#1250#1251#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1095">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Chip.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Chip.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#185#186#0" expanded="true" />
-                <element signature="e#221#222#0" expanded="true" />
-                <element signature="e#266#267#0" expanded="true" />
-                <element signature="e#296#297#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DesktopLauncher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/desktop/src/com/group11/othello/desktop/DesktopLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="285">
               <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/GameStateManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
-                <element signature="e#341#342#0" expanded="true" />
-                <element signature="e#378#379#0" expanded="true" />
+                <element signature="e#499#500#0" expanded="true" />
+                <element signature="e#539#540#0" expanded="true" />
+                <element signature="e#580#581#0" expanded="true" />
+                <element signature="e#620#621#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameLogicAbstract.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogicAbstract.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Game/clickProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OthelloBoard2.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/assets/OthelloBoard2.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="Player1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="345">
+              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
               <folding>
-                <element signature="e#158#159#0" expanded="true" />
-                <element signature="e#195#196#0" expanded="true" />
+                <element signature="e#174#175#0" expanded="true" />
+                <element signature="e#202#203#0" expanded="true" />
+                <element signature="e#244#245#0" expanded="true" />
+                <element signature="e#272#273#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#348#349#0" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
+                <element signature="e#546#547#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#637#638#0" expanded="true" />
+                <element signature="e#685#686#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#757#758#0" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,7 +152,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Andreas\.gradle\wrapper\dists\gradle-2.4-all\8ym2u3wqq10sf8a9a8x2q9tiv\gradle-2.4" />
+        <entry key="$PROJECT_DIR$" value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -157,7 +165,7 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="Othello" />
+              <option name="name" value="Project-Othello" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
@@ -172,7 +180,7 @@
                 <option name="path" value="$PROJECT_DIR$/desktop" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="Othello" />
+                <option name="name" value="Project-Othello" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -186,12 +194,12 @@
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'Othello'. [incubating]" />
+                <option name="description" value="Displays the components produced by root project 'Project-Othello'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'Othello'." />
+                <option name="description" value="Displays the sub-projects of root project 'Project-Othello'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
               </ExternalTaskPojo>
@@ -247,7 +255,7 @@
                 <option name="name" value="eclipseClasspath" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'Othello'. [incubating]" />
+                <option name="description" value="Displays the configuration model of root project 'Project-Othello'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
@@ -262,7 +270,7 @@
                 <option name="name" value="processResources" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'Othello' (some of the displayed tasks may belong to subprojects)." />
+                <option name="description" value="Displays the tasks runnable from root project 'Project-Othello' (some of the displayed tasks may belong to subprojects)." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
@@ -291,7 +299,7 @@
                 <option name="name" value="compileJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'Othello'." />
+                <option name="description" value="Displays the insight into a specific dependency in root project 'Project-Othello'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
@@ -316,7 +324,7 @@
                 <option name="name" value="compileTestJava" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'Othello'." />
+                <option name="description" value="Displays all dependencies declared in root project 'Project-Othello'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
@@ -356,7 +364,7 @@
                 <option name="name" value="eclipseProject" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'Othello'." />
+                <option name="description" value="Displays the properties of root project 'Project-Othello'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
@@ -696,7 +704,6 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="9226794323776" />
         <entry key="$PROJECT_DIR$/build.gradle" value="3892206138" />
         <entry key="$PROJECT_DIR$/core/build.gradle" value="2971590108" />
         <entry key="$PROJECT_DIR$/desktop/build.gradle" value="2117874491" />
@@ -738,119 +745,117 @@
               <option name="name" value="core" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/announce" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/antlr" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/base-services" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/base-services-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/build-comparison" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/build-init" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/cli" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/code-quality" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/dependency-management" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/diagnostics" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ear" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ide" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ide-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/internal-integ-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/internal-testing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ivy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/jacoco" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/javascript" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/jetty" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-java" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-scala" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/launcher" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/maven" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/messaging" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/model-core" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/model-groovy" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/open-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/osgi" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-base" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-jvm" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-play" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/plugin-development" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/plugin-use" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/plugins" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/publish" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/reporting" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources-http" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources-s3" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources-sftp" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/scala" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/signing" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/sonar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/testing-native" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/tooling-api" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/tooling-api-builders" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ui" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/internal-integ-testing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/reporting" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/launcher" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-base" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/announce" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/signing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/core" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/tooling-api" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-play" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ivy" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/wrapper" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/ant-1.9.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/ant-launcher-1.9.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-base-services-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-base-services-groovy-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-cli-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-core-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-docs-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-launcher-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-messaging-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-model-core-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-model-groovy-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/plugins" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/antlr" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/plugin-use" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/jetty" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-jvm" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/maven" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/osgi" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources-http" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/internal-testing" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/model-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/cli" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/build-init" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ear" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/jacoco" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/build-comparison" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/sonar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/publish" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/platform-jvm" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources-sftp" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/base-services" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/model-core" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/scala" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/diagnostics" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/dependency-management" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/code-quality" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-java" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/plugin-development" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/javascript" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/testing-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/ide-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/base-services-groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/messaging" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/tooling-api-builders" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-scala" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/language-native" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/open-api" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/src/resources-s3" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-native-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-open-api-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-resources-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-tooling-api-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-ui-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-wrapper-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-base-services-groovy-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-core-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-model-core-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/ant-1.9.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-open-api-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-docs-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/ant-launcher-1.9.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-cli-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-base-services-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-launcher-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/groovy-all-2.3.10.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-announce-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-antlr-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-build-comparison-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-build-init-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-code-quality-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-dependency-management-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-diagnostics-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ear-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ide-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ide-native-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ivy-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-messaging-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-resources-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-model-groovy-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/gradle-tooling-api-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-native-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-jacoco-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-native-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-build-comparison-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-plugins-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-javascript-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-jetty-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-tooling-api-builders-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-announce-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-scala-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-plugin-use-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-jvm-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-base-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-dependency-management-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-testing-native-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ear-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-sonar-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-publish-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-diagnostics-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-plugin-development-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ide-native-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-reporting-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-antlr-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-osgi-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-groovy-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-java-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-jvm-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-native-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-language-scala-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-maven-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-osgi-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-base-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-jvm-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-native-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-play-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-plugin-development-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-plugin-use-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-plugins-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-publish-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-reporting-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-resources-http-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-resources-s3-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-resources-sftp-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-scala-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-signing-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-sonar-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-testing-native-2.4.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-tooling-api-builders-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-play-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ide-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-jetty-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-maven-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-build-init-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-platform-jvm-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-ivy-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-resources-s3-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-code-quality-2.4.jar" />
                   <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/ivy-2.2.0.jar" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
-                  <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-resources-sftp-2.4.jar" />
+                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-2.4-all/8ym2u3wqq10sf8a9a8x2q9tiv/gradle-2.4/lib/plugins/gradle-signing-2.4.jar" />
                 </list>
               </option>
             </ExternalProjectBuildClasspathPojo>
@@ -860,12 +865,11 @@
     </option>
     <option name="projectSyncType">
       <map>
+        <entry key="$PROJECT_DIR$/.." value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../../GolfGame" value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../../GolfProject" value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../../Othello-Project" value="PREVIEW" />
         <entry key="$PROJECT_DIR$/../../Project1" value="PREVIEW" />
-        <entry key="$PROJECT_DIR$/.." value="PREVIEW" />
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
         <entry key="$PROJECT_DIR$/../../Project12" value="PREVIEW" />
       </map>
     </option>
@@ -878,6 +882,9 @@
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Logic/Cell.java" />
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Logic/Board.java" />
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" />
+        <option value="$PROJECT_DIR$/core/src/com/group11/othello/Game/InputProcessor.java" />
+        <option value="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" />
+        <option value="$PROJECT_DIR$/core/src/com/group11/othello/Game/clickProcessor.java" />
       </list>
     </option>
   </component>
@@ -893,10 +900,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-6" />
-    <option name="width" value="1944" />
-    <option name="height" value="1044" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1440" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -910,74 +917,50 @@
         <subPane>
           <expand>
             <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Project-Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project-Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Project-Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project-Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Project-Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project-Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Project-Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project-Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="othello" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Project-Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project-Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="othello" type="462c0819:PsiDirectoryNode" />
               <item name="Game" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Project-Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project-Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="othello" type="462c0819:PsiDirectoryNode" />
               <item name="Logic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Project-Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Project-Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="othello" type="462c0819:PsiDirectoryNode" />
               <item name="States" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Othello" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="desktop" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -985,12 +968,12 @@
       </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537888216385" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/core/assets" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1022,47 +1005,29 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
@@ -1081,6 +1046,7 @@
       <option name="presentableId" value="Default" />
       <updated>1537799070873</updated>
       <workItem from="1537799074478" duration="3894000" />
+      <workItem from="1537886602954" duration="1579000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up some code">
       <created>1537800140695</created>
@@ -1100,42 +1066,75 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3894000" />
+    <option name="totallyTimeSpent" value="5473000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" weight="0.32993197" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32993197" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24980484" />
-      <window_info anchor="bottom" id="Build" weight="0.32993197" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Gradle" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32951653" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32951653" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32951653" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32951653" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32951653" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32993197" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1149,31 +1148,11 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Player.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#330#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Pieces.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#273#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Pieces.class" />
     <entry file="file://$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/GameLogicAbstract.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/core/assets/OthelloBoard.png">
       <provider selected="true" editor-type-id="images" />
@@ -1181,97 +1160,113 @@
     <entry file="file://$PROJECT_DIR$/core/assets/badlogic.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/assets/OthelloBoard2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogicAbstract.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Piece.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#195#196#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Piece.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Cell.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="195">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Chip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#296#297#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Cell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding>
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/com/group11/othello/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="60">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Board.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogicAbstract.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/assets/OthelloBoard2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Bag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="1095">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/GameStateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#1228#1229#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#539#540#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="28" column="25" lean-forward="true" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Game/clickProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding>
+            <element signature="e#174#175#0" expanded="true" />
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#244#245#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#637#638#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#757#758#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
           </folding>
         </state>
       </provider>
