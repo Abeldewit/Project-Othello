@@ -3,6 +3,9 @@ package com.group11.othello.States;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
+import com.group11.othello.Logic.Player;
+import com.group11.othello.Logic.Player1;
+import com.group11.othello.Logic.Player2;
 
 public abstract class State {
     private OrthographicCamera camera;
@@ -11,6 +14,18 @@ public abstract class State {
 
 
     public State(GameStateManager gsm) {
+        this.gsm = gsm;
+        camera = new OrthographicCamera();
+        mouse = new Vector3();
+    }
+
+    public State(GameStateManager gsm, Player1 player1) {
+        this.gsm = gsm;
+        camera = new OrthographicCamera();
+        mouse = new Vector3();
+    }
+
+    public State(GameStateManager gsm, Player1 player1, Player2 player2) {
         this.gsm = gsm;
         camera = new OrthographicCamera();
         mouse = new Vector3();

@@ -6,6 +6,7 @@ import com.group11.othello.Game.Othello;
 
 public class MenuState extends State {
     private Texture othelloBoard;
+    public int number = 0;
 
    public MenuState(GameStateManager gsm){
        super(gsm);
@@ -14,12 +15,12 @@ public class MenuState extends State {
 
     @Override
     public void handleInput() {
-
+        System.out.println(number++);
     }
 
     @Override
     public void update(float dt) {
-
+        handleInput();
     }
 
     @Override

@@ -6,11 +6,9 @@ import com.badlogic.gdx.math.Vector3;
 public class Chip {
 
     private Vector3 position;
-    private Player player;
     private Texture chipTexture;
 
-    public Chip(Player player, String chipTexture) {
-        this.player = player;
+    public Chip(String chipTexture) {
         this.chipTexture = new Texture(chipTexture);
     }
 

@@ -34,7 +34,7 @@ public class GameLogic {
     {
         boolean end = false;
 
-        if(bag.getChipCount() < 0 )
+        if(bag.getChipCount() < 1 )
         {
             end = true;
         }
@@ -48,12 +48,12 @@ public class GameLogic {
             if(turnStatus > 1)
             {
                 changeTurn();
-                return new Chip(player2, "black");
+                return new Chip( "black");
             }
             else
                 {
                     changeTurn();
-                    return new Chip(player1, "white");
+                    return new Chip( "white");
                 }
     }
 
