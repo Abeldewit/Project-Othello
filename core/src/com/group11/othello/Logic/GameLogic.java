@@ -48,12 +48,12 @@ public class GameLogic {
             if(turnStatus > 1)
             {
                 changeTurn();
-                return new Chip( "black");
+                return new Chip( "BChip.png");
             }
             else
                 {
                     changeTurn();
-                    return new Chip( "white");
+                    return new Chip( "WChip.png");
                 }
     }
 
