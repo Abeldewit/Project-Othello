@@ -11,23 +11,28 @@ import com.group11.othello.Logic.Player2;
 import java.util.Stack;
 
 public class GameState extends State {
-    private Texture othelloBoard;
+
+    private Texture othelloBoard,scoreTable;
+    private Texture WChip,BChip;
     private Stack<Texture> chipTexture;
     GameLogic gL;
     public int number = 1;
 
-    public GameState(GameStateManager gsm, Player1 player1)
+    public GameState(GameStateManager gsm/*, Player1 player1*/)
     {
         super(gsm);
-        gL = new GameLogic(player1);
-        othelloBoard = new Texture("OthelloBoard2.png");
+        //gL = new GameLogic(player1);
+        WChip = new Texture("WChip.png");
+        BChip = new Texture("BChip.png");
+        othelloBoard = new Texture("Table.png");
+        scoreTable = new Texture("ScoreTable.png");
     }
 
     public GameState(GameStateManager gsm, Player1 player1, Player2 player2)
     {
         super(gsm);
         gL = new GameLogic(player1, player2);
-        othelloBoard = new Texture("OthelloBoard2.png");
+        othelloBoard = new Texture("Table.png");
     }
 
     @Override
@@ -49,7 +54,10 @@ public class GameState extends State {
     public void render(SpriteBatch sb)
     {
         sb.begin();
-        sb.draw(othelloBoard,0,0, Othello.WIDTH,Othello.HEIGHT);
+        sb.draw(scoreTable,0,800, 800,100);
+        sb.draw(othelloBoard,0,0, 800,800);
+        sb.draw(BChip,105,823,30,30);
+        sb.draw(WChip,10,823, 30,30);
         sb.end();
     }
 
