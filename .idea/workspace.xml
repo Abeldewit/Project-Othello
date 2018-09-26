@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff931b44-9348-48ff-a8f9-aad3b9d532af" name="Default" comment="Sprites">
+    <list default="true" id="ff931b44-9348-48ff-a8f9-aad3b9d532af" name="Default" comment="New Othello Table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Game/Othello.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Game/Othello.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/MenuState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/out/production/classes/com/group11/othello/desktop/DesktopLauncher.class" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/out/production/classes/com/group11/othello/desktop/DesktopLauncher.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -76,13 +69,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="1641" />
-          <entry key="txt" value="8" />
+          <entry key="txt" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1641" />
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="PLAIN_TEXT" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -1138,7 +1131,7 @@
       <workItem from="1537896485783" duration="850000" />
       <workItem from="1537897424362" duration="6000" />
       <workItem from="1537897603662" duration="6389000" />
-      <workItem from="1537954429910" duration="2807000" />
+      <workItem from="1537954429910" duration="4559000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up some code">
       <created>1537800140695</created>
@@ -1161,11 +1154,25 @@
       <option name="project" value="LOCAL" />
       <updated>1537897248235</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Custom Menu and Score Table">
+      <created>1537957301264</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1537957301264</updated>
+    </task>
+    <task id="LOCAL-00005" summary="New Othello Table">
+      <created>1537959247469</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1537959247469</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15525000" />
+    <option name="totallyTimeSpent" value="17277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1244,7 +1251,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleaned up some code" />
     <MESSAGE value="Sprites" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sprites" />
+    <MESSAGE value="Custom Menu and Score Table" />
+    <MESSAGE value="New Othello Table" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Othello Table" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Player.class">
