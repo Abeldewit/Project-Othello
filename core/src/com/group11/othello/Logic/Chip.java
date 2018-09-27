@@ -14,6 +14,7 @@ public class Chip {
         this.chipTexture = new Texture(chipTexture);
         color = chipTexture;
 
+
     }
 
     public void setPosition(Vector3 pos) {
@@ -21,5 +22,10 @@ public class Chip {
     }
 
     public String getColor(){ return color;}
+
+    public Vector3 getPosition()
+    {
+        return position;
+    }
 
 }

@@ -1,7 +1,7 @@
 package com.group11.othello.Logic;
 
 public class GameLogic {
-    private int turnStatus;
+    private int turnStatus = 1;
     private Player1 player1;
     private Player2 player2;
     private Bag bag;
@@ -42,21 +42,21 @@ public class GameLogic {
         return end;
 
     }
-
+/*
     public Chip createChip()
     {
             if(turnStatus > 1)
             {
-                changeTurn();
+
                 return new Chip( "BChip.png");
             }
             else
                 {
-                    changeTurn();
+
                     return new Chip( "WChip.png");
                 }
     }
-
+*/
     public void changeTurn()
     {
         if(turnStatus > 1)
