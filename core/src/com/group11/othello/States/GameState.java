@@ -70,7 +70,7 @@ public class GameState extends State {
                     renderChip();
                     gL.changeTurn();
                 } else {
-                    System.out.println("Fail");
+                    System.out.println("Tile Occupied");
                 }
             }
             else
@@ -100,13 +100,6 @@ public class GameState extends State {
             for (int i = 0; i < chipTexture.size() - 1; i++) {
 
                 sb.draw(chipTexture.get(i), chipPosition.get(i+1).x, chipPosition.get(i+1).y, 30, 30);
-               /* if(chipPosition.size()>=10)
-                {
-                    for (int h = 0; i < chipPosition.size() - 1; h++)
-                    {
-                        System.out.println("X :"+chipPosition.get(h).x + "     Y :" +chipPosition.get(h).y);
-                    }
-                }*/
             }
         }
         sb.end();
@@ -129,8 +122,6 @@ public class GameState extends State {
     {
         for(int i=0;i<chipPosition.size();i++)
         {
-            System.out.println(Math.abs(coordX-chipPosition.get(i).x));
-            System.out.println(Math.abs(coordY-chipPosition.get(i).y));
             if(Math.abs(coordX-chipPosition.get(i).x)== 0 && Math.abs(coordY-chipPosition.get(i).y)==0)
             {
                 return true;
