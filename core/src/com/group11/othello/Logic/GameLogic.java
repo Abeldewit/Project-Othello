@@ -59,13 +59,13 @@ public class GameLogic {
 */
     public void changeTurn()
     {
-        if(turnStatus > 1)
+        if(turnStatus == 1)
         {
-            turnStatus--;
+            turnStatus= 0;
         }
-        else
+        else if(turnStatus==0)
             {
-                turnStatus++;
+                turnStatus=1;
             }
 
 
