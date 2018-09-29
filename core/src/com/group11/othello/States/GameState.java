@@ -72,7 +72,10 @@ public class GameState extends State {
         sb.draw(WChip,10,823, 30,30);
         if(chipTexture.size() > 0) {
             for (int i = 0; i < chipTexture.size() - 1; i++) {
-                sb.draw(chipTexture.get(i), chipPosition.get(i).x, chipPosition.get(i).y, 30, 30);
+                int x = (int) Math.floor(chipPosition.get(i).x/100);
+                int y = (int) Math.floor(chipPosition.get(i).y/100);
+                sb.draw(chipTexture.get(i), x*100+35, y*100+35, 30, 30);
+                System.out.println(Math.floor(chipPosition.get(i).x/100));
             }
         }
         sb.end();
