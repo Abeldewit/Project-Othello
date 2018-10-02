@@ -55,7 +55,7 @@ public class MenuState extends State {
         if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 380 && Gdx.input.getY() <= 480 &&  Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
             try{
-            TimeUnit.MILLISECONDS.sleep(100);}
+            TimeUnit.MILLISECONDS.sleep(200);}
             catch (Exception e){
                 System.out.println("Error");
             }

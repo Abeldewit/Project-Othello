@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ff931b44-9348-48ff-a8f9-aad3b9d532af" name="Default" comment="Now the game is working, only rules remain to be done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/OthelloBoard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/OthelloBoard2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/MenuState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" afterDir="false" />
     </list>
@@ -111,13 +107,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2500" />
+          <entry key="java" value="2883" />
           <entry key="txt" value="237" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2500" />
+          <entry key="JAVA" value="2883" />
           <entry key="PLAIN_TEXT" value="237" />
         </counts>
       </usages-collector>
@@ -138,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+            <state relative-caret-position="306">
+              <caret line="36" column="9" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="36" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,12 +146,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+            <state relative-caret-position="374">
+              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2769#2770#0" expanded="true" />
-                <element signature="e#2798#2799#0" expanded="true" />
+                <element signature="e#2938#2939#0" expanded="true" />
+                <element signature="e#2967#2968#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1046,7 +1042,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538486393047" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538489313862" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1138,7 +1134,7 @@
       <workItem from="1538302897878" duration="744000" />
       <workItem from="1538484413152" duration="92000" />
       <workItem from="1538484521633" duration="34000" />
-      <workItem from="1538484571869" duration="1771000" />
+      <workItem from="1538484571869" duration="4547000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up some code">
       <created>1537800140695</created>
@@ -1196,11 +1192,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538237759196</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Now the game is working, only rules remain to be done">
+      <created>1538486422649</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1538486422649</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35287000" />
+    <option name="totallyTimeSpent" value="38063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1403,8 +1406,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+        <state relative-caret-position="306">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="36" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1413,12 +1416,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+        <state relative-caret-position="374">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2769#2770#0" expanded="true" />
-            <element signature="e#2798#2799#0" expanded="true" />
+            <element signature="e#2938#2939#0" expanded="true" />
+            <element signature="e#2967#2968#0" expanded="true" />
           </folding>
         </state>
       </provider>

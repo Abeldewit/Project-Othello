@@ -17,13 +17,14 @@ import java.util.Stack;
 
 public class GameState extends State {
 
-    private Texture othelloBoard,scoreTable;
+    private Texture othelloBoard,scoreTable,menuButton;
     private Texture WChip,BChip;
     private ArrayList<Texture> chipTexture;
     private GameLogic gL;
     private ArrayList<Vector3> chipPosition;
     private Player1 player1;
     private Player2 player2;
+    private GameStateManager gsm;
 
     public GameState(GameStateManager gsm)
     {
@@ -34,12 +35,13 @@ public class GameState extends State {
         gL = new GameLogic(player1, player2);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
-
+        menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table.png");
         scoreTable = new Texture("ScoreTable.png");
         chipTexture = new ArrayList<Texture>();
         chipTexture.add(WChip);
         chipPosition = new ArrayList<Vector3>();
+        this.gsm=gsm;
     }
 
     public GameState(GameStateManager gsm, Player1 player1, Player2 player2)
@@ -59,31 +61,44 @@ public class GameState extends State {
             } catch (Exception e) {
                 System.out.println("Error");
             }
-
+            if(Gdx.input.getY() >=100) {
                 int x = (int) Math.floor(Gdx.input.getX() / 100);
                 int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
 
-                int convX=x * 100 + 35;
-                int convY=y * 100 + 35;
+                int convX = x * 100 + 35;
+                int convY = y * 100 + 35;
 
-            if(chipPosition.size()>0) {
-                if (!isTooClose(convX, convY)) {
-                    chipPosition.add(new Vector3(convX, convY, 0));
-                    System.out.println(chipPosition.get(chipPosition.size()-1));
-                    renderChip();
-                    gL.changeTurn();
+                if (chipPosition.size() > 0) {
+                    if (!isTooClose(convX, convY)) {
+                        chipPosition.add(new Vector3(convX, convY, 0));
+                        System.out.println(chipPosition.get(chipPosition.size() - 1));
+                        renderChip();
+                        gL.changeTurn();
+                    } else {
+                        System.out.println("Tile Occupied");
+                    }
                 } else {
-                    System.out.println("Tile Occupied");
-                }
-            }
-            else
-                {
                     chipPosition.add(new Vector3(convX, convY, 0));
-                    System.out.println(chipPosition.get(chipPosition.size()-1));
+                    System.out.println(chipPosition.get(chipPosition.size() - 1));
                     renderChip();
                     System.out.println(chipTexture.size());
                     gL.changeTurn();
                 }
+            }
+        }
+
+        if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70)
+        {
+            menuButton = new Texture("MenuButtonHover.png");
+        }
+        else
+        {
+            menuButton = new Texture("MenuButtonUp.png");
+        }
+
+        if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        {
+            gsm.set(new MenuState(gsm));
         }
     }
 
@@ -101,6 +116,7 @@ public class GameState extends State {
         sb.draw(othelloBoard,0,0, 800,800);
         sb.draw(BChip,105,823,30,30);
         sb.draw(WChip,10,823, 30,30);
+        sb.draw(menuButton,580,830,200,40);
         if(chipTexture.size()>1) {
             for (int i = 0; i < chipTexture.size() - 1; i++) {
 
