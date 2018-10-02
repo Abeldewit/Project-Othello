@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff931b44-9348-48ff-a8f9-aad3b9d532af" name="Default" comment="New Othello Table">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Project-Othello.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/core_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/core/core_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" afterDir="false" />
+    <list default="true" id="ff931b44-9348-48ff-a8f9-aad3b9d532af" name="Default" comment="Now the game is working, only rules remain to be done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/ExitButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/ExitButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/Settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/StartButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/core/assets/StartButton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/assets/Test.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Game/Othello.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Game/Othello.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/assets/OthelloBoard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/assets/OthelloBoard2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/MenuState.class" beforeDir="false" afterPath="$PROJECT_DIR$/core/out/production/classes/com/group11/othello/States/MenuState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" afterDir="false" />
     </list>
@@ -111,20 +100,35 @@
     <session id="805566498">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="744" />
+          <entry key="java" value="2500" />
+          <entry key="txt" value="237" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="744" />
+          <entry key="JAVA" value="2500" />
+          <entry key="PLAIN_TEXT" value="237" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -134,12 +138,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+            <state relative-caret-position="368">
+              <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2349#2350#0" expanded="true" />
-                <element signature="e#2378#2379#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,8 +150,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
+            <state relative-caret-position="402">
+              <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2769#2770#0" expanded="true" />
+                <element signature="e#2798#2799#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.6.1/5f028d1c47d0adcc5000f21d8868443c5119e639/gdx-1.6.1-sources.jar!/com/badlogic/gdx/graphics/g2d/SpriteBatch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8109">
+              <caret line="514" selection-start-line="514" selection-end-line="514" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -171,8 +196,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+            <state relative-caret-position="476">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -194,19 +219,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="58" column="2" lean-forward="true" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
-              <folding>
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1291#1292#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -998,9 +1010,9 @@
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Display/MyGdxGame.java" />
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Display/Display.java" />
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Logic/Chip.java" />
-        <option value="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" />
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java" />
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java" />
+        <option value="$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java" />
         <option value="$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java" />
       </list>
     </option>
@@ -1034,7 +1046,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537906138062" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538486393047" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1122,7 +1134,11 @@
       <workItem from="1538009962902" duration="91000" />
       <workItem from="1538081670003" duration="3382000" />
       <workItem from="1538215270946" duration="1079000" />
-      <workItem from="1538227135379" duration="3831000" />
+      <workItem from="1538227135379" duration="10817000" />
+      <workItem from="1538302897878" duration="744000" />
+      <workItem from="1538484413152" duration="92000" />
+      <workItem from="1538484521633" duration="34000" />
+      <workItem from="1538484571869" duration="1771000" />
     </task>
     <task id="LOCAL-00001" summary="Cleaned up some code">
       <created>1537800140695</created>
@@ -1159,11 +1175,32 @@
       <option name="project" value="LOCAL" />
       <updated>1537959247469</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1)Menu With Working Buttons&#10;2)Whenever a piece is placed on the field it gets redirected to the middle of the tile it was placed on">
+      <created>1538231177819</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1538231177819</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Now the game is working, only rules remain to be done">
+      <created>1538237704578</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1538237704578</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Now the game is working, only rules remain to be done">
+      <created>1538237759196</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1538237759196</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25660000" />
+    <option name="totallyTimeSpent" value="35287000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1244,7 +1281,9 @@
     <MESSAGE value="Sprites" />
     <MESSAGE value="Custom Menu and Score Table" />
     <MESSAGE value="New Othello Table" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Othello Table" />
+    <MESSAGE value="1)Menu With Working Buttons&#10;2)Whenever a piece is placed on the field it gets redirected to the middle of the tile it was placed on" />
+    <MESSAGE value="Now the game is working, only rules remain to be done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Now the game is working, only rules remain to be done" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/out/production/classes/com/group11/othello/Logic/Pieces.class" />
@@ -1287,10 +1326,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Display/MyGdxGame.java" />
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Display/Display.java" />
-    <entry file="file://$PROJECT_DIR$/desktop/src/com/group11/othello/desktop/DesktopLauncher.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.6.1/5f028d1c47d0adcc5000f21d8868443c5119e639/gdx-1.6.1-sources.jar!/com/badlogic/gdx/graphics/g2d/SpriteBatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="8109">
+          <caret line="514" selection-start-line="514" selection-end-line="514" />
         </state>
       </provider>
     </entry>
@@ -1306,15 +1345,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+        <state relative-caret-position="476">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2349#2350#0" expanded="true" />
-            <element signature="e#2378#2379#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/com/group11/othello/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1325,12 +1369,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Game/Othello.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#146#147#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1350,31 +1394,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/Player1.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#146#147#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/Logic/GameLogic.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/MenuState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="58" column="2" lean-forward="true" selection-start-line="58" selection-start-column="2" selection-end-line="58" selection-end-column="2" />
+        <state relative-caret-position="368">
+          <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding>
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1291#1292#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/group11/othello/States/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="76" column="52" selection-start-line="76" selection-start-column="52" selection-end-line="76" selection-end-column="52" />
+        <state relative-caret-position="402">
+          <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2769#2770#0" expanded="true" />
+            <element signature="e#2798#2799#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

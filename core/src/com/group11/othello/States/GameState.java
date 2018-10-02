@@ -27,6 +27,7 @@ public class GameState extends State {
 
     public GameState(GameStateManager gsm)
     {
+
         super(gsm);
         player1 = new Player1();
         player2 = new Player2();
@@ -37,6 +38,7 @@ public class GameState extends State {
         othelloBoard = new Texture("Table.png");
         scoreTable = new Texture("ScoreTable.png");
         chipTexture = new ArrayList<Texture>();
+        chipTexture.add(WChip);
         chipPosition = new ArrayList<Vector3>();
     }
 
@@ -67,6 +69,7 @@ public class GameState extends State {
             if(chipPosition.size()>0) {
                 if (!isTooClose(convX, convY)) {
                     chipPosition.add(new Vector3(convX, convY, 0));
+                    System.out.println(chipPosition.get(chipPosition.size()-1));
                     renderChip();
                     gL.changeTurn();
                 } else {
@@ -75,8 +78,10 @@ public class GameState extends State {
             }
             else
                 {
-                    chipPosition.add(new Vector3((x * 100 + 35), y * 100 + 35, 0));
+                    chipPosition.add(new Vector3(convX, convY, 0));
+                    System.out.println(chipPosition.get(chipPosition.size()-1));
                     renderChip();
+                    System.out.println(chipTexture.size());
                     gL.changeTurn();
                 }
         }
@@ -96,10 +101,10 @@ public class GameState extends State {
         sb.draw(othelloBoard,0,0, 800,800);
         sb.draw(BChip,105,823,30,30);
         sb.draw(WChip,10,823, 30,30);
-        if(chipTexture.size()>0) {
+        if(chipTexture.size()>1) {
             for (int i = 0; i < chipTexture.size() - 1; i++) {
 
-                sb.draw(chipTexture.get(i), chipPosition.get(i+1).x, chipPosition.get(i+1).y, 30, 30);
+                sb.draw(chipTexture.get(i), chipPosition.get(i).x, chipPosition.get(i).y, 30, 30);
             }
         }
         sb.end();
@@ -111,7 +116,7 @@ public class GameState extends State {
         {
             chipTexture.add(new Texture("BChip.png"));
         }
-        else if (gL.getTurnStatus() == 1)
+        else
             {
                 chipTexture.add(new Texture("WChip.png"));
             }

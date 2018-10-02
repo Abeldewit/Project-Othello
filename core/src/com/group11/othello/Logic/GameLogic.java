@@ -1,7 +1,7 @@
 package com.group11.othello.Logic;
 
 public class GameLogic {
-    private int turnStatus = 1;
+    private int turnStatus = 0;
     private Player1 player1;
     private Player2 player2;
     private Bag bag;
