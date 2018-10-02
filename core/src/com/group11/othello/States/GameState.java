@@ -31,7 +31,7 @@ public class GameState extends State {
         super(gsm);
         player1 = new Player1();
         player2 = new Player2();
-        gL = new GameLogic(player1, player2);
+        gL = new GameLogic();
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
 
@@ -45,7 +45,7 @@ public class GameState extends State {
     public GameState(GameStateManager gsm, Player1 player1, Player2 player2)
     {
         super(gsm);
-        gL = new GameLogic(player1, player2);
+        gL = new GameLogic();
         othelloBoard = new Texture("Table.png");
     }
 
@@ -54,6 +54,7 @@ public class GameState extends State {
     {
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
 
+            //why ?
             try {
                 TimeUnit.MILLISECONDS.sleep(200);
             } catch (Exception e) {

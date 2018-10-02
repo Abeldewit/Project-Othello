@@ -4,20 +4,21 @@ import java.util.ArrayList;
 
 public class Board {
 
-    private int[][] board = new int[8][8];
-    private ArrayList<Chip> chipCount;
+    private int[][] board = new int[7][7];
+
+
 
     public Board()
     {
-        for(int i = 0; i < 9; )
+        for(int i = 0; i < 8; )
         {
-            for(int j = 0; j < 9; )
+            for(int j = 0; j < 8; )
             {
                 board[i][j] = 0;
             }
         }
 
-        chipCount = new ArrayList<Chip>();
+
     }
 
     public void setChip(int i, int j, int player)
@@ -25,7 +26,13 @@ public class Board {
         board [i][j] = player;
     }
 
-    public void setCount(Chip chip)
+    public int getChip(int i,int j)
+    {
+        int chip;
+        chip = board [i][j];
+        return chip;
+    }
+    /*public void setCount(Chip chip)
     {
         chipCount.add(chip);
     }
@@ -46,6 +53,6 @@ public class Board {
 
 
 
-
+*/
 
 }
