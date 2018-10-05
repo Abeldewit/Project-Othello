@@ -31,6 +31,7 @@ public class GameLogic {
         return turnCnt;
     }
 
+
     //checks if the black player does have a legal move
     public boolean canMoveBlack(){
 
@@ -76,6 +77,7 @@ public class GameLogic {
        // Game Over ; end Game in GameState
 
     }
+
     //checks if the white player does have a legal move
     public boolean canMoveWhite(){
 
@@ -295,6 +297,7 @@ public class GameLogic {
             nSteps =  nSteps + 1;
         }
 
+
         return false;
 
     }
@@ -326,6 +329,7 @@ public class GameLogic {
         y += dx;
 
         }
+
 
     }
 

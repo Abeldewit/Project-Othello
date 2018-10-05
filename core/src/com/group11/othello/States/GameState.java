@@ -74,7 +74,7 @@ public class GameState extends State {
                         chipPosition.add(new Vector3(convX, convY, 0));
                         System.out.println(chipPosition.get(chipPosition.size() - 1));
                         renderChip();
-                        gL.changeTurn();
+                      //  gL.changeTurn();
                     } else {
                         System.out.println("Tile Occupied");
                     }
