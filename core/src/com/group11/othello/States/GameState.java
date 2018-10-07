@@ -3,6 +3,7 @@ package com.group11.othello.States;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.Game.Othello;
@@ -19,10 +20,12 @@ public class GameState extends State {
 
     private Texture othelloBoard,scoreTable,menuButton;
     private Texture WChip,BChip;
+    private BitmapFont font;
     private GameLogic gL;
     private Player1 player1;
     private Player2 player2;
     private GameStateManager gsm;
+
 
     public GameState(GameStateManager gsm)
     {
@@ -36,6 +39,7 @@ public class GameState extends State {
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table.png");
         scoreTable = new Texture("ScoreTable.png");
+        font = new BitmapFont();
         this.gsm=gsm;
     }
 
@@ -63,20 +67,26 @@ public class GameState extends State {
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
 
-                int convX = x * 100 + 35;
-                int convY = y * 100 + 35;
-                System.out.println("covX = " + convX);
+                if (gL.canMoveBlack() || gL.canMoveWhite()) {
+                    if (isTooClose(x, y) == false) {
+                        gL.getBoard().setChip(x, y, gL.getTurnStatus());
+                        if(gL.getTurnStatus() == 1)
+                        {
+                            player1.addScore(1);
+                            gL.changeTurn();
+                        }
+                        else
+                            {
+                                player2.addScore(1);
+                                gL.changeTurn();
+                            }
 
-
-                    if (isTooClose(x,y) == false) {
-                        gL.getBoard().setChip(x,y, gL.getTurnStatus());
-                        gL.changeTurn();
                     } else {
                         System.out.println("Tile Occupied");
                     }
 
 
-
+                }
             }
         }
 
@@ -110,6 +120,8 @@ public class GameState extends State {
         sb.draw(BChip,105,823,30,30);
         sb.draw(WChip,10,823, 30,30);
         sb.draw(menuButton,580,830,200,40);
+        font.draw(sb,String.valueOf(player1.getScore()), 80, 843);
+        font.draw(sb,String.valueOf(player2.getScore()), 175, 843);
 
             for(int i = 0; i < gL.getBoard().getBoard().length-1; i++)
             {
@@ -117,11 +129,11 @@ public class GameState extends State {
                 {
                     if(gL.getBoard().getBoard()[i][j] == 1)
                     {
-                        sb.draw(WChip, i*100 + 35, j*100 + 35, 30, 30);
+                        sb.draw(WChip, i*100 + 19, j*100 + 19, 60, 60);
                     }
                     else if(gL.getBoard().getBoard()[i][j] == 2)
                     {
-                        sb.draw(BChip, i*100 + 35, j*100 + 35, 30, 30);
+                        sb.draw(BChip, i*100 + 18, j*100 + 18, 60, 60);
                     }
                     else{}
                 }
@@ -137,7 +149,6 @@ public class GameState extends State {
         {
             return true;
         }
-
 
         return false;
     }

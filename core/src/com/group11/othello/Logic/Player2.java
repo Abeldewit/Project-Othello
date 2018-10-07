@@ -6,7 +6,7 @@ public class Player2 extends Player{
 
     public Player2()
     {
-        super();
+        score = 2;
     }
 
     public int getScore()

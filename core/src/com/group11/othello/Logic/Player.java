@@ -2,21 +2,26 @@ package com.group11.othello.Logic;
 
 public abstract class Player {
 
-    private int playerScore;
+    private int score;
 
     public Player()
     {
-        this.playerScore =  0;
+        this.score = 2;
     }
 
-    public void setPlayerScore(int newScore)
+    public int getScore()
     {
-        playerScore = newScore;
+        return score;
     }
 
-
-    public int getPlayerScore()
+    public void addScore(int score)
     {
-        return playerScore;
+        this.score += score;
     }
+
+    public void subtractScore(int score)
+    {
+        this.score -= score;
+    }
+
 }
