@@ -6,7 +6,7 @@ public class GameLogic {
     final int BLACK = 2;
     final int EMPTY = 0;
     private Board board;
-    public int turnCnt = 0;
+    public int turnCnt = 1;
 
     public GameLogic() {
 
@@ -19,10 +19,10 @@ public class GameLogic {
 
     public void changeTurn(){
 
-        if (turnCnt == 0) {
+        if (turnCnt == 1) {
+            turnCnt = 2;
+        }else if (turnCnt == 2){
             turnCnt = 1;
-        }else if (turnCnt == 1){
-            turnCnt = 0;
         }
     }
 
@@ -331,6 +331,10 @@ public class GameLogic {
         }
 
 
+    }
+
+    public Board getBoard(){
+        return board;
     }
 
 

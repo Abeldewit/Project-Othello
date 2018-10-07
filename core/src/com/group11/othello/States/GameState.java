@@ -58,33 +58,32 @@ public class GameState extends State {
 
             //why ?
             try {
-                TimeUnit.MILLISECONDS.sleep(200);
+                TimeUnit.MILLISECONDS.sleep(400);
             } catch (Exception e) {
                 System.out.println("Error");
             }
             if(Gdx.input.getY() >=100) {
                 int x = (int) Math.floor(Gdx.input.getX() / 100);
                 int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
+                System.out.println("x = " + x);
+                System.out.println("y = " + y);
+                System.out.println("");
+
 
                 int convX = x * 100 + 35;
                 int convY = y * 100 + 35;
+                System.out.println("covX = " + convX);
 
-                if (chipPosition.size() > 0) {
-                    if (!isTooClose(convX, convY)) {
-                        chipPosition.add(new Vector3(convX, convY, 0));
-                        System.out.println(chipPosition.get(chipPosition.size() - 1));
-                        renderChip();
-                      //  gL.changeTurn();
+
+                    if (isTooClose(x,y) == false) {
+                        gL.getBoard().setChip(x,y, gL.getTurnStatus());
+                        gL.changeTurn();
                     } else {
                         System.out.println("Tile Occupied");
                     }
-                } else {
-                    chipPosition.add(new Vector3(convX, convY, 0));
-                    System.out.println(chipPosition.get(chipPosition.size() - 1));
-                    renderChip();
-                    System.out.println(chipTexture.size());
-                    gL.changeTurn();
-                }
+
+
+
             }
         }
 
@@ -118,12 +117,23 @@ public class GameState extends State {
         sb.draw(BChip,105,823,30,30);
         sb.draw(WChip,10,823, 30,30);
         sb.draw(menuButton,580,830,200,40);
-        if(chipTexture.size()>1) {
-            for (int i = 0; i < chipTexture.size() - 1; i++) {
 
-                sb.draw(chipTexture.get(i), chipPosition.get(i).x, chipPosition.get(i).y, 30, 30);
+            for(int i = 0; i < gL.getBoard().getBoard().length-1; i++)
+            {
+                for(int j = 0; j < gL.getBoard().getBoard().length-1; j++)
+                {
+                    if(gL.getBoard().getBoard()[i][j] == 1)
+                    {
+                        sb.draw(WChip, i*100 + 35, j*100 + 35, 30, 30);
+                    }
+                    else if(gL.getBoard().getBoard()[i][j] == 2)
+                    {
+                        sb.draw(BChip, i*100 + 35, j*100 + 35, 30, 30);
+                    }
+                    else{}
+                }
             }
-        }
+
         sb.end();
     }
 
@@ -140,15 +150,13 @@ public class GameState extends State {
 
     }
 
-    public boolean isTooClose(float coordX,float coordY)
+    public boolean isTooClose(int x,int y)
     {
-        for(int i=0;i<chipPosition.size();i++)
+        if(gL.getBoard().getBoard()[x][y] != 0)
         {
-            if(Math.abs(coordX-chipPosition.get(i).x)== 0 && Math.abs(coordY-chipPosition.get(i).y)==0)
-            {
-                return true;
-            }
+            return true;
         }
+
 
         return false;
     }
