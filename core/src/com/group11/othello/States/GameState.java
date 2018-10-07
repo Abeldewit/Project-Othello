@@ -19,9 +19,7 @@ public class GameState extends State {
 
     private Texture othelloBoard,scoreTable,menuButton;
     private Texture WChip,BChip;
-    private ArrayList<Texture> chipTexture;
     private GameLogic gL;
-    private ArrayList<Vector3> chipPosition;
     private Player1 player1;
     private Player2 player2;
     private GameStateManager gsm;
@@ -38,9 +36,6 @@ public class GameState extends State {
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table.png");
         scoreTable = new Texture("ScoreTable.png");
-        chipTexture = new ArrayList<Texture>();
-        chipTexture.add(WChip);
-        chipPosition = new ArrayList<Vector3>();
         this.gsm=gsm;
     }
 
@@ -67,8 +62,6 @@ public class GameState extends State {
                 int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
-                System.out.println("");
-
 
                 int convX = x * 100 + 35;
                 int convY = y * 100 + 35;
@@ -137,18 +130,6 @@ public class GameState extends State {
         sb.end();
     }
 
-    public void renderChip()
-    {
-        if(gL.getTurnStatus() == 0)
-        {
-            chipTexture.add(new Texture("BChip.png"));
-        }
-        else
-            {
-                chipTexture.add(new Texture("WChip.png"));
-            }
-
-    }
 
     public boolean isTooClose(int x,int y)
     {
