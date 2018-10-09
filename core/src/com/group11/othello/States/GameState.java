@@ -70,12 +70,13 @@ public class GameState extends State {
 
                     if (isTooClose(x, y) == false) {
                         gL.getBoard().setChip(x, y, gL.getTurnStatus());
-                        if(gL.rightDirection(y,x, gL.getTurnStatus()) > 0 )
+                        System.out.println(x + " " + y);
+                        if(gL.rightDirection(x,y, gL.getTurnStatus()) > 0 )
                         {
                             if(gL.getTurnStatus() == 1)
                             {
-                                player1.addScore(gL.rightDirection(y,x, gL.getTurnStatus()));
-                                player2.subtractScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                                //player1.addScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                               // player2.subtractScore(gL.rightDirection(y,x, gL.getTurnStatus()));
                                /*
                                 player1.addScore(gL.leftDirection(y,x, gL.getTurnStatus()));
                                 player2.subtractScore(gL.leftDirection(y,x, gL.getTurnStatus()));
@@ -88,8 +89,8 @@ public class GameState extends State {
                             }
                             else
                                 {
-                                    player2.addScore(gL.rightDirection(y,x, gL.getTurnStatus()));
-                                    player1.subtractScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                                    //player2.addScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                                   // player1.subtractScore(gL.rightDirection(y,x, gL.getTurnStatus()));
                                     /*
                                     player2.addScore(gL.leftDirection(y,x, gL.getTurnStatus()));
                                     player1.subtractScore(gL.leftDirection(y,x, gL.getTurnStatus()));
@@ -147,11 +148,11 @@ public class GameState extends State {
             {
                 for(int j = 0; j < gL.getBoard().getBoard().length-1; j++)
                 {
-                    if(gL.getBoard().getBoard()[i][j] == 1)
+                    if(gL.getBoard().getBoard()[j][i] == 1)
                     {
                         sb.draw(WChip, i*100 + 19, j*100 + 19, 60, 60);
                     }
-                    else if(gL.getBoard().getBoard()[i][j] == 2)
+                    else if(gL.getBoard().getBoard()[j][i] == 2)
                     {
                         sb.draw(BChip, i*100 + 19, j*100 + 19, 60, 60);
                     }
@@ -165,7 +166,7 @@ public class GameState extends State {
 
     public boolean isTooClose(int x,int y)
     {
-        if(gL.getBoard().getBoard()[x][y] != 0)
+        if(gL.getBoard().getBoard()[y][x] != 0)
         {
             return true;
         }

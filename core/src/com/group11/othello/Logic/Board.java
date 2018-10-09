@@ -13,7 +13,7 @@ public class Board {
 
     public void setChip(int i, int j, int player)
     {
-        board [i][j] = player;
+        board [j][i] = player;
     }
 
     public int getChip(int i,int j)

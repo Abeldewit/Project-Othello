@@ -336,32 +336,37 @@ public class GameLogic {
     }
 
 
-    public int rightDirection(int row, int column, int player)
+    public int rightDirection(int column, int row, int player)
     {
         int counter = 0;
         boolean check = false;
         if(column < 8) {
-            for (int j = column + 1; j < 8; j++) {
-                if (board.getBoard()[row][j] == player) {
-                    check = true;
 
-                }
-
-            }
-        }
-        else {
-            counter--;
-        }
-        if (check == true) {
             for (int j = column + 1; j < 8; j++) {
-                if (board.getBoard()[row][j] != player && board.getBoard()[row][j] != 0) {
-                    board.getBoard()[row][j] = player;
-                    counter++;
+                //System.out.println("BOB :" + board.getBoard()[row][j]);
+                //System.out.println("bILL " + player);
+
+                if (board.getBoard()[row][j] == player && j - column > 1) {
+                    for (int i = column + 1; i < j; i++) {
+                        System.out.println("GOtcha");
+                        if (player == 2) {
+                            board.setChip(i, row, 2);
+                        } else if (player == 1) {
+                            board.setChip(i, row, 1);
+                        }
+                    }
                 }
             }
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+
+                System.out.print(board.getChip(i,j));
+                }
+                System.out.println();
         }
-
-
+        }
         System.out.println("counter: " + counter);
 
         return counter+1;
