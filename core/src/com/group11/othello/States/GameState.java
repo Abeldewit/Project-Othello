@@ -71,7 +71,7 @@ public class GameState extends State {
                     if (isTooClose(x, y) == false) {
                         gL.getBoard().setChip(x, y, gL.getTurnStatus());
                         System.out.println(x + " " + y);
-                        if(gL.rightDirection(x,y, gL.getTurnStatus()) > 0 )
+                        if(checkAvailable(x,y) )
                         {
                             if(gL.getTurnStatus() == 1)
                             {
@@ -171,6 +171,15 @@ public class GameState extends State {
             return true;
         }
 
+        return false;
+    }
+
+    public boolean checkAvailable(int x,int y)
+    {
+       if(gL.rightDirection(x,y, gL.getTurnStatus()) > 0 && gL.leftDirection(x,y, gL.getTurnStatus()) < 8 && gL.upDirection(x,y, gL.getTurnStatus())>0 && gL.downDirection(x,y, gL.getTurnStatus())<8)
+        {
+            return true;
+        }
         return false;
     }
 }

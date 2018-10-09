@@ -340,12 +340,9 @@ public class GameLogic {
     {
         int counter = 0;
         boolean check = false;
-        if(column < 8) {
+        if(column < 7) {
 
             for (int j = column + 1; j < 8; j++) {
-                //System.out.println("BOB :" + board.getBoard()[row][j]);
-                //System.out.println("bILL " + player);
-
                 if (board.getBoard()[row][j] == player && j - column > 1) {
                     for (int i = column + 1; i < j; i++) {
                         System.out.println("GOtcha");
@@ -373,87 +370,73 @@ public class GameLogic {
 
     }
 
-    public int leftDirection(int row, int column, int player)
+    public int leftDirection(int column, int row, int player)
     {
         int counter = 0;
         boolean check = false;
-        if (column > 0)
-            for(int j = column-1; j > 0; j--)
+        if (column > 1) {
             {
-                if(board.getBoard()[row][j] == player)
-                {
-                    check = true;
-                }
-                else
-                {
-                    counter--;
-                }
-            }
-        if(check == true) {
-            for (int j = column - 1; j > 0; j--)
 
-                if (board.getBoard()[row][j] != player && board.getBoard()[row][j] != 0) {
-                    board.getBoard()[row][j] = player;
-                    counter++;
-                }
-        }
-
-        System.out.println("counter: " + counter);
-
-        return counter+1;
-
-    }
-
-    public int upDirection(int row, int column, int player)
-    {
-        int counter = 0;
-        boolean check = false;
-        if(row > 0) {
-            for (int j = column - 1; j > 0; j--) {
-                if (board.getBoard()[row][j] == player) {
-                    check = true;
-                } else {
-                    counter--;
-                }
-            }
-            if (check == true) {
-                for (int j = row - 1; j > 0; j--) {
-                    if (board.getBoard()[j][column] != player && board.getBoard()[j][column] != 0) {
-                        board.getBoard()[j][column] = player;
-                        counter++;
-                    }
-                }
-            }
-
-        }
-        return counter+1;
-
-    }
-
-    public int downDirection(int row, int column, int player) {
-        int counter = 0;
-        boolean check = false;
-        if (row < 8) {
-            if (row > 0) {
-                for (int j = column - 1; j > 0; j--) {
-                    if (board.getBoard()[j][column] == player) {
-                        check = true;
-                    } else {
-                        counter--;
-                    }
-                }
-                if (check == true) {
-                    for (int j = row + 1; j < 8; j++) {
-                        if (board.getBoard()[j][column] != player && board.getBoard()[j][column] != 0) {
-                            board.getBoard()[j][column] = player;
-                            counter++;
+                for (int j = column - 1; j >= 0; j--) {
+                    if (board.getBoard()[row][j] == player && column - j > 1) {
+                        for (int i = column - 1; i > j; i--) {
+                            System.out.println("GOtcha");
+                            if (player == 2) {
+                                board.setChip(i, row, 2);
+                            } else if (player == 1) {
+                                board.setChip(i, row, 1);
+                            }
                         }
                     }
                 }
             }
 
-
+        }
             return counter + 1;
+
+    }
+
+    public int upDirection(int column, int row, int player)
+    {
+        int counter = 0;
+        boolean check = false;
+        if(row < 6) {
+            {
+                for (int j = row +1; j < 8; j++) {
+                    if (board.getBoard()[j][column] == player && j-row > 1) {
+                        System.out.println("gotcha");
+                        for (int i = row +  1; i < j; i++) {
+                            if (player == 2) {
+                                board.setChip(column, i, 2);
+                            } else if (player == 1) {
+                                board.setChip(column, i, 1);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        return counter+1;
+
+    }
+
+    public int downDirection(int column, int row, int player) {
+        int counter = 0;
+        if(row >1) {
+            {
+                for (int j = row-1; j >=0; j--) {
+                    if (board.getBoard()[j][column] == player && row-j > 1) {
+                        for (int i = row -1; i>j; i--) {
+                            if (player == 2) {
+                                board.setChip(column, i, 2);
+                            } else if (player == 1) {
+                                board.setChip(column, i, 1);
+                            }
+                        }
+                    }
+                }
+            }
 
         }
         return counter + 1;
