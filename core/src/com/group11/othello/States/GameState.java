@@ -57,7 +57,7 @@ public class GameState extends State {
 
             //why ?
             try {
-                TimeUnit.MILLISECONDS.sleep(400);
+                TimeUnit.MILLISECONDS.sleep(800);
             } catch (Exception e) {
                 System.out.println("Error");
             }
@@ -67,26 +67,46 @@ public class GameState extends State {
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
 
-                if (gL.canMoveBlack() || gL.canMoveWhite()) {
+
                     if (isTooClose(x, y) == false) {
                         gL.getBoard().setChip(x, y, gL.getTurnStatus());
-                        if(gL.getTurnStatus() == 1)
+                        if(gL.rightDirection(y,x, gL.getTurnStatus()) > 0 )
                         {
-                            player1.addScore(1);
-                            gL.changeTurn();
-                        }
-                        else
+                            if(gL.getTurnStatus() == 1)
                             {
-                                player2.addScore(1);
-                                gL.changeTurn();
-                            }
+                                player1.addScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                                player2.subtractScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                               /*
+                                player1.addScore(gL.leftDirection(y,x, gL.getTurnStatus()));
+                                player2.subtractScore(gL.leftDirection(y,x, gL.getTurnStatus()));
 
-                    } else {
+                                player1.addScore(gL.upDirection(y,x, gL.getTurnStatus()));
+                                player2.subtractScore(gL.upDirection(y,x, gL.getTurnStatus()));
+                                player1.addScore(gL.downDirection(y,x, gL.getTurnStatus()));
+
+                                */
+                            }
+                            else
+                                {
+                                    player2.addScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                                    player1.subtractScore(gL.rightDirection(y,x, gL.getTurnStatus()));
+                                    /*
+                                    player2.addScore(gL.leftDirection(y,x, gL.getTurnStatus()));
+                                    player1.subtractScore(gL.leftDirection(y,x, gL.getTurnStatus()));
+
+                                    player2.addScore(gL.upDirection(y,x, gL.getTurnStatus()));
+                                    player1.subtractScore(gL.upDirection(y,x, gL.getTurnStatus()));
+                                    player1.subtractScore(gL.downDirection(y,x, gL.getTurnStatus()));
+                                    */
+
+                                }
+                        }
+                     } else {
                         System.out.println("Tile Occupied");
                     }
 
+                gL.changeTurn();
 
-                }
             }
         }
 
@@ -133,7 +153,7 @@ public class GameState extends State {
                     }
                     else if(gL.getBoard().getBoard()[i][j] == 2)
                     {
-                        sb.draw(BChip, i*100 + 18, j*100 + 18, 60, 60);
+                        sb.draw(BChip, i*100 + 19, j*100 + 19, 60, 60);
                     }
                     else{}
                 }

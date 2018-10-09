@@ -1,5 +1,7 @@
 package com.group11.othello.Logic;
 
+import com.badlogic.gdx.math.Vector3;
+
 public class GameLogic {
 
     final int WHITE = 1;
@@ -31,7 +33,7 @@ public class GameLogic {
         return turnCnt;
     }
 
-
+/*
     //checks if the black player does have a legal move
     public boolean canMoveBlack(){
 
@@ -332,10 +334,135 @@ public class GameLogic {
 
 
     }
+    */
 
-    public Board getBoard(){
+    public int rightDirection(int row, int column, int player)
+    {
+        int counter = 0;
+        boolean check = false;
+        if(column < 8) {
+            for (int j = column + 1; j < 8; j++) {
+                if (board.getBoard()[row][j] == player) {
+                    check = true;
+
+                }
+
+            }
+        }
+        else {
+            counter--;
+        }
+        if (check == true) {
+            for (int j = column + 1; j < 8; j++) {
+                if (board.getBoard()[row][j] != player && board.getBoard()[row][j] != 0) {
+                    board.getBoard()[row][j] = player;
+                    counter++;
+                }
+            }
+        }
+
+
+        System.out.println("counter: " + counter);
+
+        return counter+1;
+
+    }
+/*
+    public int leftDirection(int row, int column, int player)
+    {
+        int counter = 0;
+        boolean check = false;
+        if (column > 0)
+            for(int j = column-1; j > 0; j--)
+            {
+                if(board.getBoard()[row][j] == player)
+                {
+                    check = true;
+                }
+                else
+                {
+                    counter--;
+                }
+            }
+        if(check == true) {
+            for (int j = column - 1; j > 0; j--)
+
+                if (board.getBoard()[row][j] != player && board.getBoard()[row][j] != 0) {
+                    board.getBoard()[row][j] = player;
+                    counter++;
+                }
+        }
+
+        System.out.println("counter: " + counter);
+
+        return counter+1;
+
+    }
+
+    public int upDirection(int row, int column, int player)
+    {
+        int counter = 0;
+        boolean check = false;
+        if(row > 0) {
+            for (int j = column - 1; j > 0; j--) {
+                if (board.getBoard()[row][j] == player) {
+                    check = true;
+                } else {
+                    counter--;
+                }
+            }
+            if (check == true) {
+                for (int j = row - 1; j > 0; j--) {
+                    if (board.getBoard()[j][column] != player && board.getBoard()[j][column] != 0) {
+                        board.getBoard()[j][column] = player;
+                        counter++;
+                    }
+                }
+            }
+
+        }
+        return counter+1;
+
+    }
+
+    public int downDirection(int row, int column, int player) {
+        int counter = 0;
+        boolean check = false;
+        if (row < 8) {
+            if (row > 0) {
+                for (int j = column - 1; j > 0; j--) {
+                    if (board.getBoard()[j][column] == player) {
+                        check = true;
+                    } else {
+                        counter--;
+                    }
+                }
+                if (check == true) {
+                    for (int j = row + 1; j < 8; j++) {
+                        if (board.getBoard()[j][column] != player && board.getBoard()[j][column] != 0) {
+                            board.getBoard()[j][column] = player;
+                            counter++;
+                        }
+                    }
+                }
+            }
+
+
+            return counter + 1;
+
+        }
+        return counter + 1;
+    }
+    */
+
+    public Board getBoard()
+    {
         return board;
     }
+
+
+
+
 
 
 
