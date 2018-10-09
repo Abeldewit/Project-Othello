@@ -33,7 +33,7 @@ public class GameLogic {
         return turnCnt;
     }
 
-/*
+
     //checks if the black player does have a legal move
     public boolean canMoveBlack(){
 
@@ -334,7 +334,7 @@ public class GameLogic {
 
 
     }
-    */
+
 
     public int rightDirection(int row, int column, int player)
     {
@@ -367,7 +367,7 @@ public class GameLogic {
         return counter+1;
 
     }
-/*
+
     public int leftDirection(int row, int column, int player)
     {
         int counter = 0;
@@ -453,7 +453,7 @@ public class GameLogic {
         }
         return counter + 1;
     }
-    */
+
 
     public Board getBoard()
     {
