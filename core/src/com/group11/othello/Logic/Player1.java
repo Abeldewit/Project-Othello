@@ -13,9 +13,9 @@ public class Player1 extends Player {
         return score;
     }
 
-    public void addScore(int score)
+    public void setScore(int score)
     {
-        this.score += score;
+        this.score = score;
     }
 
     public void subtractScore(int score)

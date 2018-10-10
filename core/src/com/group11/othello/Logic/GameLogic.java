@@ -1,5 +1,6 @@
 package com.group11.othello.Logic;
 
+import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector3;
 
 public class GameLogic {
@@ -335,10 +336,8 @@ public class GameLogic {
 
     }
 
-    public int rightDirection(int column, int row, int player)
+    public void rightDirection(int column, int row, int player)
     {
-        int counter = 0;
-        boolean check = false;
         if(column < 6) {
 
             for (int j = column + 1; j < 8; j++) {
@@ -370,18 +369,14 @@ public class GameLogic {
                 System.out.println();
         }
         }
-        System.out.println("counter: " + counter);
-
-        return counter+1;
 
     }
 
-    public int leftDirection(int column, int row, int player)
+    public void leftDirection(int column, int row, int player)
     {
-        int counter = 0;
-        boolean check = false;
+
         if (column > 1) {
-            {
+
 
                 for (int j = column - 1; j >= 0; j--) {
 
@@ -406,15 +401,11 @@ public class GameLogic {
                 }
             }
 
-        }
-            return counter + 1;
-
     }
 
-    public int upDirection(int column, int row, int player)
+    public void upDirection(int column, int row, int player)
     {
-        int counter = 0;
-        boolean check = false;
+
         if(row < 6) {
             {
                 for (int j = row +1; j < 8; j++) {
@@ -438,11 +429,10 @@ public class GameLogic {
             }
 
         }
-        return counter+1;
 
     }
 
-    public int downDirection(int column, int row, int player) {
+    public void downDirection(int column, int row, int player) {
         int counter = 0;
         if(row >1) {
             {
@@ -465,7 +455,34 @@ public class GameLogic {
             }
 
         }
-        return counter + 1;
+    }
+
+    public void northWestDirection(int column, int row, int player) {
+
+        if(row >1 && column >1)
+            {
+                for (int i = row-1; i >=0; i--) {
+                    for(int j = column-1; column > 0; j--)
+                    {
+                        if (board.getBoard()[i][j] != 0 && board.getBoard()[i][j] != player && row - i > 1 && column - j > 1) {
+                                if(getTurnStatus() == 1)
+                                {
+                                    board.setChip(i,j,1);
+                                }
+                            if(getTurnStatus() == 2)
+                            {
+                                board.setChip(i,j,2);
+                            }
+                        }else
+                        {
+                            break;
+                        }
+                    }
+
+            }
+
+        }
+
     }
 
 
@@ -473,6 +490,31 @@ public class GameLogic {
     {
         return board;
     }
+
+    public Vector3 getScore()
+    {
+        Vector3 v = new Vector3();
+        for(int i = 0; i < board.getBoard().length -1; i++)
+        {
+            for(int j = 0; j < board.getBoard().length-1; j++ )
+            {
+                if(board.getBoard()[i][j] == 1)
+                {
+                    v.add(1,0,0);
+                }
+
+                if(board.getBoard()[i][j] == 2)
+                {
+                    v.add(0,1,0);
+                }
+
+
+            }
+        }
+        return  v;
+    }
+
+
 
 
 
