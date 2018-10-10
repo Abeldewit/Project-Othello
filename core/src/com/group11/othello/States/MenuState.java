@@ -52,7 +52,7 @@ public class MenuState extends State {
                 settBtn = new Texture("SettingsUP.png");
             }
         //Clicker
-        if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 380 && Gdx.input.getY() <= 480 &&  Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 420 && Gdx.input.getY() <= 520 &&  Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
             try{
             TimeUnit.MILLISECONDS.sleep(200);}
