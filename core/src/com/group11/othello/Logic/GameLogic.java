@@ -335,23 +335,29 @@ public class GameLogic {
 
     }
 
-
     public int rightDirection(int column, int row, int player)
     {
         int counter = 0;
         boolean check = false;
-        if(column < 7) {
+        if(column < 6) {
 
             for (int j = column + 1; j < 8; j++) {
-                if (board.getBoard()[row][j] == player && j - column > 1) {
-                    for (int i = column + 1; i < j; i++) {
-                        System.out.println("GOtcha");
-                        if (player == 2) {
-                            board.setChip(i, row, 2);
-                        } else if (player == 1) {
-                            board.setChip(i, row, 1);
+                if(board.getBoard()[row][j] != 0 && board.getBoard()[row][column+1] != player)
+                {
+                    if (board.getBoard()[row][j] == player && j - column > 1) {
+                        for (int i = column + 1; i < j; i++) {
+                            System.out.println("GOtcha");
+                            if (player == 2) {
+                                board.setChip(i, row, 2);
+                            } else if (player == 1) {
+                                board.setChip(i, row, 1);
+                            }
                         }
                     }
+                }
+                else
+                {
+                    break;
                 }
             }
             for (int i = 0; i < 8; i++)
@@ -378,15 +384,24 @@ public class GameLogic {
             {
 
                 for (int j = column - 1; j >= 0; j--) {
-                    if (board.getBoard()[row][j] == player && column - j > 1) {
-                        for (int i = column - 1; i > j; i--) {
-                            System.out.println("GOtcha");
-                            if (player == 2) {
-                                board.setChip(i, row, 2);
-                            } else if (player == 1) {
-                                board.setChip(i, row, 1);
+
+                    if(board.getBoard()[row][j] != 0 && board.getBoard()[row][column-1] != player)
+                    {
+                        if (board.getBoard()[row][j] == player && column - j > 1)
+                        {
+                            for (int i = column - 1; i > j; i--)
+                            {
+                                System.out.println("GOtcha");
+                                if (player == 2) {
+                                    board.setChip(i, row, 2);
+                                } else if (player == 1) {
+                                    board.setChip(i, row, 1);
+                                }
                             }
                         }
+                    }else
+                    {
+                        break;
                     }
                 }
             }
@@ -403,15 +418,21 @@ public class GameLogic {
         if(row < 6) {
             {
                 for (int j = row +1; j < 8; j++) {
-                    if (board.getBoard()[j][column] == player && j-row > 1) {
-                        System.out.println("gotcha");
-                        for (int i = row +  1; i < j; i++) {
-                            if (player == 2) {
-                                board.setChip(column, i, 2);
-                            } else if (player == 1) {
-                                board.setChip(column, i, 1);
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[j+1][column] != player) {
+
+                        if (board.getBoard()[j][column] == player && j - row > 1) {
+                            System.out.println("gotcha");
+                            for (int i = row + 1; i < j; i++) {
+                                if (player == 2) {
+                                    board.setChip(column, i, 2);
+                                } else if (player == 1) {
+                                    board.setChip(column, i, 1);
+                                }
                             }
                         }
+                    }else
+                    {
+                        break;
                     }
                 }
             }
@@ -426,14 +447,19 @@ public class GameLogic {
         if(row >1) {
             {
                 for (int j = row-1; j >=0; j--) {
-                    if (board.getBoard()[j][column] == player && row-j > 1) {
-                        for (int i = row -1; i>j; i--) {
-                            if (player == 2) {
-                                board.setChip(column, i, 2);
-                            } else if (player == 1) {
-                                board.setChip(column, i, 1);
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[j -1][column] != player) {
+                        if (board.getBoard()[j][column] == player && row - j > 1) {
+                            for (int i = row - 1; i > j; i--) {
+                                if (player == 2) {
+                                    board.setChip(column, i, 2);
+                                } else if (player == 1) {
+                                    board.setChip(column, i, 1);
+                                }
                             }
                         }
+                    }else
+                    {
+                        break;
                     }
                 }
             }
