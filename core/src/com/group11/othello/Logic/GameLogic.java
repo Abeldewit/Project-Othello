@@ -418,7 +418,7 @@ public class GameLogic {
         if(row < 6) {
             {
                 for (int j = row +1; j < 8; j++) {
-                    if (board.getBoard()[j][column] != 0 && board.getBoard()[j+1][column] != player) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row+1][column] != player) {
 
                         if (board.getBoard()[j][column] == player && j - row > 1) {
                             System.out.println("gotcha");
@@ -447,7 +447,7 @@ public class GameLogic {
         if(row >1) {
             {
                 for (int j = row-1; j >=0; j--) {
-                    if (board.getBoard()[j][column] != 0 && board.getBoard()[j -1][column] != player) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row -1][column] != player) {
                         if (board.getBoard()[j][column] == player && row - j > 1) {
                             for (int i = row - 1; i > j; i--) {
                                 if (player == 2) {
