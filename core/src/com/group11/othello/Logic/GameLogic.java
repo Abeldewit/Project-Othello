@@ -9,9 +9,9 @@ public class GameLogic {
     final int WHITE = 1;
     final int BLACK = 2;
     final int EMPTY = 0;
-    private Board board;
-    private boolean[][] legalMoves = new boolean[8][8];
-    public int turnCnt = 1;
+    private static Board board;
+    public static boolean[][] legalMoves;
+    public static int turnCnt = 1;
 
 
     public GameLogic() {
@@ -513,7 +513,7 @@ public class GameLogic {
         return  v;
     }
 
-    public boolean checkLegalMove(int x, int y, int player) {
+    public static boolean checkLegalMove(int x, int y, int player) {
         Vector2 currentSquare = new Vector2(x,y);
         //see if the current square is empty so a chip can be placed
         if(board.getChip(x,y) == 0){
@@ -562,5 +562,17 @@ public class GameLogic {
             }
         }
         return false;
+    }
+
+    public static void createLegalField() {
+        for(int x = 0; x < 8; x++) {
+            for(int y = 0; y < 8; y++) {
+                legalMoves[x][y] = checkLegalMove(x, y, turnCnt);
+            }
+        }
+    }
+
+    public static boolean[][] getLegalMoves() {
+        return legalMoves;
     }
 }

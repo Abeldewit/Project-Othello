@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class Board {
 
-    private int[][] board = new int[9][9];
+    private static int[][] board = new int[9][9];
 
 
 
@@ -34,10 +34,12 @@ public class Board {
         return chip;
     }
 
-    public int[][] getBoard()
+    public static int[][] getBoard()
     {
         return board;
     }
+
+
 
 
 

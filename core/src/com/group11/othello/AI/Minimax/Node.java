@@ -10,12 +10,14 @@ public class Node {
     boolean max;
     ArrayList<Node> children = new ArrayList<Node>();
     Node parent;
+    int playerTurn;
 
-    public Node(int score, boolean max, int[][] boardState){
+    public Node(int score, int[][] boardState, int playerTurn){
         this.score = score;
-        this.max = max;
+        this.max = false;
         children = null;
         this.boardState = boardState;
+        this.playerTurn = playerTurn;
     }
 
     public ArrayList<Node> getChildren() {
@@ -26,7 +28,7 @@ public class Node {
         children.add(child);
     }
 
-    public Node getParents() { return parent; }
+    public Node getParent() { return parent; }
 
     public void setParent(Node parent) { this.parent = parent; }
 
@@ -37,6 +39,10 @@ public class Node {
     public void setBoardState(int[][] boardState){
         this.boardState = boardState;
     }
+
+    public void setPlayerTurn(int pT) { playerTurn = pT; }
+
+    public int getPlayerTurn() { return playerTurn; }
 
 
 }
