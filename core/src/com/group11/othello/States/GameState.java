@@ -69,25 +69,26 @@ public class GameState extends State {
 
 
                     if (isTooClose(x, y) == false) {
-                        gL.getBoard().setChip(x, y, gL.getTurnStatus());
-                        System.out.println(x + " " + y);
-                        runAvailable(x,y);
-                            if(gL.getTurnStatus() == 1)
-                            {
+                        if(gL.checkLegalMove(x,y,gL.getTurnStatus())) {
+                            gL.getBoard().setChip(x, y, gL.getTurnStatus());
+                            System.out.println(x + " " + y);
+                            runAvailable(x, y);
+                            if (gL.getTurnStatus() == 1) {
 
-                                player1.setScore((int)gL.getScore().x);
+                                player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
+                            } else {
+                                player1.setScore((int) gL.getScore().x);
+                                player2.setScore((int) gL.getScore().y);
+
                             }
-                            else
-                                {
-                                    player1.setScore((int)gL.getScore().x);
-                                    player2.setScore((int) gL.getScore().y);
+                        }
 
-                                }
-
-                     } else {
+                    } else {
                         System.out.println("Tile Occupied");
                     }
+
+
 
                 gL.changeTurn();
 
@@ -113,6 +114,7 @@ public class GameState extends State {
     public void update(float dt)
     {
         handleInput();
+
     }
 
     @Override

@@ -10,7 +10,9 @@ public class GameLogic {
     final int BLACK = 2;
     final int EMPTY = 0;
     private Board board;
+    private boolean[][] legalMoves = new boolean[8][8];
     public int turnCnt = 1;
+
 
     public GameLogic() {
 
@@ -513,54 +515,52 @@ public class GameLogic {
 
     public boolean checkLegalMove(int x, int y, int player) {
         Vector2 currentSquare = new Vector2(x,y);
+        //see if the current square is empty so a chip can be placed
         if(board.getChip(x,y) == 0){
             //check every square around the current square
             for(int n = 0; n < 8; n++) {
                 Vector2 direction;
                 switch (n) {
-                    case 1:  direction = new Vector2(-1,0);
+                    case 0:  direction = new Vector2(-1,0);
                     break;
-                    case 2:  direction = new Vector2(-1,1);
+                    case 1:  direction = new Vector2(-1,1);
                     break;
-                    case 3:  direction = new Vector2(0,1);
+                    case 2:  direction = new Vector2(0,1);
                     break;
-                    case 4:  direction = new Vector2(1,1);
+                    case 3:  direction = new Vector2(1,1);
                     break;
-                    case 5:  direction = new Vector2(1,0);
+                    case 4:  direction = new Vector2(1,0);
                     break;
-                    case 6:  direction = new Vector2(1,-1);
+                    case 5:  direction = new Vector2(1,-1);
                     break;
-                    case 7:  direction = new Vector2(0,-1);
+                    case 6:  direction = new Vector2(0,-1);
                     break;
-                    case 8:  direction = new Vector2(-1,-1);
+                    case 7:  direction = new Vector2(-1,-1);
                     break;
                     default: direction = new Vector2(0,0);
                     break;
                 }
 
-                Vector2 newSquare = currentSquare.add(direction);
-                //see iff the square we're checking is the other color and not empty
-                while(board.getChip((int)newSquare.x,(int)newSquare.y) != player && board.getChip((int)newSquare.x,(int)newSquare.y) != 0) {
-                    newSquare.add(direction);
-                    if(newSquare.x > 8 || newSquare.y > 8) {
-                        return false;
+                //Vector2 newSquare = currentSquare.add(direction);
+                Vector2 newSquare = new Vector2(currentSquare.x + direction.x, currentSquare.y + direction.y);
+                //see if the square we're checking is the other color and not empty
+                if(newSquare.x > 0 || newSquare.x < 8 || newSquare.y > 0 || newSquare.y < 8) {
+                    while (board.getChipVector(newSquare) != player && board.getChipVector(newSquare) != 0) {
+                        //move in the direction we're checking
+                        newSquare = new Vector2(newSquare.x + direction.x,newSquare.y + direction.y);
+                        //out of bounds protection
+                        if (newSquare.x > 8 || newSquare.y > 8) {
+                            return false;
+                        }
+                        //if we encounter a chip with our own color there's a sandwich and it's legal!
+                        if (board.getChipVector(newSquare) == player) {
+                            return true;
+                        }
                     }
-                    if(board.getChip((int)newSquare.x,(int)newSquare.y) == player) {
-                        return true;
-
                 }
 
             }
         }
-
-
+        return false;
     }
-
-
-
-
-
-
-
-
 }

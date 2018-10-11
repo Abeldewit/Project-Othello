@@ -1,5 +1,9 @@
 package com.group11.othello.Logic;
 
+import com.badlogic.gdx.math.Vector2;
+
+import java.util.Vector;
+
 public class Board {
 
     private int[][] board = new int[9][9];
@@ -19,7 +23,14 @@ public class Board {
     public int getChip(int i,int j)
     {
         int chip;
-        chip = board [i][j];
+        chip = board[i][j];
+        return chip;
+    }
+
+    public int getChipVector(Vector2 vector) {
+        int x = (int) vector.x;
+        int y = (int) vector.y;
+        int chip = board[x][y];
         return chip;
     }
 
