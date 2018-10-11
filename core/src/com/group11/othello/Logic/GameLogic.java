@@ -1,6 +1,7 @@
 package com.group11.othello.Logic;
 
 import com.badlogic.gdx.math.Vector;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
 public class GameLogic {
@@ -263,9 +264,7 @@ public class GameLogic {
         while ( 0<=x && x<8 && 0<=y && y<8) {
 
             if ( board.getChip(x,y)== BLACK) {
-                if (nSteps > 1) return true;
-            else
-                return false;
+                return nSteps > 1;
             }
 
             if (board.getChip(x,y) == EMPTY) return false;
@@ -288,9 +287,7 @@ public class GameLogic {
         while ( 0<=x && x<8 && 0<=y && y<8) {
 
             if ( board.getChip(x,y) == WHITE)
-                if (nSteps > 1) return true;
-            else
-                return false;
+                return nSteps > 1;
 
 
             if (board.getChip(x,y) == EMPTY) return false;
@@ -308,13 +305,13 @@ public class GameLogic {
     public void turnChipBlack(int x, int y, int dx, int dy){
 
         x += dx;
-        y += dx;
+        y += dy;
 
         while ( board.getChip(x,y) == WHITE ){
 
         board.setChip(x, y, BLACK);
         x += dx;
-        y += dx;
+        y += dy;
 
         }
 
@@ -323,13 +320,13 @@ public class GameLogic {
     public void turnChipWhite(int x, int y, int dx, int dy){
 
         x += dx;
-        y += dx;
+        y += dy;
 
         while ( board.getChip(x,y) == BLACK ){
 
         board.setChip(x,y, WHITE);
         x += dx;
-        y += dx;
+        y += dy;
 
         }
 
@@ -514,7 +511,50 @@ public class GameLogic {
         return  v;
     }
 
+    public boolean checkLegalMove(int x, int y, int player) {
+        Vector2 currentSquare = new Vector2(x,y);
+        if(board.getChip(x,y) == 0){
+            //check every square around the current square
+            for(int n = 0; n < 8; n++) {
+                Vector2 direction;
+                switch (n) {
+                    case 1:  direction = new Vector2(-1,0);
+                    break;
+                    case 2:  direction = new Vector2(-1,1);
+                    break;
+                    case 3:  direction = new Vector2(0,1);
+                    break;
+                    case 4:  direction = new Vector2(1,1);
+                    break;
+                    case 5:  direction = new Vector2(1,0);
+                    break;
+                    case 6:  direction = new Vector2(1,-1);
+                    break;
+                    case 7:  direction = new Vector2(0,-1);
+                    break;
+                    case 8:  direction = new Vector2(-1,-1);
+                    break;
+                    default: direction = new Vector2(0,0);
+                    break;
+                }
 
+                Vector2 newSquare = currentSquare.add(direction);
+                //see iff the square we're checking is the other color and not empty
+                while(board.getChip((int)newSquare.x,(int)newSquare.y) != player && board.getChip((int)newSquare.x,(int)newSquare.y) != 0) {
+                    newSquare.add(direction);
+                    if(newSquare.x > 8 || newSquare.y > 8) {
+                        return false;
+                    }
+                    if(board.getChip((int)newSquare.x,(int)newSquare.y) == player) {
+                        return true;
+
+                }
+
+            }
+        }
+
+
+    }
 
 
 

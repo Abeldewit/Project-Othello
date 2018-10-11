@@ -14,7 +14,6 @@ public class Minimax {
                     {100,-20,10,5,5,10,-20,100}};
 
     public void makeTree(){
-        tree.root = new Node(1,true);
-        tree.root.children = new Node(5, true);
+
     }
 }

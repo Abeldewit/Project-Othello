@@ -165,4 +165,12 @@ public class GameState extends State {
         gL.downDirection(x,y, gL.getTurnStatus());
         gL.northWestDirection(x,y, gL.getTurnStatus());
     }
+
+    public GameState getGame() {
+        return this;
+    }
+
+    public GameLogic getgL() {
+        return gL;
+    }
 }
