@@ -69,7 +69,7 @@ public class GameState extends State {
 
 
                     if (isTooClose(x, y) == false) {
-                      //  if (gL.checkLegalMove(x, y, gL.getTurnStatus())) {
+                        if (gL.checkMoves(x,y , gL.getTurnStatus()) > 0 ) {
                             gL.getBoard().setChip(y, x, gL.getTurnStatus());
                             runAvailable(x, y);
                             gL.getBoard().printBoard();
@@ -83,7 +83,11 @@ public class GameState extends State {
 
                             }
                         }
-                  //  }
+                        else
+                            {
+                                System.out.println("loser");
+                            }
+                    }
 
                     else {
                         System.out.println("Tile Occupied");

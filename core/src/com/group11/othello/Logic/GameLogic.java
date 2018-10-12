@@ -563,21 +563,18 @@ public class GameLogic {
     public void southEastDirection(int row, int column, int player) {
         boolean check = false;
         if (row < 8  && column > 0 ) {
-            System.out.println("got past first if statement");
+
             if(board.getBoard()[column -1][row+1] != 0 && board.getBoard()[column-1][row+1] != player)
             {
-                System.out.println("checking first tile");
 
                 int newRow = row+1;
+
                 for(int i  = column-1; i >= 0; i--)
                 {
-                    System.out.println("xA = " + i);
-                    System.out.println("yA = " + newRow);
                     if(newRow <= 8)
                     {
                         if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
                         {
-                            System.out.println("check is true");
                             check = true;
                             break;
                         }
@@ -590,15 +587,7 @@ public class GameLogic {
             {
                 for (int i = column - 1; i > 0; i--) {
                     row++;
-                    System.out.println("i : " + i);
-                    System.out.println("j : " + row);
-
-
-
-                    System.out.println(board.getBoard()[i][column]);
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it");
-
 
                         if (getTurnStatus() == 1) {
                             board.setChip(i, row, 1);
@@ -620,6 +609,146 @@ public class GameLogic {
         }
 
     }
+
+    public int checkMoves(int row, int column, int player) {
+        //SouthEast
+        int check = 0;
+        if (row < 8 && column > 0) {
+            System.out.println("got past first if statement");
+            if (board.getBoard()[column - 1][row + 1] != 0 && board.getBoard()[column - 1][row + 1] != player) {
+                System.out.println("checking first tile");
+
+                int newRow = row + 1;
+                for (int i = column - 1; i >= 0; i--) {
+                    System.out.println("xA = " + i);
+                    System.out.println("yA = " + newRow);
+                    if (newRow <= 8) {
+                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                            System.out.println("check is true");
+                            check++;
+                        }
+                        newRow++;
+                    }
+                }
+
+            }
+        }
+
+        //southWest
+        if (row > 0 && column > 0) {
+
+            if (board.getBoard()[column - 1][row - 1] != 0 && board.getBoard()[column - 1][row - 1] != player) {
+                int newRow = row - 1;
+                for (int i = column - 1; i >= 0; i--) {
+                    if (newRow >= 0) {
+                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                            check++;
+                        }
+                        newRow--;
+                    }
+                }
+            }
+        }
+
+        //northWest
+
+        if (row > 0 && column < 8) {
+            if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
+                int newRow = row - 1;
+                for (int i = column + 1; i < 8; i++) {
+                    if (newRow >= 0) {
+                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                            check++;
+                        }
+                        newRow--;
+                    }
+                }
+
+            }
+        }
+
+        //northEast
+        if (row < 8 && column < 8) {
+            if (board.getBoard()[column + 1][row + 1] != 0 && board.getBoard()[column + 1][row + 1] != player) {
+
+                int newRow = row + 1;
+                for (int i = column + 1; i < 8; i++) {
+                    if (newRow < 9) {
+                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                            check++;
+                        }
+                        newRow++;
+                    }
+                }
+
+            }
+        }
+
+        //down
+        if (row > 1) {
+            {
+                for (int j = row - 1; j >= 0; j--) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row - 1][column] != player) {
+                        if (board.getBoard()[j][column] == player && row - j > 1) {
+                            for (int i = row - 1; i > j; i--) {
+                                check++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //up
+        if (row < 6) {
+            {
+                for (int j = row + 1; j < 8; j++) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row + 1][column] != player) {
+
+                        if (board.getBoard()[j][column] == player && j - row > 1) {
+
+                            for (int i = row + 1; i < j; i++) {
+                                check++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //left
+        if (column > 1) {
+
+
+            for (int j = column - 1; j >= 0; j--) {
+
+                if (board.getBoard()[row][j] != 0 && board.getBoard()[row][column - 1] != player) {
+                    if (board.getBoard()[row][j] == player && column - j > 1) {
+                        for (int i = column - 1; i > j; i--) {
+                            check++;
+                        }
+                    }
+                }
+            }
+        }
+
+        //right
+        if (column < 6) {
+
+            for (int j = column + 1; j < 8; j++) {
+                if (board.getBoard()[row][j] != 0 && board.getBoard()[row][column + 1] != player) {
+                    if (board.getBoard()[row][j] == player && j - column > 1) {
+                        for (int i = column + 1; i < j; i++) {
+                            check++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return check;
+    }
+
 
     public Board getBoard()
     {
@@ -650,7 +779,7 @@ public class GameLogic {
     public static boolean checkLegalMove(int x, int y, int player) {
         Vector2 currentSquare = new Vector2(x,y);
         //see if the current square is empty so a chip can be placed
-        if(board.getChip(x,y) == 0){
+        if(board.getChip(y,x) == 0){
             //check every square around the current square
             for(int n = 0; n < 8; n++) {
                 Vector2 direction;
