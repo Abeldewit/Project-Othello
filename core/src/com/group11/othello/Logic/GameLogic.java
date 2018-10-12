@@ -486,7 +486,6 @@ public class GameLogic {
         boolean check = false;
         if (row > 0 && column < 8) {
             if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
-
                 int newRow = row - 1;
                 for (int i = column + 1; i < 8; i++) {
                     if (newRow >= 0) {
@@ -502,29 +501,21 @@ public class GameLogic {
             if (check == true) {
                 for (int i = column + 1; i < 8; i++) {
                     row--;
-
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-
 
                         if (getTurnStatus() == 1) {
                             board.setChip(i, row, 1);
-
                         }
                         if (getTurnStatus() == 2) {
                             board.setChip(i, row, 2);
-
                         }
-
                     } else {
                         break;
                     }
 
                 }
-
             }
-
         }
-
     }
 
     public void southWestDirection(int row, int column, int player) {
@@ -533,7 +524,6 @@ public class GameLogic {
 
             if(board.getBoard()[column -1][row-1] != 0 && board.getBoard()[column-1][row-1] != player)
             {
-
                 int newRow = row-1;
                 for(int i  = column-1; i >= 0; i--)
                 {
@@ -547,13 +537,11 @@ public class GameLogic {
                         newRow--;
                     }
                 }
-
             }
             if(check == true)
             {
                 for (int i = column - 1; i > 0; i--) {
                     row--;
-
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
 
                         if (getTurnStatus() == 1) {
@@ -562,19 +550,14 @@ public class GameLogic {
                         }
                         if (getTurnStatus() == 2) {
                             board.setChip(i, row, 2);
-
-                        }
+                            }
 
                     } else {
                         break;
                     }
-
                 }
-
             }
-
         }
-
     }
 
     public void southEastDirection(int row, int column, int player) {
@@ -638,8 +621,6 @@ public class GameLogic {
 
     }
 
-
-
     public Board getBoard()
     {
         return board;
@@ -661,8 +642,6 @@ public class GameLogic {
                 {
                     v.add(0,1,0);
                 }
-
-
             }
         }
         return  v;

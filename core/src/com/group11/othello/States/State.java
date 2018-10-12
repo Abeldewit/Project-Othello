@@ -37,6 +37,7 @@ public abstract class State {
 
     public abstract void render(SpriteBatch sb);
 
+
     public OrthographicCamera getCamera() {
         return camera;
     }

@@ -69,11 +69,10 @@ public class GameState extends State {
 
 
                     if (isTooClose(x, y) == false) {
-                     //   if(gL.checkLegalMove(x,y,gL.getTurnStatus())) {
+                        if (gL.checkLegalMove(x, y, gL.getTurnStatus())) {
                             gL.getBoard().setChip(y, x, gL.getTurnStatus());
-
                             runAvailable(x, y);
-                        gL.getBoard().printBoard();
+                            gL.getBoard().printBoard();
                             if (gL.getTurnStatus() == 1) {
 
                                 player1.setScore((int) gL.getScore().x);
@@ -84,6 +83,7 @@ public class GameState extends State {
 
                             }
                         }
+                    }
 
                     else {
                         System.out.println("Tile Occupied");
@@ -107,7 +107,9 @@ public class GameState extends State {
 
         if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
-            gsm.set(new MenuState(gsm));
+            WChip.dispose();
+            BChip.dispose();
+            gsm.pop();
         }
     }
 
@@ -179,4 +181,6 @@ public class GameState extends State {
     public GameLogic getgL() {
         return gL;
     }
+
+
 }

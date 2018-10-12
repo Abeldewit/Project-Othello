@@ -59,7 +59,7 @@ public class MenuState extends State {
             catch (Exception e){
                 System.out.println("Error");
             }
-            gsm.set(new GameState(gsm));
+            gsm.push(new GameState(gsm));
         }
 
         else if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 720 && Gdx.input.getY() <= 820 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
