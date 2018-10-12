@@ -17,62 +17,62 @@ public class GameLogic {
     public GameLogic() {
 
         board = new Board();
-        board.setChip(3,3, WHITE);
-        board.setChip(3,4, BLACK);
-        board.setChip(4,3, BLACK);
-        board.setChip(4,4, WHITE);
+        board.setChip(3, 3, WHITE);
+        board.setChip(3, 4, BLACK);
+        board.setChip(4, 3, BLACK);
+        board.setChip(4, 4, WHITE);
     }
 
-    public void changeTurn(){
+    public void changeTurn() {
 
         if (turnCnt == 1) {
             turnCnt = 2;
-        }else if (turnCnt == 2){
+        } else if (turnCnt == 2) {
             turnCnt = 1;
         }
     }
 
-    public int getTurnStatus(){
+    public int getTurnStatus() {
 
         return turnCnt;
     }
 
 
     //checks if the black player does have a legal move
-    public boolean canMoveBlack(){
+    public boolean canMoveBlack() {
 
-        for (int x=0; x<8; x++){
-            for (int y = 0; y<8; y++){
+        for (int x = 0; x < 8; x++) {
+            for (int y = 0; y < 8; y++) {
 
-                if (checkLegalBlack(x, y, 1, 0)){
+                if (checkLegalBlack(x, y, 1, 0)) {
                     return true;
                 }
 
-                if (checkLegalBlack(x, y, 1, -1)){
+                if (checkLegalBlack(x, y, 1, -1)) {
                     return true;
                 }
 
-                if (checkLegalBlack(x, y, 0, -1)){
+                if (checkLegalBlack(x, y, 0, -1)) {
                     return true;
                 }
 
-                if (checkLegalBlack(x, y, -1, -1)){
+                if (checkLegalBlack(x, y, -1, -1)) {
                     return true;
                 }
 
-                if (checkLegalBlack(x, y, -1, 0)){
+                if (checkLegalBlack(x, y, -1, 0)) {
                     return true;
                 }
 
-                if (checkLegalBlack(x, y, -1, 1)){
+                if (checkLegalBlack(x, y, -1, 1)) {
                     return true;
                 }
 
-                if (checkLegalBlack(x, y, 0, 1)){
+                if (checkLegalBlack(x, y, 0, 1)) {
                     return true;
                 }
 
-                if (checkLegalBlack(x, y, 1, 1)){
+                if (checkLegalBlack(x, y, 1, 1)) {
                     return true;
                 }
 
@@ -80,45 +80,45 @@ public class GameLogic {
 
         }
         return false;
-       // Game Over ; end Game in GameState
+        // Game Over ; end Game in GameState
 
     }
 
     //checks if the white player does have a legal move
-    public boolean canMoveWhite(){
+    public boolean canMoveWhite() {
 
-        for (int x=0; x<8; x++){
-            for (int y = 0; y<8; y++){
+        for (int x = 0; x < 8; x++) {
+            for (int y = 0; y < 8; y++) {
 
-                if (checkLegalWhite(x, y, 1, 0)){
+                if (checkLegalWhite(x, y, 1, 0)) {
                     return true;
                 }
 
-                if (checkLegalWhite(x, y, 1, -1)){
+                if (checkLegalWhite(x, y, 1, -1)) {
                     return true;
                 }
 
-                if (checkLegalWhite(x, y, 0, -1)){
+                if (checkLegalWhite(x, y, 0, -1)) {
                     return true;
                 }
 
-                if (checkLegalWhite(x, y, -1, -1)){
+                if (checkLegalWhite(x, y, -1, -1)) {
                     return true;
                 }
 
-                if (checkLegalWhite(x, y, -1, 0)){
+                if (checkLegalWhite(x, y, -1, 0)) {
                     return true;
                 }
 
-                if (checkLegalWhite(x, y, -1, 1)){
+                if (checkLegalWhite(x, y, -1, 1)) {
                     return true;
                 }
 
-                if (checkLegalWhite(x, y, 0, 1)){
+                if (checkLegalWhite(x, y, 0, 1)) {
                     return true;
                 }
 
-                if (checkLegalWhite(x, y, 1, 1)){
+                if (checkLegalWhite(x, y, 1, 1)) {
                     return true;
                 }
 
@@ -127,10 +127,9 @@ public class GameLogic {
 
         }
         return false;
-       // Game Over ; end Game in GameState
+        // Game Over ; end Game in GameState
 
     }
-
 
 
     //places black chip in board
@@ -187,8 +186,8 @@ public class GameLogic {
             wasLegal = true;
         }
 
-        if (wasLegal){
-            board.setChip(x,y, BLACK);
+        if (wasLegal) {
+            board.setChip(x, y, BLACK);
             return true;
         }
 
@@ -247,8 +246,8 @@ public class GameLogic {
             wasLegal = true;
         }
 
-        if (wasLegal){
-            board.setChip(x,y, WHITE);
+        if (wasLegal) {
+            board.setChip(x, y, WHITE);
             return true;
         }
 
@@ -257,46 +256,46 @@ public class GameLogic {
     }
 
 
-    public boolean checkLegalBlack (int x, int y, int dx, int dy){
+    public boolean checkLegalBlack(int x, int y, int dx, int dy) {
 
         int nSteps = 1;
         x += dx;
         y += dy;
 
-        while ( 0<=x && x<8 && 0<=y && y<8) {
+        while (0 <= x && x < 8 && 0 <= y && y < 8) {
 
-            if ( board.getChip(x,y)== BLACK) {
+            if (board.getChip(x, y) == BLACK) {
                 return nSteps > 1;
             }
 
-            if (board.getChip(x,y) == EMPTY) return false;
+            if (board.getChip(x, y) == EMPTY) return false;
 
             x = x + dx;
             y = y + dy;
-            nSteps =  nSteps + 1;
+            nSteps = nSteps + 1;
         }
 
         return false;
 
     }
 
-    public boolean checkLegalWhite (int x, int y, int dx, int dy){
+    public boolean checkLegalWhite(int x, int y, int dx, int dy) {
 
         int nSteps = 1;
         x += dx;
         y += dy;
 
-        while ( 0<=x && x<8 && 0<=y && y<8) {
+        while (0 <= x && x < 8 && 0 <= y && y < 8) {
 
-            if ( board.getChip(x,y) == WHITE)
+            if (board.getChip(x, y) == WHITE)
                 return nSteps > 1;
 
 
-            if (board.getChip(x,y) == EMPTY) return false;
+            if (board.getChip(x, y) == EMPTY) return false;
 
             x = x + dx;
             y = y + dy;
-            nSteps =  nSteps + 1;
+            nSteps = nSteps + 1;
         }
 
 
@@ -304,124 +303,104 @@ public class GameLogic {
 
     }
 
-    public void turnChipBlack(int x, int y, int dx, int dy){
+    public void turnChipBlack(int x, int y, int dx, int dy) {
 
         x += dx;
         y += dy;
 
-        while ( board.getChip(x,y) == WHITE ){
+        while (board.getChip(x, y) == WHITE) {
 
-        board.setChip(x, y, BLACK);
-        x += dx;
-        y += dy;
+            board.setChip(x, y, BLACK);
+            x += dx;
+            y += dy;
 
         }
 
     }
 
-    public void turnChipWhite(int x, int y, int dx, int dy){
+    public void turnChipWhite(int x, int y, int dx, int dy) {
 
         x += dx;
         y += dy;
 
-        while ( board.getChip(x,y) == BLACK ){
+        while (board.getChip(x, y) == BLACK) {
 
-        board.setChip(x,y, WHITE);
-        x += dx;
-        y += dy;
+            board.setChip(x, y, WHITE);
+            x += dx;
+            y += dy;
 
         }
 
 
     }
 
-    public void rightDirection(int column, int row, int player)
-    {
-        if(column < 6) {
+    public void rightDirection(int column, int row, int player) {
+        if (column < 6) {
 
             for (int j = column + 1; j < 8; j++) {
-                if(board.getBoard()[row][j] != 0 && board.getBoard()[row][column+1] != player)
-                {
+                if (board.getBoard()[row][j] != 0 && board.getBoard()[row][column + 1] != player) {
                     if (board.getBoard()[row][j] == player && j - column > 1) {
                         for (int i = column + 1; i < j; i++) {
-                            System.out.println("GOtcha");
+
                             if (player == 2) {
-                                board.setChip(i, row, 2);
+                                board.setChip(row, i, 2);
                             } else if (player == 1) {
-                                board.setChip(i, row, 1);
+                                board.setChip(row, i, 1);
                             }
                         }
                     }
-                }
-                else
-                {
+                } else {
                     break;
                 }
             }
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
 
-                System.out.print(board.getChip(i,j));
-                }
-                System.out.println();
         }
-        }
-
     }
 
-    public void leftDirection(int column, int row, int player)
-    {
+    public void leftDirection(int column, int row, int player) {
 
         if (column > 1) {
 
 
-                for (int j = column - 1; j >= 0; j--) {
+            for (int j = column - 1; j >= 0; j--) {
 
-                    if(board.getBoard()[row][j] != 0 && board.getBoard()[row][column-1] != player)
-                    {
-                        if (board.getBoard()[row][j] == player && column - j > 1)
-                        {
-                            for (int i = column - 1; i > j; i--)
-                            {
-                                System.out.println("GOtcha");
-                                if (player == 2) {
-                                    board.setChip(i, row, 2);
-                                } else if (player == 1) {
-                                    board.setChip(i, row, 1);
-                                }
+                if (board.getBoard()[row][j] != 0 && board.getBoard()[row][column - 1] != player) {
+                    if (board.getBoard()[row][j] == player && column - j > 1) {
+                        for (int i = column - 1; i > j; i--) {
+
+                            if (player == 2) {
+                                board.setChip(row, i, 2);
+                            } else if (player == 1) {
+                                board.setChip(row, i, 1);
                             }
                         }
-                    }else
-                    {
-                        break;
                     }
+                } else {
+                    break;
                 }
             }
+        }
 
     }
 
-    public void upDirection(int column, int row, int player)
-    {
+    public void upDirection(int column, int row, int player) {
 
-        if(row < 6) {
+        if (row < 6) {
             {
-                for (int j = row +1; j < 8; j++) {
-                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row+1][column] != player) {
+                for (int j = row + 1; j < 8; j++) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row + 1][column] != player) {
 
                         if (board.getBoard()[j][column] == player && j - row > 1) {
-                            System.out.println("gotcha");
+
                             for (int i = row + 1; i < j; i++) {
                                 if (player == 2) {
-                                    board.setChip(column, i, 2);
+                                    board.setChip(i, column, 2);
                                 } else if (player == 1) {
-                                    board.setChip(column, i, 1);
+                                    board.setChip(i, column, 1);
                                 }
                             }
                         }
-                    }else
-                    {
+                    } else {
                         break;
                     }
                 }
@@ -432,22 +411,21 @@ public class GameLogic {
     }
 
     public void downDirection(int column, int row, int player) {
-        int counter = 0;
-        if(row >1) {
+
+        if (row > 1) {
             {
-                for (int j = row-1; j >=0; j--) {
-                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row -1][column] != player) {
+                for (int j = row - 1; j >= 0; j--) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row - 1][column] != player) {
                         if (board.getBoard()[j][column] == player && row - j > 1) {
                             for (int i = row - 1; i > j; i--) {
                                 if (player == 2) {
-                                    board.setChip(column, i, 2);
+                                    board.setChip(i, column, 2);
                                 } else if (player == 1) {
-                                    board.setChip(column, i, 1);
+                                    board.setChip(i, column, 1);
                                 }
                             }
                         }
-                    }else
-                    {
+                    } else {
                         break;
                     }
                 }
@@ -456,33 +434,210 @@ public class GameLogic {
         }
     }
 
-    public void northWestDirection(int column, int row, int player) {
-
-        if(row >1 && column >1)
+    public void northEastDirection(int row, int column, int player) {
+        boolean check = false;
+        if (row <8  && column < 8 ) {
+            if(board.getBoard()[column +1][row+1] != 0 && board.getBoard()[column+1][row+1] != player)
             {
-                for (int i = row-1; i >=0; i--) {
-                    for(int j = column-1; column > 0; j--)
+
+                int newRow = row+1;
+                for(int i  = column+1; i < 8; i++)
+                {
+                    if(newRow < 9)
                     {
-                        if (board.getBoard()[i][j] != 0 && board.getBoard()[i][j] != player && row - i > 1 && column - j > 1) {
-                                if(getTurnStatus() == 1)
-                                {
-                                    board.setChip(i,j,1);
-                                }
-                            if(getTurnStatus() == 2)
-                            {
-                                board.setChip(i,j,2);
-                            }
-                        }else
+                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
                         {
+                            check = true;
                             break;
                         }
+                        newRow++;
                     }
+                }
+
+            }
+            if(check == true)
+            {
+                for (int i = column + 1; i < 8; i++) {
+                    row++;
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+
+                        if (getTurnStatus() == 1) {
+                            board.setChip(i, row, 1);
+
+                        }
+                        if (getTurnStatus() == 2) {
+                            board.setChip(i, row, 2);
+
+                        }
+
+                    } else {
+                        break;
+                    }
+
+                }
 
             }
 
         }
 
     }
+
+    public void northWestDirection(int row, int column, int player) {
+        boolean check = false;
+        if (row > 0 && column < 8) {
+            if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
+
+                int newRow = row - 1;
+                for (int i = column + 1; i < 8; i++) {
+                    if (newRow >= 0) {
+                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                            check = true;
+                            break;
+                        }
+                        newRow--;
+                    }
+                }
+
+            }
+            if (check == true) {
+                for (int i = column + 1; i < 8; i++) {
+                    row--;
+
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+
+
+                        if (getTurnStatus() == 1) {
+                            board.setChip(i, row, 1);
+
+                        }
+                        if (getTurnStatus() == 2) {
+                            board.setChip(i, row, 2);
+
+                        }
+
+                    } else {
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public void southWestDirection(int row, int column, int player) {
+        boolean check = false;
+        if (row > 0  && column > 0 ) {
+
+            if(board.getBoard()[column -1][row-1] != 0 && board.getBoard()[column-1][row-1] != player)
+            {
+
+                int newRow = row-1;
+                for(int i  = column-1; i >= 0; i--)
+                {
+                    if(newRow >= 0)
+                    {
+                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        {
+                            check = true;
+                            break;
+                        }
+                        newRow--;
+                    }
+                }
+
+            }
+            if(check == true)
+            {
+                for (int i = column - 1; i > 0; i--) {
+                    row--;
+
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+
+                        if (getTurnStatus() == 1) {
+                            board.setChip(i, row, 1);
+
+                        }
+                        if (getTurnStatus() == 2) {
+                            board.setChip(i, row, 2);
+
+                        }
+
+                    } else {
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public void southEastDirection(int row, int column, int player) {
+        boolean check = false;
+        if (row < 8  && column > 0 ) {
+            System.out.println("got past first if statement");
+            if(board.getBoard()[column -1][row+1] != 0 && board.getBoard()[column-1][row+1] != player)
+            {
+                System.out.println("checking first tile");
+
+                int newRow = row+1;
+                for(int i  = column-1; i >= 0; i--)
+                {
+                    System.out.println("xA = " + i);
+                    System.out.println("yA = " + newRow);
+                    if(newRow <= 8)
+                    {
+                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        {
+                            System.out.println("check is true");
+                            check = true;
+                            break;
+                        }
+                        newRow++;
+                    }
+                }
+
+            }
+            if(check == true)
+            {
+                for (int i = column - 1; i > 0; i--) {
+                    row++;
+                    System.out.println("i : " + i);
+                    System.out.println("j : " + row);
+
+
+
+                    System.out.println(board.getBoard()[i][column]);
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+                        System.out.println("made it");
+
+
+                        if (getTurnStatus() == 1) {
+                            board.setChip(i, row, 1);
+
+                        }
+                        if (getTurnStatus() == 2) {
+                            board.setChip(i, row, 2);
+
+                        }
+
+                    } else {
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
 
 
     public Board getBoard()

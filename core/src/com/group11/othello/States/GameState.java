@@ -69,10 +69,11 @@ public class GameState extends State {
 
 
                     if (isTooClose(x, y) == false) {
-                        if(gL.checkLegalMove(x,y,gL.getTurnStatus())) {
-                            gL.getBoard().setChip(x, y, gL.getTurnStatus());
-                            System.out.println(x + " " + y);
+                     //   if(gL.checkLegalMove(x,y,gL.getTurnStatus())) {
+                            gL.getBoard().setChip(y, x, gL.getTurnStatus());
+
                             runAvailable(x, y);
+                        gL.getBoard().printBoard();
                             if (gL.getTurnStatus() == 1) {
 
                                 player1.setScore((int) gL.getScore().x);
@@ -84,7 +85,7 @@ public class GameState extends State {
                             }
                         }
 
-                    } else {
+                    else {
                         System.out.println("Tile Occupied");
                     }
 
@@ -135,11 +136,11 @@ public class GameState extends State {
                 {
                     if(gL.getBoard().getBoard()[j][i] == 1)
                     {
-                        sb.draw(WChip, i*100 + 19, j*100 + 19, 60, 60);
+                        sb.draw(WChip, i*100 + 19, (j)*100 + 19, 60, 60);
                     }
                     else if(gL.getBoard().getBoard()[j][i] == 2)
                     {
-                        sb.draw(BChip, i*100 + 19, j*100 + 19, 60, 60);
+                        sb.draw(BChip, i*100 + 19, (j)*100 + 19, 60, 60);
                     }
                     else{}
                 }
@@ -165,7 +166,10 @@ public class GameState extends State {
         gL.leftDirection(x,y, gL.getTurnStatus());
         gL.upDirection(x,y, gL.getTurnStatus());
         gL.downDirection(x,y, gL.getTurnStatus());
+        gL.northEastDirection(x,y, gL.getTurnStatus());
         gL.northWestDirection(x,y, gL.getTurnStatus());
+        gL.southWestDirection(x,y, gL.getTurnStatus());
+        gL.southEastDirection(x,y, gL.getTurnStatus());
     }
 
     public GameState getGame() {

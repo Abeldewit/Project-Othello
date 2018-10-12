@@ -17,7 +17,7 @@ public class Board {
 
     public void setChip(int i, int j, int player)
     {
-        board [j][i] = player;
+        board [i][j] = player;
     }
 
     public int getChip(int i,int j)
@@ -37,6 +37,17 @@ public class Board {
     public static int[][] getBoard()
     {
         return board;
+    }
+
+    public void printBoard()
+    {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+
+                System.out.print(getChip(i, j));
+            }
+            System.out.println();
+        }
     }
 
 
