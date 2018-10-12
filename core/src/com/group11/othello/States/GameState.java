@@ -77,10 +77,11 @@ public class GameState extends State {
 
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
+                                gL.changeTurn();
                             } else {
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
-
+                                gL.changeTurn();
                             }
                         }
                         else
@@ -93,9 +94,6 @@ public class GameState extends State {
                         System.out.println("Tile Occupied");
                     }
 
-
-
-                gL.changeTurn();
 
             }
         }
