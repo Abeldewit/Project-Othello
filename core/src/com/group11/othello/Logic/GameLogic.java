@@ -3,8 +3,10 @@ package com.group11.othello.Logic;
 import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.group11.othello.AI.Point;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GameLogic {
 
@@ -841,19 +843,26 @@ public class GameLogic {
         return legalMoves;
     }
 
-    public ArrayList checkChipFlip(int player){
-        ArrayList checkList = new ArrayList();
+    public void aiPlace(int player){
+        List<Point> checkList = new ArrayList<Point>();
         int check = 0;
         createLegalField();
         for (int i = 0; i < legalMoves.length; i++){
             for (int j = 0; j < legalMoves[0].length; j++){
                 if (legalMoves[i][j] == true){
                     check = checkMoves(i,j,player);
-                    checkList.add(check);
+                    Point point = new Point(i,j,check);
+                    checkList.add(point);
                 }
             }
         }
-        return checkList;
+        Point max= new Point(0,0, 0);
+        for (Point point: checkList){
+            if( max.getValue() < point.getValue()){
+                max = point;
+            }
+        }
+        board.setChip(max.getColumn(), max.getRow(),1);
     }
 }
 

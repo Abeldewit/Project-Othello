@@ -7,9 +7,7 @@ import java.util.ArrayList;
 public class Greedy {
 
     public static void main(String[] args){
-
         GameLogic logic = new GameLogic();
-        ArrayList a = logic.checkChipFlip(1);
-        System.out.println(a);
+        logic.aiPlace(1);
     }
 }
