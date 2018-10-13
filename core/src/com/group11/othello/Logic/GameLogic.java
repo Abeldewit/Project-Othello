@@ -4,6 +4,8 @@ import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
+import java.util.ArrayList;
+
 public class GameLogic {
 
     final int WHITE = 1;
@@ -838,4 +840,20 @@ public class GameLogic {
     public static boolean[][] getLegalMoves() {
         return legalMoves;
     }
+
+    public ArrayList checkChipFlip(int player){
+        ArrayList checkList = new ArrayList();
+        int check = 0;
+        createLegalField();
+        for (int i = 0; i < legalMoves.length; i++){
+            for (int j = 0; j < legalMoves[0].length; j++){
+                if (legalMoves[i][j] == true){
+                    check = checkMoves(i,j,player);
+                    checkList.add(check);
+                }
+            }
+        }
+        return checkList;
+    }
 }
+
