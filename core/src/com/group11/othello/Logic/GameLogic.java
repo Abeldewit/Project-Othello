@@ -41,303 +41,6 @@ public class GameLogic {
         return turnCnt;
     }
 
-
-    //checks if the black player does have a legal move
-    public boolean canMoveBlack() {
-
-        for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
-
-                if (checkLegalBlack(x, y, 1, 0)) {
-                    return true;
-                }
-
-                if (checkLegalBlack(x, y, 1, -1)) {
-                    return true;
-                }
-
-                if (checkLegalBlack(x, y, 0, -1)) {
-                    return true;
-                }
-
-                if (checkLegalBlack(x, y, -1, -1)) {
-                    return true;
-                }
-
-                if (checkLegalBlack(x, y, -1, 0)) {
-                    return true;
-                }
-
-                if (checkLegalBlack(x, y, -1, 1)) {
-                    return true;
-                }
-
-                if (checkLegalBlack(x, y, 0, 1)) {
-                    return true;
-                }
-
-                if (checkLegalBlack(x, y, 1, 1)) {
-                    return true;
-                }
-
-            }
-
-        }
-        return false;
-        // Game Over ; end Game in GameState
-
-    }
-
-    //checks if the white player does have a legal move
-    public boolean canMoveWhite() {
-
-        for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
-
-                if (checkLegalWhite(x, y, 1, 0)) {
-                    return true;
-                }
-
-                if (checkLegalWhite(x, y, 1, -1)) {
-                    return true;
-                }
-
-                if (checkLegalWhite(x, y, 0, -1)) {
-                    return true;
-                }
-
-                if (checkLegalWhite(x, y, -1, -1)) {
-                    return true;
-                }
-
-                if (checkLegalWhite(x, y, -1, 0)) {
-                    return true;
-                }
-
-                if (checkLegalWhite(x, y, -1, 1)) {
-                    return true;
-                }
-
-                if (checkLegalWhite(x, y, 0, 1)) {
-                    return true;
-                }
-
-                if (checkLegalWhite(x, y, 1, 1)) {
-                    return true;
-                }
-
-
-            }
-
-        }
-        return false;
-        // Game Over ; end Game in GameState
-
-    }
-
-
-    //places black chip in board
-    public boolean placeChipBlack(int x, int y) {
-
-        //keeps track if there is any legal move
-        boolean wasLegal = false;
-
-        if (checkLegalBlack(x, y, 1, 0)) {
-
-            turnChipBlack(x, y, 1, 0);
-            wasLegal = true;
-        }
-
-        if (checkLegalBlack(x, y, 1, 1)) {
-
-            turnChipBlack(x, y, 1, 1);
-            wasLegal = true;
-        }
-
-        if (checkLegalBlack(x, y, 1, -1)) {
-
-            turnChipBlack(x, y, 1, -1);
-            wasLegal = true;
-        }
-
-        if (checkLegalBlack(x, y, 0, -1)) {
-
-            turnChipBlack(x, y, 0, -1);
-            wasLegal = true;
-        }
-
-        if (checkLegalBlack(x, y, -1, -1)) {
-
-            turnChipBlack(x, y, -1, -1);
-            wasLegal = true;
-        }
-
-        if (checkLegalBlack(x, y, -1, 0)) {
-
-            turnChipBlack(x, y, -1, 0);
-            wasLegal = true;
-        }
-
-        if (checkLegalBlack(x, y, -1, 1)) {
-
-            turnChipBlack(x, y, -1, 1);
-            wasLegal = true;
-        }
-
-        if (checkLegalBlack(x, y, 0, 1)) {
-
-            turnChipBlack(x, y, 0, 1);
-            wasLegal = true;
-        }
-
-        if (wasLegal) {
-            board.setChip(x, y, BLACK);
-            return true;
-        }
-
-        return false;
-
-    }
-
-    public boolean placeChipWhite(int x, int y) {
-
-        boolean wasLegal = false;
-        if (checkLegalWhite(x, y, 1, 0)) {
-
-            turnChipWhite(x, y, 1, 0);
-            wasLegal = true;
-        }
-
-        if (checkLegalWhite(x, y, 1, 1)) {
-
-            turnChipWhite(x, y, 1, 1);
-            wasLegal = true;
-        }
-
-        if (checkLegalWhite(x, y, 1, -1)) {
-
-            turnChipWhite(x, y, 1, -1);
-            wasLegal = true;
-        }
-
-        if (checkLegalWhite(x, y, 0, -1)) {
-
-            turnChipWhite(x, y, 0, -1);
-            wasLegal = true;
-        }
-
-        if (checkLegalWhite(x, y, -1, -1)) {
-
-            turnChipWhite(x, y, -1, -1);
-            wasLegal = true;
-        }
-
-        if (checkLegalWhite(x, y, -1, 0)) {
-
-            turnChipWhite(x, y, -1, 0);
-            wasLegal = true;
-        }
-
-        if (checkLegalWhite(x, y, -1, 1)) {
-
-            turnChipWhite(x, y, -1, 1);
-            wasLegal = true;
-        }
-
-        if (checkLegalWhite(x, y, 0, 1)) {
-
-            turnChipWhite(x, y, 0, 1);
-            wasLegal = true;
-        }
-
-        if (wasLegal) {
-            board.setChip(x, y, WHITE);
-            return true;
-        }
-
-        return false;
-
-    }
-
-
-    public boolean checkLegalBlack(int x, int y, int dx, int dy) {
-
-        int nSteps = 1;
-        x += dx;
-        y += dy;
-
-        while (0 <= x && x < 8 && 0 <= y && y < 8) {
-
-            if (board.getChip(x, y) == BLACK) {
-                return nSteps > 1;
-            }
-
-            if (board.getChip(x, y) == EMPTY) return false;
-
-            x = x + dx;
-            y = y + dy;
-            nSteps = nSteps + 1;
-        }
-
-        return false;
-
-    }
-
-    public boolean checkLegalWhite(int x, int y, int dx, int dy) {
-
-        int nSteps = 1;
-        x += dx;
-        y += dy;
-
-        while (0 <= x && x < 8 && 0 <= y && y < 8) {
-
-            if (board.getChip(x, y) == WHITE)
-                return nSteps > 1;
-
-
-            if (board.getChip(x, y) == EMPTY) return false;
-
-            x = x + dx;
-            y = y + dy;
-            nSteps = nSteps + 1;
-        }
-
-
-        return false;
-
-    }
-
-    public void turnChipBlack(int x, int y, int dx, int dy) {
-
-        x += dx;
-        y += dy;
-
-        while (board.getChip(x, y) == WHITE) {
-
-            board.setChip(x, y, BLACK);
-            x += dx;
-            y += dy;
-
-        }
-
-    }
-
-    public void turnChipWhite(int x, int y, int dx, int dy) {
-
-        x += dx;
-        y += dy;
-
-        while (board.getChip(x, y) == BLACK) {
-
-            board.setChip(x, y, WHITE);
-            x += dx;
-            y += dy;
-
-        }
-
-
-    }
-
     public void rightDirection(int column, int row, int player) {
         if (column < 6) {
 
@@ -359,6 +62,27 @@ public class GameLogic {
             }
 
         }
+    }
+
+    public int rightCheck(int column, int row, int player) {
+       int check = 0;
+        if (column < 6) {
+
+            for (int j = column + 1; j < 8; j++) {
+                if (board.getBoard()[row][j] != 0 && board.getBoard()[row][column + 1] != player) {
+                    if (board.getBoard()[row][j] == player && j - column > 1) {
+                        for (int i = column + 1; i < j; i++) {
+                            System.out.println("made it to right");
+                           check++;
+                        }
+                    }
+                } else {
+                    break;
+                }
+            }
+
+        }
+        return check;
     }
 
     public void leftDirection(int column, int row, int player) {
@@ -385,6 +109,29 @@ public class GameLogic {
             }
         }
 
+    }
+
+    public int leftCheck(int column, int row, int player) {
+        int check = 0;
+        if (column > 1) {
+
+
+            for (int j = column - 1; j >= 0; j--) {
+
+                if (board.getBoard()[row][j] != 0 && board.getBoard()[row][column - 1] != player) {
+                    if (board.getBoard()[row][j] == player && column - j > 1) {
+                        for (int i = column - 1; i > j; i--) {
+                            System.out.println("made it to left");
+                            check++;
+                        }
+                    }
+                } else {
+                    break;
+                }
+            }
+        }
+
+        return check;
     }
 
     public void upDirection(int column, int row, int player) {
@@ -415,6 +162,31 @@ public class GameLogic {
 
     }
 
+    public int upCheck(int column, int row, int player) {
+        int check =0;
+        if (row < 6) {
+            {
+                for (int j = row + 1; j < 8; j++) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row + 1][column] != player) {
+
+                        if (board.getBoard()[j][column] == player && j - row > 1) {
+
+                            for (int i = row + 1; i < j; i++) {
+                                System.out.println("up");
+                                check++;
+                            }
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+        }
+
+        return check;
+    }
+
     public void downDirection(int column, int row, int player) {
 
         if (row > 1) {
@@ -438,6 +210,29 @@ public class GameLogic {
             }
 
         }
+    }
+
+    public int downCheck(int column, int row, int player) {
+        int check = 0;
+        if (row > 1) {
+            {
+                for (int j = row - 1; j >= 0; j--) {
+                    if (board.getBoard()[j][column] != 0 && board.getBoard()[row - 1][column] != player) {
+                        if (board.getBoard()[j][column] == player && row - j > 1) {
+                            for (int i = row - 1; i > j; i--) {
+                                System.out.println("made it to down");
+                                check++;
+                            }
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+        }
+
+        return check;
     }
 
     public void northEastDirection(int row, int column, int player) {
@@ -488,6 +283,50 @@ public class GameLogic {
 
     }
 
+    public int northEastCheck(int row, int column, int player) {
+        boolean check = false;
+        int checks = 0;
+        if (row <8  && column < 8 ) {
+            if(board.getBoard()[column +1][row+1] != 0 && board.getBoard()[column+1][row+1] != player)
+            {
+
+                int newRow = row+1;
+                for(int i  = column+1; i < 8; i++)
+                {
+                    if(newRow < 9)
+                    {
+                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        {
+                            check = true;
+                            break;
+                        }
+                        newRow++;
+                    }
+                }
+
+            }
+            if(check == true)
+            {
+                for (int i = column + 1; i < 8; i++) {
+                    row++;
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+                        System.out.println("made it to NE");
+                       checks++;
+
+                    } else {
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
+
+        return checks;
+
+    }
+
     public void northWestDirection(int row, int column, int player) {
         boolean check = false;
         if (row > 0 && column < 8) {
@@ -523,6 +362,39 @@ public class GameLogic {
                 }
             }
         }
+    }
+    public int northWestCheck(int row, int column, int player) {
+        boolean check = false;
+        int checks = 0;
+        if (row > 0 && column < 8) {
+            if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
+                int newRow = row - 1;
+                for (int i = column + 1; i < 8; i++) {
+                    if (newRow >= 0) {
+                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                            check = true;
+                            break;
+                        }
+                        newRow--;
+                    }
+                }
+
+            }
+            if (check == true) {
+                for (int i = column + 1; i < 8; i++) {
+                    row--;
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+                        System.out.println("made it to NW");
+                        checks++;
+                    } else {
+                        break;
+                    }
+
+                }
+            }
+        }
+
+        return checks;
     }
 
     public void southWestDirection(int row, int column, int player) {
@@ -566,6 +438,46 @@ public class GameLogic {
             }
         }
     }
+
+    public int southWestCheck(int row, int column, int player) {
+        boolean check = false;
+        int checks = 0;
+        if (row > 0  && column > 0 ) {
+
+            if(board.getBoard()[column -1][row-1] != 0 && board.getBoard()[column-1][row-1] != player)
+            {
+                int newRow = row-1;
+                for(int i  = column-1; i >= 0; i--)
+                {
+                    if(newRow >= 0)
+                    {
+                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        {
+                            check = true;
+                            break;
+                        }
+                        newRow--;
+                    }
+                }
+            }
+            if(check == true)
+            {
+                for (int i = column - 1; i > 0; i--) {
+                    row--;
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+                        System.out.println("made it to SW");
+                        checks++;
+
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+
+        return checks;
+    }
+
 
     public void southEastDirection(int row, int column, int player) {
         boolean check = false;
@@ -617,156 +529,54 @@ public class GameLogic {
 
     }
 
+    public int southEastCheck(int row, int column, int player) {
+        boolean check = false;
+        int checks = 0;
+        if (row < 8  && column > 0 ) {
+
+            if(board.getBoard()[column -1][row+1] != 0 && board.getBoard()[column-1][row+1] != player)
+            {
+
+                int newRow = row+1;
+
+                for(int i  = column-1; i >= 0; i--)
+                {
+                    if(newRow <= 8)
+                    {
+                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        {
+                            check = true;
+                            break;
+                        }
+                        newRow++;
+                    }
+                }
+
+            }
+            if(check == true)
+            {
+                for (int i = column - 1; i > 0; i--) {
+                    row++;
+                    if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
+                        System.out.println("made it to SE");
+                        checks++;
+
+                    } else {
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
+
+        return checks;
+
+    }
+
     public int checkMoves(int row, int column, int player) {
-        //SouthEast
-        int check = 0;
-        if (row < 8 && column > 0) {
-
-            if (board.getBoard()[column - 1][row + 1] != 0 && board.getBoard()[column - 1][row + 1] != player) {
-
-
-                int newRow = row + 1;
-                for (int i = column - 1; i >= 0; i--) {
-
-                    if (newRow <= 8) {
-                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
-
-                            check++;
-                            System.out.println("made it to southeast");
-                            System.out.println("check = " + check);
-                        }
-                        newRow++;
-                    }
-                }
-
-            }
-        }
-
-        //southWest
-        if (row > 0 && column > 0) {
-
-            if (board.getBoard()[column - 1][row - 1] != 0 && board.getBoard()[column - 1][row - 1] != player) {
-                int newRow = row - 1;
-                for (int i = column - 1; i >= 0; i--) {
-                    if (newRow >= 0) {
-                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
-                            check++;
-                            System.out.println("made it to southwest");
-                            System.out.println("check = " + check);
-                        }
-                        newRow--;
-                    }
-                }
-            }
-        }
-
-        //northWest
-
-        if (row > 0 && column < 8) {
-            if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
-                int newRow = row - 1;
-                for (int i = column + 1; i < 8; i++) {
-                    if (newRow >= 0) {
-                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
-                            check++;
-                            System.out.println("made it to northwest");
-                            System.out.println("check = " + check);
-                        }
-                        newRow--;
-                    }
-                }
-
-            }
-        }
-
-        //northEast
-        if (row < 8 && column < 8) {
-            if (board.getBoard()[column + 1][row + 1] != 0 && board.getBoard()[column + 1][row + 1] != player) {
-
-                int newRow = row + 1;
-                for (int i = column + 1; i < 8; i++) {
-                    if (newRow < 9) {
-                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
-                            check++;
-                            System.out.println("made it to northeast");
-                            System.out.println("check = " + check);
-                        }
-                        newRow++;
-                    }
-                }
-
-            }
-        }
-
-        //down
-        if (column > 1) {
-            {
-                for (int j = column - 1; j >= 0; j--) {
-                    if (board.getBoard()[j][row] != 0 && board.getBoard()[column - 1][row] != player) {
-                        if (board.getBoard()[j][row] == player && column - j > 1) {
-                            for (int i = column- 1; i > j; i--) {
-                                check++;
-                                System.out.println("made it to down");
-                                System.out.println("check = " + check);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        //up
-        if (column < 6) {
-            {
-                for (int j = column + 1; j < 8; j++) {
-                    if (board.getBoard()[j][row] != 0 && board.getBoard()[column + 1][row] != player) {
-
-                        if (board.getBoard()[j][row] == player && j - column > 1) {
-
-                            for (int i = column + 1; i < j; i++) {
-                                check++;
-                                System.out.println("made it to up");
-                                System.out.println("check = " + check);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        //left
-        if (row > 1) {
-
-
-            for (int j = row - 1; j >= 0; j--) {
-
-                if (board.getBoard()[column][j] != 0 && board.getBoard()[column][row - 1] != player) {
-                    if (board.getBoard()[column][j] == player && row - j > 1) {
-                        for (int i = row - 1; i > j; i--) {
-                            System.out.println("made it to left");
-                            check++;
-                        }
-                    }
-                }
-            }
-        }
-
-        //right
-        if (row < 6) {
-
-            for (int j = row + 1; j < 8; j++) {
-                if (board.getBoard()[column][j] != 0 && board.getBoard()[column][row + 1] != player) {
-                    if (board.getBoard()[column][j] == player && j - row > 1) {
-                        for (int i = row + 1; i < j; i++) {
-                            check++;
-                        }
-                    }
-                }
-            }
-        }
-
-
-        return check;
+        return upCheck(column, row, player) + downCheck(column,row,player) + leftCheck(column,row,player) + rightCheck(column,row,player) + northEastCheck(row,column,player) + northWestCheck(row,column,player) +southEastCheck(row,column,player) + southWestCheck(row,column,player);
     }
 
 
