@@ -65,7 +65,7 @@ public class GameLogic {
         }
     }
 
-    public int rightCheck(int column, int row, int player) {
+    public int rightCheck(int row, int column, int player) {
        int check = 0;
         if (column < 6) {
 
@@ -112,7 +112,7 @@ public class GameLogic {
 
     }
 
-    public int leftCheck(int column, int row, int player) {
+    public int leftCheck(int row, int column, int player) {
         int check = 0;
         if (column > 1) {
 
@@ -163,7 +163,7 @@ public class GameLogic {
 
     }
 
-    public int upCheck(int column, int row, int player) {
+    public int upCheck(int row, int column, int player) {
         int check =0;
         if (row < 6) {
             {
@@ -213,7 +213,7 @@ public class GameLogic {
         }
     }
 
-    public int downCheck(int column, int row, int player) {
+    public int downCheck(int row, int column, int player) {
         int check = 0;
         if (row > 1) {
             {
