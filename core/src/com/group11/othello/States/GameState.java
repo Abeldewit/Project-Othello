@@ -69,11 +69,11 @@ public class GameState extends State {
 
 
                     if (isTooClose(x, y) == false) {
-                        if (gL.checkMoves(x,y , gL.getTurnStatus()) > 0 ) {
+                       if (gL.checkMoves(x,y , gL.getTurnStatus()) > 0 ) {
                             gL.getBoard().setChip(y, x, gL.getTurnStatus());
                             gL.getBoard().printBoard();
                             runAvailable(x, y);
-                        System.out.println("check = " + gL.checkMoves(x,y , gL.getTurnStatus()));
+                       System.out.println("check = " + gL.checkMoves(x,y , gL.getTurnStatus()));
 
                             if (gL.getTurnStatus() == 1) {
 
@@ -87,7 +87,7 @@ public class GameState extends State {
                             }
                         }
                         else
-                            {
+                           {
                                 System.out.println("loser");
                             }
                     }

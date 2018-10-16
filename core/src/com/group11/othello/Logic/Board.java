@@ -6,13 +6,13 @@ import java.util.Vector;
 
 public class Board {
 
-    private static int[][] board = new int[9][9];
+    private static int[][] board;
 
 
 
     public Board()
     {
-
+        board = new int[9][9];
     }
 
     public void setChip(int i, int j, int player)
