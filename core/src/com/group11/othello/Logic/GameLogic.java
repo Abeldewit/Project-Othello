@@ -144,7 +144,7 @@ public class GameLogic {
                         if (board.getBoard()[j][column] == player && j - row > 1) {
 
                             for (int i = row + 1; i < j; i++) {
-                                System.out.println("made it to up direction");
+                                System.out.println("made it to up directions");
                                 if (player == 2) {
                                     board.setChip(i, column, 2);
                                 } else if (player == 1) {
