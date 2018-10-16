@@ -15,12 +15,13 @@ public class GameLogic {
     final int EMPTY = 0;
     private static Board board;
     public static boolean[][] legalMoves;
-    public static int turnCnt = 1;
+    public static int turnCnt;
 
 
     public GameLogic() {
 
         board = new Board();
+        turnCnt =1;
         board.setChip(3, 3, WHITE);
         board.setChip(3, 4, BLACK);
         board.setChip(4, 3, BLACK);
@@ -241,12 +242,16 @@ public class GameLogic {
             if(board.getBoard()[column +1][row+1] != 0 && board.getBoard()[column+1][row+1] != player)
             {
 
-                int newRow = row+1;
-                for(int i  = column+1; i < 8; i++)
+                int newRow = row+2;
+                for(int i  = column+2; i < 8; i++)
                 {
                     if(newRow < 9)
                     {
-                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        if(board.getBoard()[i][newRow] == 0){
+                            check = false;
+                            break;
+                        }
+                        if( board.getBoard()[i][newRow] == player)
                         {
                             check = true;
                             break;
@@ -295,7 +300,12 @@ public class GameLogic {
                 {
                     if(newRow < 9)
                     {
-                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        if(board.getBoard()[i][newRow] == 0)
+                        {
+                            check = false;
+                            break;
+                        }
+                        if(board.getBoard()[i][newRow] == player)
                         {
                             check = true;
                             break;
@@ -334,7 +344,12 @@ public class GameLogic {
                 int newRow = row - 1;
                 for (int i = column + 1; i < 8; i++) {
                     if (newRow >= 0) {
-                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                        if(board.getBoard()[i][newRow] == 0)
+                        {
+                            check = false;
+                            break;
+                        }
+                        if (board.getBoard()[i][newRow] == player) {
                             check = true;
                             break;
                         }
@@ -371,7 +386,12 @@ public class GameLogic {
                 int newRow = row - 1;
                 for (int i = column + 1; i < 8; i++) {
                     if (newRow >= 0) {
-                        if (board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player) {
+                        if(board.getBoard()[i][newRow] == 0)
+                        {
+                            check = false;
+                            break;
+                        }
+                        if (board.getBoard()[i][newRow] == player) {
                             check = true;
                             break;
                         }
@@ -408,7 +428,12 @@ public class GameLogic {
                 {
                     if(newRow >= 0)
                     {
-                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        if(board.getBoard()[i][newRow] == 0)
+                        {
+                            check = false;
+                            break;
+                        }
+                        if(board.getBoard()[i][newRow] == player)
                         {
                             check = true;
                             break;
@@ -451,7 +476,12 @@ public class GameLogic {
                 {
                     if(newRow >= 0)
                     {
-                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        if(board.getBoard()[i][newRow] == 0)
+                        {
+                            check = false;
+                            break;
+                        }
+                        if(board.getBoard()[i][newRow] == player)
                         {
                             check = true;
                             break;
@@ -492,7 +522,12 @@ public class GameLogic {
                 {
                     if(newRow <= 8)
                     {
-                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        if(board.getBoard()[i][newRow] == 0)
+                        {
+                            check = false;
+                            break;
+                        }
+                        if(board.getBoard()[i][newRow] == player)
                         {
                             check = true;
                             break;
@@ -543,7 +578,12 @@ public class GameLogic {
                 {
                     if(newRow <= 8)
                     {
-                        if(board.getBoard()[i][newRow] != 0 && board.getBoard()[i][newRow] == player)
+                        if(board.getBoard()[i][newRow] == 0)
+                        {
+                            check = false;
+                            break;
+                        }
+                        if(board.getBoard()[i][newRow] == player)
                         {
                             check = true;
                             break;
