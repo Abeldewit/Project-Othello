@@ -67,12 +67,19 @@ public class GameState extends State {
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
 
-                if(gL.endGame(gL.getTurnStatus()) == false)
+                if(gL.endGame(gL.getTurnStatus()) == true)
                 {
                     gL.changeTurn();
-                    if(gL.endGame(gL.getTurnStatus()) == false)
+                    System.out.println("Bob got turn 1");
+                    if(gL.endGame(gL.getTurnStatus()) == true)
                     {
+                        System.out.println("Bob got turn 2");
+
                         gsm.pop();
+                    }
+                    else
+                    {
+                        gL.changeTurn();
                     }
                 }
 

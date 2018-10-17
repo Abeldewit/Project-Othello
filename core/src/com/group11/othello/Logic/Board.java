@@ -2,17 +2,20 @@ package com.group11.othello.Logic;
 
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Board {
 
     private static int[][] board;
-
+    Random random = new Random();
 
 
     public Board()
     {
         board = new int[9][9];
+
+
     }
 
     public void setChip(int i, int j, int player)

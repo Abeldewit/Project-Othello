@@ -640,105 +640,24 @@ public class GameLogic {
         }
         return  v;
     }
-/*
-    public static boolean checkLegalMove(int x, int y, int player) {
-        Vector2 currentSquare = new Vector2(x,y);
-        //see if the current square is empty so a chip can be placed
-        if(board.getChip(y,x) == 0){
-            //check every square around the current square
-            for(int n = 0; n < 8; n++) {
-                Vector2 direction;
-                switch (n) {
-                    case 0:  direction = new Vector2(-1,0);
-                    break;
-                    case 1:  direction = new Vector2(-1,1);
-                    break;
-                    case 2:  direction = new Vector2(0,1);
-                    break;
-                    case 3:  direction = new Vector2(1,1);
-                    break;
-                    case 4:  direction = new Vector2(1,0);
-                    break;
-                    case 5:  direction = new Vector2(1,-1);
-                    break;
-                    case 6:  direction = new Vector2(0,-1);
-                    break;
-                    case 7:  direction = new Vector2(-1,-1);
-                    break;
-                    default: direction = new Vector2(0,0);
-                    break;
-                }
-
-                //Vector2 newSquare = currentSquare.add(direction);
-                Vector2 newSquare = new Vector2(currentSquare.x + direction.x, currentSquare.y + direction.y);
-                //see if the square we're checking is the other color and not empty
-                if(newSquare.x > 0 || newSquare.x < 8 || newSquare.y > 0 || newSquare.y < 8) {
-                    while (board.getChipVector(newSquare) != player && board.getChipVector(newSquare) != 0) {
-                        //move in the direction we're checking
-                        newSquare = new Vector2(newSquare.x + direction.x,newSquare.y + direction.y);
-                        //out of bounds protection
-                        if (newSquare.x > 8 || newSquare.y > 8) {
-                            return false;
-                        }
-                        //if we encounter a chip with our own color there's a sandwich and it's legal!
-                        if (board.getChipVector(newSquare) == player) {
-                            return true;
-                        }
-                    }
-                }
-
-            }
-        }
-        return false;
-    }
-
-    public static void createLegalField() {
-        for(int x = 0; x < 8; x++) {
-            for(int y = 0; y < 8; y++) {
-                legalMoves[x][y] = checkLegalMove(x, y, turnCnt);
-            }
-        }
-    }
-
-
-
-    public static boolean[][] getLegalMoves() {
-        return legalMoves;
-    }
-
-    public void aiPlace(int player){
-        List<Point> checkList = new ArrayList<Point>();
-        int check = 0;
-        createLegalField();
-        for (int i = 0; i < legalMoves.length; i++){
-            for (int j = 0; j < legalMoves[0].length; j++){
-                if (legalMoves[i][j] == true){
-                    check = checkMoves(i,j,player);
-                    Point point = new Point(i,j,check);
-                    checkList.add(point);
-                }
-            }
-        }
-        Point max= new Point(0,0, 0);
-        for (Point point: checkList){
-            if( max.getValue() < point.getValue()){
-                max = point;
-            }
-        }
-        board.setChip(max.getColumn(), max.getRow(),1);
-    }
-    */
 
     public boolean endGame(int player)
     {
+        int checkK=0;
         for(int i = 0; i < board.getBoard().length-1; i++)
         {
             for(int j = 0; j < board.getBoard().length-1; j++)
             {
-               if(checkMoves(i,j,player) > 0)
-               {
-                   return true;
-               }
+              checkK=checkK+checkMoves(i,j,player);
+              if(board.getBoard()[i][j] == 0)
+              {
+                  if(checkK == 0    )
+                  {
+                      System.out.println("Bib" + checkMoves(i,j,player));
+                      return true;
+                  }
+              }
+
             }
         }
         return false;
