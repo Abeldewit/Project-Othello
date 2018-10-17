@@ -320,7 +320,7 @@ public class GameLogic {
                 for (int i = column + 1; i < 8; i++) {
                     row++;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it to NE");
+                      //  System.out.println("made it to NE");
                        checks++;
 
                     } else {
@@ -362,7 +362,7 @@ public class GameLogic {
                 for (int i = column + 1; i < 8; i++) {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it to NW direction");
+                     //   System.out.println("made it to NW direction");
 
                         if (getTurnStatus() == 1) {
                             board.setChip(i, row, 1);
@@ -404,7 +404,7 @@ public class GameLogic {
                 for (int i = column + 1; i < 8; i++) {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it to NW");
+                      //  System.out.println("made it to NW");
                         checks++;
                     } else {
                         break;
@@ -447,7 +447,7 @@ public class GameLogic {
                 for (int i = column - 1; i > 0; i--) {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it to SW direction");
+                     //   System.out.println("made it to SW direction");
                         if (getTurnStatus() == 1) {
                             board.setChip(i, row, 1);
 
@@ -495,7 +495,7 @@ public class GameLogic {
                 for (int i = column - 1; i > 0; i--) {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it to SW");
+                     //   System.out.println("made it to SW");
                         checks++;
 
                     } else {
@@ -542,7 +542,7 @@ public class GameLogic {
                 for (int i = column - 1; i > 0; i--) {
                     row++;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it to SE direction");
+                       // System.out.println("made it to SE direction");
                         if (getTurnStatus() == 1) {
                             board.setChip(i, row, 1);
 
@@ -598,7 +598,7 @@ public class GameLogic {
                 for (int i = column - 1; i > 0; i--) {
                     row++;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
-                        System.out.println("made it to SE");
+                       // System.out.println("made it to SE");
                         checks++;
 
                     } else {
@@ -740,7 +740,7 @@ public class GameLogic {
         {
             for(int j = 0; j < board.getBoard().length-1; j++)
             {
-               if(checkMoves(i,j,player) <= 0)
+               if(checkMoves(i,j,player) > 0)
                {
                    return true;
                }
