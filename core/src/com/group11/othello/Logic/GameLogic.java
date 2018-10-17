@@ -740,7 +740,7 @@ public class GameLogic {
         {
             for(int j = 0; j < board.getBoard().length-1; j++)
             {
-               if(checkMoves(i,j,player) > 0)
+               if(checkMoves(i,j,player) <= 0)
                {
                    return true;
                }
