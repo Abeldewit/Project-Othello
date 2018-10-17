@@ -22,8 +22,8 @@ public class GameState extends State {
     private Texture WChip,BChip;
     private BitmapFont font;
     private GameLogic gL;
-    private Player1 player1;
-    private Player2 player2;
+    private static Player1 player1;
+    private static Player2 player2;
     private GameStateManager gsm;
 
 
@@ -88,10 +88,16 @@ public class GameState extends State {
 
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
+                                if(player1.getScore() + player2.getScore() == 64) {
+                                    gsm.set(new MenuState(gsm));
+                                }
                                 gL.changeTurn();
                             } else {
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
+                                if(player1.getScore() + player2.getScore() == 64) {
+                                    gsm.set(new MenuState(gsm));
+                                }
                                 gL.changeTurn();
                             }
                         } else {
@@ -189,6 +195,8 @@ public class GameState extends State {
     public GameLogic getgL() {
         return gL;
     }
+
+
 
 
 }
