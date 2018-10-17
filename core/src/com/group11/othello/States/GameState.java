@@ -66,7 +66,8 @@ public class GameState extends State {
                 int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
-              /*  if(gL.endGame(gL.getTurnStatus()) == false)
+
+                if(gL.endGame(gL.getTurnStatus()) == false)
                 {
                     gL.changeTurn();
                     if(gL.endGame(gL.getTurnStatus()) == false)
@@ -74,7 +75,7 @@ public class GameState extends State {
                         gsm.pop();
                     }
                 }
-                */
+
                     if (isTooClose(x, y) == false) {
                         if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
 
