@@ -13,7 +13,7 @@ public class GameLogic {
     final int WHITE = 1;
     final int BLACK = 2;
     final int EMPTY = 0;
-    private static Board board;
+    private  Board board;
     public static boolean[][] legalMoves;
     public static int turnCnt;
 
@@ -645,7 +645,7 @@ public class GameLogic {
         }
         return  v;
     }
-
+/*
     public static boolean checkLegalMove(int x, int y, int player) {
         Vector2 currentSquare = new Vector2(x,y);
         //see if the current square is empty so a chip can be placed
@@ -705,6 +705,8 @@ public class GameLogic {
         }
     }
 
+
+
     public static boolean[][] getLegalMoves() {
         return legalMoves;
     }
@@ -730,5 +732,23 @@ public class GameLogic {
         }
         board.setChip(max.getColumn(), max.getRow(),1);
     }
+    */
+
+    public boolean endGame(int player)
+    {
+        for(int i = 0; i < board.getBoard().length-1; i++)
+        {
+            for(int j = 0; j < board.getBoard().length-1; j++)
+            {
+               if(checkMoves(i,j,player) > 0)
+               {
+                   return true;
+               }
+            }
+        }
+        return false;
+    }
+
+
 }
 

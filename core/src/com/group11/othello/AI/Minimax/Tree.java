@@ -21,7 +21,7 @@ public class Tree {
     public Node getRoot() {
         return root;
     }
-
+/*
     public void createNodes(int[][] board, Node parent) {
         int player = 0;
         //if the Node above was white playing, all the Nodes below will be the turn of black (and vice versa)
@@ -43,6 +43,7 @@ public class Tree {
             }
         }
     }
+    */
 
 
 

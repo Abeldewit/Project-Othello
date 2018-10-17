@@ -66,13 +66,19 @@ public class GameState extends State {
                 int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
-
-
+                if(gL.endGame(gL.getTurnStatus()) == false)
+                {
+                    gL.changeTurn();
+                    if(gL.endGame(gL.getTurnStatus()) == false)
+                    {
+                        gsm.pop();
+                    }
+                }
                     if (isTooClose(x, y) == false) {
-                        if (gL.checkMoves(x,y , gL.getTurnStatus()) > 0 ) {
+                        if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
 
                             gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                          //  gL.getBoard().printBoard();
+                            //  gL.getBoard().printBoard();
                             runAvailable(x, y);
 
 
@@ -86,18 +92,13 @@ public class GameState extends State {
                                 player2.setScore((int) gL.getScore().y);
                                 gL.changeTurn();
                             }
-                        }
-                        else
-                           {
-                                System.out.println("loser");
-                            }
-                    }
+                        } else {
 
-                    else {
+                            System.out.println("loser");
+                        }
+                    } else {
                         System.out.println("Tile Occupied");
                     }
-
-
             }
         }
 
