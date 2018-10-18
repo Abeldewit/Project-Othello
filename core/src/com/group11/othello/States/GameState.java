@@ -57,7 +57,7 @@ public class GameState extends State {
 
             //why ?
             try {
-                TimeUnit.MILLISECONDS.sleep(800);
+                TimeUnit.MILLISECONDS.sleep(400);
             } catch (Exception e) {
                 System.out.println("Error");
             }
