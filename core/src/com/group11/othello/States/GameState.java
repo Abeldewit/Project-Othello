@@ -67,21 +67,22 @@ public class GameState extends State {
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
 
-                if(gL.endGame(gL.getTurnStatus()) == true)
+                if(gL.endGame(gL.getTurnStatus()) == false)
                 {
                     gL.changeTurn();
-                    System.out.println("Bob got turn 1");
-                    if(gL.endGame(gL.getTurnStatus()) == true)
+                    System.out.println("Made it to first end game");
+                    if(gL.endGame(gL.getTurnStatus()) == false)
                     {
-                        System.out.println("Bob got turn 2");
+                        System.out.println("Made it to second end game");
 
                         gsm.pop();
                     }
                     else
                     {
-                        gL.changeTurn();
+                       // gL.changeTurn();
                     }
                 }
+
 
                     if (isTooClose(x, y) == false) {
                         if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
@@ -95,16 +96,20 @@ public class GameState extends State {
 
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
+                               /*
                                 if(player1.getScore() + player2.getScore() == 64) {
+
                                     gsm.set(new MenuState(gsm));
                                 }
+                                */
                                 gL.changeTurn();
                             } else {
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
-                                if(player1.getScore() + player2.getScore() == 64) {
+                               /* if(player1.getScore() + player2.getScore() == 64) {
                                     gsm.set(new MenuState(gsm));
                                 }
+                                */
                                 gL.changeTurn();
                             }
                         } else {
