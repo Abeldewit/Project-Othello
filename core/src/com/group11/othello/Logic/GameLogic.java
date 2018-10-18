@@ -81,7 +81,7 @@ public class GameLogic {
             }
 
         }
-        //System.out.println("rightcheck = " + check);
+      //  System.out.println("rightcheck = " + check);
         return check;
     }
 
@@ -128,7 +128,7 @@ public class GameLogic {
                 }
             }
         }
-        //System.out.println("leftcheck = " + check);
+      //  System.out.println("leftcheck = " + check);
         return check;
     }
 
@@ -179,7 +179,7 @@ public class GameLogic {
             }
 
         }
-       // System.out.println("upcheck = " + check);
+     //   System.out.println("upcheck = " + check);
         return check;
     }
 
@@ -225,7 +225,7 @@ public class GameLogic {
             }
 
         }
-        //System.out.println("downcheck = " + check);
+     //   System.out.println("downcheck = " + check);
         return check;
     }
 
@@ -325,7 +325,7 @@ public class GameLogic {
             }
 
         }
-        //System.out.println("NEcheck = " + checks);
+     //   System.out.println("NEcheck = " + checks);
         return checks;
 
     }
@@ -406,7 +406,7 @@ public class GameLogic {
                 }
             }
         }
-        //System.out.println("NWcheck = " + checks);
+      // System.out.println("NWcheck = " + checks);
         return checks;
     }
 
@@ -497,7 +497,7 @@ public class GameLogic {
                 }
             }
         }
-        //System.out.println("SWcheck = " + checks);
+      //  System.out.println("SWcheck = " + checks);
         return checks;
     }
 
@@ -610,7 +610,7 @@ public class GameLogic {
 
     public int checkMoves(int row, int column, int player) {
         int check = upCheck(column, row, player) + downCheck(column,row,player) + leftCheck(column,row,player) + rightCheck(column,row,player) + northEastCheck(row,column,player) + northWestCheck(row,column,player) +southEastCheck(row,column,player) + southWestCheck(row,column,player);
-        System.out.println("check = " + check);
+      //  System.out.println("checkMoves = " + check);
         return check;
     }
 
@@ -644,23 +644,40 @@ public class GameLogic {
     public boolean endGame(int player)
     {
         int checkK=0;
-        for(int i = 0; i < board.getBoard().length-1; i++)
+        for(int i = 0; i < 8; i++)
         {
-            for(int j = 0; j < board.getBoard().length-1; j++)
+            for(int j = 0; j < 8; j++)
             {
-              checkK=checkK+checkMoves(i,j,player);
+
               if(board.getBoard()[i][j] == 0)
               {
-                  if(checkK == 0)
+                   checkK = checkMoves(i,j,player);
+
+                  if(checkK > 0)
                   {
-                      System.out.println("Bib" + checkMoves(i,j,player));
+                      System.out.println("checkK + " + checkK);
                       return true;
                   }
               }
 
             }
         }
+        System.out.println("checkK + " + checkK);
+
         return false;
+    }
+
+    public int getBlankSpaces()
+    {
+        int count = 0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+
+                count++;
+            }
+
+        }
+        return count;
     }
 
 
