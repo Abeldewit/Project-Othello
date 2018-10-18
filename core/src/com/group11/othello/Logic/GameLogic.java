@@ -231,7 +231,7 @@ public class GameLogic {
 
     public void northEastDirection(int row, int column, int player) {
         boolean check = false;
-        if (row <8  && column < 8 ) {
+        if (row <7  && column < 7 ) {
             if(board.getBoard()[column +1][row+1] != 0 && board.getBoard()[column+1][row+1] != player)
             {
 
@@ -284,7 +284,7 @@ public class GameLogic {
     public int northEastCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row <8  && column < 8 ) {
+        if (row <7  && column < 7 ) {
             if(board.getBoard()[column +1][row+1] != 0 && board.getBoard()[column+1][row+1] != player)
             {
 
@@ -332,7 +332,7 @@ public class GameLogic {
 
     public void northWestDirection(int row, int column, int player) {
         boolean check = false;
-        if (row > 0 && column < 8) {
+        if (row > 1 && column < 7) {
             if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
                 int newRow = row - 1;
                 for (int i = column + 1; i < 8; i++) {
@@ -374,7 +374,7 @@ public class GameLogic {
     public int northWestCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row > 0 && column < 8) {
+        if (row > 1 && column < 7) {
             if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
                 int newRow = row - 1;
                 for (int i = column + 1; i < 8; i++) {
@@ -412,7 +412,7 @@ public class GameLogic {
 
     public void southWestDirection(int row, int column, int player) {
         boolean check = false;
-        if (row > 0  && column > 0 ) {
+        if (row > 1  && column > 1 ) {
 
             if(board.getBoard()[column -1][row-1] != 0 && board.getBoard()[column-1][row-1] != player)
             {
@@ -460,7 +460,7 @@ public class GameLogic {
     public int southWestCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row > 0  && column > 0 ) {
+        if (row > 1  && column > 1 ) {
 
             if(board.getBoard()[column -1][row-1] != 0 && board.getBoard()[column-1][row-1] != player)
             {
@@ -504,7 +504,7 @@ public class GameLogic {
 
     public void southEastDirection(int row, int column, int player) {
         boolean check = false;
-        if (row < 8  && column > 0 ) {
+        if (row < 7  && column > 1 ) {
 
             if(board.getBoard()[column -1][row+1] != 0 && board.getBoard()[column-1][row+1] != player)
             {
@@ -560,7 +560,7 @@ public class GameLogic {
     public int southEastCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row < 8  && column > 0 ) {
+        if (row < 7  && column > 1 ) {
 
             if(board.getBoard()[column -1][row+1] != 0 && board.getBoard()[column-1][row+1] != player)
             {
@@ -649,35 +649,54 @@ public class GameLogic {
             for(int j = 0; j < 8; j++)
             {
 
-              if(board.getBoard()[i][j] == 0)
+              if(board.getBoard()[i][j] == 0 && board.getBoard()[i][j] != player )
               {
-                   checkK = checkMoves(i,j,player);
+                   checkK = checkMoves(j,i,player);
+
 
                   if(checkK > 0)
                   {
+
+                      System.out.println("blanks = " + getBlankSpaces());
+                      System.out.println("playerInIndex = " + board.getBoard()[i][j]);
+                      System.out.println("i = " + i);
+                      System.out.println("j = " + j);
                       System.out.println("checkK + " + checkK);
+                      System.out.println("player = " + player);
                       return true;
                   }
               }
 
             }
         }
+
         System.out.println("checkK + " + checkK);
+        System.out.println("player = " + player);
 
         return false;
     }
 
-    public int getBlankSpaces()
+    public Vector3 getBlankSpaces()
     {
-        int count = 0;
+        Vector3 v = new Vector3();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+              if( board.getBoard()[i][j] == 0)
+              {
+                  v.add(1,0,0);
+              }
 
-                count++;
+              if(v.x == 1)
+              {
+                  v.add(0,i,j);
+                  return v;
+              }
             }
 
         }
-        return count;
+
+
+        return v;
     }
 
 

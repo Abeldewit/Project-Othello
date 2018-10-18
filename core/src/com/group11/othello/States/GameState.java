@@ -38,7 +38,7 @@ public class GameState extends State {
         BChip = new Texture("BChip.png");
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table.png");
-        scoreTable = new Texture("ScoreTable.png");
+        scoreTable = new Texture("Score.png");
         font = new BitmapFont();
         this.gsm=gsm;
     }
@@ -74,13 +74,18 @@ public class GameState extends State {
                     if(gL.endGame(gL.getTurnStatus()) == false)
                     {
                         System.out.println("Made it to second end game");
+                        if(player1.getScore() > player2.getScore())
+                        {
+                            gsm.set(new EndState(gsm,1,player1.getScore()));
+                        }
+                        else
+                            {
+                                gsm.set(new EndState(gsm,2,player2.getScore()));
+                            }
 
-                        gsm.pop();
+
                     }
-                    else
-                    {
-                       // gL.changeTurn();
-                    }
+
                 }
 
 
@@ -96,20 +101,12 @@ public class GameState extends State {
 
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
-                               /*
-                                if(player1.getScore() + player2.getScore() == 64) {
 
-                                    gsm.set(new MenuState(gsm));
-                                }
-                                */
                                 gL.changeTurn();
                             } else {
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
-                               /* if(player1.getScore() + player2.getScore() == 64) {
-                                    gsm.set(new MenuState(gsm));
-                                }
-                                */
+
                                 gL.changeTurn();
                             }
                         } else {
@@ -157,6 +154,14 @@ public class GameState extends State {
         sb.draw(menuButton,580,830,200,40);
         font.draw(sb,String.valueOf(player1.getScore()), 80, 843);
         font.draw(sb,String.valueOf(player2.getScore()), 175, 843);
+        if(gL.getTurnStatus() == 1)
+        {
+            sb.draw(WChip,412,815,30,30);
+        }
+        else
+            {
+                sb.draw(BChip,412,815,30,30);
+            }
 
             for(int i = 0; i < gL.getBoard().getBoard().length-1; i++)
             {
