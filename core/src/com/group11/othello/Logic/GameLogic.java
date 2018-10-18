@@ -81,7 +81,7 @@ public class GameLogic {
             }
 
         }
-        System.out.println("rightcheck = " + check);
+        //System.out.println("rightcheck = " + check);
         return check;
     }
 
@@ -128,7 +128,7 @@ public class GameLogic {
                 }
             }
         }
-        System.out.println("leftcheck = " + check);
+        //System.out.println("leftcheck = " + check);
         return check;
     }
 
@@ -179,7 +179,7 @@ public class GameLogic {
             }
 
         }
-        System.out.println("upcheck = " + check);
+       // System.out.println("upcheck = " + check);
         return check;
     }
 
@@ -225,7 +225,7 @@ public class GameLogic {
             }
 
         }
-        System.out.println("downcheck = " + check);
+        //System.out.println("downcheck = " + check);
         return check;
     }
 
@@ -325,7 +325,7 @@ public class GameLogic {
             }
 
         }
-        System.out.println("NEcheck = " + checks);
+        //System.out.println("NEcheck = " + checks);
         return checks;
 
     }
@@ -406,7 +406,7 @@ public class GameLogic {
                 }
             }
         }
-        System.out.println("NWcheck = " + checks);
+        //System.out.println("NWcheck = " + checks);
         return checks;
     }
 
@@ -497,7 +497,7 @@ public class GameLogic {
                 }
             }
         }
-        System.out.println("SWcheck = " + checks);
+        //System.out.println("SWcheck = " + checks);
         return checks;
     }
 
@@ -603,7 +603,7 @@ public class GameLogic {
             }
 
         }
-        System.out.println("SEcheck = " + checks);
+        //System.out.println("SEcheck = " + checks);
         return checks;
 
     }
@@ -651,7 +651,7 @@ public class GameLogic {
               checkK=checkK+checkMoves(i,j,player);
               if(board.getBoard()[i][j] == 0)
               {
-                  if(checkK == 0    )
+                  if(checkK == 0)
                   {
                       System.out.println("Bib" + checkMoves(i,j,player));
                       return true;
