@@ -96,19 +96,11 @@ public class GameState extends State {
                             //  gL.getBoard().printBoard();
                             runAvailable(x, y);
 
-
-                            if (gL.getTurnStatus() == 1) {
-
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
 
                                 gL.changeTurn();
-                            } else {
-                                player1.setScore((int) gL.getScore().x);
-                                player2.setScore((int) gL.getScore().y);
 
-                                gL.changeTurn();
-                            }
                         } else {
 
                             System.out.println("loser");
