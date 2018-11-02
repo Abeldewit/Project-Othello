@@ -13,7 +13,7 @@ public class GameLogic {
     final int WHITE = 1;
     final int BLACK = 2;
     final int EMPTY = 0;
-    private  Board board;
+    private Board board;
     public static boolean[][] legalMoves;
     public static int turnCnt;
 
@@ -675,6 +675,7 @@ public class GameLogic {
 
         return false;
     }
+
 
     public Vector3 getBlankSpaces()
     {

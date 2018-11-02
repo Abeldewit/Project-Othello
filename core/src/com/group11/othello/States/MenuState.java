@@ -5,6 +5,8 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.group11.othello.AI.AI;
+import com.group11.othello.AI.Greedy.Greedy;
+import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.States.GameState;
 import com.group11.othello.Game.Othello;
 import java.util.concurrent.TimeUnit;
@@ -93,7 +95,7 @@ public class MenuState extends State {
             catch (Exception e){
                 System.out.println("Error");
             }
-            gsm.push(new AIvsHuman(gsm, new AI()));
+            gsm.push(new AIvsHuman(gsm, new Greedy(new GameLogic())));
         }
 
         if(Gdx.input.getX() >=50 && Gdx.input.getX()<=350 && Gdx.input.getY() >= 200 && Gdx.input.getY() <= 300 && number == 1 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))

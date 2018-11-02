@@ -67,6 +67,7 @@ public class AIvsHuman extends GameState {
                 if (gL.endGame(gL.getTurnStatus()) == true) {
                     gL.changeTurn();
                     System.out.println("third check");
+                    ai.setLogic(gL);
                     int x = (int) ai.tileSelected().x;
                     int y = (int) ai.tileSelected().y;
                     System.out.println("x = " + x);
