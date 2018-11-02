@@ -1,5 +1,7 @@
 package com.group11.othello.States;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.group11.othello.Logic.Player;
@@ -32,12 +34,15 @@ public class EndState extends State {
 
     @Override
     public void handleInput() {
-
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        {
+            getGsm().set(new MenuState(getGsm()));
+        }
     }
 
     @Override
     public void update(float dt) {
-
+        handleInput();
     }
 
     @Override

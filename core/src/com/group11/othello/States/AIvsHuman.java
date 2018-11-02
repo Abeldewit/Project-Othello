@@ -48,6 +48,18 @@ public class AIvsHuman extends GameState {
             } catch (Exception e) {
                 System.out.println("Error");
             }
+            if(gL.endGame(gL.getTurnStatus()) == false) {
+                gL.changeTurn();
+                System.out.println("Made it to first end game player2");
+                if (gL.endGame(gL.getTurnStatus()) == false) {
+                    System.out.println("Made it to second end game player2");
+                    if (player1.getScore() > ai.getScore()) {
+                        gsm.set(new EndState(gsm, 1, player1.getScore()));
+                    } else {
+                        gsm.set(new EndState(gsm, 2, ai.getScore()));
+                    }
+                }
+            }
             System.out.println("first check");
             if (gL.endGame(gL.getTurnStatus()) == true) {
                 gL.changeTurn();
