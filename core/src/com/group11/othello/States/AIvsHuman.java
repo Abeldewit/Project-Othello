@@ -43,19 +43,24 @@ public class AIvsHuman extends GameState {
     public void handleInput()
     {
         if(gL.getTurnStatus() == 2) {
-            if (gL.endGame(gL.getTurnStatus()) == false) {
+            try {
+                TimeUnit.MILLISECONDS.sleep(900);
+            } catch (Exception e) {
+                System.out.println("Error");
+            }
+            System.out.println("first check");
+            if (gL.endGame(gL.getTurnStatus()) == true) {
                 gL.changeTurn();
-                if (gL.endGame(gL.getTurnStatus()) == false) {
+                System.out.println("second check");
+                if (gL.endGame(gL.getTurnStatus()) == true) {
                     gL.changeTurn();
+                    System.out.println("third check");
                     int x = (int) ai.tileSelected().x;
                     int y = (int) ai.tileSelected().y;
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(900);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    System.out.println("x = " + x);
+                    System.out.println("y = " + y);
 
-                    if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
+                    if (gL.checkMoves(x, y, gL.getTurnStatus()) >= 0) {
 
                         gL.getBoard().setChip(y, x, gL.getTurnStatus());
                         runAvailable(x, y);
