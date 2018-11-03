@@ -27,25 +27,26 @@ public class Greedy extends AI {
     @Override
     public Vector2 tileSelected() {
 
-        int checkK = 0;
+        int check = 0;
+        int newCheck = 0;
+        Vector2 v = new Vector2();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
                 if (gL.getBoard().getBoard()[i][j] == 0 && gL.getBoard().getBoard()[i][j] != 2) {
-                    checkK = gL.checkMoves(j, i, 2);
+                    newCheck = gL.checkMoves(j, i, 2);
 
 
-                    if (checkK > 0) {
-                        Vector2 v = new Vector2(j, i);
-
-                        return v;
+                    if (newCheck > check) {
+                        v = new Vector2(j, i);
+                        check = newCheck;
                     }
                 }
 
             }
         }
 
-        return new Vector2();
+        return v;
 
     }
     @Override
