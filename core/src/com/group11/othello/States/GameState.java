@@ -124,7 +124,7 @@ public class GameState extends State {
         {
             WChip.dispose();
             BChip.dispose();
-            gsm.pop();
+            gsm.set(new MenuState(gsm));
         }
     }
 

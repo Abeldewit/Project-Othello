@@ -177,7 +177,7 @@ public class AIvsHuman extends GameState {
         {
             WChip.dispose();
             BChip.dispose();
-            gsm.pop();
+            gsm.set(new MenuState(gsm));
         }
     }
 

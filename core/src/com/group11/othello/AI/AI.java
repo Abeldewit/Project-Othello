@@ -5,7 +5,7 @@ import com.group11.othello.Logic.GameLogic;
 
 public class AI {
 
-    private int points = 0;
+    private int points = 2;
 
     public Vector2 tileSelected(){return new Vector2();}
 
