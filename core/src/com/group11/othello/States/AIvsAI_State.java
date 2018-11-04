@@ -5,18 +5,16 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.math.Vector2;
+import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.Game.Othello;
 import com.group11.othello.Logic.GameLogic;
-import com.group11.othello.Logic.Player;
 import com.group11.othello.Logic.Player1;
 import com.group11.othello.Logic.Player2;
 
 import java.util.concurrent.TimeUnit;
-import java.util.ArrayList;
-import java.util.Stack;
 
-public class GameState extends State {
+public class AIvsAI_State extends State {
 
     private Texture othelloBoard,scoreTable,menuButton;
     private Texture WChip,BChip;
@@ -25,12 +23,13 @@ public class GameState extends State {
     private static Player1 player1;
     private static Player2 player2;
     private GameStateManager gsm;
+    private MinMax minMax;
 
-
-    public GameState(GameStateManager gsm)
+    public AIvsAI_State(GameStateManager gsm)
     {
 
         super(gsm);
+        minMax = new MinMax();
         player1 = new Player1();
         player2 = new Player2();
         gL = new GameLogic();
@@ -43,7 +42,7 @@ public class GameState extends State {
         this.gsm=gsm;
     }
 
-    public GameState(GameStateManager gsm, Player1 player1, Player2 player2)
+    public AIvsAI_State(GameStateManager gsm, Player1 player1, Player2 player2)
     {
         super(gsm);
         gL = new GameLogic();
@@ -67,6 +66,14 @@ public class GameState extends State {
                 System.out.println("x = " + x);
                 System.out.println("y = " + y);
 
+
+                Vector2 aiMove = minMax.nextMove(gL);
+                x = (int)aiMove.x;
+                y = (int)aiMove.y;
+
+//                gL.getBoard().setChip(0,0, gL.getTurnStatus()); //ERASE THIS LATER
+                System.out.println("AI MOVE:");
+                System.out.println(aiMove);
                 if(gL.endGame(gL.getTurnStatus()) == false)
                 {
                     gL.changeTurn();
@@ -197,7 +204,7 @@ public class GameState extends State {
         gL.southEastDirection(x,y, gL.getTurnStatus());
     }
 
-    public GameState getGame() {
+    public AIvsAI_State getGame() {
         return this;
     }
 

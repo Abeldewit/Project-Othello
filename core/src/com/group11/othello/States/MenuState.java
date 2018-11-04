@@ -63,6 +63,7 @@ public class MenuState extends State {
                 System.out.println("Error");
             }
             gsm.push(new GameState(gsm));
+//            gsm.push(new AIvsAI_State(gsm));
         }
 
         if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 720 && Gdx.input.getY() <= 820 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))

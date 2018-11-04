@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class Board {
 
-    private static int[][] board;
+    private int[][] board;
     Random random;
 
 
@@ -15,6 +15,9 @@ public class Board {
     {
         board = new int[9][9];
 
+    }
+    public Board(int[][] board){
+        this.board = board;
     }
 
     public void setChip(int i, int j, int player)
@@ -36,7 +39,7 @@ public class Board {
         return chip;
     }
 
-    public static int[][] getBoard()
+    public int[][] getBoard()
     {
         return board;
     }
@@ -52,6 +55,15 @@ public class Board {
         }
     }
 
+    public Board copy(){
+        int[][] newBoard = new int[board.length][board[0].length];
+        for(int i=0; i<board.length; i++){
+            for(int j=0; j<board[0].length; j++){
+                newBoard[i][j]=board[i][j];
+            }
+        }
+        return new Board(newBoard);
+    }
 
 
 
