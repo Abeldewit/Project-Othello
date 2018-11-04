@@ -710,7 +710,7 @@ public class GameLogic {
         List<Vector2> moves = new ArrayList<Vector2>();
         for(int i=0; i<board.getBoard().length; i++){
             for(int j=0; j<board.getBoard()[0].length; j++){
-                if (checkMoves(i, j, getTurnStatus()) > 0) {
+                if (board.getBoard()[j][i] == 0 && checkMoves(i,j, getTurnStatus()) > 0  ) {
                     moves.add(new Vector2(i,j));
                 }
             }

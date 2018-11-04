@@ -175,8 +175,9 @@ public class GameState extends State {
     }
 
 
-    public boolean isTooClose(int x,int y)
+    public boolean isTooClose(int x,int y)//your mama is too close to my d
     {
+
         if(gL.getBoard().getBoard()[y][x] != 0)
         {
             return true;

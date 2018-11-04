@@ -52,6 +52,7 @@ public class AIvsAI_State extends State {
     @Override
     public void handleInput()
     {
+
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
 
             //why ?

@@ -63,7 +63,7 @@ public class MenuState extends State {
                 System.out.println("Error");
             }
             gsm.push(new GameState(gsm));
-//            gsm.push(new AIvsAI_State(gsm));
+
         }
 
         if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 720 && Gdx.input.getY() <= 820 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
@@ -105,8 +105,8 @@ public class MenuState extends State {
                 TimeUnit.MILLISECONDS.sleep(200);}
             catch (Exception e){
                 System.out.println("Error");
-            }
-            gsm.push(new AIvsHuman(gsm, new AI()));
+            }// MinMax by lilly AIvsAI simulation
+                        gsm.push(new AIvsAI_State(gsm));
         }
 
         if(Gdx.input.getX() >=50 && Gdx.input.getX()<=350 && Gdx.input.getY() >= 320 && Gdx.input.getY() <= 420 && number == 1 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
