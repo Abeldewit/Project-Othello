@@ -15,7 +15,8 @@ public class GameLogic {
     final int EMPTY = 0;
     private Board board;
     public static boolean[][] legalMoves;
-    public static int turnCnt;
+    private int turnCnt; // public static int turnCnt;
+
 
 
     public GameLogic() {
@@ -28,6 +29,10 @@ public class GameLogic {
         board.setChip(4, 4, WHITE);
     }
 
+    public GameLogic(Board board, int turnCount){
+        this.board = board;
+        this.turnCnt = turnCount;
+    }
     public void changeTurn() {
 
         if (turnCnt == 1) {
@@ -610,7 +615,7 @@ public class GameLogic {
 
     public int checkMoves(int row, int column, int player) {
         int check = upCheck(column, row, player) + downCheck(column,row,player) + leftCheck(column,row,player) + rightCheck(column,row,player) + northEastCheck(row,column,player) + northWestCheck(row,column,player) +southEastCheck(row,column,player) + southWestCheck(row,column,player);
-      //  System.out.println("checkMoves = " + check);
+//        System.out.println("checkMoves = " + check);
         return check;
     }
 
@@ -620,6 +625,7 @@ public class GameLogic {
         return board;
     }
 
+    //use vector2 instead of 3
     public Vector3 getScore()
     {
         Vector3 v = new Vector3();
@@ -676,7 +682,7 @@ public class GameLogic {
         return false;
     }
 
-
+//??
     public Vector3 getBlankSpaces()
     {
         Vector3 v = new Vector3();
@@ -687,7 +693,7 @@ public class GameLogic {
                   v.add(1,0,0);
               }
 
-              if(v.x == 1)
+              if(v.x == 1)//NO SENSE
               {
                   v.add(0,i,j);
                   return v;
@@ -699,7 +705,29 @@ public class GameLogic {
 
         return v;
     }
+    //lilly:)
+    public List<Vector2> getValidMoves(){
+        List<Vector2> moves = new ArrayList<Vector2>();
+        for(int i=0; i<board.getBoard().length; i++){
+            for(int j=0; j<board.getBoard()[0].length; j++){
+                if (board.getBoard()[j][i] == 0 && checkMoves(i,j, getTurnStatus()) > 0  ) {
+                    moves.add(new Vector2(i,j));
+                }
+            }
+        }
 
+        return moves;
+    }
+
+    public boolean gameOver(){
+
+        if(getScore().x+getScore().y == 64) return true;
+        return false;
+    }
+
+    public GameLogic copy(){
+        return new GameLogic(board.copy(), turnCnt);
+    }
 
 }
 
