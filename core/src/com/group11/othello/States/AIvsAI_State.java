@@ -36,7 +36,7 @@ public class AIvsAI_State extends State {
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
         menuButton = new Texture("MenuButtonUp.png");
-        othelloBoard = new Texture("Table.png");
+        othelloBoard = new Texture("Table2.png");
         scoreTable = new Texture("Score.png");
         font = new BitmapFont();
         this.gsm=gsm;
@@ -108,7 +108,8 @@ public class AIvsAI_State extends State {
                                 player2.setScore((int) gL.getScore().y);
 
                                 gL.changeTurn();
-
+                            System.out.println("Board After Move below this text");
+                            gL.getBoard().printBoard();
                         } else {
 
                             System.out.println("loser");

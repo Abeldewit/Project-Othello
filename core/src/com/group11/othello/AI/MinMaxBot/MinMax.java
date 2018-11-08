@@ -32,13 +32,15 @@ public class MinMax {
             runAvailable(glCopy,(int) move.x, (int) move.y);
             glCopy.changeTurn();
             int score = MinMaxBot(glCopy, maxDepth, 0);
-            System.out.println(score);
+//            System.out.println(score);
             if (maxScore < score) {
                 maxScore = score;
                 indexMaxScore = i;
             }
         }
         System.out.println("MOVE I : " + indexMaxScore);
+        System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
+        gl.getBoard().printBoard();
         return moves.get(indexMaxScore);
 
     }
