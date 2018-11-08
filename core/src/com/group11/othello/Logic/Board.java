@@ -12,7 +12,7 @@ public class Board {
 
 
     public Board()
-    {
+    {   //Representation of board 8x8 of othello
         board = new int[9][9];
 
     }
@@ -43,10 +43,21 @@ public class Board {
     {
         return board;
     }
-
+//This was the previous print board method, change to the one below that maches the ui board
+//    public void printBoardOLD()
+//    {
+//        for (int i = 0; i < 8; i++) {
+//            for (int j = 0; j < 8; j++) {
+//
+//                System.out.print(getChip(i, j));
+//            }
+//            System.out.println();
+//        }
+//    }
+    //print board machine the orientation of the ui
     public void printBoard()
     {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 7; i >= 0; i--) {
             for (int j = 0; j < 8; j++) {
 
                 System.out.print(getChip(i, j));
