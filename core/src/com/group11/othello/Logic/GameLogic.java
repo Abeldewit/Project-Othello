@@ -104,7 +104,8 @@ public class GameLogic {
                 }
             }
         }
-        return count;
+        if(count>0) System.out.println("total count" + count);
+                return count;
     }
     private int checkDirection(int row, int column, int i, int j,int player){
         int count = 0;
@@ -112,24 +113,57 @@ public class GameLogic {
 
         while(row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
                 board.getBoard()[row+i][column+j] != 0 && board.getBoard()[row+i][column+j] != player ){
-//            if( lastChip == player)
-//                return count;
-//            else if(lastChip != player)return 0;
             count++;
-//            System.out.println("Coord: "+ (int)(row+i)+ " "+(int)(column+j));
-//            System.out.println("Count "+count);
-
             row+=i;
             column+=j;
 
         }
         if (row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
-                board.getBoard()[row+i][column+j]==player){
+                count>0 && board.getBoard()[row+i][column+j]==player){
+
             System.out.println("count of direction "+i+" "+j+" "+ count);
             return count;
         }
 
         return 0;
+    }
+    private void flipDirection(int row, int column, int i, int j, int player){
+        boolean flips = false;
+        int count =0;
+        while(row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
+                board.getBoard()[row+i][column+j] != 0 && board.getBoard()[row+i][column+j] != player ){
+            flips = true;
+            count++;
+            row+=i;
+            column+=j;
+
+
+        }
+        if (row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
+               count>0 && board.getBoard()[row+i][column+j]==player && flips){
+            System.out.println("yes");
+                for(int k =0; k<count; k++){
+                    if (player == 2) {
+                        board.setChip(column, row, 2);
+                        System.out.println("FLIP!");
+                    } else if (player == 1) {
+                        board.setChip(column, row, 1);
+                        System.out.println("FLIP!");
+                    }
+                    row-=i;
+                    column-=j;
+                }
+        }
+
+    }
+    public void flipAvailable(int row, int column, int player){
+        for (int i = -1; i< 2 ; i++){
+            for(int j = -1; j<2; j++){
+                if (i != 0 || j != 0){
+                   flipDirection(row,column,i,j,player);
+                }
+            }
+        }
     }
     public void leftDirection(int column, int row, int player) {
 
@@ -699,18 +733,18 @@ public class GameLogic {
 
               if(board.getBoard()[i][j] == 0 && board.getBoard()[i][j] != player )
               {
-                   checkK = checkMoves(j,i,player);
+                   checkK = checkMoves(i,j,player);
 
 
                   if(checkK > 0)
                   {
 
-                      System.out.println("blanks = " + getBlankSpaces());
-                      System.out.println("playerInIndex = " + board.getBoard()[i][j]);
-                      System.out.println("i = " + i);
-                      System.out.println("j = " + j);
-                      System.out.println("checkK + " + checkK);
-                      System.out.println("player = " + player);
+//                      System.out.println("blanks = " + getBlankSpaces());
+//                      System.out.println("playerInIndex = " + board.getBoard()[i][j]);
+//                      System.out.println("i = " + i);
+//                      System.out.println("j = " + j);
+//                      System.out.println("checkK + " + checkK);
+//                      System.out.println("player = " + player);
                       return true;
                   }
               }
