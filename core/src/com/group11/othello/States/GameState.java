@@ -90,7 +90,7 @@ public class GameState extends State {
 
         //check if it's valid move
                     if (isTooClose(x, y) == false) {
-                        if (gL.checkMoves(y, x, gL.getTurnStatus()) > 0) {
+                        if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
 
                             gL.getBoard().setChip(y, x, gL.getTurnStatus());
                             //  gL.getBoard().printBoard();
