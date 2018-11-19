@@ -16,7 +16,7 @@ public class Board {
         board = new int[9][9];
         random = new Random();
 
-        for (int i = 0; i < 7; i++) {
+       /* for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 7; j++) {
 
                 if(random.nextInt(3) < 2)
@@ -31,7 +31,7 @@ public class Board {
 
             }
 
-        }
+        }*/
 
 
 
