@@ -1,5 +1,6 @@
 package com.group11.othello.Logic;
 
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -13,9 +14,10 @@ public class GameLogic {
     final int WHITE = 1;
     final int BLACK = 2;
     final int EMPTY = 0;
-    private  Board board;
+    private Board board;
     public static boolean[][] legalMoves;
-    public static int turnCnt;
+    private int turnCnt; // public static int turnCnt;
+
 
 
     public GameLogic() {
@@ -28,6 +30,10 @@ public class GameLogic {
         board.setChip(4, 4, WHITE);
     }
 
+    public GameLogic(Board board, int turnCount){
+        this.board = board;
+        this.turnCnt = turnCount;
+    }
     public void changeTurn() {
 
         if (turnCnt == 1) {
@@ -41,6 +47,8 @@ public class GameLogic {
 
         return turnCnt;
     }
+
+
 
     public void rightDirection(int column, int row, int player) {
         if (column < 6) {
@@ -85,6 +93,44 @@ public class GameLogic {
         return check;
     }
 
+    public int correctCheck(int row, int column, int player){
+        int count  = 0;
+        if(board.getBoard()[row][column] != 0)
+            return 0;
+        for (int i = -1; i< 2 ; i++){
+            for(int j = -1; j<2; j++){
+                if (i != 0 || j != 0){
+                    count += checkDirection(row,column,i,j,player);
+                }
+            }
+        }
+        return count;
+    }
+    private int checkDirection(int row, int column, int i, int j,int player){
+        int count = 0;
+        int length = 8;
+
+        while(row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
+                board.getBoard()[row+i][column+j] != 0 && board.getBoard()[row+i][column+j] != player ){
+//            if( lastChip == player)
+//                return count;
+//            else if(lastChip != player)return 0;
+            count++;
+//            System.out.println("Coord: "+ (int)(row+i)+ " "+(int)(column+j));
+//            System.out.println("Count "+count);
+
+            row+=i;
+            column+=j;
+
+        }
+        if (row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
+                board.getBoard()[row+i][column+j]==player){
+            System.out.println("count of direction "+i+" "+j+" "+ count);
+            return count;
+        }
+
+        return 0;
+    }
     public void leftDirection(int column, int row, int player) {
 
         if (column > 1) {
@@ -231,7 +277,7 @@ public class GameLogic {
 
     public void northEastDirection(int row, int column, int player) {
         boolean check = false;
-        if (row <8  && column < 8 ) {
+        if (row <7  && column < 7 ) {
             if(board.getBoard()[column +1][row+1] != 0 && board.getBoard()[column+1][row+1] != player)
             {
 
@@ -284,7 +330,7 @@ public class GameLogic {
     public int northEastCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row <8  && column < 8 ) {
+        if (row <7  && column < 7 ) {
             if(board.getBoard()[column +1][row+1] != 0 && board.getBoard()[column+1][row+1] != player)
             {
 
@@ -332,7 +378,7 @@ public class GameLogic {
 
     public void northWestDirection(int row, int column, int player) {
         boolean check = false;
-        if (row > 0 && column < 8) {
+        if (row > 1 && column < 7) {
             if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
                 int newRow = row - 1;
                 for (int i = column + 1; i < 8; i++) {
@@ -374,7 +420,7 @@ public class GameLogic {
     public int northWestCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row > 0 && column < 8) {
+        if (row > 1 && column < 7) {
             if (board.getBoard()[column + 1][row - 1] != 0 && board.getBoard()[column + 1][row - 1] != player) {
                 int newRow = row - 1;
                 for (int i = column + 1; i < 8; i++) {
@@ -412,7 +458,7 @@ public class GameLogic {
 
     public void southWestDirection(int row, int column, int player) {
         boolean check = false;
-        if (row > 0  && column > 0 ) {
+        if (row > 1  && column > 1 ) {
 
             if(board.getBoard()[column -1][row-1] != 0 && board.getBoard()[column-1][row-1] != player)
             {
@@ -460,7 +506,7 @@ public class GameLogic {
     public int southWestCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row > 0  && column > 0 ) {
+        if (row > 1  && column > 1 ) {
 
             if(board.getBoard()[column -1][row-1] != 0 && board.getBoard()[column-1][row-1] != player)
             {
@@ -504,7 +550,7 @@ public class GameLogic {
 
     public void southEastDirection(int row, int column, int player) {
         boolean check = false;
-        if (row < 8  && column > 0 ) {
+        if (row < 7  && column > 1 ) {
 
             if(board.getBoard()[column -1][row+1] != 0 && board.getBoard()[column-1][row+1] != player)
             {
@@ -560,7 +606,7 @@ public class GameLogic {
     public int southEastCheck(int row, int column, int player) {
         boolean check = false;
         int checks = 0;
-        if (row < 8  && column > 0 ) {
+        if (row < 7  && column > 1 ) {
 
             if(board.getBoard()[column -1][row+1] != 0 && board.getBoard()[column-1][row+1] != player)
             {
@@ -610,7 +656,8 @@ public class GameLogic {
 
     public int checkMoves(int row, int column, int player) {
         int check = upCheck(column, row, player) + downCheck(column,row,player) + leftCheck(column,row,player) + rightCheck(column,row,player) + northEastCheck(row,column,player) + northWestCheck(row,column,player) +southEastCheck(row,column,player) + southWestCheck(row,column,player);
-      //  System.out.println("checkMoves = " + check);
+//        System.out.println("checkMoves = " + check);
+//        int check =correctCheck(row,column,player);
         return check;
     }
 
@@ -620,6 +667,7 @@ public class GameLogic {
         return board;
     }
 
+    //use vector2 instead of 3
     public Vector3 getScore()
     {
         Vector3 v = new Vector3();
@@ -649,37 +697,82 @@ public class GameLogic {
             for(int j = 0; j < 8; j++)
             {
 
-              if(board.getBoard()[i][j] == 0)
+              if(board.getBoard()[i][j] == 0 && board.getBoard()[i][j] != player )
               {
-                   checkK = checkMoves(i,j,player);
+                   checkK = checkMoves(j,i,player);
+
 
                   if(checkK > 0)
                   {
+
+                      System.out.println("blanks = " + getBlankSpaces());
+                      System.out.println("playerInIndex = " + board.getBoard()[i][j]);
+                      System.out.println("i = " + i);
+                      System.out.println("j = " + j);
                       System.out.println("checkK + " + checkK);
+                      System.out.println("player = " + player);
                       return true;
                   }
               }
 
             }
         }
+
         System.out.println("checkK + " + checkK);
+        System.out.println("player = " + player);
 
         return false;
     }
 
-    public int getBlankSpaces()
+//??
+    public Vector3 getBlankSpaces()
     {
-        int count = 0;
+        Vector3 v = new Vector3();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+              if( board.getBoard()[i][j] == 0)
+              {
+                  v.add(1,0,0);
+              }
 
-                count++;
+              if(v.x == 1)//NO SENSE
+              {
+                  v.add(0,i,j);
+                  return v;
+              }
             }
 
         }
-        return count;
+
+
+        return v;
+    }
+    //lilly
+    public List<Vector2> getValidMoves(){
+        List<Vector2> moves = new ArrayList<Vector2>();
+        System.out.println("SIZE OF BOARD");
+        System.out.println(board.getBoard().length);
+        System.out.println(board.getBoard()[0].length);
+        for(int i=0; i<8; i++){
+            for(int j=0; j<8; j++){
+                if (board.getBoard()[j][i] == 0 && checkMoves(i,j, getTurnStatus()) > 0  ) {
+                    moves.add(new Vector2(i,j));
+                }
+            }
+        }
+
+        return moves;
     }
 
+    public boolean gameOver(){
+
+        if(getScore().x+getScore().y == 64) return true;
+        return false;
+    }
+
+    public GameLogic copy(){
+        return new GameLogic(board.copy(), turnCnt);
+    }
 
 }
 

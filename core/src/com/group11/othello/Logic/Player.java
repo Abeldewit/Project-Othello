@@ -1,5 +1,6 @@
 package com.group11.othello.Logic;
 
+//todo: FIX BAD USE OF ABSTRACT CLASSES IN PLAYER
 public abstract class Player {
 
     private int score;
