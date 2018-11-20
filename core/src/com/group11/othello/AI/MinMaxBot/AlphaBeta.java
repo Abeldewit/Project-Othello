@@ -6,12 +6,12 @@ import com.group11.othello.Logic.GameLogic;
 
 import java.util.List;
 
-public class MinMax {
+public class AlphaBeta {
     //    private int[][] board;
-    private final static int maxDepth = 4;
+    private final static int maxDepth = 8;
     private static int aiPlayer = 1;
 
-    public MinMax() {
+    public AlphaBeta() {
     }
 
     public Vector2 nextMove(GameLogic gameLogic) {
@@ -29,7 +29,7 @@ public class MinMax {
             glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
             runAvailable(glCopy,(int) move.x, (int) move.y);
             glCopy.changeTurn();
-            int score = MinMaxBot(glCopy, maxDepth, 0);
+            int score = MinMaxAB(glCopy,-1000000,1000000, maxDepth, 0);
 //            System.out.println(score);
             if (maxScore < score) {
                 maxScore = score;
@@ -44,7 +44,7 @@ public class MinMax {
 
     }
 
-    private int MinMaxBot(GameLogic gl, int maxDepth, int currentDepth) {
+    private int MinMaxAB(GameLogic gl, int a, int b, int maxDepth, int currentDepth) {
         if (currentDepth == maxDepth) {
             int val = calcHeuristic(gl, gl.getTurnStatus());
 
@@ -55,10 +55,9 @@ public class MinMax {
         //If just one move left then return 0 as heuristic since there is no other choice
         if (moves.size() <2) return calcHeuristic(gl, gl.getTurnStatus());
 
-        int maxScore = -10000000;
-        if (gl.getTurnStatus() != aiPlayer)
-            maxScore *= -1;
+
         int indexMaxScore = -1;
+        int score = 0;
         for (int i = 0; i < moves.size(); i++) {
             Vector2 move = moves.get(i);
             GameLogic glCopy = gl.copy();
@@ -66,28 +65,29 @@ public class MinMax {
             glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
             runAvailable(glCopy,(int) move.x, (int) move.y);
             glCopy.changeTurn();
-            int score = MinMaxBot(glCopy, maxDepth, currentDepth + 1);
-            if (gl.getTurnStatus() == aiPlayer) {//set max score
+            score = MinMaxAB(glCopy, a, b, maxDepth, currentDepth + 1);
 
-                if (score > maxScore) {
-//                    System.out.println("Max score"+maxScore);
-//                    System.out.println("cscore"+score);
-                    maxScore = score;
+            if (gl.getTurnStatus() == aiPlayer) {//set max score
+                if(score>a){
                     indexMaxScore = i;
+                    a = score;
+                }
+                if (a >= b) {
+                    break;
                 }
             } else {//set min score if opponent move
-                if (maxScore > score) {
-//                    System.out.println("Max score"+maxScore);
-//                    System.out.println("cscore"+score);
-                    maxScore = score;
-
+                if (score<b) {
+                    b = score;
                     indexMaxScore = i;
+                }
+                if (a >= b) {
+                    break;
                 }
             }
         }
         System.out.println(indexMaxScore);
 
-        return maxScore;
+        return score;
         /*
         moveList = moveGenerator(state)
             for each move M in moveList do
@@ -100,8 +100,6 @@ public class MinMax {
 
          */
 
-
-//        if(GameLogic.checkMoves )
 
     }
 
