@@ -61,63 +61,99 @@ public class AIvsAI_State extends State {
             } catch (Exception e) {
                 System.out.println("Error");
             }
-            if(Gdx.input.getY() >=100) {
-                int x = (int) Math.floor(Gdx.input.getX() / 100);
-                int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
-                System.out.println("x = " + x);
-                System.out.println("y = " + y);
 
 
-                Vector2 aiMove = minMax.nextMove(gL);
-                x = (int)aiMove.x;
-                y = (int)aiMove.y;
-
-//                gL.getBoard().setChip(0,0, gL.getTurnStatus()); //ERASE THIS LATER
-                System.out.println("AI MOVE:");
-                System.out.println(aiMove);
-                if(gL.endGame(gL.getTurnStatus()) == false)
-                {
-                    gL.changeTurn();
-                    System.out.println("Made it to first end game");
-                    if(gL.endGame(gL.getTurnStatus()) == false)
-                    {
-                        System.out.println("Made it to second end game");
-                        if(player1.getScore() > player2.getScore())
-                        {
-                            gsm.set(new EndState(gsm,1,player1.getScore()));
-                        }
-                        else
-                            {
-                                gsm.set(new EndState(gsm,2,player2.getScore()));
-                            }
-
-
-                    }
-
-                }
-
-        //check if it's valid move
-                    if (isTooClose(x, y) == false) {
-                        if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
-
-                            gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                            //  gL.getBoard().printBoard();
-                            runAvailable(x, y);
-
-                                player1.setScore((int) gL.getScore().x);
-                                player2.setScore((int) gL.getScore().y);
-
-                                gL.changeTurn();
-                            System.out.println("Board After Move below this text");
-                            gL.getBoard().printBoard();
-                        } else {
-
-                            System.out.println("loser");
-                        }
-                    } else {
-                        System.out.println("Tile Occupied");
-                    }
+            if(gL.getValidMoves().size()==0){
+                gL.changeTurn();
+                System.out.println("changed!!!!!");
             }
+            if(gL.getValidMoves().size()==0){
+                if(player1.getScore() > player2.getScore())
+                {
+                    gsm.set(new EndState(gsm,1,player1.getScore()));
+                }
+                else
+                {
+                    gsm.set(new EndState(gsm,2,player2.getScore()));
+                }
+                System.out.println("stop");
+            }
+            else {
+                Vector2 aiMove = minMax.nextMove(gL);
+                System.out.println(aiMove);
+                int x = (int) aiMove.x;
+                int y = (int) aiMove.y;
+                gL.getBoard().setChip(y, x, gL.getTurnStatus());
+                //  gL.getBoard().printBoard();
+                runAvailable(x, y);
+
+                player1.setScore((int) gL.getScore().x);
+                player2.setScore((int) gL.getScore().y);
+
+                gL.changeTurn();
+            }
+////             gL.getBoard().setChip(0,0, gL.getTurnStatus()); //ERASE THIS LATER
+//                System.out.println("AI MOVE:");
+//                System.out.println(aiMove);
+
+//                if(gL.getValidMoves().size()==0)
+//                {
+//                    gL.changeTurn();
+//
+//                    System.out.println("Made it to first end game");
+//                    if(gL.endGame(gL.getTurnStatus()) == false)
+//                    {
+//                        System.out.println("Made it to second end game");
+//                        if(player1.getScore() > player2.getScore())
+//                        {
+//                            gsm.set(new EndState(gsm,1,player1.getScore()));
+//                        }
+//                        else
+//                            {
+//                                gsm.set(new EndState(gsm,2,player2.getScore()));
+//                            }
+//
+//
+//                    }
+//
+//                }
+
+
+//                if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
+//
+//
+//                    System.out.println("Board After Move below this text");
+//                    gL.getBoard().printBoard();
+//                } else {
+//
+//                    System.out.println("loser");
+//                }
+//            } else {
+//                System.out.println("Tile Occupied");
+//            }
+
+            //check if it's valid move
+//                    if (isTooClose(x, y) == false) {
+//                        if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
+//
+//                            gL.getBoard().setChip(y, x, gL.getTurnStatus());
+//                            //  gL.getBoard().printBoard();
+//                            runAvailable(x, y);
+//
+//                                player1.setScore((int) gL.getScore().x);
+//                                player2.setScore((int) gL.getScore().y);
+//
+//                                gL.changeTurn();
+//                            System.out.println("Board After Move below this text");
+//                            gL.getBoard().printBoard();
+//                        } else {
+//
+//                            System.out.println("loser");
+//                        }
+//                    } else {
+//                        System.out.println("Tile Occupied");
+//                    }
+
         }
 
         if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70)

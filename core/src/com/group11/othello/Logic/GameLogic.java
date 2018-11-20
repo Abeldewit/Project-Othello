@@ -784,13 +784,11 @@ public class GameLogic {
     //lilly
     public List<Vector2> getValidMoves(){
         List<Vector2> moves = new ArrayList<Vector2>();
-        System.out.println("SIZE OF BOARD");
-        System.out.println(board.getBoard().length);
-        System.out.println(board.getBoard()[0].length);
+       
         for(int i=0; i<8; i++){
             for(int j=0; j<8; j++){
-                if (board.getBoard()[j][i] == 0 && checkMoves(i,j, getTurnStatus()) > 0  ) {
-                    moves.add(new Vector2(i,j));
+                if (board.getBoard()[i][j] == 0 && checkMoves(j,i, getTurnStatus()) > 0 ) {
+                    moves.add(new Vector2(j,i));
                 }
             }
         }

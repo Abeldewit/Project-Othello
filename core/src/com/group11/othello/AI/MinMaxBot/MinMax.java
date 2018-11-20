@@ -4,15 +4,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.Logic.GameLogic;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MinMax {
     //    private int[][] board;
-    private final static int maxDepth = 4;
+    private final static int maxDepth = 3;
     private static int aiPlayer = 1;
-//BUGS KNOWN:
-    ///Overpose chips at the end of game instead of last possible move
+
     public MinMax() {
     }
 
@@ -36,6 +34,7 @@ public class MinMax {
             if (maxScore < score) {
                 maxScore = score;
                 indexMaxScore = i;
+                
             }
         }
         System.out.println("MOVE I : " + indexMaxScore);
@@ -54,7 +53,8 @@ public class MinMax {
         }
         List<Vector2> moves = gl.getValidMoves();
         //If just one move left then return 0 as heuristic since there is no other choice
-        if (moves.size() == 1) return calcHeuristic(gl, gl.getTurnStatus());
+        if (moves.size() <2) return calcHeuristic(gl, gl.getTurnStatus());
+
         int maxScore = -10000000;
         if (gl.getTurnStatus() != aiPlayer)
             maxScore *= -1;
@@ -85,6 +85,7 @@ public class MinMax {
                 }
             }
         }
+        System.out.println(indexMaxScore);
 
         return maxScore;
         /*
