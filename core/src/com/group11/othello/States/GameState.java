@@ -96,6 +96,7 @@ public class GameState extends State {
                             //  gL.getBoard().printBoard();
                             runAvailable(x, y);
 
+
                                 player1.setScore((int) gL.getScore().x);
                                 player2.setScore((int) gL.getScore().y);
 
@@ -196,6 +197,8 @@ public class GameState extends State {
         gL.northWestDirection(x,y, gL.getTurnStatus());
         gL.southWestDirection(x,y, gL.getTurnStatus());
         gL.southEastDirection(x,y, gL.getTurnStatus());
+
+//        gL.flipAvailable(x,y, gL.getTurnStatus());
     }
 
     public GameState getGame() {
