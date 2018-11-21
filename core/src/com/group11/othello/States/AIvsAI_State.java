@@ -56,11 +56,11 @@ public class AIvsAI_State extends State {
     public void handleInput()
     {
 
-        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
+
 
             //why ?
             try {
-                TimeUnit.MILLISECONDS.sleep(400);
+                TimeUnit.MILLISECONDS.sleep(800);
             } catch (Exception e) {
                 System.out.println("Error");
             }
@@ -97,22 +97,20 @@ public class AIvsAI_State extends State {
                 gL.changeTurn();
             }
 
-        }
 
-        if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70)
-        {
-            menuButton = new Texture("MenuButtonHover.png");
-        }
-        else
-        {
-            menuButton = new Texture("MenuButtonUp.png");
-        }
 
-        if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
-        {
-            WChip.dispose();
-            BChip.dispose();
-            gsm.set(new MenuState(gsm));
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            if (Gdx.input.getX() >= 580 && Gdx.input.getX() <= 780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70) {
+                menuButton = new Texture("MenuButtonHover.png");
+            } else {
+                menuButton = new Texture("MenuButtonUp.png");
+            }
+
+            if (Gdx.input.getX() >= 580 && Gdx.input.getX() <= 780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                WChip.dispose();
+                BChip.dispose();
+                gsm.set(new MenuState(gsm));
+            }
         }
     }
 
