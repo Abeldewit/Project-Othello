@@ -5,12 +5,13 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.group11.othello.Logic.Player;
-
+import com.badlogic.gdx.graphics.Texture;
 public class EndState extends State {
 
    private int player;
    private String playerScore;
     private String yourScoreName;
+    private Texture winState;
     BitmapFont yourBitmapFontName;
 
     public EndState(GameStateManager gsm , int player, int playerScore)
@@ -21,10 +22,12 @@ public class EndState extends State {
         if(player == 1)
         {
             yourScoreName = "White Wins!";
+            winState = new Texture("WinMenuWhite.png");
         }
         else
             {
                 yourScoreName = "Black Wins!";
+                winState = new Texture("WinMenuBlack.png");
             }
 
         yourBitmapFontName = new BitmapFont();
@@ -51,6 +54,7 @@ public class EndState extends State {
        // yourBitmapFontName.setColor(0.0f, 0.0f, 0.0f, 0.0f);
         yourBitmapFontName.draw(sb, yourScoreName, 250, 550);
         yourBitmapFontName.draw(sb, playerScore, 250, 350);
+        sb.draw(winState,0,0,800,910);
         sb.end();
     }
 }
