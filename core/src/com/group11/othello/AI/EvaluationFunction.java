@@ -13,7 +13,7 @@ public class EvaluationFunction {
 
     }
 
-    public int EvaluateMobility(GameLogic gL) {
+    public int evaluateMobility(GameLogic gL) {
         gameLogic = gL.copy();
         int MHV;
 
@@ -29,6 +29,12 @@ public class EvaluationFunction {
 
         }
         return MHV;
+    }
+
+    public int evaluateCorners(GameLogic gL){
+        int x = 0;
+
+        return x;
     }
 }
     /*public int Evaluate
