@@ -823,6 +823,40 @@ public class GameLogic {
 
         return moves;
     }
+
+    public int getWhiteCorners(){
+
+        int whiteCorners = 0;
+
+        if (board.getBoard()[0][0] == 1){
+            whiteCorners ++;
+        }else if (board.getBoard()[0][7]== 1){
+            whiteCorners++;
+        }else if (board.getBoard()[7][0]== 1){
+            whiteCorners++;
+        }else if (board.getBoard()[7][7]== 1){
+            whiteCorners++;
+        }
+
+        return whiteCorners;
+    }
+
+    public int getBlackCorners(){
+
+        int blackCorners = 0;
+
+        if (board.getBoard()[0][0] == 2){
+            blackCorners++;
+        }else if (board.getBoard()[0][7]== 2){
+            blackCorners++;
+        }else if (board.getBoard()[7][0]== 2){
+            blackCorners++;
+        }else if (board.getBoard()[7][7]== 2){
+            blackCorners++;
+        }
+
+        return blackCorners;
+    }
     public boolean gameOver(){
 
         if(getScore().x+getScore().y == 64) return true;

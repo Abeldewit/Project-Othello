@@ -12,6 +12,7 @@ public class EvaluationFunction {
     public EvaluationFunction() {
 
     }
+
     public int EvaluateMobility(GameLogic gL) {
         gameLogic = gL.copy();
         int MHV;
@@ -22,13 +23,15 @@ public class EvaluationFunction {
         if (whiteMoves + blackMoves != 0) {
 
             MHV = 100 * (whiteMoves - blackMoves) / (whiteMoves + blackMoves);
-        }else{
+        } else {
 
             MHV = 0;
 
         }
         return MHV;
     }
+}
+    /*public int Evaluate
 
     public double evaluateCurrent(GameLogic gL) {
         gameLogic = gL.copy();
@@ -37,3 +40,4 @@ public class EvaluationFunction {
         return 0;
     }
 }
+*/
