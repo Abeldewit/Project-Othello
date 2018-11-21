@@ -44,6 +44,7 @@ public class NegaMax {
             }
             moveCount++;
         }
+        gameLogic.getBoard().printBoard();
         return validMoves.get(maxIndex);
 
     }
@@ -65,12 +66,18 @@ public class NegaMax {
         for(Vector2 move : validMoves) {
             GameLogic GLclone = gLogic.copy();
             GLclone.getBoard().setChip((int) move.x, (int) move.y, GLclone.getTurnStatus());
+            runAvailable(GLclone, (int) move.x, (int) move.y);
             GLclone.changeTurn();
 
             int score = NMax(GLclone, maxDepth, currentDepth + 1);
 
             //Here we should implement the NegaMax Variation
-
+            if(GLclone.getTurnStatus() == aiPlayer) { score *= -1; }
+            if(score > maxScore) {
+                maxScore = score;
+                maxIndex = indexCount;
+            }
+            maxIndex++;
         }
         return maxScore;
     }
