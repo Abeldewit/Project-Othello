@@ -68,8 +68,8 @@ public class AIvsHuman extends GameState {
                     gL.changeTurn();
                     System.out.println("third check");
                     ai.setLogic(gL);
-                    int x = (int) ai.tileSelected().x;
-                    int y = (int) ai.tileSelected().y;
+                    int x = (int) ai.nextMove(gL).x;
+                    int y = (int) ai.nextMove(gL).y;
                     System.out.println("x = " + x);
                     System.out.println("y = " + y);
 

@@ -25,14 +25,14 @@ public class AIvsAI_State extends State {
     private static Player2 player2;
     private GameStateManager gsm;
     private MinMax minMax;
-//  private AlphaBeta alphaBeta;
+     private AlphaBeta alphaBeta;
 
     public AIvsAI_State(GameStateManager gsm)
     {
 
         super(gsm);
         minMax = new MinMax();
-//        alphaBeta= new AlphaBeta();
+        alphaBeta= new AlphaBeta();
         player1 = new Player1();
         player2 = new Player2();
         gL = new GameLogic();
@@ -82,8 +82,8 @@ public class AIvsAI_State extends State {
                 System.out.println("stop");
             }
             else {
-                Vector2 aiMove = minMax.nextMove(gL);
-//                Vector2 aiMove = alphaBeta.nextMove(gL);
+     //           Vector2 aiMove = minMax.nextMove(gL);
+                Vector2 aiMove = alphaBeta.nextMove(gL);
                 System.out.println(aiMove);
                 int x = (int) aiMove.x;
                 int y = (int) aiMove.y;

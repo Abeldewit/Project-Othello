@@ -1,5 +1,6 @@
 package com.group11.othello.AI;
 
+import com.badlogic.gdx.math.Vector2;
 import com.group11.othello.Logic.GameLogic;
 
 public class EvaluationFunction {
@@ -44,6 +45,14 @@ public class EvaluationFunction {
 
         blackMoves = gameLogic.getValidMoves().size();
         return 0;
+    }
+
+    public Vector2 checkCorners(GameLogic gL)
+    {
+        gameLogic = gL.copy();
+
+        return new Vector2();
+
     }
 }
 */

@@ -25,7 +25,7 @@ public class Greedy extends AI {
     }
 
     @Override
-    public Vector2 tileSelected() {
+    public Vector2 nextMove(GameLogic gL) {
 
         int check = 0;
         int newCheck = 0;

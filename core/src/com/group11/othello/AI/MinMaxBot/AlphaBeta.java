@@ -44,7 +44,7 @@ public class AlphaBeta {
 
     }
 
-    private int MinMaxAB(GameLogic gl, int a, int b, int maxDepth, int currentDepth) {
+    private int MinMaxAB(GameLogic gl, int alpha, int beta, int maxDepth, int currentDepth) {
         if (currentDepth == maxDepth) {
             int val = calcHeuristic(gl, gl.getTurnStatus());
 
@@ -57,37 +57,51 @@ public class AlphaBeta {
 
 
         int indexMaxScore = -1;
-        int score = 0;
-        for (int i = 0; i < moves.size(); i++) {
-            Vector2 move = moves.get(i);
-            GameLogic glCopy = gl.copy();
+      //  int score = 0;
 
-            glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
-            runAvailable(glCopy,(int) move.x, (int) move.y);
-            glCopy.changeTurn();
-            score = MinMaxAB(glCopy, a, b, maxDepth, currentDepth + 1);
-
-            if (gl.getTurnStatus() == aiPlayer) {//set max score
-                if(score>a){
-                    indexMaxScore = i;
-                    a = score;
-                }
-                if (a >= b) {
-                    break;
-                }
-            } else {//set min score if opponent move
-                if (score<b) {
-                    b = score;
+        if (gl.getTurnStatus() != aiPlayer){
+            int maxEval = 10000000;
+            for (int i = 0; i < moves.size(); i++) {
+                Vector2 move = moves.get(i);
+                GameLogic glCopy = gl.copy();
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
+                runAvailable(glCopy, (int) move.x, (int) move.y);
+                glCopy.changeTurn();
+                int val = MinMaxAB(gl, alpha, beta, maxDepth, currentDepth + 1);
+                maxEval = Math.max(maxEval, val);
+                alpha = Math.max(alpha, val);
+                if (val > alpha) {
                     indexMaxScore = i;
                 }
-                if (a >= b) {
+                if (beta <= alpha) {
                     break;
                 }
             }
+            return maxEval;
         }
-        System.out.println(indexMaxScore);
+        else{
+            int minEval = -10000000;
+            for(int i = 0; i < moves.size(); i++){
+                Vector2 move = moves.get(i);
+                GameLogic glCopy = gl.copy();
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
+                runAvailable(glCopy,(int) move.x, (int) move.y);
+                glCopy.changeTurn();
+                int eval = MinMaxAB(glCopy, maxDepth, currentDepth+1,alpha,beta);
+                minEval = Math.min(minEval, eval);
+                beta = Math.min(beta, eval);
+                if (minEval < beta){
+                    indexMaxScore = i;
+                }
+                if (beta <= alpha){
+                    break;
+                }
+            }
+            System.out.println(indexMaxScore);
+            return minEval;
+        }
 
-        return score;
+
         /*
         moveList = moveGenerator(state)
             for each move M in moveList do
