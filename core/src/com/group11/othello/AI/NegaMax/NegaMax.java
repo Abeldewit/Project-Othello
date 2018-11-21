@@ -4,7 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.Logic.GameLogic;
-import com.sun.org.apache.xpath.internal.operations.Neg;
+//import com.sun.org.apache.xpath.internal.operations.Neg;
 
 import java.util.Iterator;
 import java.util.List;
@@ -84,5 +84,14 @@ public class NegaMax {
 
     }
 
-
+    public void runAvailable(GameLogic gL, int x, int y) {
+        gL.rightDirection(x, y, gL.getTurnStatus());
+        gL.leftDirection(x, y, gL.getTurnStatus());
+        gL.upDirection(x, y, gL.getTurnStatus());
+        gL.downDirection(x, y, gL.getTurnStatus());
+        gL.northEastDirection(x, y, gL.getTurnStatus());
+        gL.northWestDirection(x, y, gL.getTurnStatus());
+        gL.southWestDirection(x, y, gL.getTurnStatus());
+        gL.southEastDirection(x, y, gL.getTurnStatus());
+    }
 }

@@ -27,7 +27,7 @@ public class MinMax {
             Vector2 move = moves.get(i);
             GameLogic glCopy = gl.copy();
             glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
-            runAvailable(glCopy,(int) move.x, (int) move.y);
+            //runAvailable(glCopy,(int) move.x, (int) move.y);
             glCopy.changeTurn();
             int score = MinMaxBot(glCopy, maxDepth, 0);
 //            System.out.println(score);
@@ -64,7 +64,7 @@ public class MinMax {
             GameLogic glCopy = gl.copy();
 
             glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
-            runAvailable(glCopy,(int) move.x, (int) move.y);
+            //runAvailable(glCopy,(int) move.x, (int) move.y);
             glCopy.changeTurn();
             int score = MinMaxBot(glCopy, maxDepth, currentDepth + 1);
             if (gl.getTurnStatus() == aiPlayer) {//set max score
@@ -116,16 +116,7 @@ public class MinMax {
             return (int) scores.y;
     }
 
-    public void runAvailable(GameLogic gL, int x, int y) {
-        gL.rightDirection(x, y, gL.getTurnStatus());
-        gL.leftDirection(x, y, gL.getTurnStatus());
-        gL.upDirection(x, y, gL.getTurnStatus());
-        gL.downDirection(x, y, gL.getTurnStatus());
-        gL.northEastDirection(x, y, gL.getTurnStatus());
-        gL.northWestDirection(x, y, gL.getTurnStatus());
-        gL.southWestDirection(x, y, gL.getTurnStatus());
-        gL.southEastDirection(x, y, gL.getTurnStatus());
-    }
+
 }
 /*
 function move findMove(x,x,x,x) is
