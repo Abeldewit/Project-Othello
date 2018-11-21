@@ -7,7 +7,7 @@ public class AI {
 
     private int points = 2;
 
-    public Vector2 tileSelected(){return new Vector2();}
+    public Vector2 nextMove(GameLogic gameLogic){return new Vector2();}
 
     public int getScore(){ return points;}
 
