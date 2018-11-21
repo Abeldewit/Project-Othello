@@ -11,18 +11,16 @@ import java.util.List;
 
 public class NegaMax {
 
-    GameLogic NegaGl;
     private final static int maxDepth = 4;
     private static int aiPlayer = 1;
 
 
     public NegaMax() {
-
     }
 
     public Vector2 nextMove(GameLogic gameLogic) {
-        NegaGl = gameLogic.copy();
-        int aiPlayer = NegaGl.getTurnStatus();
+        GameLogic NegaGl = gameLogic.copy();
+        aiPlayer = NegaGl.getTurnStatus();
 
         List<Vector2> validMoves = NegaGl.getValidMoves();
         if(validMoves.size() == 1) {
