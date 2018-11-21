@@ -3,13 +3,16 @@ package com.group11.othello.AI.MinMaxBot;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.Logic.GameLogic;
+import com.group11.othello.AI.EvaluationFunction;
 
 import java.util.List;
 
 public class MinMax {
     //    private int[][] board;
-    private final static int maxDepth = 4;
+    private final static int maxDepth = 5;
     private static int aiPlayer = 1;
+
+    EvaluationFunction eF = new EvaluationFunction();
 
     public MinMax() {
     }
@@ -46,14 +49,14 @@ public class MinMax {
 
     private int MinMaxBot(GameLogic gl, int maxDepth, int currentDepth) {
         if (currentDepth == maxDepth) {
-            int val = calcHeuristic(gl, gl.getTurnStatus());
+            int val = calcHeuristic(gl, eF, gl.getTurnStatus());
 
 //            System.out.println(val + " heur");
             return val;
         }
         List<Vector2> moves = gl.getValidMoves();
         //If just one move left then return 0 as heuristic since there is no other choice
-        if (moves.size() <2) return calcHeuristic(gl, gl.getTurnStatus());
+        if (moves.size() <2) return calcHeuristic(gl, eF, gl.getTurnStatus());
 
         int maxScore = -10000000;
         if (gl.getTurnStatus() != aiPlayer)
@@ -105,15 +108,15 @@ public class MinMax {
 
     }
 
-    private int calcHeuristic(GameLogic gl, int player) {
+    private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
         Vector3 scores = gl.getScore();
 //        System.out.println("Player " + player);
 //        System.out.println(scores);
 
         if (player == 1)
-            return (int) scores.x;
+            return (int) scores.x + eF.EvaluateMobility(gl);
         else
-            return (int) scores.y;
+            return (int) scores.y + eF.EvaluateMobility(gl);
     }
 
 

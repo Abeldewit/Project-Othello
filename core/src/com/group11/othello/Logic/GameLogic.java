@@ -796,6 +796,33 @@ public class GameLogic {
         return moves;
     }
 
+    public List<Vector2> getValidMovesWhite(){
+        List<Vector2> moves = new ArrayList<Vector2>();
+
+        for(int i=0; i<8; i++){
+            for(int j=0; j<8; j++){
+                if (board.getBoard()[i][j] == 0 && checkMoves(j,i, 1) > 0 ) {
+                    moves.add(new Vector2(j,i));
+                }
+            }
+        }
+
+        return moves;
+    }
+
+    public List<Vector2> getValidMovesBlack(){
+        List<Vector2> moves = new ArrayList<Vector2>();
+
+        for(int i=0; i<8; i++){
+            for(int j=0; j<8; j++){
+                if (board.getBoard()[i][j] == 0 && checkMoves(j,i, 2) > 0 ) {
+                    moves.add(new Vector2(j,i));
+                }
+            }
+        }
+
+        return moves;
+    }
     public boolean gameOver(){
 
         if(getScore().x+getScore().y == 64) return true;
