@@ -18,7 +18,7 @@ public class EndState extends State {
     {
         super(gsm);
         this.player = player;
-        this.playerScore = "Score = " + playerScore;
+        this.playerScore = "" + playerScore;
         if(player == 1)
         {
             yourScoreName = "White Wins!";
@@ -51,10 +51,9 @@ public class EndState extends State {
     @Override
     public void render(SpriteBatch sb) {
         sb.begin();
-       // yourBitmapFontName.setColor(0.0f, 0.0f, 0.0f, 0.0f);
-        yourBitmapFontName.draw(sb, yourScoreName, 250, 550);
-        yourBitmapFontName.draw(sb, playerScore, 250, 350);
         sb.draw(winState,0,0,800,910);
+        yourBitmapFontName.setColor(0.0f, 0.0f, 0.0f, 1.0f);
+        yourBitmapFontName.draw(sb, playerScore, 500, 660);
         sb.end();
     }
 }

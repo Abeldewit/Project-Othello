@@ -57,7 +57,7 @@ public class AIvsAI_State extends State {
     {
             //why ?
             try {
-                TimeUnit.MILLISECONDS.sleep(800);
+                TimeUnit.MILLISECONDS.sleep(300);
             } catch (Exception e) {
                 System.out.println("Error");
             }
