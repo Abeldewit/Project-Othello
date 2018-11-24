@@ -33,16 +33,13 @@ public class MinMax {
             //runAvailable(glCopy,(int) move.x, (int) move.y);
             glCopy.changeTurn();
             int score = MinMaxBot(glCopy, maxDepth, 0);
-//            System.out.println(score);
+
             if (maxScore < score) {
                 maxScore = score;
                 indexMaxScore = i;
                 
             }
         }
-        System.out.println("MOVE I : " + indexMaxScore);
-        System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
-        gl.getBoard().printBoard();
         return moves.get(indexMaxScore);
 
     }
@@ -73,15 +70,12 @@ public class MinMax {
             if (gl.getTurnStatus() == aiPlayer) {//set max score
 
                 if (score > maxScore) {
-//                    System.out.println("Max score"+maxScore);
-//                    System.out.println("cscore"+score);
                     maxScore = score;
                     indexMaxScore = i;
                 }
             } else {//set min score if opponent move
-                if (maxScore > score) {
-//                    System.out.println("Max score"+maxScore);
-//                    System.out.println("cscore"+score);
+                if (maxScore < score) {
+
                     maxScore = score;
 
                     indexMaxScore = i;
@@ -91,32 +85,16 @@ public class MinMax {
         System.out.println(indexMaxScore);
 
         return maxScore;
-        /*
-        moveList = moveGenerator(state)
-            for each move M in moveList do
-            value[M]  minimaxValue(applyMove(M, state),
-             currentSearchDepth+1)
-            if whoseTurn==myTurn then
-            return max of value[]
-            else
-            return min of value[]
-
-         */
-
-
-//        if(GameLogic.checkMoves )
 
     }
 
     private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
         Vector3 scores = gl.getScore();
-//        System.out.println("Player " + player);
-//        System.out.println(scores);
 
-        if (player == 1)
-            return (int) scores.x + eF.EvaluateMobility(gl);
+        if (gl.getTurnStatus() == 1)
+            return (int) scores.x + eF.evaluateMobility(gl);
         else
-            return (int) scores.y + eF.EvaluateMobility(gl);
+            return (int) scores.y + eF.evaluateMobility(gl);
     }
 
 

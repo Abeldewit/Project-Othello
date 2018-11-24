@@ -4,11 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.group11.othello.AI.AI;
+import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.AI.Greedy.Greedy;
 import com.group11.othello.Logic.GameLogic;
-import com.group11.othello.States.GameState;
-import com.group11.othello.Game.Othello;
+
 import java.util.concurrent.TimeUnit;
 
 public class MenuState extends State {

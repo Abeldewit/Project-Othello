@@ -1,10 +1,8 @@
 package com.group11.othello.AI.Greedy;
 
 import com.badlogic.gdx.math.Vector2;
-import com.group11.othello.AI.AI;
+import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Logic.GameLogic;
-
-import java.util.ArrayList;
 
 public class Greedy extends AI {
     GameLogic gL;

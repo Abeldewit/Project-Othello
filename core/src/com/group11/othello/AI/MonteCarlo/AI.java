@@ -1,4 +1,4 @@
-package com.group11.othello.AI;
+package com.group11.othello.AI.MonteCarlo;
 
 import com.badlogic.gdx.math.Vector2;
 import com.group11.othello.Logic.GameLogic;

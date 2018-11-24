@@ -55,9 +55,6 @@ public class AIvsAI_State extends State {
     @Override
     public void handleInput()
     {
-
-
-
             //why ?
             try {
                 TimeUnit.MILLISECONDS.sleep(800);
