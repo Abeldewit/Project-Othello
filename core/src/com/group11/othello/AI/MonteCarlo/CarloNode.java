@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CarloNode {
 
-    ArrayList<CarloNode> children = new ArrayList<CarloNode>();
+    ArrayList<CarloNode> children;
     GameLogic glCopy;
     CarloNode parent;
     List<Vector2> moves;
@@ -24,7 +24,7 @@ public class CarloNode {
         this.glCopy = gl.copy();
         moves = glCopy.getValidMoves();
         playerTurn = glCopy.getTurnStatus();
-        children = null;
+        children = new ArrayList<CarloNode>();
         visits = 0;
         score = 0;
         this.row = row;

@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MinMaxBot.MinMax;
+import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Game.Othello;
 import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.Logic.Player1;
@@ -26,6 +27,8 @@ public class AIvsAI_State extends State {
     private GameStateManager gsm;
     private MinMax minMax;
      private AlphaBeta alphaBeta;
+     private AI ai1;
+     private AI ai2;
 
     public AIvsAI_State(GameStateManager gsm)
     {
@@ -45,11 +48,22 @@ public class AIvsAI_State extends State {
         this.gsm=gsm;
     }
 
-    public AIvsAI_State(GameStateManager gsm, Player1 player1, Player2 player2)
+    public AIvsAI_State(GameStateManager gsm, AI ai1, AI ai2)
     {
         super(gsm);
+       this.ai1 = ai1;
+       this.ai2 = ai2;
+
+        player1 = new Player1();
+        player2 = new Player2();
         gL = new GameLogic();
-        othelloBoard = new Texture("Table.png");
+        WChip = new Texture("WChip.png");
+        BChip = new Texture("BChip.png");
+        menuButton = new Texture("MenuButtonUp.png");
+        othelloBoard = new Texture("Table2.png");
+        scoreTable = new Texture("Score.png");
+        font = new BitmapFont();
+        this.gsm=gsm;
     }
 
     @Override
@@ -57,7 +71,7 @@ public class AIvsAI_State extends State {
     {
             //why ?
             try {
-                TimeUnit.MILLISECONDS.sleep(300);
+                TimeUnit.MILLISECONDS.sleep(1200);
             } catch (Exception e) {
                 System.out.println("Error");
             }
@@ -80,7 +94,7 @@ public class AIvsAI_State extends State {
             }
             else {
      //           Vector2 aiMove = minMax.nextMove(gL);
-                Vector2 aiMove = alphaBeta.nextMove(gL);
+                Vector2 aiMove = ai1.nextMove(gL);
                 System.out.println(aiMove);
                 int x = (int) aiMove.x;
                 int y = (int) aiMove.y;

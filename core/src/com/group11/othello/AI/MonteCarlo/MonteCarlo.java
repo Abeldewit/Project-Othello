@@ -12,7 +12,7 @@ public class MonteCarlo extends AI {
     private CarloNode root;
     private GameLogic gl;
     private int playerTurn;
-    private final int SIMULATIONS = 10;
+    private final int SIMULATIONS = 2;
     int constant = 2;
 
    public MonteCarlo (int player){
@@ -92,9 +92,9 @@ public class MonteCarlo extends AI {
 
     public CarloNode selection(CarloNode cn){
 
-            while(cn.getChildren() != null){
+            while(cn.getChildren().size() <= 0){
                 double score = -100000000;
-                int childNodeIndex = 0;
+                int childNodeIndex = 1;
                 for(int i = 0; i < cn.getChildren().size(); i++){
                     if(evaluation(cn.getChildren().get(i)) > score){
                         score = evaluation(cn);
