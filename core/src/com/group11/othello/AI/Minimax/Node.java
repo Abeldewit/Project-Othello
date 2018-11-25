@@ -1,5 +1,7 @@
 package com.group11.othello.AI.Minimax;
 
+import com.group11.othello.AI.MonteCarlo.CarloNode;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -13,6 +15,7 @@ public class Node {
     int playerTurn;
 
     public Node(int score, int[][] boardState, int playerTurn){
+        super();
         this.score = score;
         this.max = false;
         children = null;
@@ -20,9 +23,7 @@ public class Node {
         this.playerTurn = playerTurn;
     }
 
-    public ArrayList<Node> getChildren() {
-        return children;
-    }
+    
 
     public void setChild(Node child) {
         children.add(child);
