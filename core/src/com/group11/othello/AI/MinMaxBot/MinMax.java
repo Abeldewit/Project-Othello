@@ -2,12 +2,13 @@ package com.group11.othello.AI.MinMaxBot;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.AI.EvaluationFunction;
 
 import java.util.List;
 
-public class MinMax {
+public class MinMax extends AI {
     //    private int[][] board;
     private final static int maxDepth = 5;
     private static int aiPlayer = 1;

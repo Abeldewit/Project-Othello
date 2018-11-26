@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.AI.Greedy.Greedy;
 import com.group11.othello.AI.MonteCarlo.MonteCarlo;
@@ -129,7 +130,7 @@ public class MenuState extends State {
                 } catch (Exception e) {
                     System.out.println("Error");
                 }// MinMax by lilly AIvsAI simulation
-                gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1), new MonteCarlo(2)));
+                gsm.push(new AIvsAI_State(gsm, new MinMax(), new MinMax()));
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 350 && Gdx.input.getY() >= 320 && Gdx.input.getY() <= 420 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
