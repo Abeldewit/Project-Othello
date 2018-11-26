@@ -758,29 +758,6 @@ public class GameLogic {
         return false;
     }
 
-//??
-    public Vector3 getBlankSpaces()
-    {
-        Vector3 v = new Vector3();
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-              if( board.getBoard()[i][j] == 0)
-              {
-                  v.add(1,0,0);
-              }
-
-              if(v.x == 1)//NO SENSE
-              {
-                  v.add(0,i,j);
-                  return v;
-              }
-            }
-
-        }
-
-
-        return v;
-    }
     //lilly
     public List<Vector2> getValidMoves(){
         List<Vector2> moves = new ArrayList<Vector2>();

@@ -79,9 +79,9 @@ public class AIvsAI_State extends State {
 
             if(gL.getValidMoves().size()==0){
                 gL.changeTurn();
-                System.out.println("changed!!!!!");
+
             }
-            if(gL.getValidMoves().size()==0){
+            if(gL.gameOver() == true){
                 if(player1.getScore() > player2.getScore())
                 {
                     gsm.set(new EndState(gsm,1,player1.getScore()));
@@ -90,16 +90,15 @@ public class AIvsAI_State extends State {
                 {
                     gsm.set(new EndState(gsm,2,player2.getScore()));
                 }
-                System.out.println("stop");
+
             }
             else {
-     //           Vector2 aiMove = minMax.nextMove(gL);
+
                 Vector2 aiMove = ai1.nextMove(gL);
-                System.out.println(aiMove);
+
                 int x = (int) aiMove.x;
                 int y = (int) aiMove.y;
                 gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                //  gL.getBoard().printBoard();
                 runAvailable(x, y);
 
                 player1.setScore((int) gL.getScore().x);

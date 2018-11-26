@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MinMax extends AI {
     //    private int[][] board;
-    private final static int maxDepth = 5;
+    private final static int maxDepth = 4;
     private static int aiPlayer = 1;
 
     EvaluationFunction eF = new EvaluationFunction();

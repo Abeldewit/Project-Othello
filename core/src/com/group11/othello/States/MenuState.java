@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class MenuState extends State {
 
     public int number = 0;
+    public int verses = 0;
 
     public GameStateManager gsm;
     private Texture background;
@@ -121,7 +122,13 @@ public class MenuState extends State {
                 } catch (Exception e) {
                     System.out.println("Error");
                 }
-                gsm.push(new AIvsHuman(gsm, new Greedy(new GameLogic())));
+                if(verses == 0){
+                    gsm.push(new AIvsAI_State(gsm, new Greedy(1),new Greedy(2)));
+                }
+                else{
+                    gsm.push(new AIvsHuman(gsm, new Greedy(2)));
+                }
+
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 350 && Gdx.input.getY() >= 200 && Gdx.input.getY() <= 300 &&Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -130,7 +137,14 @@ public class MenuState extends State {
                 } catch (Exception e) {
                     System.out.println("Error");
                 }// MinMax by lilly AIvsAI simulation
-                gsm.push(new AIvsAI_State(gsm, new MinMax(), new MinMax()));
+                if(verses == 0){
+                    verses = 0;
+                    gsm.push(new AIvsAI_State(gsm, new MinMax(), new MinMax()));
+                }
+                else{
+                    gsm.push(new AIvsHuman(gsm, new MinMax()));
+                }
+
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 350 && Gdx.input.getY() >= 320 && Gdx.input.getY() <= 420 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -139,7 +153,14 @@ public class MenuState extends State {
                 } catch (Exception e) {
                     System.out.println("Error");
                 }
-                gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1),new MonteCarlo(2)));
+                if(verses == 0){
+                    verses = 0;
+                    gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1),new MonteCarlo(2)));
+                }
+                else{
+                    gsm.push(new AIvsHuman(gsm, new MonteCarlo(1)));
+                }
+
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 350 && Gdx.input.getY() >= 440 && Gdx.input.getY() <= 540 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -148,7 +169,12 @@ public class MenuState extends State {
                 } catch (Exception e) {
                     System.out.println("Error");
                 }
-                gsm.push(new AIvsHuman(gsm, new AI()));
+                if(verses == 0){
+                    verses = 1;
+                }
+                else{
+                    verses = 0;
+                }
             }
 
 
