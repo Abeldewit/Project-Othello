@@ -139,7 +139,7 @@ public class MenuState extends State {
                 } catch (Exception e) {
                     System.out.println("Error");
                 }
-                gsm.push(new AIvsHuman(gsm, new AI()));
+                gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1),new MonteCarlo(2)));
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 350 && Gdx.input.getY() >= 440 && Gdx.input.getY() <= 540 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
