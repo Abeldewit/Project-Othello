@@ -93,8 +93,14 @@ public class AIvsAI_State extends State {
 
             }
             else {
+                Vector2 aiMove = new Vector2();
+                if(gL.getTurnStatus() == 1){
+                     aiMove = ai1.nextMove(gL);
+                }
+                else{
+                     aiMove = ai2.nextMove(gL);
+                }
 
-                Vector2 aiMove = ai1.nextMove(gL);
 
                 int x = (int) aiMove.x;
                 int y = (int) aiMove.y;

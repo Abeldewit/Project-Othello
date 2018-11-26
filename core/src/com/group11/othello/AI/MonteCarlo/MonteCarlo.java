@@ -83,7 +83,7 @@ public class MonteCarlo extends AI {
 
         gameLogic.changeTurn();
 
-       return new Vector2();
+       return new Vector2(cn.getRow(),cn.getColumn());
 
     }
 
@@ -125,7 +125,7 @@ public class MonteCarlo extends AI {
            if(moveList.size()>0)
            {
                int n =0;
-               System.out.println(moveList.size());
+              // System.out.println(moveList.size());
 
                n = rand.nextInt(moveList.size());
 
