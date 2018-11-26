@@ -73,17 +73,14 @@ public class MonteCarlo extends AI {
                 }
             }
             else{
-                cn = selection(cn);
+                cn = selection(root);
 
 
             }
 
         }
 
-
-        gameLogic.changeTurn();
-
-       return new Vector2(cn.getRow(),cn.getColumn());
+       return new Vector2(cn.getColumn(),cn.getRow());
 
     }
 
@@ -149,16 +146,12 @@ public class MonteCarlo extends AI {
     }
 
    public double evaluation(CarloNode node){
-
-
        int index=0;
        double score = -1000;
 
            double scoreAverage = node.getScore()/node.getVisits();
            double control = (Math.sqrt((Math.log(root.getVisits())/ node.getVisits())))*constant;
            double evaluation = scoreAverage + control;
-
-
 
        return evaluation;
    }
