@@ -16,7 +16,6 @@ public class MonteCarlo extends AI {
     private int playerTurn;
     private final int SIMULATIONS = 2;
     int constant = 2;
-
    public MonteCarlo (int player){
        root = null;
        this.playerTurn = player;
@@ -79,12 +78,16 @@ public class MonteCarlo extends AI {
                     double tempScore = -1000000;
                     int tempIndex = 0;
                     for(int i = 0; i < cn.getChildren().size(); i++){
+                        System.out.println("EEval : " + tempScore);
                         if(evaluation(cn.getChildren().get(i)) > tempScore){
+                            //System.out.println("KIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIDS " +cn.getChildren().size());
                             tempScore = evaluation(cn.getChildren().get(i));
                             tempIndex = i;
 
                         }
                     }
+                    //System.out.println(cn.getChildren().size());
+                    //System.out.println(tempIndex);
                     backPropagation(rollOut(cn.getChildren().get(tempIndex)));
                     updateVisits(cn);
 
@@ -134,7 +137,6 @@ public class MonteCarlo extends AI {
 
 
     public CarloNode rollOut(CarloNode node){
-
         CarloNode cn = node;
         GameLogic glCopy = cn.getGameLogic().copy();
         glCopy.getBoard().setChip(cn.getRow(),cn.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y
@@ -190,10 +192,11 @@ public class MonteCarlo extends AI {
 
               cn = cn.getParent();
               score += cn.getScore();
+              System.out.println("Dis my score now : " + score);
               cn.setScore(score);
 
           }
-
+          System.out.println("I've calculated the score");
           root.setScore(score);
           root.addVisit();
    }
@@ -206,7 +209,7 @@ public class MonteCarlo extends AI {
        }
    }
 
-   public void setScore(CarloNode node,GameLogic gl){
+   public void setScore(CarloNode node){
        Vector3 score = gl.getScore();
        float finalScore=0;
 
