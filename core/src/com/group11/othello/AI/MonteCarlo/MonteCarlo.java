@@ -85,6 +85,7 @@ public class MonteCarlo extends AI {
 
                         }
                     }
+
                     backPropagation(rollOut(cn.getChildren().get(tempIndex)));
                     updateVisits(cn);
 
@@ -110,8 +111,8 @@ public class MonteCarlo extends AI {
         int tempIndex3 = 0;
         System.out.println("");
         for(int i = 0; i < root.getChildren().size(); i++){
-            if(evaluation(cn.getChildren().get(i)) > tempScore3){
-                tempScore3 = evaluation(cn.getChildren().get(i));
+            if(evaluation(root.getChildren().get(i)) > tempScore3){
+                tempScore3 = evaluation(root.getChildren().get(i));
                 tempIndex3 = i;
 
             }
