@@ -1,6 +1,7 @@
 package com.group11.othello.AI;
 
 import com.badlogic.gdx.math.Vector2;
+import com.group11.othello.Logic.Board;
 import com.group11.othello.Logic.GameLogic;
 
 public class EvaluationFunction {
@@ -34,10 +35,22 @@ public class EvaluationFunction {
         return MHV;
     }
 
-    public int evaluateCorners(GameLogic gL){
-        int x = 0;
+    public Vector2 evaluateCorners(GameLogic gL){
+        int whiteCorner = 0;
+        int blackCorner = 0;
 
-        return x;
+        Board currentBoard = gL.getBoard();
+        for(int x = 0; x < 8; x += 8) {
+            for(int y = 0; y < 8; y += 8) {
+                if(currentBoard.getChip(x,y) == 1){
+                    whiteCorner++;
+                } else if(currentBoard.getChip(x,y) == 2) {
+                    blackCorner++;
+                }
+            }
+        }
+
+        return new Vector2(whiteCorner, blackCorner);
     }
 }
     /*public int Evaluate
