@@ -40,6 +40,7 @@ public class EvaluationFunction {
             score += corners.y;
         }
 
+        System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
     }
 
@@ -60,6 +61,7 @@ public class EvaluationFunction {
             MHV = 0;
 
         }
+        System.out.println("Evaluation of mobility: " + MHV);
         return MHV;
     }
 
@@ -80,6 +82,7 @@ public class EvaluationFunction {
             }
         }
 
+        System.out.println("Corner eval, white: " + whiteCorner * 100 + " black: " + blackCorner * 100);
         return new Vector2(whiteCorner * 100, blackCorner * 100);
     }
 }
