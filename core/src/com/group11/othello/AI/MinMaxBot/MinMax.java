@@ -90,12 +90,7 @@ public class MinMax extends AI {
     }
 
     private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
-        Vector3 scores = gl.getScore();
-
-        if (gl.getTurnStatus() == 1)
-            return (int) scores.x + eF.evaluateMobility(gl);
-        else
-            return (int) scores.y + eF.evaluateMobility(gl);
+        return eF.bigEvaluation(gl, player);
     }
 
 
