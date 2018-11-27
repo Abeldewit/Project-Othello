@@ -137,28 +137,30 @@ public class MonteCarlo extends AI {
 
         CarloNode cn = node;
         GameLogic glCopy = cn.getGameLogic().copy();
-        glCopy.getBoard().setChip(cn.getRow(),cn.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y
         Random rand = new Random();
         System.out.println("Im in Rollout");
-        int k =5;
+        int k =10;
 
-       for(int i =0;i<k;i++){
+       for(int i =0;i<k;i++){ //Need to change to a while loop
           // System.out.println("Im in the while loop");
            List<Vector2> moveList = cn.getMoves();
            if(moveList.size()>0)
            {
                int n =0;
-              // System.out.println(moveList.size());
 
                n = rand.nextInt(moveList.size());
+               CarloNode childNode = new CarloNode(glCopy,cn.getChildren().get(n).getRow(),cn.getChildren().get(n).getColumn());
+               glCopy.getBoard().setChip(childNode.getRow(),childNode.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y
+               if(glCopy.getTurnStatus() == 1){
+                   childNode.setScore(glCopy.getScore().x);
+               }
+               else{
+                   childNode.setScore(glCopy.getScore().y);
+               }
 
-               glCopy.getBoard().setChip(cn.getRow(),cn.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y
-               System.out.println("Chip Placed");
-
-               CarloNode cnTemp= new CarloNode(glCopy,(int)moveList.get(n).y,(int)moveList.get(n).x);
-
-               cnTemp.setParent(cn);
-               cn=cnTemp;
+               childNode.setParent(cn);
+               cn.setChild(childNode);
+               cn = childNode;
 
            }
            else
@@ -206,15 +208,11 @@ public class MonteCarlo extends AI {
        }
    }
 
-   public void setScore(CarloNode node,GameLogic gl){
-       Vector3 score = gl.getScore();
+   public void setScore(CarloNode node){
        float finalScore=0;
 
-       for(int i = 0; i<node.getMoves().size();i++)
-       {
-           GameLogic glCopy = gl.copy();
-           glCopy.getBoard().setChip((int) node.getMoves().get(i).y, (int) node.getMoves().get(i).x, node.getGameLogic().getTurnStatus());
-           if(glCopy.getTurnStatus()==playerTurn)
+       GameLogic glCopy = node.getGameLogic().copy();
+           if(glCopy.getTurnStatus()== 1)
            {
                finalScore=glCopy.getScore().x;
            }
@@ -222,7 +220,7 @@ public class MonteCarlo extends AI {
            {
                finalScore=glCopy.getScore().y;
            }
-       }
+
        System.out.println("Final Score : "+finalScore);
        node.setScore(finalScore);
 
