@@ -6,6 +6,7 @@ import com.group11.othello.Logic.GameLogic;
 public class EvaluationFunction {
 
 
+
     GameLogic gameLogic;
 
 
@@ -14,6 +15,8 @@ public class EvaluationFunction {
     }
 
     public int evaluateMobility(GameLogic gL) {
+        int blackMoves = 0;
+        int whiteMoves = 0;
         gameLogic = gL.copy();
         int MHV;
 
