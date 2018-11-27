@@ -85,9 +85,14 @@ public class MonteCarlo extends AI {
 
                         }
                     }
+                    if(cn.getChildren().size() > 0){
+                        backPropagation(rollOut(cn.getChildren().get(tempIndex)));
+                        updateVisits(cn);
+                    }
+                    else{
+                        break;
+                    }
 
-                    backPropagation(rollOut(cn.getChildren().get(tempIndex)));
-                    updateVisits(cn);
 
                 }
             }
