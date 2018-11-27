@@ -147,7 +147,7 @@ public class MonteCarlo extends AI {
 
    public double evaluation(CarloNode node){
        int index=0;
-       double score = -1000;
+
 
            double scoreAverage = node.getScore()/node.getVisits();
            double control = (Math.sqrt((Math.log(root.getVisits())/ node.getVisits())))*constant;
