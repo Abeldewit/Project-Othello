@@ -80,7 +80,7 @@ public class EvaluationFunction {
             }
         }
 
-        return new Vector2(whiteCorner, blackCorner);
+        return new Vector2(whiteCorner * 100, blackCorner * 100);
     }
 }
     /*public int Evaluate
