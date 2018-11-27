@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.AI.EvaluationFunction;
+import sun.awt.image.IntegerComponentRaster;
 
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class MinMax extends AI {
         //If just one move left then return 0 as heuristic since there is no other choice
         if (moves.size() <2) return calcHeuristic(gl, eF, gl.getTurnStatus());
 
-        int maxScore = -10000000;
+        int maxScore = Integer.MAX_VALUE;
         if (gl.getTurnStatus() != aiPlayer)
             maxScore *= -1;
         int indexMaxScore = -1;
@@ -90,12 +91,7 @@ public class MinMax extends AI {
     }
 
     private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
-        Vector3 scores = gl.getScore();
-
-        if (gl.getTurnStatus() == 1)
-            return (int) scores.x + eF.evaluateMobility(gl);
-        else
-            return (int) scores.y + eF.evaluateMobility(gl);
+        return eF.bigEvaluation(gl, player);
     }
 
 
