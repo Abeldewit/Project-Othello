@@ -57,8 +57,8 @@ public class MonteCarlo extends AI {
 
                 }
                 else{
+
                     for(int i = 0; i < cn.getMoves().size(); i++){
-                        glCopy.changeTurn();
                         glCopy.getBoard().setChip((int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x, glCopy.getTurnStatus());
                         CarloNode childNode = new CarloNode(glCopy,(int) cn.getMoves().get(i).y,(int) cn.getMoves().get(i).x);
                         childNode.setPlayerTurn(glCopy.getTurnStatus());
