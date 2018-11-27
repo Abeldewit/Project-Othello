@@ -34,12 +34,13 @@ public class MonteCarlo extends AI {
         double score = 0;
         for(int i = 0; i < cn.getMoves().size(); i++){
             GameLogic currentGl = glCopy.copy();
-            currentGl.getBoard().setChip((int) root.getMoves().get(i).y, (int) root.getMoves().get(i).x, glCopy.getTurnStatus());
-            CarloNode childNode = new CarloNode(currentGl,(int) root.getMoves().get(i).y,(int) root.getMoves().get(i).x);
+            currentGl.getBoard().setChip((int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x, glCopy.getTurnStatus());
+            CarloNode childNode = new CarloNode(currentGl,(int) cn.getMoves().get(i).y,(int) cn.getMoves().get(i).x);
            // setScore(childNode,currentGl);
             cn.setChild(childNode);
             childNode.setParent(root);
         }
+        root = cn;
 
         while(root.getVisits() < SIMULATIONS){
           // System.out.println(root.getVisits());
@@ -104,6 +105,18 @@ public class MonteCarlo extends AI {
 
 
             }
+
+        double tempScore3 = -1000000;
+        int tempIndex3 = 0;
+        System.out.println("");
+        for(int i = 0; i < root.getChildren().size(); i++){
+            if(evaluation(cn.getChildren().get(i)) > tempScore3){
+                tempScore3 = evaluation(cn.getChildren().get(i));
+                tempIndex3 = i;
+
+            }
+        }
+        cn = root.getChildren().get(tempIndex3);
 
        return new Vector2(cn.getColumn(),cn.getRow());
 
