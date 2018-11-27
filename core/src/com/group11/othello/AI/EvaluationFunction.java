@@ -5,8 +5,7 @@ import com.group11.othello.Logic.GameLogic;
 
 public class EvaluationFunction {
 
-    private int blackMoves;
-    private int whiteMoves;
+
     GameLogic gameLogic;
 
 
@@ -43,8 +42,9 @@ public class EvaluationFunction {
     public double evaluateCurrent(GameLogic gL) {
         gameLogic = gL.copy();
 
-        blackMoves = gameLogic.getValidMoves().size();
-        return 0;
+
+
+        return new Vector2(0,0);
     }
 
     public Vector2 checkCorners(GameLogic gL)
