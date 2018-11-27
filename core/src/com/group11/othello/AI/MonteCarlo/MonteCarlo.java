@@ -38,7 +38,6 @@ public class MonteCarlo extends AI {
             CarloNode childNode = new CarloNode(currentGl,(int) root.getMoves().get(i).y,(int) root.getMoves().get(i).x);
            // setScore(childNode,currentGl);
             cn.setChild(childNode);
-            cn.setPlayerTurn(playerTurn);
             childNode.setParent(root);
         }
 
@@ -149,8 +148,10 @@ public class MonteCarlo extends AI {
                int n =0;
 
                n = rand.nextInt(moveList.size());
-               CarloNode childNode = new CarloNode(glCopy,cn.getChildren().get(n).getRow(),cn.getChildren().get(n).getColumn());
-               glCopy.getBoard().setChip(childNode.getRow(),childNode.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y
+               CarloNode childNode = new CarloNode(glCopy,(int)cn.getMoves().get(n).y,(int)cn.getMoves().get(n).x);
+
+               glCopy.getBoard().setChip(childNode.getRow(),childNode.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y\\
+               glCopy.changeTurn();
                if(glCopy.getTurnStatus() == 1){
                    childNode.setScore(glCopy.getScore().x);
                }
