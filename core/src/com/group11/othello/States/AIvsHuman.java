@@ -5,10 +5,14 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.group11.othello.AI.MinMaxBot.AlphaBeta;
+import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Game.Othello;
 import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.Logic.Player1;
+import com.group11.othello.Logic.Player2;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,8 +22,9 @@ public class AIvsHuman extends GameState {
     private BitmapFont font;
     private GameLogic gL;
     private static Player1 player1;
-    private AI ai;
+    private static Player2 player2;
     private GameStateManager gsm;
+    private AI ai1;
 
 
     public AIvsHuman(GameStateManager gsm, AI ai)
@@ -27,7 +32,8 @@ public class AIvsHuman extends GameState {
 
         super(gsm);
         player1 = new Player1();
-        this.ai = ai;
+        player2 = new Player2();
+        ai1 = ai;
         gL = new GameLogic();
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
@@ -41,99 +47,50 @@ public class AIvsHuman extends GameState {
     @Override
     public void handleInput()
     {
+        try {
+            TimeUnit.MILLISECONDS.sleep(300);
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+
         if(gL.getValidMoves().size()==0){
             gL.changeTurn();
 
         }
+        if(gL.gameOver() == true){
+            if(player1.getScore() > player2.getScore())
+            {
+                gsm.set(new EndState(gsm,1,player1.getScore()));
+            }
+            else
+            {
+                gsm.set(new EndState(gsm,2,player2.getScore()));
+            }
+
+        }
         if(gL.getTurnStatus() == 2) {
-            try {
-                TimeUnit.MILLISECONDS.sleep(900);
-            } catch (Exception e) {
-                System.out.println("Error");
-            }
-            if(gL.endGame(gL.getTurnStatus()) == false) {
-                gL.changeTurn();
-                System.out.println("Made it to first end game player2");
-                if (gL.endGame(gL.getTurnStatus()) == false) {
-                    System.out.println("Made it to second end game player2");
-                    if (player1.getScore() > ai.getScore()) {
-                        gsm.set(new EndState(gsm, 1, player1.getScore()));
-                    } else {
-                        gsm.set(new EndState(gsm, 2, ai.getScore()));
-                    }
+            Vector2 aiMove = new Vector2();
+
+                aiMove = ai1.nextMove(gL);
+                int x = (int) aiMove.x;
+                int y = (int) aiMove.y;
+                if(y >=0 && x >=0) {
+                    gL.getBoard().setChip(y, x, gL.getTurnStatus());
+                    runAvailable(x, y);
+
+                    player1.setScore((int) gL.getScore().x);
+                    player2.setScore((int) gL.getScore().y);
                 }
-            }
-            System.out.println("first check");
-            if (gL.endGame(gL.getTurnStatus()) == true) {
                 gL.changeTurn();
-                System.out.println("second check");
-                if (gL.endGame(gL.getTurnStatus()) == true) {
-                    gL.changeTurn();
-                    System.out.println("third check");
-                    ai.setLogic(gL);
-                    int x = (int) ai.nextMove(gL).x;
-                    int y = (int) ai.nextMove(gL).y;
-                    System.out.println("x = " + x);
-                    System.out.println("y = " + y);
 
-                    if (gL.checkMoves(x, y, gL.getTurnStatus()) >= 0) {
-
-                        gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                        runAvailable(x, y);
-
-                        player1.setScore((int) gL.getScore().x);
-                        ai.setScore((int) gL.getScore().y);
-
-                        gL.changeTurn();
-
-                    }
-
-                } else {
-                    if (player1.getScore() > ai.getScore()) {
-                        gsm.set(new EndState(gsm, 1, player1.getScore()));
-                    } else {
-                        gsm.set(new EndState(gsm, 2, ai.getScore()));
-                    }
-
-                }
-
-
-            }
         }
         else
             {
                 if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
 
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(400);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
                     if(Gdx.input.getY() >=100) {
                         int x = (int) Math.floor(Gdx.input.getX() / 100);
                         int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
-
-                        if(gL.endGame(gL.getTurnStatus()) == false)
-                        {
-                            gL.changeTurn();
-                            System.out.println("Made it to first end game");
-                            if(gL.endGame(gL.getTurnStatus()) == false)
-                            {
-                                System.out.println("Made it to second end game");
-                                if(player1.getScore() > ai.getScore())
-                                {
-                                    gsm.set(new EndState(gsm,1,player1.getScore()));
-                                }
-                                else
-                                {
-                                    gsm.set(new EndState(gsm,2,ai.getScore()));
-                                }
-
-
-                            }
-
-                        }
-
 
                         if (isTooClose(x, y) == false) {
                             if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
@@ -146,12 +103,12 @@ public class AIvsHuman extends GameState {
                                 if (gL.getTurnStatus() == 1) {
 
                                     player1.setScore((int) gL.getScore().x);
-                                    ai.setScore((int) gL.getScore().y);
+                                    player2.setScore((int) gL.getScore().y);
 
                                     gL.changeTurn();
                                 } else {
                                     player1.setScore((int) gL.getScore().x);
-                                    ai.setScore((int) gL.getScore().y);
+                                    player2.setScore((int) gL.getScore().y);
 
                                     gL.changeTurn();
                                 }
@@ -201,7 +158,7 @@ public class AIvsHuman extends GameState {
         sb.draw(WChip,10,823, 30,30);
         sb.draw(menuButton,580,830,200,40);
         font.draw(sb,String.valueOf(player1.getScore()), 80, 843);
-        font.draw(sb,String.valueOf(ai.getScore()), 175, 843);
+        font.draw(sb,String.valueOf(player2.getScore()), 175, 843);
         if(gL.getTurnStatus() == 1)
         {
             sb.draw(WChip,412,815,30,30);

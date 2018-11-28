@@ -14,7 +14,7 @@ public class MonteCarlo extends AI {
 
     private CarloNode root;
     private int playerTurn;
-    private final int SIMULATIONS = 20;
+    private final int SIMULATIONS = 200;
     int constant = 2;
 
    public MonteCarlo (int player){
