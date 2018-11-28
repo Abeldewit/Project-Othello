@@ -1,7 +1,6 @@
 package com.group11.othello.AI.MonteCarlo;
 
 import com.badlogic.gdx.math.Vector2;
-import com.group11.othello.AI.Minimax.Node;
 import com.group11.othello.Logic.GameLogic;
 
 import java.util.ArrayList;

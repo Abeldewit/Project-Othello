@@ -34,7 +34,9 @@ public class AIvsAI_State extends State {
     {
 
         super(gsm);
-        minMax = new MinMax();
+        minMax = new MinMax(1);
+        alphaBeta= new AlphaBeta(1);
+        minMax = new MinMax(2);
         alphaBeta= new AlphaBeta(2);
         player1 = new Player1();
         player2 = new Player2();
