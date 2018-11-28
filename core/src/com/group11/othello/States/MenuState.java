@@ -139,10 +139,10 @@ public class MenuState extends State {
                 }// MinMax by lilly AIvsAI simulation
                 if(verses == 0){
                     verses = 0;
-                    gsm.push(new AIvsAI_State(gsm, new MinMax(), new MinMax()));
+                    gsm.push(new AIvsAI_State(gsm, new MinMax(1), new MinMax(2)));
                 }
                 else{
-                    gsm.push(new AIvsHuman(gsm, new MinMax()));
+                    gsm.push(new AIvsHuman(gsm, new MinMax(2)));
                 }
 
             }

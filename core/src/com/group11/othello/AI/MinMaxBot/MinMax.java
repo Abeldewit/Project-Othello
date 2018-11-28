@@ -12,11 +12,12 @@ import java.util.List;
 public class MinMax extends AI {
     //    private int[][] board;
     private final static int maxDepth = 4;
-    private static int aiPlayer = 1;
+    private static int aiPlayer;
 
     EvaluationFunction eF = new EvaluationFunction();
 
-    public MinMax() {
+    public MinMax(int player) {
+        this.aiPlayer = player;
     }
 
     public Vector2 nextMove(GameLogic gameLogic) {
