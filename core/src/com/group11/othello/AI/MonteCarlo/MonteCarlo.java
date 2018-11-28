@@ -46,23 +46,15 @@ public class MonteCarlo extends AI {
           // System.out.println(root.getVisits());
            cn=selection(cn);
             if(cn.getChildren().size() == 0){
-                System.out.println("Passed 1st if");
                 if(cn.getVisits() == 0){
-                    System.out.println("Passed 2nd if");
                     backPropagation(rollOut(cn));
-                    System.out.println("backpropagated");
                     updateVisits(cn);
-                    System.out.println("roledout");
-
                 }
                 else{
                     for(int i = 0; i < cn.getChildren().size(); i++){
                         if(cn.getChildren().get(i).getScore() == 0){
-                            System.out.println("Passed 3rd if");
                             backPropagation(rollOut(cn));
-                            System.out.println("backpropagated2");
                             updateVisits(cn);
-                            System.out.println("roledout2");
                             break;
                         }
                     }
@@ -157,7 +149,7 @@ public class MonteCarlo extends AI {
         GameLogic glCopy = cn.getGameLogic().copy();
         Random rand = new Random();
         System.out.println("Im in Rollout");
-        int k =10;
+        int k =2;
 
        for(int i =0;i<k;i++){ //Need to change to a while loop
           // System.out.println("Im in the while loop");
@@ -168,14 +160,13 @@ public class MonteCarlo extends AI {
 
                n = rand.nextInt(moveList.size());
                CarloNode childNode = new CarloNode(glCopy,(int)cn.getMoves().get(n).y,(int)cn.getMoves().get(n).x);
-
                glCopy.getBoard().setChip(childNode.getRow(),childNode.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y\\
                glCopy.changeTurn();
                if(glCopy.getTurnStatus() == 1){
                    childNode.setScore(glCopy.getScore().x);
                }
                else{
-                   childNode.setScore(glCopy.getScore().y);
+                   childNode.setScore(glCopy.getScore().y*-1f);
                }
 
                childNode.setParent(cn);
@@ -183,7 +174,7 @@ public class MonteCarlo extends AI {
                cn = childNode;
 
            }
-           else
+             else
            {
                return cn;
            }
@@ -195,7 +186,6 @@ public class MonteCarlo extends AI {
 
    public double evaluation(CarloNode node){
        int index=0;
-
 
            double scoreAverage = node.getScore()/node.getVisits();
            double control = (Math.sqrt((Math.log(root.getVisits())/ node.getVisits())))*constant;
