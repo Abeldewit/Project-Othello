@@ -22,7 +22,7 @@ public class CarloNode {
     public CarloNode(GameLogic gl, int row, int column){
 
         this.glCopy = gl.copy();
-        moves = glCopy.getValidMoves();
+        moves = glCopy.getValidMoves(gl);
         playerTurn = glCopy.getTurnStatus();
         children = new ArrayList<CarloNode>();
         visits = 0;
