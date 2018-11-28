@@ -104,7 +104,7 @@ public class MonteCarlo extends AI {
 
 
             }
-
+        System.out.println("Col:" + cn.getColumn() + " Row: " + cn.getRow());
        return new Vector2(cn.getColumn(),cn.getRow());
 
     }
@@ -137,7 +137,6 @@ public class MonteCarlo extends AI {
         CarloNode cn = node;
         GameLogic glCopy = cn.getGameLogic().copy();
         Random rand = new Random();
-        System.out.println("Im in Rollout");
         int k =10;
 
        for(int i =0;i<k;i++){ //Need to change to a while loop
@@ -145,6 +144,10 @@ public class MonteCarlo extends AI {
            List<Vector2> moveList = cn.getMoves();
            if(moveList.size()>0)
            {
+               for(int b =0;b< moveList.size();b++)
+               {
+                   System.out.println("Possible move "+b+": " + moveList.get(b));
+               }
                int n =0;
 
                n = rand.nextInt(moveList.size());
@@ -169,7 +172,6 @@ public class MonteCarlo extends AI {
                return cn;
            }
        }
-        System.out.println("Im done");
        return cn;
        
     }
