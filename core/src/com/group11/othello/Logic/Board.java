@@ -61,6 +61,7 @@ public class Board {
             for (int j = 0; j < 8; j++) {
 
                 System.out.print(getChip(i, j));
+                System.out.print("  ");
             }
             System.out.println();
         }

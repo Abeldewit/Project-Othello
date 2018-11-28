@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.group11.othello.AI.MinMaxBot.MinMax;
+import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.AI.Greedy.Greedy;
 import com.group11.othello.AI.MonteCarlo.MonteCarlo;
@@ -139,10 +140,10 @@ public class MenuState extends State {
                 }// MinMax by lilly AIvsAI simulation
                 if(verses == 0){
                     verses = 0;
-                    gsm.push(new AIvsAI_State(gsm, new MinMax(1), new MinMax(2)));
+                    gsm.push(new AIvsAI_State(gsm, new AlphaBeta(2), new Greedy(1)));
                 }
                 else{
-                    gsm.push(new AIvsHuman(gsm, new MinMax(2)));
+                    gsm.push(new AIvsHuman(gsm, new AlphaBeta(2)));
                 }
 
             }

@@ -41,6 +41,10 @@ public class AIvsHuman extends GameState {
     @Override
     public void handleInput()
     {
+        if(gL.getValidMoves().size()==0){
+            gL.changeTurn();
+
+        }
         if(gL.getTurnStatus() == 2) {
             try {
                 TimeUnit.MILLISECONDS.sleep(900);

@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.AI.EvaluationFunction;
-import sun.awt.image.IntegerComponentRaster;
+//import sun.awt.image.IntegerComponentRaster;
 
 import java.util.List;
 
@@ -92,7 +92,14 @@ public class MinMax extends AI {
     }
 
     private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
-        return eF.bigEvaluation(gl, player);
+
+        Vector3 scores = gl.getScore();
+        //return eF.bigEvaluation(gl, player);
+        if (player == 1)
+            return (int) scores.x;
+        else
+            return (int) scores.y;
+
     }
 
 
