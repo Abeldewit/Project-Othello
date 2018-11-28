@@ -11,12 +11,13 @@ import java.util.List;
 
 public class AlphaBeta extends AI {
     //    private int[][] board;
-    private final static int maxDepth = 8;
+    private final static int maxDepth = 5;
     private static int aiPlayer = 1;
 
     EvaluationFunction eF = new EvaluationFunction();
 
-    public AlphaBeta() {
+    public AlphaBeta(int player) {
+        aiPlayer = player;
     }
 
     public Vector2 nextMove(GameLogic gameLogic) {
@@ -24,7 +25,7 @@ public class AlphaBeta extends AI {
         aiPlayer = gl.getTurnStatus();
 
         List<Vector2> moves = gl.getValidMoves();
-        int maxScore = -10000000;
+        int maxScore = Integer.MIN_VALUE;
         int indexMaxScore = -1;
         if(moves.size() == 1)
             return moves.get(0);
@@ -65,7 +66,7 @@ public class AlphaBeta extends AI {
       //  int score = 0;
 
         if (gl.getTurnStatus() != aiPlayer){
-            int maxEval = 10000000;
+            int maxEval = Integer.MAX_VALUE;
             for (int i = 0; i < moves.size(); i++) {
                 Vector2 move = moves.get(i);
                 GameLogic glCopy = gl.copy();
