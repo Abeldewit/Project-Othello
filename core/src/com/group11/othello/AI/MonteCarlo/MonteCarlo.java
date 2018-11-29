@@ -123,8 +123,9 @@ public class MonteCarlo extends AI {
         System.out.println("Im in Rollout");
         int k =0;
 
-       while(k < 25){ //Need to change to a while loop
+       while(glCopy.gameOver() == false){ //Need to change to a while loop
           // System.out.println(".............................k = "+k);
+
            k++;
            List<Vector2> moveList = cn.getMoves();
            if(moveList.size()>0)
