@@ -45,7 +45,7 @@ public class MonteCarlo extends AI {
 
         while(root.getVisits() < SIMULATIONS){
            System.out.println(".............................root visits = "+root.getVisits());
-           System.out.println(".............cnChildrenSize"+ cn.getChildren().size());
+           System.out.println(".............cnChildrenSize "+ cn.getChildren().size());
 
             if(cn.getChildren().size() == 0){
                 System.out.println("Passed 1st if");

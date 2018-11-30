@@ -13,8 +13,8 @@ public class EvaluationFunction {
 
     }
 
-    public int bigEvaluation(GameLogic gL, int player) {
-        int score = 0;
+    public double bigEvaluation(GameLogic gL, int player) {
+        double score = 0;
 
         //simple score based on amount of chips
 
