@@ -93,10 +93,16 @@ public class AIvsAI_State extends State {
             else {
                 Vector2 aiMove = new Vector2();
                 if(gL.getTurnStatus() == 1){
-                     aiMove = ai1.nextMove(gL);
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai1.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    System.out.println(currentMillis - prevMillis);
                 }
                 else{
-                     aiMove = ai2.nextMove(gL);
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai2.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    System.out.println(currentMillis - prevMillis);
                 }
 
 

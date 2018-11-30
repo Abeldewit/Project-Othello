@@ -135,8 +135,7 @@ public class AlphaBeta extends AI {
     }*/
 
     private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
-
-        return (int)eF.bigEvaluation(gl, player);
+        return (int) eF.bigEvaluation(gl, player);
     }
 
     /*private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
