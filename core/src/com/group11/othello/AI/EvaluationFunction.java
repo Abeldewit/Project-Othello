@@ -7,10 +7,7 @@ import com.group11.othello.Logic.GameLogic;
 
 public class EvaluationFunction {
 
-
-
     GameLogic gameLogic;
-
 
     public EvaluationFunction() {
 
@@ -39,6 +36,8 @@ public class EvaluationFunction {
             score -= mob;
             score += corners.y;
         }
+        //Penalty for placing around a corner
+        score += cornerPenalty(gL, player);
 
         System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
@@ -61,7 +60,7 @@ public class EvaluationFunction {
             MHV = 0;
 
         }
-        System.out.println("Evaluation of mobility: " + MHV);
+        //System.out.println("Evaluation of mobility: " + MHV);
         return MHV;
     }
 
@@ -82,26 +81,84 @@ public class EvaluationFunction {
             }
         }
 
-        System.out.println("Corner eval, white: " + whiteCorner * 100 + " black: " + blackCorner * 100);
+        //System.out.println("Corner eval, white: " + whiteCorner * 100 + " black: " + blackCorner * 100);
         return new Vector2(whiteCorner * 100, blackCorner * 100);
     }
-}
-    /*public int Evaluate
 
-    public double evaluateCurrent(GameLogic gL) {
-        gameLogic = gL.copy();
+    public int cornerPenalty(GameLogic gL, int player) {
+        Board currentBoard = gL.getBoard();
+        final int penalty = 200;
+        int playerPenalty = 0;
 
+        for(int i = 1; i < 13; i++) {
 
-
-        return new Vector2(0,0);
+            switch (i) {
+                //Upper left corner
+                case 1:
+                    if(currentBoard.getChip(0,1) == player && currentBoard.getChip(0,0) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 2:
+                    if(currentBoard.getChip(1,0) == player && currentBoard.getChip(0,0) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 3:
+                    if(currentBoard.getChip(1,1) == player && currentBoard.getChip(0,0) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                //Lower left corner
+                case 4:
+                    if(currentBoard.getChip(0,6) == player && currentBoard.getChip(0,7) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 5:
+                    if(currentBoard.getChip(1,7) == player && currentBoard.getChip(0,7) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 6:
+                    if(currentBoard.getChip(1,6) == player && currentBoard.getChip(0,7) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                //Upper right corner
+                case 7:
+                    if(currentBoard.getChip(6,0) == player && currentBoard.getChip(7,0) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 8:
+                    if(currentBoard.getChip(7,1) == player && currentBoard.getChip(7,0) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 9:
+                    if(currentBoard.getChip(6,1) == player && currentBoard.getChip(7,0) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                //Lower right corner
+                case 10:
+                    if(currentBoard.getChip(7,6) == player && currentBoard.getChip(7,7) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 11:
+                    if(currentBoard.getChip(6,7) == player && currentBoard.getChip(7,7) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+                case 12:
+                    if(currentBoard.getChip(6,6) == player && currentBoard.getChip(7,7) != player) {
+                        playerPenalty -= penalty;
+                    }
+                    break;
+            }
+        }
+        return playerPenalty;
     }
-
-    public Vector2 checkCorners(GameLogic gL)
-    {
-        gameLogic = gL.copy();
-
-        return new Vector2();
-
-    }
 }
-*/
