@@ -102,12 +102,13 @@ public class AIvsAI_State extends State {
 
                 int x = (int) aiMove.x;
                 int y = (int) aiMove.y;
-                gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                runAvailable(x, y);
+                if(x >= 0 && y >= 0) {
+                    gL.getBoard().setChip(y, x, gL.getTurnStatus());
+                    runAvailable(x, y);
 
-                player1.setScore((int) gL.getScore().x);
-                player2.setScore((int) gL.getScore().y);
-
+                    player1.setScore((int) gL.getScore().x);
+                    player2.setScore((int) gL.getScore().y);
+                }
                 gL.changeTurn();
             }
 

@@ -14,7 +14,7 @@ public class MonteCarlo extends AI {
 
     private CarloNode root;
     private int playerTurn;
-    private final int SIMULATIONS = 2;
+    private final int SIMULATIONS = 200;
     int constant = 2;
 
    public MonteCarlo (int player){
@@ -31,20 +31,22 @@ public class MonteCarlo extends AI {
         GameLogic glCopy = gameLogic.copy();
         root = new CarloNode(gameLogic.copy(),-1,-1);
         CarloNode cn = root;
-        double score = 0;
+        /*
         for(int i = 0; i < cn.getMoves().size(); i++){
             GameLogic currentGl = glCopy.copy();
             currentGl.getBoard().setChip((int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x, glCopy.getTurnStatus());
             CarloNode childNode = new CarloNode(currentGl,(int) cn.getMoves().get(i).y,(int) cn.getMoves().get(i).x);
-           // setScore(childNode,currentGl);
             cn.setChild(childNode);
             childNode.setParent(root);
         }
+        */
+
         root = cn;
 
         while(root.getVisits() < SIMULATIONS){
-          // System.out.println(root.getVisits());
-           cn=selection(cn);
+           System.out.println(".............................root visits = "+root.getVisits());
+           System.out.println(".............cnChildrenSize "+ cn.getChildren().size());
+
             if(cn.getChildren().size() == 0){
                 System.out.println("Passed 1st if");
                 if(cn.getVisits() == 0){
@@ -53,76 +55,38 @@ public class MonteCarlo extends AI {
                     System.out.println("backpropagated");
                     updateVisits(cn);
                     System.out.println("roledout");
+                    cn = root;
 
                 }
-                else{
-                    for(int i = 0; i < cn.getChildren().size(); i++){
-                        if(cn.getChildren().get(i).getScore() == 0){
-                            System.out.println("Passed 3rd if");
-                            backPropagation(rollOut(cn));
-                            System.out.println("backpropagated2");
-                            updateVisits(cn);
-                            System.out.println("roledout2");
-                            break;
-                        }
-                    }
-
-                    for(int i = 0; i < cn.getMoves().size(); i++){
-                        GameLogic gl = glCopy.copy();
-                        glCopy.getBoard().setChip((int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x, gl.getTurnStatus());
-                        CarloNode childNode = new CarloNode(gl,(int) cn.getMoves().get(i).y,(int) cn.getMoves().get(i).x);
+                else {
+                    for (int i = 0; i < cn.getMoves().size(); i++) {
+                        GameLogic gl = cn.getGameLogic().copy();
+                        gl.getBoard().setChip((int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x, gl.getTurnStatus());
+                        CarloNode childNode = new CarloNode(gl, (int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x);
                         cn.setChild(childNode);
                         childNode.setParent(cn);
 
                     }
-
-                    double tempScore = -1000000;
-                    int tempIndex = 0;
-                    for(int i = 0; i < cn.getChildren().size(); i++){
-                        if(evaluation(cn.getChildren().get(i)) > tempScore){
-                            tempScore = evaluation(cn.getChildren().get(i));
-                            tempIndex = i;
-
-                        }
-                    }
-                    if(cn.getChildren().size() > 0){
-                        backPropagation(rollOut(cn.getChildren().get(tempIndex)));
-                        updateVisits(cn);
-                    }
-                    else{
-                        break;
-                    }
+                      cn = selection(cn);
+                      backPropagation(rollOut(cn));
+                      updateVisits(cn);
+                      cn = root;
+                    System.out.println("got to ");
 
 
                 }
             }
             else{
-                double tempScore2 = -1000000;
-                int tempIndex2 = 0;
-                for(int i = 0; i < cn.getChildren().size(); i++){
-                    if(evaluation(cn.getChildren().get(i)) > tempScore2){
-                        tempScore2 = evaluation(cn.getChildren().get(i));
-                        tempIndex2 = i;
 
-                    }
-                }
-                cn = cn.getChildren().get(tempIndex2);
+                cn = selection(cn);
+                System.out.println("got to last else in nextMove");
                 }
 
 
             }
 
-        double tempScore3 = -1000000;
-        int tempIndex3 = 0;
-        System.out.println("");
-        for(int i = 0; i < root.getChildren().size(); i++){
-            if(evaluation(root.getChildren().get(i)) > tempScore3){
-                tempScore3 = evaluation(root.getChildren().get(i));
-                tempIndex3 = i;
 
-            }
-        }
-        cn = root.getChildren().get(tempIndex3);
+         cn = selection(root);
 
        return new Vector2(cn.getColumn(),cn.getRow());
 
@@ -157,10 +121,12 @@ public class MonteCarlo extends AI {
         GameLogic glCopy = cn.getGameLogic().copy();
         Random rand = new Random();
         System.out.println("Im in Rollout");
-        int k =10;
+        int k =0;
 
-       for(int i =0;i<k;i++){ //Need to change to a while loop
-          // System.out.println("Im in the while loop");
+       while(glCopy.gameOver() == false){ //Need to change to a while loop
+          // System.out.println(".............................k = "+k);
+
+           k++;
            List<Vector2> moveList = cn.getMoves();
            if(moveList.size()>0)
            {
@@ -168,14 +134,27 @@ public class MonteCarlo extends AI {
 
                n = rand.nextInt(moveList.size());
                CarloNode childNode = new CarloNode(glCopy,(int)cn.getMoves().get(n).y,(int)cn.getMoves().get(n).x);
-
-               glCopy.getBoard().setChip(childNode.getRow(),childNode.getColumn(),glCopy.getTurnStatus());  //in case it works, change the x with y\\
+               System.out.println("");
+               glCopy.getBoard().setChip((int)cn.getMoves().get(n).y,(int)cn.getMoves().get(n).x,glCopy.getTurnStatus());  //in case it works, change the x with y\\
                glCopy.changeTurn();
-               if(glCopy.getTurnStatus() == 1){
-                   childNode.setScore(glCopy.getScore().x);
+
+               if(glCopy.getTurnStatus()== 1){
+                   if(playerTurn == 1){
+                       childNode.setScore(glCopy.getScore().x);
+                   }
+                   else{
+                       childNode.setScore(glCopy.getScore().x*-1);
+                   }
                }
-               else{
-                   childNode.setScore(glCopy.getScore().y);
+
+               else
+               {
+                   if(playerTurn == 2){
+                       childNode.setScore(glCopy.getScore().y);
+                   }
+                   else{
+                       childNode.setScore(glCopy.getScore().y*-1);
+                   }
                }
 
                childNode.setParent(cn);
@@ -205,14 +184,14 @@ public class MonteCarlo extends AI {
    }
 
    public void backPropagation(CarloNode node){
-          CarloNode cn = node;
-          double score = cn.getScore();
 
-          while(!(cn.equals(root))){
+          double score = node.getScore();
 
-              cn = cn.getParent();
-              score += cn.getScore();
-              cn.setScore(score);
+          while(!(node.equals(root))){
+
+              node = node.getParent();
+              score += node.getScore();
+              node.setScore(score);
 
           }
 
@@ -232,13 +211,23 @@ public class MonteCarlo extends AI {
        float finalScore=0;
 
        GameLogic glCopy = node.getGameLogic().copy();
-           if(glCopy.getTurnStatus()== 1)
-           {
-               finalScore=glCopy.getScore().x;
+           if(glCopy.getTurnStatus()== 1){
+               if(playerTurn == 1){
+                   finalScore=glCopy.getScore().x;
+               }
+               else{
+                   finalScore=(glCopy.getScore().x)*-1;
+               }
            }
+
            else
            {
-               finalScore=glCopy.getScore().y;
+               if(playerTurn == 2){
+                   finalScore=glCopy.getScore().y;
+               }
+               else{
+                   finalScore=(glCopy.getScore().y)*-1;
+               }
            }
 
        System.out.println("Final Score : "+finalScore);

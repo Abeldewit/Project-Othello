@@ -1,7 +1,6 @@
 package com.group11.othello.AI.MonteCarlo;
 
 import com.badlogic.gdx.math.Vector2;
-import com.group11.othello.AI.Minimax.Node;
 import com.group11.othello.Logic.GameLogic;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class CarloNode {
     CarloNode parent;
     List<Vector2> moves;
     int playerTurn;
-    int visits;
+    double visits;
     double score;
     int row;
     int column;
@@ -25,8 +24,8 @@ public class CarloNode {
         moves = glCopy.getValidMoves(gl);
         playerTurn = glCopy.getTurnStatus();
         children = new ArrayList<CarloNode>();
-        visits = 0;
-        score = 0;
+        visits = 0.0;
+        score = 0.0;
         this.row = row;
         this.column = column;
 
@@ -51,7 +50,7 @@ public class CarloNode {
     }
     public double getScore(){return score;}
     public int getPlayerTurn() { return playerTurn; }
-    public int getVisits(){return visits;}
+    public double getVisits(){return visits;}
     public GameLogic getGameLogic(){return glCopy;}
     public  List<Vector2> getMoves(){return moves;}
     public int getRow(){return row;}

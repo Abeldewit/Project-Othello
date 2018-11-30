@@ -13,9 +13,13 @@ public class MinMax extends AI {
     private final static int maxDepth = 4;
     private static int aiPlayer;
 
+
     public MinMax(int aiPlayer) {
         this.aiPlayer = aiPlayer;
+
+  //  EvaluationFunction eF = new EvaluationFunction();
     }
+    
 
     public Vector2 nextMove(GameLogic gameLogic) {
         GameLogic gl = gameLogic.copy();
