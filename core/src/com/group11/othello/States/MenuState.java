@@ -156,7 +156,7 @@ public class MenuState extends State {
                 }
                 if(verses == 0){
                     verses = 0;
-                    gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1),new MonteCarlo(2)));
+                    gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1),new AlphaBeta(2)));
                 }
                 else{
                     gsm.push(new AIvsHuman(gsm, new MonteCarlo(1)));
@@ -166,7 +166,7 @@ public class MenuState extends State {
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 350 && Gdx.input.getY() >= 440 && Gdx.input.getY() <= 540 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                 try {
-                    TimeUnit.MILLISECONDS.sleep(200);
+                    TimeUnit.MILLISECONDS.sleep(500);
                 } catch (Exception e) {
                     System.out.println("Error");
                 }

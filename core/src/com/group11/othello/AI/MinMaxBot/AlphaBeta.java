@@ -43,9 +43,9 @@ public class AlphaBeta extends AI {
                 
             }
         }
-        System.out.println("MOVE I : " + indexMaxScore);
-        System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
-        gl.getBoard().printBoard();
+        //System.out.println("MOVE I : " + indexMaxScore);
+        //System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
+        //gl.getBoard().printBoard();
         return moves.get(indexMaxScore);
 
     }
