@@ -156,7 +156,7 @@ public class MenuState extends State {
                 }
                 if(verses == 0){
                     verses = 0;
-                    gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1),new Greedy(2)));
+                    gsm.push(new AIvsAI_State(gsm, new MonteCarlo(1),new AlphaBeta(2)));
                 }
                 else{
                     gsm.push(new AIvsHuman(gsm, new MonteCarlo(1)));
