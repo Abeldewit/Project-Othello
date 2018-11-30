@@ -10,8 +10,11 @@ import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.AI.Greedy.Greedy;
 import com.group11.othello.AI.MonteCarlo.MonteCarlo;
+import com.group11.othello.AI.Testing;
 import com.group11.othello.Logic.GameLogic;
 
+import java.io.IOException;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class MenuState extends State {
@@ -20,17 +23,17 @@ public class MenuState extends State {
     public int verses = 0;
     public AI firstAi;
     public AI secondAi;
-
+    Testing testing;
     public GameStateManager gsm;
     private Texture background;
     private Texture exitBtn,settBtn,playBtn,startBtn;
     private Texture greedyBtn,monteCarloBtn,abBtn;
     private Texture greedyBtn2,monteCarloBtn2,abBtn2;
     private Texture aiVSai,playerVSplayer,playerVSai;
-
+    boolean evAnswer=false;
     public boolean playerVsAi=false;
     public boolean aiVsAi=false;
-
+    Scanner scanner;
    public MenuState(GameStateManager gsm){
        super(gsm);
        this.gsm = gsm;
@@ -50,6 +53,11 @@ public class MenuState extends State {
        playerVSplayer = new Texture("PlayerVSPlayerUP.png");
        playerVSai =  new Texture("PlayerVSAIUp.png");
        aiVSai = new Texture("AiVSAiUp.png");
+       scanner = new Scanner(System.in);
+
+       testing = super.testing;
+
+
    }
 
     @Override
@@ -258,7 +266,8 @@ public class MenuState extends State {
                         System.out.println("Error");
                     }
                     System.out.println("First Ai Chosen: Alpha-Beta");
-                    firstAi=new Greedy(1);
+                    firstAi=new AlphaBeta(1);
+                    testing.setfName("Alpha Beta");
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -268,7 +277,8 @@ public class MenuState extends State {
                         System.out.println("Error");
                     }
                     System.out.println("First Ai Chosen: Monte Carlo");
-                    firstAi=new AlphaBeta(1);
+                    firstAi=new MonteCarlo(1);
+                    testing.setfName("Monte Carlo");
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -278,7 +288,8 @@ public class MenuState extends State {
                         System.out.println("Error");
                     }
                     System.out.println("First Ai Chosen: Greedy");
-                    firstAi=new MonteCarlo(1);
+                    firstAi=new Greedy(1);
+                    testing.setfName("Greedy");
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <=580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -288,7 +299,8 @@ public class MenuState extends State {
                         System.out.println("Error");
                     }
                     System.out.println("Second Ai Chosen: Alpha-Beta");
-                    secondAi=new Greedy(2);
+                    secondAi=new AlphaBeta(2);
+                    testing.setsName("Alpha Beta");
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -298,7 +310,8 @@ public class MenuState extends State {
                         System.out.println("Error");
                     }
                     System.out.println("Second Ai Chosen: Monte Carlo");
-                    secondAi=new AlphaBeta(2);
+                    secondAi=new MonteCarlo(2);
+                    testing.setsName("Monte Carlo");
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -308,7 +321,8 @@ public class MenuState extends State {
                         System.out.println("Error");
                     }
                     System.out.println("Second Ai Chosen: Greedy");
-                    secondAi=new MonteCarlo(2);
+                    secondAi=new Greedy(2);
+                    testing.setsName("Greedy");
                 }
 
                 if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -325,9 +339,44 @@ public class MenuState extends State {
                     {
                         System.out.println("Please choose the second AI");
                     }
-                    else if(firstAi!=null && secondAi!=null)
+                    else if(firstAi!=null && secondAi!=null )
                     {
-                        gsm.push(new AIvsAI_State(gsm,firstAi,secondAi));
+                        System.out.println("Did you use Mobility Function ?(yes/anything else)");
+                        String answer = scanner.nextLine();
+                        if(answer.equals("yes"))
+                        {
+                            testing.setev1("yes");
+                        }
+                        else
+                        {
+                            testing.setev1("No");
+                        }
+                        System.out.println("Did you use BigEval Function ?(yes/anything else)");
+                        String answer2 = scanner.nextLine();
+                        if(answer2.equals("yes"))
+                        {
+                            testing.setev2("yes");
+                        }
+                        else
+                        {
+                            testing.setev2("No");
+                        }
+                        System.out.println("Did you use Corners Function ?(yes/anything else)");
+                        String answer3 = scanner.nextLine();
+                        if(answer3.equals("yes"))
+                        {
+                            testing.setev3("yes");
+                            evAnswer=true;
+                        }
+                        else
+                        {
+                            testing.setev3("No");
+                            evAnswer=true;
+                        }
+                        if(evAnswer)
+                        {
+                            gsm.push(new AIvsAI_State(gsm, firstAi, secondAi));
+                        }
                     }
                 }
             }
