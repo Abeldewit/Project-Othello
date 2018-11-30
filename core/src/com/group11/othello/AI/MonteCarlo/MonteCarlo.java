@@ -70,18 +70,13 @@ public class MonteCarlo extends AI {
                         childNode.setParent(cn);
 
                     }
-                    if(cn.getMoves().size() > 0) {
-                        cn = selection(cn);
-                        backPropagation(rollOut(cn));
-                        updateVisits(cn);
-                        cn = root;
-                        //     System.out.println("got to ");
+                      cn = selection(cn);
+                      backPropagation(rollOut(cn));
+                      updateVisits(cn);
+                      cn = root;
+               //     System.out.println("got to ");
 
 
-                    }
-                    else{
-                        break;
-                    }
                 }
             }
             else{
@@ -145,9 +140,12 @@ public class MonteCarlo extends AI {
                System.out.println("");
                glCopy.getBoard().setChip((int)cn.getMoves().get(n).y,(int)cn.getMoves().get(n).x,glCopy.getTurnStatus());  //in case it works, change the x with y\\
                glCopy.changeTurn();
-               setScore(childNode);
 
+               setScore(childNode);
                System.out.println("set score");
+
+
+
 
                childNode.setParent(cn);
                cn.setChild(childNode);
