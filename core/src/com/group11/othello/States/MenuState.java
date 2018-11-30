@@ -196,7 +196,7 @@ public class MenuState extends State {
        sb.draw(exitBtn,470,80,300,100);
        if(number == 1)
        {
-           sb.draw(greedyBtn,50,720,300,100);
+           sb.draw(greedyBtn,50,720,150,50);
            sb.draw(abBtn,50,600,300,100);
            sb.draw(monteCarloBtn,50,480,300,100);
            sb.draw(settBtn,50,360,300,100);

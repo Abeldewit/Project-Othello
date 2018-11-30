@@ -46,23 +46,15 @@ public class MonteCarlo extends AI {
           // System.out.println(root.getVisits());
            cn=selection(cn);
             if(cn.getChildren().size() == 0){
-                System.out.println("Passed 1st if");
                 if(cn.getVisits() == 0){
-                    System.out.println("Passed 2nd if");
                     backPropagation(rollOut(cn));
-                    System.out.println("backpropagated");
                     updateVisits(cn);
-                    System.out.println("roledout");
-
                 }
                 else{
                     for(int i = 0; i < cn.getChildren().size(); i++){
-                        if(cn.getChildren().get(i).getScore() == 0){
-                            System.out.println("Passed 3rd if");
+                        if(cn.getChildren().get(i).getVisits() == 0){
                             backPropagation(rollOut(cn));
-                            System.out.println("backpropagated2");
                             updateVisits(cn);
-                            System.out.println("roledout2");
                             break;
                         }
                     }
