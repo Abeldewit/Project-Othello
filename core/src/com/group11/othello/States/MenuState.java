@@ -253,67 +253,67 @@ public class MenuState extends State {
                 //Click
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(200);
+                        TimeUnit.MILLISECONDS.sleep(500);
                     } catch (Exception e) {
                         System.out.println("Error");
                     }
                     System.out.println("First Ai Chosen: Alpha-Beta");
-                    firstAi=new Greedy(1);
+                    firstAi=new AlphaBeta(1);
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(200);
+                        TimeUnit.MILLISECONDS.sleep(500);
                     } catch (Exception e) {
                         System.out.println("Error");
                     }
-                    System.out.println("First Ai Chosen: Monte Carlo");
-                    firstAi=new AlphaBeta(1);
+                    System.out.println("First Ai Chosen: MonteCarlo");
+                    firstAi=new MonteCarlo(1);
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(200);
+                        TimeUnit.MILLISECONDS.sleep(500);
                     } catch (Exception e) {
                         System.out.println("Error");
                     }
                     System.out.println("First Ai Chosen: Greedy");
-                    firstAi=new MonteCarlo(1);
+                    firstAi=new Greedy(1);
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <=580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(200);
+                        TimeUnit.MILLISECONDS.sleep(500);
                     } catch (Exception e) {
                         System.out.println("Error");
                     }
                     System.out.println("Second Ai Chosen: Alpha-Beta");
-                    secondAi=new Greedy(2);
+                    secondAi=new AlphaBeta(2);
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(200);
+                        TimeUnit.MILLISECONDS.sleep(500);
                     } catch (Exception e) {
                         System.out.println("Error");
                     }
                     System.out.println("Second Ai Chosen: Monte Carlo");
-                    secondAi=new AlphaBeta(2);
+                    secondAi=new MonteCarlo(2);
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(200);
+                        TimeUnit.MILLISECONDS.sleep(500);
                     } catch (Exception e) {
                         System.out.println("Error");
                     }
                     System.out.println("Second Ai Chosen: Greedy");
-                    secondAi=new MonteCarlo(2);
+                    secondAi=new Greedy(2);
                 }
 
                 if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     try {
-                        TimeUnit.MILLISECONDS.sleep(200);
+                        TimeUnit.MILLISECONDS.sleep(500);
                     } catch (Exception e) {
                         System.out.println("Error");
                     }

@@ -4,6 +4,7 @@ package com.group11.othello.AI.MonteCarlo;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.group11.othello.AI.EvaluationFunction;
 import com.group11.othello.Logic.GameLogic;
 
 import java.util.ArrayList;
@@ -14,12 +15,14 @@ public class MonteCarlo extends AI {
 
     private CarloNode root;
     private int playerTurn;
+    private EvaluationFunction eF;
     private final int SIMULATIONS = 500;
     int constant = 3;
 
    public MonteCarlo (int player){
        root = null;
        this.playerTurn = player;
+       eF = new EvaluationFunction();
    }
    /*
    -assign root
@@ -208,29 +211,13 @@ public class MonteCarlo extends AI {
    }
 
    public void setScore(CarloNode node){
-       float finalScore=0;
+       double finalScore=0;
 
        GameLogic glCopy = node.getGameLogic().copy();
-           if(glCopy.getTurnStatus()== 1){
-               if(playerTurn == 1){
-                   finalScore=glCopy.getScore().x;
-               }
-               else{
-                   finalScore=(glCopy.getScore().x)*-1;
-               }
-           }
 
-           else
-           {
-               if(playerTurn == 2){
-                   finalScore=glCopy.getScore().y;
-               }
-               else{
-                   finalScore=(glCopy.getScore().y)*-1;
-               }
-           }
+       finalScore= eF.bigEvaluation(glCopy, glCopy.getTurnStatus());
 
-       System.out.println("Final Score : "+finalScore);
+       System.out.println("...................................................................Final Score : "+finalScore);
        node.setScore(finalScore);
 
    }
