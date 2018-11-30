@@ -25,8 +25,7 @@ public class AIvsAI_State extends State {
     private static Player1 player1;
     private static Player2 player2;
     private GameStateManager gsm;
-    private MinMax minMax;
-     private AlphaBeta alphaBeta;
+
      private AI ai1;
      private AI ai2;
 
@@ -34,8 +33,7 @@ public class AIvsAI_State extends State {
     {
 
         super(gsm);
-        minMax = new MinMax();
-        alphaBeta= new AlphaBeta(2);
+
         player1 = new Player1();
         player2 = new Player2();
         gL = new GameLogic();
