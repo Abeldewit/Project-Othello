@@ -13,6 +13,7 @@ public class EndState extends State {
     private String yourScoreName;
     private Texture winState;
     BitmapFont yourBitmapFontName;
+    boolean isTie=false;
 
     public EndState(GameStateManager gsm , int player, int playerScore)
     {
@@ -24,11 +25,15 @@ public class EndState extends State {
             yourScoreName = "White Wins!";
             winState = new Texture("WinMenuWhite.png");
         }
-        else
+        else if(player==2)
             {
                 yourScoreName = "Black Wins!";
                 winState = new Texture("WinMenuBlack.png");
             }
+            else{
+                winState=new Texture("TieMenu.png");
+                isTie=true;
+        }
 
         yourBitmapFontName = new BitmapFont();
         yourBitmapFontName.getData().scale(2);
@@ -51,9 +56,16 @@ public class EndState extends State {
     @Override
     public void render(SpriteBatch sb) {
         sb.begin();
-        sb.draw(winState,0,0,800,910);
-        yourBitmapFontName.setColor(0.0f, 0.0f, 0.0f, 1.0f);
-        yourBitmapFontName.draw(sb, playerScore, 500, 660);
+        if(isTie)
+        {
+            sb.draw(winState,0,0,800,910);
+        }
+        else
+        {
+            sb.draw(winState, 0, 0, 800, 910);
+            yourBitmapFontName.setColor(0.0f, 0.0f, 0.0f, 1.0f);
+            yourBitmapFontName.draw(sb, playerScore, 500, 660);
+        }
         sb.end();
     }
 }

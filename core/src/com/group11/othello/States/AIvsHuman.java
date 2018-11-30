@@ -48,7 +48,7 @@ public class AIvsHuman extends GameState {
     public void handleInput()
     {
         try {
-            TimeUnit.MILLISECONDS.sleep(300);
+            TimeUnit.MILLISECONDS.sleep(100);
         } catch (Exception e) {
             System.out.println("Error");
         }
@@ -68,7 +68,7 @@ public class AIvsHuman extends GameState {
             }
 
         }
-        if(gL.getTurnStatus() == 2) {
+        if(gL.getTurnStatus() == 2 && gL.getValidMoves().size() != 0) {
             Vector2 aiMove = new Vector2();
 
                 aiMove = ai1.nextMove(gL);

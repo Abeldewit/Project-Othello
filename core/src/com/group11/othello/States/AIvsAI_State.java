@@ -25,8 +25,7 @@ public class AIvsAI_State extends State {
     private static Player1 player1;
     private static Player2 player2;
     private GameStateManager gsm;
-    private MinMax minMax;
-     private AlphaBeta alphaBeta;
+
      private AI ai1;
      private AI ai2;
 
@@ -34,10 +33,7 @@ public class AIvsAI_State extends State {
     {
 
         super(gsm);
-        minMax = new MinMax(1);
-        alphaBeta= new AlphaBeta(1);
-        minMax = new MinMax(2);
-        alphaBeta= new AlphaBeta(2);
+
         player1 = new Player1();
         player2 = new Player2();
         gL = new GameLogic();
@@ -97,10 +93,16 @@ public class AIvsAI_State extends State {
             else {
                 Vector2 aiMove = new Vector2();
                 if(gL.getTurnStatus() == 1){
-                     aiMove = ai1.nextMove(gL);
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai1.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    System.out.println(currentMillis - prevMillis);
                 }
                 else{
-                     aiMove = ai2.nextMove(gL);
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai2.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    System.out.println(currentMillis - prevMillis);
                 }
 
 

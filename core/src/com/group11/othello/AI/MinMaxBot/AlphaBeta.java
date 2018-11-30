@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AlphaBeta extends AI {
     //    private int[][] board;
-    private final static int maxDepth = 5;
+    private final static int maxDepth = 4;
     private static int aiPlayer = 1;
 
     EvaluationFunction eF = new EvaluationFunction();
@@ -135,7 +135,7 @@ public class AlphaBeta extends AI {
     }*/
 
     private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
-        return eF.bigEvaluation(gl, player);
+        return (int) eF.bigEvaluation(gl, player);
     }
 
     /*private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
