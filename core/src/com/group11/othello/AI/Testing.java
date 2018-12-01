@@ -10,20 +10,21 @@ public class Testing {
     public static String fName,sName,ev1,ev2,ev3;
     public static float score;
 
-   Formatter file = new Formatter("Tests.txt");
    BufferedReader br = new BufferedReader(new FileReader("Tests.txt"));
-   String thisLine = null;
-   BufferedWriter bw = new BufferedWriter(new FileWriter("Tests.txt"));
-    String newline = System.getProperty("line.separator");
+   String newline = System.getProperty("line.separator");
+
+
+
     public Testing() throws IOException {
     }
 
     public void addRecords(String firstAiName,String secondAiName,String ev1,String ev2,String ev3,float score,String winner) throws IOException {
-            String row = firstAiName + " | " + secondAiName + " | " + ev1 + " | " + ev2 + " | " + ev3 + " | " + score + " | " + winner;
-            bw.write(row);
-            bw.close();
+        PrintWriter bw = new PrintWriter(new FileOutputStream("Tests.txt",true));
+        String row = firstAiName + " | " + secondAiName + " | " + ev1 + " | " + ev2 + " | " + ev3 + " | " + score + " | " + newline;
+        bw.write(row);
+        bw.close();
+        System.out.println("Wrote");
     }
-
     public void setfName(String name)
     {
         fName=name;

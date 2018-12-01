@@ -55,7 +55,7 @@ public class MenuState extends State {
        aiVSai = new Texture("AiVSAiUp.png");
        scanner = new Scanner(System.in);
 
-       testing = super.testing;
+       testing = super.getGsm().testing;
 
 
    }
@@ -375,7 +375,8 @@ public class MenuState extends State {
                         }
                         if(evAnswer)
                         {
-                            gsm.push(new AIvsAI_State(gsm, firstAi, secondAi));
+
+                            gsm.push(new AIvsAI_State(gsm, firstAi, secondAi,testing));
                         }
                     }
                 }

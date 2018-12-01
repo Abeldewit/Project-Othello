@@ -14,18 +14,12 @@ public abstract class State {
     private OrthographicCamera camera;
     private Vector3 mouse;
     private GameStateManager gsm;
-    public Testing testing;
 
     public State(GameStateManager gsm) {
         this.gsm = gsm;
         camera = new OrthographicCamera();
         mouse = new Vector3();
 
-        try {
-            testing = new Testing();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public State(GameStateManager gsm, Player1 player1) {

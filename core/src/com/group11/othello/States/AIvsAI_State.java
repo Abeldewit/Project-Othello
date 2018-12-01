@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.AI.MonteCarlo.AI;
+import com.group11.othello.AI.Testing;
 import com.group11.othello.Game.Othello;
 import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.Logic.Player1;
@@ -46,7 +47,7 @@ public class AIvsAI_State extends State {
         this.gsm=gsm;
     }
 
-    public AIvsAI_State(GameStateManager gsm, AI ai1, AI ai2)
+    public AIvsAI_State(GameStateManager gsm, AI ai1, AI ai2, Testing testing)
     {
         super(gsm);
        this.ai1 = ai1;

@@ -21,7 +21,7 @@ public class EndState extends State {
     Testing testing;
     public EndState(GameStateManager gsm , int player, int playerScore) {
         super(gsm);
-        testing = super.testing;
+        testing = super.getGsm().testing;
 
 
         this.player = player;
@@ -69,7 +69,11 @@ public class EndState extends State {
     public void handleInput() {
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
-            getGsm().set(new MenuState(getGsm()));
+            for(int i =0 ; i< getGsm().states.size();i++)
+            {
+                getGsm().pop();
+            }
+            //getGsm().set(new MenuState(getGsm()));
         }
     }
 
