@@ -40,7 +40,7 @@ public class EndState extends State {
         else if(player==2)
             {
                 try {
-                    testing.addRecords(testing.getfName(),testing.getsName(),testing.getEv1(),testing.getEv2(),testing.getEv3(),playerScore,testing.getfName());
+                    testing.addRecords(testing.getfName(),testing.getsName(),testing.getEv1(),testing.getEv2(),testing.getEv3(),playerScore,testing.getsName());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
