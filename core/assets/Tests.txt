@@ -1,0 +1,4 @@
+Monte Carlo | Alpha Beta | No | No | No | 36.0 | 
+Monte Carlo | Alpha Beta | yes | yes | No | 48.0 | 
+Alpha Beta | Alpha Beta | yes | yes | No | 36.0 | 
+Monte Carlo | Alpha Beta | No | No | No | 50.0 |  | Monte Carlo

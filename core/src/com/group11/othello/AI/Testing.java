@@ -20,7 +20,7 @@ public class Testing {
 
     public void addRecords(String firstAiName,String secondAiName,String ev1,String ev2,String ev3,float score,String winner) throws IOException {
         PrintWriter bw = new PrintWriter(new FileOutputStream("Tests.txt",true));
-        String row = firstAiName + " | " + secondAiName + " | " + ev1 + " | " + ev2 + " | " + ev3 + " | " + score + " | " + newline;
+        String row = firstAiName + " | " + secondAiName + " | " + ev1 + " | " + ev2 + " | " + ev3 + " | " + score + " | " +  " | " + winner + newline;
         bw.write(row);
         bw.close();
         System.out.println("Wrote");
