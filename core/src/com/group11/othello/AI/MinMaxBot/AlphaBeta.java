@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AlphaBeta extends AI {
     //    private int[][] board;
-    private final static int maxDepth = 6;
+    private final static int maxDepth = 4;
     private  int aiPlayer;
 
     EvaluationFunction eF = new EvaluationFunction();
@@ -20,45 +20,46 @@ public class AlphaBeta extends AI {
         this.aiPlayer = aiPlayer;
     }
 
-    public Vector2 nextMove(GameLogic gameLogic) {
-        GameLogic gl = gameLogic.copy();
+    public Vector2 nextMove(GameLogic gl) {
         aiPlayer = gl.getTurnStatus();
 
 
         List<Vector2> moves = gl.getValidMoves();
         int maxScore = Integer.MIN_VALUE;
         int indexMaxScore = -1;
-        if(moves.size() == 1)
+        if(moves.size() == 1) {
             return moves.get(0);
-        for (int i = 0; i < moves.size(); i++) {
-            Vector2 move = moves.get(i);
-           // GameLogic glCopy = gl.copy();
-            gl.getBoard().setChip((int) move.y, (int) move.x, gl.getTurnStatus());
-            runAvailable(gl,(int) move.x, (int) move.y);
-            gl.changeTurn();
-            int score = MinMaxAB(gl,-1000000,1000000, maxDepth, 0);
-//            System.out.println(score);
-            if (maxScore < score) {
-                maxScore = score;
-                indexMaxScore = i;
-                
-            }
-        }
-        //System.out.println("MOVE I : " + indexMaxScore);
-        //System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
-        //gl.getBoard().printBoard();
-        return moves.get(indexMaxScore);
+        }else {
+            for (int i = 0; i < moves.size(); i++) {
+                GameLogic glCopy = gl.copy();
+                Vector2 move = moves.get(i);
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
+                //glCopy.changeTurn();
+                aiPlayer = gl.getTurnStatus();
+                // runAvailable(gl,(int) move.x, (int) move.y);
+                int score = MinMaxAB(glCopy, Integer.MIN_VALUE, Integer.MAX_VALUE, maxDepth, 0,true);
 
+//            System.out.println(score);
+                if (maxScore < score) {
+                    maxScore = score;
+                    indexMaxScore = i;
+
+                }
+            }
+            //System.out.println("MOVE I : " + indexMaxScore);
+            //System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
+            //gl.getBoard().printBoard();
+            return moves.get(indexMaxScore);
+        }
     }
 
-    private int MinMaxAB(GameLogic gl, int alpha, int beta, int maxDepth, int currentDepth) {
-
-        GameLogic glCopy = gl.copy();
+    private int MinMaxAB(GameLogic gl, int alpha, int beta, int maxDepth, int currentDepth, boolean maxPlayer) {
+        //GameLogic glCopy = gl.copy();
         List<Vector2> moves = gl.getValidMoves();
+
         if (currentDepth == maxDepth || moves.size() < 2) {
             int val = calcHeuristic(gl, eF , gl.getTurnStatus());
-
-//            System.out.println(val + " heur");
+            //System.out.println(val + " heur");
             return val;
         }
 
@@ -66,24 +67,19 @@ public class AlphaBeta extends AI {
        // if (moves.size() <2) return calcHeuristic(gl, eF, gl.getTurnStatus());
 
 
-        int indexMaxScore = -1;
-      //  int score = 0;
-
-        if (aiPlayer == glCopy.getTurnStatus()){
-            System.out.println("11111111111111111");
-            int maxEval = -1000000;
-            //aiPlayer = aiPlayer + 1;
+        if (maxPlayer == true){
+            //System.out.println("1111111111111111111111");
+            int maxEval = Integer.MIN_VALUE;
             for (int i = 0; i < moves.size(); i++) {
+                System.out.println("checking the max step" + i);
+                GameLogic glCopy = gl.copy();
                 Vector2 move = moves.get(i);
-                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
-                runAvailable(glCopy, (int) move.x, (int) move.y);
-                glCopy.changeTurn();
-                int val = MinMaxAB(glCopy, alpha, beta, maxDepth, currentDepth + 1);
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
+                //glCopy.changeTurn();
+                int val = MinMaxAB(glCopy, alpha, beta, maxDepth, currentDepth + 1,false);
                 maxEval = Math.max(maxEval, val);
+                System.out.println("MaxEval is " + maxEval);
                 alpha = Math.max(alpha, val);
-              /*  if (val > alpha) {
-                    indexMaxScore = i;
-                }*/
                 if (beta <= alpha) {
                     break;
                 }
@@ -91,21 +87,18 @@ public class AlphaBeta extends AI {
             return maxEval;
         }
         else{
-            System.out.println("22222222222222222");
-            int minEval = 10000000;
-            //aiPlayer = aiPlayer - 1;
+           // System.out.println("222222222222222222222");
+            int minEval = Integer.MAX_VALUE;
             for(int i = 0; i < moves.size(); i++){
+                System.out.println("checking the min step" + i);
+                GameLogic glCopy = gl.copy();
                 Vector2 move = moves.get(i);
-               // GameLogic glCopy = gl.copy();
-                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
-                runAvailable(glCopy,(int) move.x, (int) move.y);
-                glCopy.changeTurn();
-                int eval = MinMaxAB(glCopy,alpha,beta, maxDepth, currentDepth+1);
-                minEval = Math.min(minEval, eval);
-                beta = Math.min(beta, eval);
-                if (minEval < beta){
-                    indexMaxScore = i;
-                }
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); //cc
+                //glCopy.changeTurn();
+                int val = MinMaxAB(glCopy,alpha,beta, maxDepth, currentDepth+1,true);
+                minEval = Math.min(minEval, val);
+                System.out.println("MinEval is " + minEval);
+                beta = Math.min(beta, val);
                 if (beta <= alpha){
                     break;
                 }
