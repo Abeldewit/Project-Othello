@@ -1,6 +1,11 @@
-Monte Carlo | Alpha Beta | No | No | No | 36.0 | 
-Monte Carlo | Alpha Beta | yes | yes | No | 48.0 | 
-Alpha Beta | Alpha Beta | yes | yes | No | 36.0 | 
-Monte Carlo | Alpha Beta | No | No | No | 50.0 |  | Monte Carlo
-Alpha Beta | Monte Carlo | yes | No | No | 44.0 |  | Alpha Beta
-Alpha Beta | Monte Carlo | yes | No | No | 41.0 |  | Alpha Beta
+Monte Carlo | Monte Carlo | yes | yes | yes | 39.0 | 
+Greedy | Greedy | yes | yes | yes | 39.0 | 
+Alpha Beta | Alpha Beta | yes | yes | yes | 36.0 | 
+Greedy | Alpha Beta | yes | yes | yes | 33.0 | 
+Greedy | Monte Carlo | yes | yes | yes | 42.0 | 
+Alpha Beta | Monte Carlo | yes | yes | yes | 52.0 | 
+Alpha Beta | Monte Carlo | yes | yes | yes | 33.0 | 
+Alpha Beta | Monte Carlo | yes | yes | yes | 39.0 | 
+Monte Carlo | Alpha Beta | yes | yes | yes | 51.0 | 
+Monte Carlo | Alpha Beta | yes | yes | yes | 37.0 | 
+Alpha Beta | Monte Carlo | yes | yes | yes | 33.0 | Alpha Beta
