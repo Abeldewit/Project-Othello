@@ -761,23 +761,10 @@ public class GameLogic {
     //lilly
     public List<Vector2> getValidMoves(){
         List<Vector2> moves = new ArrayList<Vector2>();
-
+       
         for(int i=0; i<8; i++){
             for(int j=0; j<8; j++){
                 if (board.getBoard()[i][j] == 0 && checkMoves(j,i, getTurnStatus()) > 0 ) {
-                    moves.add(new Vector2(j,i));
-                }
-            }
-        }
-
-        return moves;
-    }
-    public List<Vector2> getValidMoves(int player){
-        List<Vector2> moves = new ArrayList<Vector2>();
-
-        for(int i=0; i<8; i++){
-            for(int j=0; j<8; j++){
-                if (board.getBoard()[i][j] == 0 && checkMoves(j,i,player) > 0 ) {
                     moves.add(new Vector2(j,i));
                 }
             }
@@ -842,17 +829,6 @@ public class GameLogic {
         }
 
         return whiteCorners;
-    }
-
-    public void runAvailable(GameLogic gL, int x, int y) {
-        rightDirection(x, y, gL.getTurnStatus());
-        leftDirection(x, y, gL.getTurnStatus());
-        upDirection(x, y, gL.getTurnStatus());
-        downDirection(x, y, gL.getTurnStatus());
-        northEastDirection(x, y, gL.getTurnStatus());
-        northWestDirection(x, y, gL.getTurnStatus());
-        southWestDirection(x, y, gL.getTurnStatus());
-        southEastDirection(x, y, gL.getTurnStatus());
     }
 
     public int getBlackCorners(){
