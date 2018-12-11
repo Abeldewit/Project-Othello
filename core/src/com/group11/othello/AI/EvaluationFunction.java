@@ -17,7 +17,7 @@ public class EvaluationFunction {
         double score = 0;
 
         //simple score based on amount of chips
-
+        
         if(player == 1) {
             score += gL.getScore().x;
         } else if(player == 2) {
@@ -39,7 +39,7 @@ public class EvaluationFunction {
         //Penalty for placing around a corner
         score += cornerPenalty(gL, player);
 
-        System.out.println("Score for player " + player + " evaluated at " + score);
+        //System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
     }
 

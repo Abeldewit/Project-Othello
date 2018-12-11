@@ -71,7 +71,9 @@ public class AIvsHuman extends GameState {
         if(gL.getTurnStatus() == 2 && gL.getValidMoves().size() != 0) {
             Vector2 aiMove = new Vector2();
 
+                long currentMillis = System.currentTimeMillis();
                 aiMove = ai1.nextMove(gL);
+                System.out.println(System.currentTimeMillis() - currentMillis);
                 int x = (int) aiMove.x;
                 int y = (int) aiMove.y;
                 if(y >=0 && x >=0) {

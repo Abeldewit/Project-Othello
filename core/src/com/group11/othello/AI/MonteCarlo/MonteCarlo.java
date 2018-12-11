@@ -142,7 +142,7 @@ public class MonteCarlo extends AI {
                glCopy.changeTurn();
 
                setScore(childNode);
-               System.out.println("set score");
+               //System.out.println("set score");
 
 
 
@@ -199,7 +199,7 @@ public class MonteCarlo extends AI {
        double finalScore=0;
        GameLogic glCopy = node.getGameLogic().copy();
        finalScore= eF.bigEvaluation(glCopy, glCopy.getTurnStatus());
-       System.out.println("...................................................................Final Score : "+finalScore);
+       //System.out.println("...................................................................Final Score : "+finalScore);
        node.setScore(finalScore);
 
    }

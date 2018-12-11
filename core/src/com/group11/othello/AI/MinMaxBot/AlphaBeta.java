@@ -71,14 +71,14 @@ public class AlphaBeta extends AI {
             //System.out.println("1111111111111111111111");
             int maxEval = Integer.MIN_VALUE;
             for (int i = 0; i < moves.size(); i++) {
-                System.out.println("checking the max step" + i);
+                //System.out.println("checking the max step" + i);
                 GameLogic glCopy = gl.copy();
                 Vector2 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
                 //glCopy.changeTurn();
                 int val = MinMaxAB(glCopy, alpha, beta, maxDepth, currentDepth + 1,false);
                 maxEval = Math.max(maxEval, val);
-                System.out.println("MaxEval is " + maxEval);
+                //System.out.println("MaxEval is " + maxEval);
                 alpha = Math.max(alpha, val);
                 if (beta <= alpha) {
                     break;
@@ -90,14 +90,14 @@ public class AlphaBeta extends AI {
             // System.out.println("222222222222222222222");
             int minEval = Integer.MAX_VALUE;
             for(int i = 0; i < moves.size(); i++){
-                System.out.println("checking the min step" + i);
+                //System.out.println("checking the min step" + i);
                 GameLogic glCopy = gl.copy();
                 Vector2 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); //cc
                 //glCopy.changeTurn();
                 int val = MinMaxAB(glCopy,alpha,beta, maxDepth, currentDepth+1,true);
                 minEval = Math.min(minEval, val);
-                System.out.println("MinEval is " + minEval);
+                //System.out.println("MinEval is " + minEval);
                 beta = Math.min(beta, val);
                 if (beta <= alpha){
                     break;
