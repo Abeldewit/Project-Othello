@@ -5,9 +5,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.group11.othello.AI.Testing;
 import com.group11.othello.States.GameState;
 import com.group11.othello.States.GameStateManager;
 import com.group11.othello.States.MenuState;
+
+import java.io.IOException;
 
 public class Othello extends ApplicationAdapter {
     public static final int WIDTH = 800;
