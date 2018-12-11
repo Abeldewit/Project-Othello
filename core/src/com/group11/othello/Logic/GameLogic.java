@@ -104,7 +104,7 @@ public class GameLogic {
                 }
             }
         }
-        if(count>0) //System.out.println("total count" + count);
+        if(count>0) System.out.println("total count" + count);
                 return count;
     }
     private int checkDirection(int row, int column, int i, int j,int player){
