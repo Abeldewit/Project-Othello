@@ -26,6 +26,10 @@ public class AIvsAI_State extends State {
     private static Player1 player1;
     private static Player2 player2;
     private GameStateManager gsm;
+    long player1Time = 0;
+    long player2Time = 0;
+    int player1moves = 0;
+    int player2moves = 0;
 
      private AI ai1;
      private AI ai2;
@@ -81,6 +85,10 @@ public class AIvsAI_State extends State {
 
             }
             if(gL.gameOver() == true){
+                //Time calc
+                System.out.println("AI 1 runtime: " + (player1Time/player1moves));
+                System.out.println("AI 2 runtime: " + (player2Time/player2moves));
+
                 if(player1.getScore() > player2.getScore())
                 {
                     gsm.set(new EndState(gsm,1,player1.getScore()));
@@ -97,12 +105,17 @@ public class AIvsAI_State extends State {
                     long prevMillis = System.currentTimeMillis();
                     aiMove = ai1.nextMove(gL);
                     long currentMillis = System.currentTimeMillis();
+                    player1Time += currentMillis - prevMillis;
+                    player1moves++;
                     System.out.println(currentMillis - prevMillis);
+
                 }
                 else{
                     long prevMillis = System.currentTimeMillis();
                     aiMove = ai2.nextMove(gL);
                     long currentMillis = System.currentTimeMillis();
+                    player2Time += currentMillis - prevMillis;
+                    player2moves++;
                     System.out.println(currentMillis - prevMillis);
                 }
 

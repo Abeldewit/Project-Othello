@@ -47,17 +47,17 @@ public class MonteCarlo extends AI {
         root = cn;
 
         while(root.getVisits() < SIMULATIONS){
-           System.out.println(".............................root visits = "+root.getVisits());
+           //System.out.println(".............................root visits = "+root.getVisits());
           // System.out.println(".............cnChildrenSize "+ cn.getChildren().size());
 
             if(cn.getChildren().size() == 0){
-                System.out.println("Passed 1st if");
+                //System.out.println("Passed 1st if");
                 if(cn.getVisits() == 0){
-                    System.out.println("Passed 2nd if");
+                    //System.out.println("Passed 2nd if");
                     backPropagation(rollOut(cn));
-                    System.out.println("backpropagated");
+                    //System.out.println("backpropagated");
                     updateVisits(cn);
-                    System.out.println("roledout");
+                    //System.out.println("roledout");
                     cn = root;
 
                 }
@@ -137,12 +137,12 @@ public class MonteCarlo extends AI {
 
                n = rand.nextInt(moveList.size());
                CarloNode childNode = new CarloNode(glCopy,(int)cn.getMoves().get(n).y,(int)cn.getMoves().get(n).x);
-               System.out.println("");
+               //System.out.println("");
                glCopy.getBoard().setChip((int)cn.getMoves().get(n).y,(int)cn.getMoves().get(n).x,glCopy.getTurnStatus());  //in case it works, change the x with y\\
                glCopy.changeTurn();
 
                setScore(childNode);
-               System.out.println("set score");
+               //System.out.println("set score");
 
 
 
@@ -199,7 +199,7 @@ public class MonteCarlo extends AI {
        double finalScore=0;
        GameLogic glCopy = node.getGameLogic().copy();
        finalScore= eF.bigEvaluation(glCopy, glCopy.getTurnStatus());
-       System.out.println("...................................................................Final Score : "+finalScore);
+       //System.out.println("...................................................................Final Score : "+finalScore);
        node.setScore(finalScore);
 
    }

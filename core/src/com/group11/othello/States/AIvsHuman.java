@@ -25,6 +25,8 @@ public class AIvsHuman extends GameState {
     private static Player2 player2;
     private GameStateManager gsm;
     private AI ai1;
+    long aiTime = 0;
+    int aiMoves = 0;
 
 
     public AIvsHuman(GameStateManager gsm, AI ai)
@@ -58,6 +60,7 @@ public class AIvsHuman extends GameState {
 
         }
         if(gL.gameOver() == true){
+            System.out.println("AI Runtime : " + (aiTime/aiMoves));
             if(player1.getScore() > player2.getScore())
             {
                 gsm.set(new EndState(gsm,1,player1.getScore()));
@@ -71,7 +74,12 @@ public class AIvsHuman extends GameState {
         if(gL.getTurnStatus() == 2 && gL.getValidMoves().size() != 0) {
             Vector2 aiMove = new Vector2();
 
+                long prevMillis = System.currentTimeMillis();
                 aiMove = ai1.nextMove(gL);
+                long currentMillis = System.currentTimeMillis();
+                aiTime += currentMillis - prevMillis;
+                aiMoves++;
+
                 int x = (int) aiMove.x;
                 int y = (int) aiMove.y;
                 if(y >=0 && x >=0) {

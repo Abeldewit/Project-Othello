@@ -45,8 +45,8 @@ public class MinMax extends AI {
 
             }
         }
-        System.out.println("MOVE I : " + indexMaxScore);
-        System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
+        //System.out.println("MOVE I : " + indexMaxScore);
+        //System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
         gl.getBoard().printBoard();
         return moves.get(indexMaxScore);
 
@@ -94,7 +94,7 @@ public class MinMax extends AI {
                 }
             }
         }
-        System.out.println(indexMaxScore);
+        //System.out.println(indexMaxScore);
         return maxScore;
         /*
         moveList = moveGenerator(state)

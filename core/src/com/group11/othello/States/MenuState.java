@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
+import com.group11.othello.AI.EvaluationFunction;
 import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MonteCarlo.AI;
@@ -24,16 +25,20 @@ public class MenuState extends State {
     public AI firstAi;
     public AI secondAi;
     Testing testing;
+    EvaluationFunction eval;
     public GameStateManager gsm;
     private Texture background;
     private Texture exitBtn,settBtn,playBtn,startBtn;
     private Texture greedyBtn,monteCarloBtn,abBtn;
     private Texture greedyBtn2,monteCarloBtn2,abBtn2;
     private Texture aiVSai,playerVSplayer,playerVSai;
+    private Texture evSBtn,evCBtn,evMBtn;
     boolean evAnswer=false;
     public boolean playerVsAi=false;
     public boolean aiVsAi=false;
-    Scanner scanner;
+
+
+
    public MenuState(GameStateManager gsm){
        super(gsm);
        this.gsm = gsm;
@@ -53,8 +58,12 @@ public class MenuState extends State {
        playerVSplayer = new Texture("PlayerVSPlayerUP.png");
        playerVSai =  new Texture("PlayerVSAIUp.png");
        aiVSai = new Texture("AiVSAiUp.png");
-       scanner = new Scanner(System.in);
 
+       evCBtn = new Texture("EvCornersUp.png");
+       evSBtn = new Texture("EvScoreUp.png");
+       evMBtn = new Texture("EvMobilityUp.png");
+
+       eval = new EvaluationFunction();
        testing = super.getGsm().testing;
 
 
@@ -88,11 +97,7 @@ public class MenuState extends State {
         //Clicker
         if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 420 && Gdx.input.getY() <= 520 &&  Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
-            try{
-            TimeUnit.MILLISECONDS.sleep(200);}
-            catch (Exception e){
-                System.out.println("Error");
-            }
+            StopTime(200);
             gsm.push(new GameState(gsm));
 
         }
@@ -104,11 +109,7 @@ public class MenuState extends State {
 
         if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 540 && Gdx.input.getY() <= 710 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
-            try{
-                TimeUnit.MILLISECONDS.sleep(500);}
-            catch (Exception e){
-                System.out.println("Error");
-            }
+            StopTime(500);
             if(number == 0)
             {
                 number = 1;
@@ -144,31 +145,19 @@ public class MenuState extends State {
             }
             //Click
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 200 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(600);
-                } catch (Exception e) {
-                    System.out.println("Error");
-                }
+                StopTime(600);
                 gsm.push(new GameState(gsm));
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 200 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                 System.out.println("HEre");
-                try {
-                    TimeUnit.MILLISECONDS.sleep(200);
-                } catch (Exception e) {
-                    System.out.println("Error");
-                }
+                StopTime(200);
                 playerVsAi = true;
                 number = 2;
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 200 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(200);
-                } catch (Exception e) {
-                    System.out.println("Error");
-                }
+                StopTime(200);
                 aiVsAi = true;
                 number = 2;
             }
@@ -191,43 +180,28 @@ public class MenuState extends State {
 
                 //Click
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     gsm.push(new AIvsHuman(gsm, new Greedy(2)));
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     gsm.push(new AIvsHuman(gsm, new AlphaBeta(2)));
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     gsm.push(new AIvsHuman(gsm, new MonteCarlo(2)));
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     playerVsAi = false;
                     number = 1;
                 }
 
             }
+
             else if(aiVsAi && number==2)
             {
                 //Hover
@@ -246,7 +220,14 @@ public class MenuState extends State {
                     monteCarloBtn2 = new Texture("MonteCarloHover.png");
                 }else if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360) {
                     startBtn = new Texture("StartHover.png");
+                }else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() <180 ) {
+                    evSBtn = new Texture("EvScoreHover.png");
+                }else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240) {
+                    evMBtn = new Texture("EvMobilityHover.png");
+                }else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300) {
+                    evCBtn = new Texture("EvCornersHover.png");
                 }
+
 
                 else {
                     greedyBtn = new Texture("GreedyUp.png");
@@ -256,81 +237,73 @@ public class MenuState extends State {
                     monteCarloBtn2 = new Texture("MonteCarloUp.png");
                     abBtn2 = new Texture("AlphaBetaUp.png");
                     startBtn = new Texture("StartUp.png");
+                    evCBtn = new Texture("EvCornersUp.png");
+                    evSBtn = new Texture("EvScoreUp.png");
+                    evMBtn = new Texture("EvMobilityUp.png");
                 }
 
                 //Click
+
+                if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() <180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                    StopTime(200);
+                    eval.isEv1=!eval.isEv1;
+                    System.out.println("Score Evaluation : "+ eval.isEv1);
+                }
+                if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                    StopTime(200);
+                    eval.isEvCorn=!eval.isEvCorn;
+                    System.out.println("Corners Evaluation : "+ eval.isEvCorn);
+                }
+                if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                    StopTime(200);
+                    eval.isEvMob=!eval.isEvMob;
+                    System.out.println("Score Evaluation : "+ eval.isEvMob);
+                }
+
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     System.out.println("First Ai Chosen: Alpha-Beta");
                     firstAi=new AlphaBeta(1);
                     testing.setfName("Alpha Beta");
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     System.out.println("First Ai Chosen: Monte Carlo");
                     firstAi=new MonteCarlo(1);
                     testing.setfName("Monte Carlo");
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     System.out.println("First Ai Chosen: Greedy");
                     firstAi=new Greedy(1);
                     testing.setfName("Greedy");
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <=580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     System.out.println("Second Ai Chosen: Alpha-Beta");
                     secondAi=new AlphaBeta(2);
                     testing.setsName("Alpha Beta");
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     System.out.println("Second Ai Chosen: Monte Carlo");
                     secondAi=new MonteCarlo(2);
                     testing.setsName("Monte Carlo");
                 }
 
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     System.out.println("Second Ai Chosen: Greedy");
                     secondAi=new Greedy(2);
                     testing.setsName("Greedy");
                 }
 
                 if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    try {
-                        TimeUnit.MILLISECONDS.sleep(200);
-                    } catch (Exception e) {
-                        System.out.println("Error");
-                    }
+                    StopTime(200);
                     if(firstAi==null)
                     {
                         System.out.println("Please choose the first AI");
@@ -341,19 +314,16 @@ public class MenuState extends State {
                     }
                     else if(firstAi!=null && secondAi!=null )
                     {
-                        System.out.println("Did you use Mobility Function ?(yes/anything else)");
-                        String answer = scanner.nextLine();
-                        if(answer.equals("yes"))
+                        if(eval.isEv1)
                         {
-                            testing.setev1("yes");
+                            testing.setev1("Yes");
                         }
                         else
                         {
                             testing.setev1("No");
                         }
-                        System.out.println("Did you use BigEval Function ?(yes/anything else)");
-                        String answer2 = scanner.nextLine();
-                        if(answer2.equals("yes"))
+
+                        if(eval.isEvMob)
                         {
                             testing.setev2("yes");
                         }
@@ -361,23 +331,16 @@ public class MenuState extends State {
                         {
                             testing.setev2("No");
                         }
-                        System.out.println("Did you use Corners Function ?(yes/anything else)");
-                        String answer3 = scanner.nextLine();
-                        if(answer3.equals("yes"))
+                        if(eval.isEvCorn)
                         {
                             testing.setev3("yes");
-                            evAnswer=true;
                         }
                         else
                         {
                             testing.setev3("No");
-                            evAnswer=true;
                         }
-                        if(evAnswer)
-                        {
-
                             gsm.push(new AIvsAI_State(gsm, firstAi, secondAi,testing));
-                        }
+
                     }
                 }
             }
@@ -411,14 +374,28 @@ public class MenuState extends State {
             sb.draw(abBtn2, 430, 660, 150, 50);
             sb.draw(monteCarloBtn2, 430, 600, 150, 50);
             sb.draw(startBtn, 350, 540, 150, 50);
+
+
+           sb.draw(evSBtn, 630, 720, 130, 45);
+           sb.draw(evMBtn, 630, 660, 130, 45);
+           sb.draw(evCBtn, 630, 600, 130, 45);
         }
         else if(number==2 && playerVsAi)
        {
 
-           sb.draw(greedyBtn, 250, 720, 150, 50);
-           sb.draw(abBtn, 250, 660, 150, 50);
-           sb.draw(monteCarloBtn, 250, 600, 150, 50);
+           sb.draw(greedyBtn, 250, 722, 150, 50);
+           sb.draw(abBtn, 250, 662, 150, 50);
+           sb.draw(monteCarloBtn, 250, 602, 150, 50);
        }
        sb.end();
+    }
+
+    public void StopTime(long amount)
+    {
+        try {
+            TimeUnit.MILLISECONDS.sleep(amount);
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
 }
