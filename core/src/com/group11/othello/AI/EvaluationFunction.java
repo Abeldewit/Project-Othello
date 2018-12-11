@@ -52,7 +52,7 @@ public class EvaluationFunction {
         //Penalty for placing around a corner
         score += cornerPenalty(gL, player);
 
-        System.out.println("Score for player " + player + " evaluated at " + score);
+        //System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
     }
 

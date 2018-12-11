@@ -121,7 +121,7 @@ public class GameLogic {
         if (row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
                 count>0 && board.getBoard()[row+i][column+j]==player){
 
-            System.out.println("count of direction "+i+" "+j+" "+ count);
+            //System.out.println("count of direction "+i+" "+j+" "+ count);
             return count;
         }
 
@@ -141,14 +141,14 @@ public class GameLogic {
         }
         if (row + i >= 0 && column + j >= 0 && row + i < board.getBoard().length && column + j < board.getBoard()[0].length &&
                count>0 && board.getBoard()[row+i][column+j]==player && flips){
-            System.out.println("yes");
+            //System.out.println("yes");
                 for(int k =0; k<count; k++){
                     if (player == 2) {
                         board.setChip(column, row, 2);
-                        System.out.println("FLIP!");
+                        //System.out.println("FLIP!");
                     } else if (player == 1) {
                         board.setChip(column, row, 1);
-                        System.out.println("FLIP!");
+                        //System.out.println("FLIP!");
                     }
                     row-=i;
                     column-=j;
@@ -752,8 +752,8 @@ public class GameLogic {
             }
         }
 
-        System.out.println("checkK + " + checkK);
-        System.out.println("player = " + player);
+        //System.out.println("checkK + " + checkK);
+        //System.out.println("player = " + player);
 
         return false;
     }
