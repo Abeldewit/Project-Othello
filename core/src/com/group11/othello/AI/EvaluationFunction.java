@@ -8,6 +8,8 @@ import com.group11.othello.Logic.GameLogic;
 public class EvaluationFunction {
 
     GameLogic gameLogic;
+    int amountOfEval=0;
+    public boolean isEv1=true,isEvCorn=true,isEvMob=true;
 
     public EvaluationFunction() {
 
@@ -17,11 +19,14 @@ public class EvaluationFunction {
         double score = 0;
 
         //simple score based on amount of chips
-
-        if(player == 1) {
-            score += gL.getScore().x;
-        } else if(player == 2) {
-            score += gL.getScore().y;
+        if(isEv1)
+        {
+            if(player == 1)
+            {
+                score += gL.getScore().x;
+            } else if(player == 2) {
+                score += gL.getScore().y;
+            }
         }
 
         //more advanced evaluation functions
@@ -29,12 +34,20 @@ public class EvaluationFunction {
         Vector2 corners = evaluateCorners(gL);
 
         //Use all checks to assign right score
-        if(player ==1 ) {
-            score += mob;
-            score += corners.x;
-        } else if(player == 2) {
-            score -= mob;
-            score += corners.y;
+        if(isEvCorn) {
+            if (player == 1) {
+                score += corners.x;
+            } else if (player == 2) {
+                score += corners.y;
+            }
+        }
+
+        if(isEvMob) {
+            if (player == 1) {
+                score += mob;
+            } else if (player == 2) {
+                score -= mob;
+            }
         }
         //Penalty for placing around a corner
         score += cornerPenalty(gL, player);
