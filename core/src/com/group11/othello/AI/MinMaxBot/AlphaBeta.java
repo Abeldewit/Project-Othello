@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AlphaBeta extends AI {
     //    private int[][] board;
-    private final static int maxDepth = 4;
+    private final static int maxDepth = 6;
     private  int aiPlayer;
 
     EvaluationFunction eF = new EvaluationFunction();
@@ -21,7 +21,11 @@ public class AlphaBeta extends AI {
     }
 
     public Vector2 nextMove(GameLogic gl) {
-        aiPlayer = gl.getTurnStatus();
+
+
+
+
+        //aiPlayer = gl.getTurnStatus();
 
 
         List<Vector2> moves = gl.getValidMoves();

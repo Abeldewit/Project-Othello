@@ -1,16 +1,19 @@
 package com.group11.othello.AI.Greedy;
 
 import com.badlogic.gdx.math.Vector2;
+import com.group11.othello.AI.EvaluationFunction;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Logic.GameLogic;
+
 
 import java.util.List;
 
 public class Greedy extends AI {
     GameLogic gL;
     int player;
+    private EvaluationFunction eF;
 
-    public Greedy(int player) {this.player = player; }
+    public Greedy(int player) {this.player = player; eF = new EvaluationFunction(); }
 
     @Override
     public Vector2 nextMove(GameLogic gL) {
@@ -20,7 +23,7 @@ public class Greedy extends AI {
         int index = 0;
         List<Vector2> moves = gL.getValidMoves();
         for (int i = 0; i < moves.size(); i++) {
-                newCheck = gL.checkMoves((int)moves.get(i).y,(int)moves.get(i).x, player);
+                newCheck = (int) eF.bigEvaluation(gL, player);
                 if(newCheck > check ){
                     index = i;
 
