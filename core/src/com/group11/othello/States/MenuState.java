@@ -251,19 +251,19 @@ public class MenuState extends State {
                 }
                 if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     StopTime(200);
-                    eval.isEvCorn=!eval.isEvCorn;
-                    System.out.println("Corners Evaluation : "+ eval.isEvCorn);
+                    eval.isEvMob=!eval.isEvMob;
+                    System.out.println("Mob Evaluation : "+ eval.isEvMob);
                 }
                 if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     StopTime(200);
-                    eval.isEvMob=!eval.isEvMob;
-                    System.out.println("Score Evaluation : "+ eval.isEvMob);
+                    eval.isEvCorn=!eval.isEvCorn;
+                    System.out.println("corner Evaluation : "+ eval.isEvCorn);
                 }
 
                 if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     StopTime(200);
                     System.out.println("First Ai Chosen: Alpha-Beta");
-                    firstAi=new AlphaBeta(1);
+                    firstAi=new MinMax(1);
                     testing.setfName("Alpha Beta");
                 }
 
@@ -284,7 +284,7 @@ public class MenuState extends State {
                 if (Gdx.input.getX() >= 430 && Gdx.input.getX() <=580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     StopTime(200);
                     System.out.println("Second Ai Chosen: Alpha-Beta");
-                    secondAi=new AlphaBeta(2);
+                    secondAi=new MinMax(2);
                     testing.setsName("Alpha Beta");
                 }
 

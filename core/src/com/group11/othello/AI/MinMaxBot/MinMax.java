@@ -2,9 +2,10 @@ package com.group11.othello.AI.MinMaxBot;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.AI.MonteCarlo.AI;
-
+import com.group11.othello.Logic.GameLogic;
+import com.group11.othello.AI.EvaluationFunction;
+//import sun.awt.image.IntegerComponentRaster;
 
 import java.util.List;
 
@@ -13,128 +14,95 @@ public class MinMax extends AI {
     private final static int maxDepth = 4;
     private static int aiPlayer;
 
+    EvaluationFunction eF = new EvaluationFunction();
 
-    public MinMax(int aiPlayer) {
-        this.aiPlayer = aiPlayer;
-
-  //  EvaluationFunction eF = new EvaluationFunction();
+    public MinMax(int player) {
+        this.aiPlayer = player;
     }
-    
 
-    public Vector2 nextMove(GameLogic gameLogic) {
-        GameLogic gl = gameLogic.copy();
-//        aiPlayer = gl.getTurnStatus();
+    public Vector2 nextMove(GameLogic gl) {
+        aiPlayer = gl.getTurnStatus();
+
 
         List<Vector2> moves = gl.getValidMoves();
-        int maxScore = -10000000;
+        int maxScore = Integer.MIN_VALUE;
         int indexMaxScore = -1;
-        if(moves.size() == 1)
+        if(moves.size() == 1) {
             return moves.get(0);
-        for (int i = 0; i < moves.size(); i++) {
-            Vector2 move = moves.get(i);
-            GameLogic glCopy = gl.copy();
-            glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
-            runAvailable(glCopy,(int) move.x, (int) move.y);
-            glCopy.changeTurn();
+        }else {
+            for (int i = 0; i < moves.size(); i++) {
+                GameLogic glCopy = gl.copy();
+                Vector2 move = moves.get(i);
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
+                //glCopy.changeTurn();
+                aiPlayer = gl.getTurnStatus();
+                // runAvailable(gl,(int) move.x, (int) move.y);
+                int score = MinMaxBot(glCopy, maxDepth, 0,true);
 
-            int score = MinMaxBot(glCopy, maxDepth, 0);
-//            System.out.print(i + " score " + score + " ");
-            if (maxScore < score) {
-                maxScore = score;
-                indexMaxScore = i;
+//            System.out.println(score);
+                if (maxScore < score) {
+                    maxScore = score;
+                    indexMaxScore = i;
 
+                }
             }
+            //System.out.println("MOVE I : " + indexMaxScore);
+            //System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
+            //gl.getBoard().printBoard();
+            return moves.get(indexMaxScore);
         }
-        //System.out.println("MOVE I : " + indexMaxScore);
-        //System.out.println("FROM　ＭＯＶＥＳ　" + moves.toString());
-        gl.getBoard().printBoard();
-        return moves.get(indexMaxScore);
-
     }
 
-    private int MinMaxBot(GameLogic gl, int maxDepth, int currentDepth) {
-        if (currentDepth == maxDepth) {
-            int val = calcHeuristic(gl, gl.getTurnStatus());
+    private int MinMaxBot(GameLogic gl, int maxDepth, int currentDepth, boolean maxPlayer) {
+        List<Vector2> moves = gl.getValidMoves();
 
-//            System.out.println(val + " heur");
+        if (currentDepth == maxDepth || moves.size() < 2) {
+            int val = calcHeuristic(gl, eF , gl.getTurnStatus());
+            //System.out.println(val + " heur");
             return val;
         }
-        List<Vector2> moves = gl.getValidMoves();
-        //If just one move left then return 0 as heuristic since there is no other choice
-        if (moves.size() <2) return calcHeuristic(gl, gl.getTurnStatus());
 
-        int maxScore = -10000000;
-        if (gl.getTurnStatus() != aiPlayer)
-            maxScore *= -1;
-        int indexMaxScore = -1;
-        for (int i = 0; i < moves.size(); i++) {
-            Vector2 move = moves.get(i);
-            GameLogic glCopy = gl.copy();
-
-            glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
-            runAvailable(glCopy,(int) move.x, (int) move.y);
-            glCopy.changeTurn();
-            int score = MinMaxBot(glCopy, maxDepth, currentDepth + 1);
-
-            if (gl.getTurnStatus() == aiPlayer) {//set max score
-
-                if (score > maxScore) {
-//                    System.out.println("Max score"+maxScore);
-//                    System.out.println("cscore"+score);
-                    maxScore = score;
-                    indexMaxScore = i;
-                }
-            } else {//set min score if opponent move
-                if (maxScore > score) {
-//                    System.out.println("Max score"+maxScore);
-//                    System.out.println("cscore"+score);
-                    maxScore = score;
-                    System.out.println("hiiiii");
-                    indexMaxScore = i;
-                }
+        if (maxPlayer == true){
+            int maxEval = Integer.MIN_VALUE;
+            for (int i = 0; i < moves.size(); i++) {
+                System.out.println("checking the max step" + i);
+                GameLogic glCopy = gl.copy();
+                Vector2 move = moves.get(i);
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
+                int eval = MinMaxBot(gl, maxDepth, currentDepth+1,false);
+                maxEval = Math.max(maxEval, eval);
             }
+            return maxEval;
         }
-        //System.out.println(indexMaxScore);
-        return maxScore;
-        /*
-        moveList = moveGenerator(state)
-            for each move M in moveList do
-            value[M]  minimaxValue(applyMove(M, state),
-             currentSearchDepth+1)
-            if whoseTurn==myTurn then
-            return max of value[]
-            else
-            return min of value[]
-
-         */
-
-
-//        if(GameLogic.checkMoves )
-
+        else{
+            int minEval = Integer.MAX_VALUE;
+            for (int i = 0; i < moves.size(); i++) {
+                System.out.println("checking the max step" + i);
+                GameLogic glCopy = gl.copy();
+                Vector2 move = moves.get(i);
+                glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
+                int eval = MinMaxBot(gl, maxDepth, currentDepth + 1, true);
+                minEval = Math.min(minEval, eval);
+            }
+            return minEval;
+        }
     }
 
-    private int calcHeuristic(GameLogic gl, int player) {
-        Vector3 scores = gl.getScore();
-//        System.out.println("Player " + player);
-//        System.out.println(scores);
+    /* private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
 
-        if (player == 1)
-            return (int) scores.x;
-        else
-            return (int) scores.y;
+         Vector3 scores = gl.getScore();
+         //return eF.bigEvaluation(gl, player);
+         if (player == 1)
+             return (int) scores.x;
+         else
+             return (int) scores.y;
+
+     }*/
+    private int calcHeuristic(GameLogic gl, EvaluationFunction eF, int player) {
+        return (int) eF.bigEvaluation(gl, player);
     }
 
 
-    public void runAvailable(GameLogic gL, int x, int y) {
-        gL.rightDirection(x, y, gL.getTurnStatus());
-        gL.leftDirection(x, y, gL.getTurnStatus());
-        gL.upDirection(x, y, gL.getTurnStatus());
-        gL.downDirection(x, y, gL.getTurnStatus());
-        gL.northEastDirection(x, y, gL.getTurnStatus());
-        gL.northWestDirection(x, y, gL.getTurnStatus());
-        gL.southWestDirection(x, y, gL.getTurnStatus());
-        gL.southEastDirection(x, y, gL.getTurnStatus());
-    }
 }
 /*
 function move findMove(x,x,x,x) is
