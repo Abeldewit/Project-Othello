@@ -29,6 +29,8 @@ public class EvaluationFunction {
             }
         }
 
+        //disc minimization
+
         //more advanced evaluation functions
         int mob = evaluateMobility(gL);
         Vector2 corners = evaluateCorners(gL);
@@ -52,7 +54,14 @@ public class EvaluationFunction {
         //Penalty for placing around a corner
         score += cornerPenalty(gL, player);
 
-        //System.out.println("Score for player " + player + " evaluated at " + score);
+        //randomization function
+        double randomizer = 0.2;
+
+        double scoreFraction = (score * randomizer) * Math.random();
+        System.out.println("Random factor: " + scoreFraction);
+        score += scoreFraction;
+
+        System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
     }
 
