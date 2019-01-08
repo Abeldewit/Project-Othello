@@ -65,7 +65,7 @@ public class MinMax extends AI {
         if (maxPlayer == true){
             int maxEval = Integer.MIN_VALUE;
             for (int i = 0; i < moves.size(); i++) {
-                System.out.println("checking the max step" + i);
+                //System.out.println("checking the max step" + i);
                 GameLogic glCopy = gl.copy();
                 Vector2 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
@@ -77,7 +77,7 @@ public class MinMax extends AI {
         else{
             int minEval = Integer.MAX_VALUE;
             for (int i = 0; i < moves.size(); i++) {
-                System.out.println("checking the max step" + i);
+                //System.out.println("checking the max step" + i);
                 GameLogic glCopy = gl.copy();
                 Vector2 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
