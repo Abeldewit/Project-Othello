@@ -25,7 +25,7 @@ public class MonteCarlo extends AI {
        eF = new EvaluationFunction();
    }
 
-    public Vector2 nextMove(GameLogic gameLogic) {
+    public Vector3 nextMove(GameLogic gameLogic) {
         GameLogic glCopy = gameLogic.copy();
         root = new CarloNode(gameLogic.copy(),-1,-1);
         CarloNode cn = root;
@@ -80,7 +80,7 @@ public class MonteCarlo extends AI {
 
          cn = selection(root);
 
-       return new Vector2(cn.getColumn(),cn.getRow());
+       return new Vector3(cn.getColumn(),cn.getRow(),0);
 
     }
 
