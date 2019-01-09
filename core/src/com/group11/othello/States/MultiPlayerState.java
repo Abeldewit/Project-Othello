@@ -47,11 +47,11 @@ public class MultiPlayerState extends State {
         player2 = new Player2();
         player3 = new Player1();
         player4 = new Player2();
-        gL = new GameLogic();
+        gL = new GameLogic( true);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
-        OChip = new Texture("WChip.png");
-        PChip = new Texture("BChip.png");
+        OChip = new Texture("OChip.png");
+        PChip = new Texture("PChip.png");
 
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table2.png");
@@ -72,7 +72,7 @@ public class MultiPlayerState extends State {
         player2 = new Player2();
         player3 = new Player1();
         player4 = new Player2();
-        gL = new GameLogic();
+        gL = new GameLogic(true);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
         OChip = new Texture("WChip.png");
@@ -125,9 +125,25 @@ public class MultiPlayerState extends State {
                 System.out.println(currentMillis - prevMillis);
 
             }
-            else{
+            else if(gL.getTurnStatus() == 2){
                 long prevMillis = System.currentTimeMillis();
                 aiMove = ai2.nextMove(gL);
+                long currentMillis = System.currentTimeMillis();
+                player2Time += currentMillis - prevMillis;
+                player2moves++;
+                System.out.println(currentMillis - prevMillis);
+            }
+            else if(gL.getTurnStatus() == 3){
+                long prevMillis = System.currentTimeMillis();
+                aiMove = ai3.nextMove(gL);
+                long currentMillis = System.currentTimeMillis();
+                player2Time += currentMillis - prevMillis;
+                player2moves++;
+                System.out.println(currentMillis - prevMillis);
+            }
+            else{
+                long prevMillis = System.currentTimeMillis();
+                aiMove = ai4.nextMove(gL);
                 long currentMillis = System.currentTimeMillis();
                 player2Time += currentMillis - prevMillis;
                 player2moves++;
@@ -143,6 +159,9 @@ public class MultiPlayerState extends State {
 
                 player1.setScore((int) gL.getScore()[0].x);
                 player2.setScore((int) gL.getScore()[0].y);
+                player3.setScore((int) gL.getScore()[1].x);
+                player4.setScore((int) gL.getScore()[1].y);
+
             }
             gL.changeTurn();
         }

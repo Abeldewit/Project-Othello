@@ -23,8 +23,8 @@ public class GameLogic {
 
 
 
-    public GameLogic() {
-        this.isMultiplayer=true;
+    public GameLogic(Boolean isMultiplayer) {
+        this.isMultiplayer= isMultiplayer;
 
         board = new Board();
         turnCnt =1;

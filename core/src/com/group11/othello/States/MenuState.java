@@ -146,7 +146,7 @@ public class MenuState extends State {
             //Click
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 200 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                 StopTime(600);
-                gsm.push(new GameState(gsm));
+                gsm.push(new MultiPlayerState(gsm));
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 200 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
