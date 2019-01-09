@@ -222,9 +222,9 @@ public class AIvsHuman extends GameState {
         return this;
     }
 
-    public GameLogic getgL() {
+    /*public GameLogic getgL() {
         return gL;
-    }
+    }*/
 
 
 

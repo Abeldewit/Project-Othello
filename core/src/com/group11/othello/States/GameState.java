@@ -7,10 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.Game.Othello;
-import com.group11.othello.Logic.GameLogic;
-import com.group11.othello.Logic.Player;
-import com.group11.othello.Logic.Player1;
-import com.group11.othello.Logic.Player2;
+import com.group11.othello.Logic.*;
 
 import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class GameState extends State {
     private Texture othelloBoard,scoreTable,menuButton;
     private Texture WChip,BChip;
     private BitmapFont font;
-    private GameLogic gL;
+    private GameLogicMP gL;
     private static Player1 player1;
     private static Player2 player2;
     private GameStateManager gsm;
@@ -33,7 +30,7 @@ public class GameState extends State {
         super(gsm);
         player1 = new Player1();
         player2 = new Player2();
-        gL = new GameLogic();
+        gL = new GameLogicMP();
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
         menuButton = new Texture("MenuButtonUp.png");
@@ -46,7 +43,7 @@ public class GameState extends State {
     public GameState(GameStateManager gsm, Player1 player1, Player2 player2)
     {
         super(gsm);
-        gL = new GameLogic();
+        gL = new GameLogicMP();
         othelloBoard = new Texture("Table.png");
     }
 
@@ -97,8 +94,10 @@ public class GameState extends State {
                             runAvailable(x, y);
 
 
-                                player1.setScore((int) gL.getScore().x);
-                                player2.setScore((int) gL.getScore().y);
+                                player1.setScore((int) gL.getScore().get(0));
+                                player2.setScore((int) gL.getScore().get(1));
+                                player2.setScore((int) gL.getScore().get(2));
+                                player2.setScore((int) gL.getScore().get(3));
 
                                 gL.changeTurn();
 
@@ -205,7 +204,7 @@ public class GameState extends State {
         return this;
     }
 
-    public GameLogic getgL() {
+    public GameLogicMP getgL() {
         return gL;
     }
 
