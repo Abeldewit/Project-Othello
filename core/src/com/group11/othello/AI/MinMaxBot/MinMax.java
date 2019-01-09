@@ -20,11 +20,11 @@ public class MinMax extends AI {
         this.aiPlayer = player;
     }
 
-    public Vector2 nextMove(GameLogic gl) {
+    public Vector3 nextMove(GameLogic gl) {
         aiPlayer = gl.getTurnStatus();
 
 
-        List<Vector2> moves = gl.getValidMoves();
+        List<Vector3> moves = gl.getValidMoves();
         int maxScore = Integer.MIN_VALUE;
         int indexMaxScore = -1;
         if(moves.size() == 1) {
@@ -32,7 +32,7 @@ public class MinMax extends AI {
         }else {
             for (int i = 0; i < moves.size(); i++) {
                 GameLogic glCopy = gl.copy();
-                Vector2 move = moves.get(i);
+                Vector3 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
                 //glCopy.changeTurn();
                 aiPlayer = gl.getTurnStatus();
@@ -54,7 +54,7 @@ public class MinMax extends AI {
     }
 
     private int MinMaxBot(GameLogic gl, int maxDepth, int currentDepth, boolean maxPlayer) {
-        List<Vector2> moves = gl.getValidMoves();
+        List<Vector3> moves = gl.getValidMoves();
 
         if (currentDepth == maxDepth || moves.size() < 2) {
             int val = calcHeuristic(gl, eF , gl.getTurnStatus());
@@ -67,7 +67,7 @@ public class MinMax extends AI {
             for (int i = 0; i < moves.size(); i++) {
                 //System.out.println("checking the max step" + i);
                 GameLogic glCopy = gl.copy();
-                Vector2 move = moves.get(i);
+                Vector3 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
                 int eval = MinMaxBot(gl, maxDepth, currentDepth+1,false);
                 maxEval = Math.max(maxEval, eval);
@@ -79,7 +79,7 @@ public class MinMax extends AI {
             for (int i = 0; i < moves.size(); i++) {
                 //System.out.println("checking the max step" + i);
                 GameLogic glCopy = gl.copy();
-                Vector2 move = moves.get(i);
+                Vector3 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
                 int eval = MinMaxBot(gl, maxDepth, currentDepth + 1, true);
                 minEval = Math.min(minEval, eval);

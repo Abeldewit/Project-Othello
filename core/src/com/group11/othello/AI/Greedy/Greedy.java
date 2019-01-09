@@ -1,6 +1,7 @@
 package com.group11.othello.AI.Greedy;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.AI.EvaluationFunction;
 import com.group11.othello.AI.MonteCarlo.AI;
 import com.group11.othello.Logic.GameLogic;
@@ -16,12 +17,12 @@ public class Greedy extends AI {
     public Greedy(int player) {this.player = player; eF = new EvaluationFunction(); }
 
     @Override
-    public Vector2 nextMove(GameLogic gL) {
+    public Vector3 nextMove(GameLogic gL) {
         this.gL = gL;
         int check = 0;
         int newCheck = 0;
         int index = 0;
-        List<Vector2> moves = gL.getValidMoves();
+        List<Vector3> moves = gL.getValidMoves();
         for (int i = 0; i < moves.size(); i++) {
                 newCheck = (int) eF.bigEvaluation(gL, player);
                 if(newCheck > check ){
