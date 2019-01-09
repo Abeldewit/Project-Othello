@@ -30,7 +30,7 @@ public class GameState extends State {
         super(gsm);
         player1 = new Player1();
         player2 = new Player2();
-        gL = new GameLogic();
+        gL = new GameLogic(false);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
         PChip = new Texture("PChip.png");
@@ -45,7 +45,7 @@ public class GameState extends State {
     public GameState(GameStateManager gsm, Player1 player1, Player2 player2)
     {
         super(gsm);
-        gL = new GameLogic();
+        gL = new GameLogic(false);
         othelloBoard = new Texture("Table.png");
     }
 

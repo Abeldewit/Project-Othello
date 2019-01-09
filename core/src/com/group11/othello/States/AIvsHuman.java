@@ -37,7 +37,7 @@ public class AIvsHuman extends GameState {
         player1 = new Player1();
         player2 = new Player2();
         ai1 = ai;
-        gL = new GameLogic();
+        gL = new GameLogic(false);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
         menuButton = new Texture("MenuButtonUp.png");

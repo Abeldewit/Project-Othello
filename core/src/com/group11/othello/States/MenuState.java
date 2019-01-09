@@ -23,7 +23,7 @@ public class MenuState extends State {
     public int number = 0;
     public int verses = 0;
     public AI firstAi;
-    public AI secondAi;
+    public AI secondAi,thirdAi,fourthAi;
     Testing testing;
     EvaluationFunction eval;
     public GameStateManager gsm;
@@ -34,6 +34,7 @@ public class MenuState extends State {
     private Texture aiVSai,playerVSplayer,playerVSai;
     private Texture evSBtn,evCBtn,evMBtn;
     boolean evAnswer=false;
+    boolean multiPlayer=false;
     public boolean playerVsAi=false;
     public boolean aiVsAi=false;
 
@@ -98,7 +99,11 @@ public class MenuState extends State {
         if(Gdx.input.getX() >=470 && Gdx.input.getX()<=770 && Gdx.input.getY() >= 420 && Gdx.input.getY() <= 520 &&  Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
             StopTime(200);
-            gsm.push(new GameState(gsm));
+            if(multiPlayer)
+            {
+                gsm.push(new MultiPlayerState(gsm));
+            }else
+                gsm.push(new GameState(gsm));
 
         }
 
@@ -146,7 +151,8 @@ public class MenuState extends State {
             //Click
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 200 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                 StopTime(600);
-                gsm.push(new GameState(gsm));
+                multiPlayer=!multiPlayer;
+                System.out.println("Multiplayer is set to: " + multiPlayer);
             }
 
             if (Gdx.input.getX() >= 50 && Gdx.input.getX() <= 200 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -202,148 +208,284 @@ public class MenuState extends State {
 
             }
 
-            else if(aiVsAi && number==2)
-            {
+            else if(aiVsAi && number==2) {
                 //Hover
-                if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180) {
-                    greedyBtn = new Texture("GreedyHover.png");
-                } else if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240) {
-                    abBtn = new Texture("AlphaBetaHover.png");
-                } else if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300) {
-                    monteCarloBtn = new Texture("MonteCarloHover.png");
-                }
-                else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180) {
-                    greedyBtn2 = new Texture("GreedyHover.png");
-                } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240) {
-                    abBtn2 = new Texture("AlphaBetaHover.png");
-                } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300) {
-                    monteCarloBtn2 = new Texture("MonteCarloHover.png");
-                }else if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360) {
-                    startBtn = new Texture("StartHover.png");
-                }else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() <180 ) {
-                    evSBtn = new Texture("EvScoreHover.png");
-                }else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240) {
-                    evMBtn = new Texture("EvMobilityHover.png");
-                }else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300) {
-                    evCBtn = new Texture("EvCornersHover.png");
-                }
-
-
-                else {
-                    greedyBtn = new Texture("GreedyUp.png");
-                    monteCarloBtn = new Texture("MonteCarloUp.png");
-                    abBtn = new Texture("AlphaBetaUp.png");
-                    greedyBtn2 = new Texture("GreedyUp.png");
-                    monteCarloBtn2 = new Texture("MonteCarloUp.png");
-                    abBtn2 = new Texture("AlphaBetaUp.png");
-                    startBtn = new Texture("StartUp.png");
-                    evCBtn = new Texture("EvCornersUp.png");
-                    evSBtn = new Texture("EvScoreUp.png");
-                    evMBtn = new Texture("EvMobilityUp.png");
-                }
-
-                //Click
-
-                if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() <180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    eval.isEv1=!eval.isEv1;
-                    System.out.println("Score Evaluation : "+ eval.isEv1);
-                }
-                if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    eval.isEvMob=!eval.isEvMob;
-                    System.out.println("Mob Evaluation : "+ eval.isEvMob);
-                }
-                if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    eval.isEvCorn=!eval.isEvCorn;
-                    System.out.println("corner Evaluation : "+ eval.isEvCorn);
-                }
-
-                if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    System.out.println("First Ai Chosen: Alpha-Beta");
-                    firstAi=new MinMax(1);
-                    testing.setfName("Alpha Beta");
-                }
-
-                if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    System.out.println("First Ai Chosen: Monte Carlo");
-                    firstAi=new MonteCarlo(1);
-                    testing.setfName("Monte Carlo");
-                }
-
-                if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    System.out.println("First Ai Chosen: Greedy");
-                    firstAi=new Greedy(1);
-                    testing.setfName("Greedy");
-                }
-
-                if (Gdx.input.getX() >= 430 && Gdx.input.getX() <=580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    System.out.println("Second Ai Chosen: Alpha-Beta");
-                    secondAi=new MinMax(2);
-                    testing.setsName("Alpha Beta");
-                }
-
-                if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    System.out.println("Second Ai Chosen: Monte Carlo");
-                    secondAi=new MonteCarlo(2);
-                    testing.setsName("Monte Carlo");
-                }
-
-                if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    System.out.println("Second Ai Chosen: Greedy");
-                    secondAi=new Greedy(2);
-                    testing.setsName("Greedy");
-                }
-
-                if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-                    StopTime(200);
-                    if(firstAi==null)
-                    {
-                        System.out.println("Please choose the first AI");
+                if (multiPlayer) {
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180) {
+                        greedyBtn = new Texture("GreedyHover.png");
+                    } else if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240) {
+                        abBtn = new Texture("AlphaBetaHover.png");
+                    } else if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300) {
+                        monteCarloBtn = new Texture("MonteCarloHover.png");
+                    } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180) {
+                        greedyBtn2 = new Texture("GreedyHover.png");
+                    } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240) {
+                        abBtn2 = new Texture("AlphaBetaHover.png");
+                    } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300) {
+                        monteCarloBtn2 = new Texture("MonteCarloHover.png");
+                    } else if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360) {
+                        startBtn = new Texture("StartHover.png");
+                    } else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() < 180) {
+                        evSBtn = new Texture("EvScoreHover.png");
+                    } else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240) {
+                        evMBtn = new Texture("EvMobilityHover.png");
+                    } else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300) {
+                        evCBtn = new Texture("EvCornersHover.png");
+                    } else {
+                        greedyBtn = new Texture("GreedyUp.png");
+                        monteCarloBtn = new Texture("MonteCarloUp.png");
+                        abBtn = new Texture("AlphaBetaUp.png");
+                        greedyBtn2 = new Texture("GreedyUp.png");
+                        monteCarloBtn2 = new Texture("MonteCarloUp.png");
+                        abBtn2 = new Texture("AlphaBetaUp.png");
+                        startBtn = new Texture("StartUp.png");
+                        evCBtn = new Texture("EvCornersUp.png");
+                        evSBtn = new Texture("EvScoreUp.png");
+                        evMBtn = new Texture("EvMobilityUp.png");
                     }
-                    else if(secondAi==null)
-                    {
-                        System.out.println("Please choose the second AI");
+
+                    //Click
+
+                    if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() < 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        eval.isEv1 = !eval.isEv1;
+                        System.out.println("Score Evaluation : " + eval.isEv1);
                     }
-                    else if(firstAi!=null && secondAi!=null )
-                    {
-                        if(eval.isEv1)
-                        {
-                            testing.setev1("Yes");
-                        }
-                        else
-                        {
-                            testing.setev1("No");
-                        }
+                    if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        eval.isEvMob = !eval.isEvMob;
+                        System.out.println("Mob Evaluation : " + eval.isEvMob);
+                    }
+                    if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        eval.isEvCorn = !eval.isEvCorn;
+                        System.out.println("corner Evaluation : " + eval.isEvCorn);
+                    }
 
-                        if(eval.isEvMob)
-                        {
-                            testing.setev2("yes");
-                        }
-                        else
-                        {
-                            testing.setev2("No");
-                        }
-                        if(eval.isEvCorn)
-                        {
-                            testing.setev3("yes");
-                        }
-                        else
-                        {
-                            testing.setev3("No");
-                        }
-                            gsm.push(new AIvsAI_State(gsm, firstAi, secondAi,testing));
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if(firstAi==null) {
+                            firstAi = new AlphaBeta(1);
+                            testing.setfName("Alpha Beta");
+                            System.out.println("First Ai Chosen: Alpha-Beta");}
+                        else{
+                            thirdAi=new AlphaBeta(3);
+                            System.out.println("Third Ai Chosen: Alpha-Beta");}
+                    //MAKE FOR TESTING
+                    }
 
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if(firstAi==null) {
+                            firstAi = new MonteCarlo(1);
+                            testing.setfName("Monte Carlo");
+                            System.out.println("First Ai Chosen: Monte Carlo");
+                        }else
+                            thirdAi= new MonteCarlo(3);
+                            System.out.println("Third Ai Chosen: Monte Carlo");
+                    }
+
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if(firstAi==null) {
+                            firstAi = new Greedy(1);
+                            testing.setfName("Greedy");
+                            System.out.println("First Ai Chosen: Greedy");
+                        }else
+                            thirdAi=new Greedy(3);
+                            System.out.println("Third Ai Chosen: Greedy");
+                    }
+
+                    if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if(secondAi==null) {
+                            secondAi = new AlphaBeta(1);
+                            testing.setsName("Alpha Beta");
+                            System.out.println("Second Ai Chosen: Alpha-Beta");}
+                        else{
+                            fourthAi=new AlphaBeta(4);
+                            System.out.println("Fourth Ai Chosen: Alpha-Beta");
+                        }
+                    }
+
+                    if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if(secondAi==null) {
+                            secondAi = new MonteCarlo(1);
+                            testing.setfName("Monte Carlo");
+                            System.out.println("Second Ai Chosen: Monte Carlo");
+                        }else {
+                            fourthAi = new MonteCarlo(3);
+                            System.out.println("Fourth Ai Chosen: Monte Carlo");
+                        }
+                    }
+
+                    if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if(secondAi==null) {
+                            secondAi = new Greedy(2);
+                            testing.setsName("Greedy");
+                            System.out.println("Second Ai Chosen: Greedy");
+                        }else {
+                            fourthAi = new Greedy(4);
+                            System.out.println("Fourth Ai Chosen: Greedy");
+                        }
+                    }
+
+                    if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if (firstAi == null) {
+                            System.out.println("Please choose the first AI");
+                        } else if (secondAi == null) {
+                            System.out.println("Please choose the second AI");
+                        } else if (thirdAi == null) {
+                            System.out.println("Please choose the third AI");
+                        } else if (fourthAi == null){
+                            System.out.println("Please choose the fourth AI");
+                        } else if (firstAi != null && secondAi != null && thirdAi!=null && fourthAi!=null) {
+                            if (eval.isEv1) {
+                                testing.setev1("Yes");
+                            } else {
+                                testing.setev1("No");
+                            }
+
+                            if (eval.isEvMob) {
+                                testing.setev2("yes");
+                            } else {
+                                testing.setev2("No");
+                            }
+                            if (eval.isEvCorn) {
+                                testing.setev3("yes");
+                            } else {
+                                testing.setev3("No");
+                            }
+                            gsm.push(new MultiPlayerState(gsm,firstAi,secondAi,thirdAi,fourthAi,testing));
+
+                        }
                     }
                 }
-            }
+                } else {
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180) {
+                        greedyBtn = new Texture("GreedyHover.png");
+                    } else if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240) {
+                        abBtn = new Texture("AlphaBetaHover.png");
+                    } else if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300) {
+                        monteCarloBtn = new Texture("MonteCarloHover.png");
+                    } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180) {
+                        greedyBtn2 = new Texture("GreedyHover.png");
+                    } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240) {
+                        abBtn2 = new Texture("AlphaBetaHover.png");
+                    } else if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300) {
+                        monteCarloBtn2 = new Texture("MonteCarloHover.png");
+                    } else if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360) {
+                        startBtn = new Texture("StartHover.png");
+                    } else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() < 180) {
+                        evSBtn = new Texture("EvScoreHover.png");
+                    } else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240) {
+                        evMBtn = new Texture("EvMobilityHover.png");
+                    } else if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300) {
+                        evCBtn = new Texture("EvCornersHover.png");
+                    } else {
+                        greedyBtn = new Texture("GreedyUp.png");
+                        monteCarloBtn = new Texture("MonteCarloUp.png");
+                        abBtn = new Texture("AlphaBetaUp.png");
+                        greedyBtn2 = new Texture("GreedyUp.png");
+                        monteCarloBtn2 = new Texture("MonteCarloUp.png");
+                        abBtn2 = new Texture("AlphaBetaUp.png");
+                        startBtn = new Texture("StartUp.png");
+                        evCBtn = new Texture("EvCornersUp.png");
+                        evSBtn = new Texture("EvScoreUp.png");
+                        evMBtn = new Texture("EvMobilityUp.png");
+                    }
+
+                    //Click
+
+                    if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 135 && Gdx.input.getY() < 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        eval.isEv1 = !eval.isEv1;
+                        System.out.println("Score Evaluation : " + eval.isEv1);
+                    }
+                    if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 195 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        eval.isEvMob = !eval.isEvMob;
+                        System.out.println("Mob Evaluation : " + eval.isEvMob);
+                    }
+                    if (Gdx.input.getX() >= 630 && Gdx.input.getX() <= 760 && Gdx.input.getY() >= 255 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        eval.isEvCorn = !eval.isEvCorn;
+                        System.out.println("corner Evaluation : " + eval.isEvCorn);
+                    }
+
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        System.out.println("First Ai Chosen: Alpha-Beta");
+                        firstAi = new MinMax(1);
+                        testing.setfName("Alpha Beta");
+                    }
+
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        System.out.println("First Ai Chosen: Monte Carlo");
+                        firstAi = new MonteCarlo(1);
+                        testing.setfName("Monte Carlo");
+                    }
+
+                    if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        System.out.println("First Ai Chosen: Greedy");
+                        firstAi = new Greedy(1);
+                        testing.setfName("Greedy");
+                    }
+
+                    if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        System.out.println("Second Ai Chosen: Alpha-Beta");
+                        secondAi = new MinMax(2);
+                        testing.setsName("Alpha Beta");
+                    }
+
+                    if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 250 && Gdx.input.getY() <= 300 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        System.out.println("Second Ai Chosen: Monte Carlo");
+                        secondAi = new MonteCarlo(2);
+                        testing.setsName("Monte Carlo");
+                    }
+
+                    if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 130 && Gdx.input.getY() <= 180 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        System.out.println("Second Ai Chosen: Greedy");
+                        secondAi = new Greedy(2);
+                        testing.setsName("Greedy");
+                    }
+
+                    if (Gdx.input.getX() >= 350 && Gdx.input.getX() <= 500 && Gdx.input.getY() >= 310 && Gdx.input.getY() <= 360 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                        StopTime(200);
+                        if (firstAi == null) {
+                            System.out.println("Please choose the first AI");
+                        } else if (secondAi == null) {
+                            System.out.println("Please choose the second AI");
+                        } else if (firstAi != null && secondAi != null) {
+                            if (eval.isEv1) {
+                                testing.setev1("Yes");
+                            } else {
+                                testing.setev1("No");
+                            }
+
+                            if (eval.isEvMob) {
+                                testing.setev2("yes");
+                            } else {
+                                testing.setev2("No");
+                            }
+                            if (eval.isEvCorn) {
+                                testing.setev3("yes");
+                            } else {
+                                testing.setev3("No");
+                            }
+                            gsm.push(new AIvsAI_State(gsm, firstAi, secondAi, testing));
+
+                        }
+                    }
+                }
     }
 
     @Override

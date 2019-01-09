@@ -47,11 +47,11 @@ public class MultiPlayerState extends State {
         player2 = new Player2();
         player3 = new Player1();
         player4 = new Player2();
-        gL = new GameLogic();
+        gL = new GameLogic(true);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
-        OChip = new Texture("WChip.png");
-        PChip = new Texture("BChip.png");
+        OChip = new Texture("OChip.png");
+        PChip = new Texture("PChip.png");
 
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table2.png");
@@ -72,11 +72,11 @@ public class MultiPlayerState extends State {
         player2 = new Player2();
         player3 = new Player1();
         player4 = new Player2();
-        gL = new GameLogic();
+        gL = new GameLogic(true);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
-        OChip = new Texture("WChip.png");
-        PChip = new Texture("BChip.png");
+        OChip = new Texture("OChip.png");
+        PChip = new Texture("PChip.png");
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table2.png");
         scoreTable = new Texture("Score.png");
@@ -159,6 +159,8 @@ public class MultiPlayerState extends State {
             if (Gdx.input.getX() >= 580 && Gdx.input.getX() <= 780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                 WChip.dispose();
                 BChip.dispose();
+                OChip.dispose();
+                PChip.dispose();
                 gsm.set(new MenuState(gsm));
             }
         }
