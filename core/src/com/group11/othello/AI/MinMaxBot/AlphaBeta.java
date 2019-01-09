@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AlphaBeta extends AI {
     //    private int[][] board;
-    private final static int maxDepth = 6;
+    private final static int maxDepth = 4;
     private  int aiPlayer;
 
     EvaluationFunction eF = new EvaluationFunction();
