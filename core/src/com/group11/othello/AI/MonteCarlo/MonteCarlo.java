@@ -17,7 +17,7 @@ public class MonteCarlo extends AI {
     private int playerTurn;
     private EvaluationFunction eF;
     private final int SIMULATIONS = 10000;
-    int constant = 3;
+    int constant = 2;
 
    public MonteCarlo (int player){
        root = null;
@@ -25,21 +25,10 @@ public class MonteCarlo extends AI {
        eF = new EvaluationFunction();
    }
 
-    public Vector2 nextMove(GameLogic gameLogic) {
+    public Vector3 nextMove(GameLogic gameLogic) {
         GameLogic glCopy = gameLogic.copy();
         root = new CarloNode(gameLogic.copy(),-1,-1);
         CarloNode cn = root;
-        /*
-        for(int i = 0; i < cn.getMoves().size(); i++){
-            GameLogic currentGl = glCopy.copy();
-            currentGl.getBoard().setChip((int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x, glCopy.getTurnStatus());
-            CarloNode childNode = new CarloNode(currentGl,(int) cn.getMoves().get(i).y,(int) cn.getMoves().get(i).x);
-            cn.setChild(childNode);
-            childNode.setParent(root);
-        }
-        */
-
-        //root = cn;
 
         while(root.getVisits() < SIMULATIONS){
 
@@ -74,13 +63,12 @@ public class MonteCarlo extends AI {
 
                 }
 
-
             }
 
 
          cn = selection(root);
 
-       return new Vector2(cn.getColumn(),cn.getRow());
+       return new Vector3(cn.getColumn(),cn.getRow(),0);
 
     }
 
@@ -100,7 +88,6 @@ public class MonteCarlo extends AI {
             }
             return cn;
         }
-
 
 
 
@@ -184,7 +171,6 @@ public class MonteCarlo extends AI {
        node.setScore(finalScore);
 
    }
-
 
     @Override
     public int getScore() {

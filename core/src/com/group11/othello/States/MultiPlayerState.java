@@ -1,5 +1,4 @@
 package com.group11.othello.States;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
@@ -10,6 +9,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.AI.MonteCarlo.AI;
+import com.group11.othello.AI.Testing;
 import com.group11.othello.Game.Othello;
 import com.group11.othello.Logic.GameLogic;
 import com.group11.othello.Logic.Player1;
@@ -17,31 +17,68 @@ import com.group11.othello.Logic.Player2;
 
 import java.util.concurrent.TimeUnit;
 
-public class AIvsHuman extends GameState {
+public class MultiPlayerState extends State {
+
     private Texture othelloBoard,scoreTable,menuButton;
-    private Texture WChip,BChip;
+    private Texture WChip,BChip,OChip,PChip;
     private BitmapFont font;
     private GameLogic gL;
     private static Player1 player1;
     private static Player2 player2;
+    private static Player1 player3;
+    private static Player2 player4;
     private GameStateManager gsm;
+    long player1Time = 0;
+    long player2Time = 0;
+    int player1moves = 0;
+    int player2moves = 0;
+
     private AI ai1;
-    long aiTime = 0;
-    int aiMoves = 0;
+    private AI ai2;
+    private AI ai3;
+    private AI ai4;
 
-
-    public AIvsHuman(GameStateManager gsm, AI ai)
+    public MultiPlayerState(GameStateManager gsm)
     {
 
         super(gsm);
+
         player1 = new Player1();
         player2 = new Player2();
-        ai1 = ai;
+        player3 = new Player1();
+        player4 = new Player2();
         gL = new GameLogic();
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
+        OChip = new Texture("WChip.png");
+        PChip = new Texture("BChip.png");
+
         menuButton = new Texture("MenuButtonUp.png");
-        othelloBoard = new Texture("Table.png");
+        othelloBoard = new Texture("Table2.png");
+        scoreTable = new Texture("Score.png");
+        font = new BitmapFont();
+        this.gsm=gsm;
+    }
+
+    public MultiPlayerState(GameStateManager gsm, AI ai1, AI ai2, AI ai3, AI ai4, Testing testing)
+    {
+        super(gsm);
+        this.ai1 = ai1;
+        this.ai2 = ai2;
+        this.ai3 = ai3;
+        this.ai4 = ai4;
+
+        player1 = new Player1();
+        player2 = new Player2();
+        player3 = new Player1();
+        player4 = new Player2();
+        gL = new GameLogic();
+        WChip = new Texture("WChip.png");
+        BChip = new Texture("BChip.png");
+        OChip = new Texture("WChip.png");
+        PChip = new Texture("BChip.png");
+        menuButton = new Texture("MenuButtonUp.png");
+        othelloBoard = new Texture("Table2.png");
         scoreTable = new Texture("Score.png");
         font = new BitmapFont();
         this.gsm=gsm;
@@ -50,18 +87,23 @@ public class AIvsHuman extends GameState {
     @Override
     public void handleInput()
     {
+        //why ?
         try {
-            TimeUnit.MILLISECONDS.sleep(100);
+            TimeUnit.MILLISECONDS.sleep(300);
         } catch (Exception e) {
             System.out.println("Error");
         }
+
 
         if(gL.getValidMoves().size()==0){
             gL.changeTurn();
 
         }
         if(gL.gameOver() == true){
-            System.out.println("AI Runtime : " + (aiTime/aiMoves));
+            //Time calc
+            System.out.println("AI 1 runtime: " + (player1Time/player1moves));
+            System.out.println("AI 2 runtime: " + (player2Time/player2moves));
+
             if(player1.getScore() > player2.getScore())
             {
                 gsm.set(new EndState(gsm,1,player1.getScore()));
@@ -72,81 +114,53 @@ public class AIvsHuman extends GameState {
             }
 
         }
-        if(gL.getTurnStatus() == 2 && gL.getValidMoves().size() != 0) {
+        else {
             Vector3 aiMove = new Vector3();
-
+            if(gL.getTurnStatus() == 1){
                 long prevMillis = System.currentTimeMillis();
                 aiMove = ai1.nextMove(gL);
                 long currentMillis = System.currentTimeMillis();
-                aiTime += currentMillis - prevMillis;
-                aiMoves++;
+                player1Time += currentMillis - prevMillis;
+                player1moves++;
+                System.out.println(currentMillis - prevMillis);
 
-                int x = (int) aiMove.x;
-                int y = (int) aiMove.y;
-                if(y >=0 && x >=0) {
-                    gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                    runAvailable(x, y);
-
-                    player1.setScore((int) gL.getScore().x);
-                    player2.setScore((int) gL.getScore().y);
-                }
-                gL.changeTurn();
-
-        }
-        else
-            {
-                if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
-
-                    if(Gdx.input.getY() >=100) {
-                        int x = (int) Math.floor(Gdx.input.getX() / 100);
-                        int y = (int) Math.floor((Othello.HEIGHT - Gdx.input.getY()) / 100);
-
-                        if (isTooClose(x, y) == false) {
-                            if (gL.checkMoves(x, y, gL.getTurnStatus()) > 0) {
-
-                                gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                                //  gL.getBoard().printBoard();
-                                runAvailable(x, y);
-
-
-                                if (gL.getTurnStatus() == 1) {
-
-                                    player1.setScore((int) gL.getScore().x);
-                                    player2.setScore((int) gL.getScore().y);
-
-                                    gL.changeTurn();
-                                } else {
-                                    player1.setScore((int) gL.getScore().x);
-                                    player2.setScore((int) gL.getScore().y);
-
-                                    gL.changeTurn();
-                                }
-                            } else {
-
-                                System.out.println("loser");
-                            }
-                        } else {
-                            System.out.println("Tile Occupied");
-                        }
-                    }
-                }
+            }
+            else{
+                long prevMillis = System.currentTimeMillis();
+                aiMove = ai2.nextMove(gL);
+                long currentMillis = System.currentTimeMillis();
+                player2Time += currentMillis - prevMillis;
+                player2moves++;
+                System.out.println(currentMillis - prevMillis);
             }
 
 
-        if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70)
-        {
-            menuButton = new Texture("MenuButtonHover.png");
-        }
-        else
-        {
-            menuButton = new Texture("MenuButtonUp.png");
+            int x = (int) aiMove.x;
+            int y = (int) aiMove.y;
+            if(x >= 0 && y >= 0) {
+                gL.getBoard().setChip(y, x, gL.getTurnStatus());
+                runAvailable(x, y);
+
+                player1.setScore((int) gL.getScore().x);
+                player2.setScore((int) gL.getScore().y);
+            }
+            gL.changeTurn();
         }
 
-        if(Gdx.input.getX() >=580 && Gdx.input.getX()<=780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT))
-        {
-            WChip.dispose();
-            BChip.dispose();
-            gsm.set(new MenuState(gsm));
+
+
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            if (Gdx.input.getX() >= 580 && Gdx.input.getX() <= 780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70) {
+                menuButton = new Texture("MenuButtonHover.png");
+            } else {
+                menuButton = new Texture("MenuButtonUp.png");
+            }
+
+            if (Gdx.input.getX() >= 580 && Gdx.input.getX() <= 780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+                WChip.dispose();
+                BChip.dispose();
+                gsm.set(new MenuState(gsm));
+            }
         }
     }
 
@@ -189,7 +203,14 @@ public class AIvsHuman extends GameState {
                 {
                     sb.draw(BChip, i*100 + 19, (j)*100 + 19, 60, 60);
                 }
-                else{}
+                else if(gL.getBoard().getBoard()[j][i] == 3)
+                {
+                    sb.draw(OChip, i*100 + 19, (j)*100 + 19, 60, 60);
+                }
+                else if(gL.getBoard().getBoard()[j][i] == 4)
+                {
+                    sb.draw(PChip, i*100 + 19, (j)*100 + 19, 60, 60);
+                }
             }
         }
 
@@ -219,13 +240,10 @@ public class AIvsHuman extends GameState {
         gL.southEastDirection(x,y, gL.getTurnStatus());
     }
 
-    public GameState getGame() {
-        return this;
-    }
 
-    /*public GameLogic getgL() {
+    public GameLogic getgL() {
         return gL;
-    }*/
+    }
 
 
 

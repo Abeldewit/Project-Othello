@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.AI.MonteCarlo.AI;
@@ -100,14 +101,14 @@ public class AIvsAI_State extends State {
 
             }
             else {
-                Vector2 aiMove = new Vector2();
+                Vector3 aiMove = new Vector3();
                 if(gL.getTurnStatus() == 1){
                     long prevMillis = System.currentTimeMillis();
                     aiMove = ai1.nextMove(gL);
                     long currentMillis = System.currentTimeMillis();
                     player1Time += currentMillis - prevMillis;
                     player1moves++;
-                    System.out.println(currentMillis - prevMillis);
+                    //System.out.println(currentMillis - prevMillis);
 
                 }
                 else{
@@ -116,7 +117,7 @@ public class AIvsAI_State extends State {
                     long currentMillis = System.currentTimeMillis();
                     player2Time += currentMillis - prevMillis;
                     player2moves++;
-                    System.out.println(currentMillis - prevMillis);
+                    //System.out.println(currentMillis - prevMillis);
                 }
 
 
