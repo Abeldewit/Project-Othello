@@ -16,7 +16,7 @@ import java.util.Stack;
 public class GameState extends State {
 
     private Texture othelloBoard,scoreTable,menuButton;
-    private Texture WChip,BChip;
+    private Texture WChip,BChip,PChip,OChip;
     private BitmapFont font;
     private GameLogicMP gL;
     private static Player1 player1;
@@ -33,6 +33,8 @@ public class GameState extends State {
         gL = new GameLogicMP();
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
+        PChip = new Texture("PChip.png");
+        OChip = new Texture("OChip.png");
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table.png");
         scoreTable = new Texture("Score.png");
