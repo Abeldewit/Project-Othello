@@ -7,6 +7,8 @@ import com.group11.othello.Logic.GameLogic;
 
 public class EvaluationFunction {
 
+    final double randomizer = 0.2;
+
     GameLogic gameLogic;
     int amountOfEval=0;
     public boolean isEv1=true,isEvCorn=true,isEvMob=true;
@@ -19,6 +21,7 @@ public class EvaluationFunction {
         double score = 0;
 
         //simple score based on amount of chips
+        /*
         if(isEv1)
         {
             if(player == 1)
@@ -28,14 +31,30 @@ public class EvaluationFunction {
                 score += gL.getScore().y;
             }
         }
+        */
 
         //disc minimization
-
+        if(isEv1) {
+            if (gL.getScore().x + gL.getScore().y < 40) {
+                if (player == 1) {
+                    score -= 10 * gL.getScore().x;
+                } else if (player == 2) {
+                    score -= 10 * gL.getScore().y;
+                }
+            } else {
+                if (player == 1) {
+                    score += gL.getScore().x;
+                } else if (player == 2) {
+                    score += gL.getScore().y;
+                }
+            }
+        }
         //more advanced evaluation functions
         int mob = evaluateMobility(gL);
         Vector2 corners = evaluateCorners(gL);
 
         //Use all checks to assign right score
+
         if(isEvCorn) {
             if (player == 1) {
                 score += corners.x;
@@ -55,19 +74,17 @@ public class EvaluationFunction {
         score += cornerPenalty(gL, player);
 
         //randomization function
-        double randomizer = 0.2;
-
-        double scoreFraction = (score * randomizer) * Math.random();
+        double scoreFraction = Math.floor((score * randomizer) * Math.random());
         System.out.println("Random factor: " + scoreFraction);
-        score += scoreFraction;
+        //score += scoreFraction;
 
         System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
     }
 
     public int evaluateMobility(GameLogic gL) {
-        int blackMoves = 0;
-        int whiteMoves = 0;
+        int blackMoves;
+        int whiteMoves;
         gameLogic = gL.copy();
         int MHV;
 

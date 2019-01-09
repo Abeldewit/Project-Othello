@@ -107,7 +107,7 @@ public class AIvsAI_State extends State {
                     long currentMillis = System.currentTimeMillis();
                     player1Time += currentMillis - prevMillis;
                     player1moves++;
-                    System.out.println(currentMillis - prevMillis);
+                    //System.out.println(currentMillis - prevMillis);
 
                 }
                 else{
@@ -116,7 +116,7 @@ public class AIvsAI_State extends State {
                     long currentMillis = System.currentTimeMillis();
                     player2Time += currentMillis - prevMillis;
                     player2moves++;
-                    System.out.println(currentMillis - prevMillis);
+                    //System.out.println(currentMillis - prevMillis);
                 }
 
 
