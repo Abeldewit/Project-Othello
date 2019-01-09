@@ -20,15 +20,12 @@ public class AlphaBeta extends AI {
         this.aiPlayer = aiPlayer;
     }
 
-    public Vector2 nextMove(GameLogic gl) {
-
-
-
+    public Vector3 nextMove(GameLogic gl) {
 
         //aiPlayer = gl.getTurnStatus();
 
 
-        List<Vector2> moves = gl.getValidMoves();
+        List<Vector3> moves = gl.getValidMoves();
         int maxScore = Integer.MIN_VALUE;
         int indexMaxScore = -1;
         if(moves.size() == 1) {
@@ -36,7 +33,7 @@ public class AlphaBeta extends AI {
         }else {
             for (int i = 0; i < moves.size(); i++) {
                 GameLogic glCopy = gl.copy();
-                Vector2 move = moves.get(i);
+                Vector3 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus());
                 //glCopy.changeTurn();
                 aiPlayer = gl.getTurnStatus();
@@ -59,7 +56,7 @@ public class AlphaBeta extends AI {
 
     private int MinMaxAB(GameLogic gl, int alpha, int beta, int maxDepth, int currentDepth, boolean maxPlayer) {
         //GameLogic glCopy = gl.copy();
-        List<Vector2> moves = gl.getValidMoves();
+        List<Vector3> moves = gl.getValidMoves();
 
         if (currentDepth == maxDepth || moves.size() < 2) {
             int val = calcHeuristic(gl, eF , gl.getTurnStatus());
@@ -77,7 +74,7 @@ public class AlphaBeta extends AI {
             for (int i = 0; i < moves.size(); i++) {
                 //System.out.println("checking the max step" + i);
                 GameLogic glCopy = gl.copy();
-                Vector2 move = moves.get(i);
+                Vector3 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); // cc
                 //glCopy.changeTurn();
                 int val = MinMaxAB(glCopy, alpha, beta, maxDepth, currentDepth + 1,false);
@@ -96,7 +93,7 @@ public class AlphaBeta extends AI {
             for(int i = 0; i < moves.size(); i++){
                 //System.out.println("checking the min step" + i);
                 GameLogic glCopy = gl.copy();
-                Vector2 move = moves.get(i);
+                Vector3 move = moves.get(i);
                 glCopy.getBoard().setChip((int) move.y, (int) move.x, glCopy.getTurnStatus()); //cc
                 //glCopy.changeTurn();
                 int val = MinMaxAB(glCopy,alpha,beta, maxDepth, currentDepth+1,true);

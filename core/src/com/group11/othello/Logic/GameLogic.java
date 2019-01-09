@@ -759,13 +759,14 @@ public class GameLogic {
     }
 
     //lilly
-    public List<Vector2> getValidMoves(){
-        List<Vector2> moves = new ArrayList<Vector2>();
+    public List<Vector3> getValidMoves(){
+        List<Vector3> moves = new ArrayList<Vector3>();
 
         for(int i=0; i<8; i++){
             for(int j=0; j<8; j++){
-                if (board.getBoard()[i][j] == 0 && checkMoves(j,i, getTurnStatus()) > 0 ) {
-                    moves.add(new Vector2(j,i));
+                int flips = checkMoves(j,i, getTurnStatus());
+                if (board.getBoard()[i][j] == 0 &&  flips> 0 ) {
+                    moves.add(new Vector3(j,i,flips));
                 }
             }
         }

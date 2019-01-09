@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.group11.othello.AI.MinMaxBot.AlphaBeta;
 import com.group11.othello.AI.MinMaxBot.MinMax;
 import com.group11.othello.AI.MonteCarlo.AI;
@@ -72,7 +73,7 @@ public class AIvsHuman extends GameState {
 
         }
         if(gL.getTurnStatus() == 2 && gL.getValidMoves().size() != 0) {
-            Vector2 aiMove = new Vector2();
+            Vector3 aiMove = new Vector3();
 
                 long prevMillis = System.currentTimeMillis();
                 aiMove = ai1.nextMove(gL);

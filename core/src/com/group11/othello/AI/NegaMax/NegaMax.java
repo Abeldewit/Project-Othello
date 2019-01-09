@@ -18,11 +18,11 @@ public class NegaMax {
     public NegaMax() {
     }
 
-    public Vector2 nextMove(GameLogic gameLogic) {
+    public Vector3 nextMove(GameLogic gameLogic) {
         GameLogic NegaGl = gameLogic.copy();
         aiPlayer = NegaGl.getTurnStatus();
 
-        List<Vector2> validMoves = NegaGl.getValidMoves();
+        List<Vector3> validMoves = NegaGl.getValidMoves();
         if(validMoves.size() == 1) {
             return validMoves.get(0);
         }
@@ -31,7 +31,7 @@ public class NegaMax {
         int maxIndex = -1;
         int moveCount = 0;
 
-        for(Vector2 move : validMoves) {
+        for(Vector3 move : validMoves) {
             GameLogic GLclone = NegaGl.copy();
             //Make the move in the cloned board
             GLclone.getBoard().setChip((int) move.x, (int) move.y, GLclone.getTurnStatus());
@@ -55,7 +55,7 @@ public class NegaMax {
             return val;
         }
 
-        List<Vector2> validMoves = gLogic.getValidMoves();
+        List<Vector3> validMoves = gLogic.getValidMoves();
         if(validMoves.size() == 1) {
             return calcHeuristic(gLogic, gLogic.getTurnStatus());
         }
@@ -63,7 +63,7 @@ public class NegaMax {
         int maxScore = Integer.MIN_VALUE;
         int maxIndex = -1;
         int indexCount = 0;
-        for(Vector2 move : validMoves) {
+        for(Vector3 move : validMoves) {
             GameLogic GLclone = gLogic.copy();
             GLclone.getBoard().setChip((int) move.x, (int) move.y, GLclone.getTurnStatus());
             runAvailable(GLclone, (int) move.x, (int) move.y);
