@@ -87,8 +87,8 @@ public class AIvsHuman extends GameState {
                     gL.getBoard().setChip(y, x, gL.getTurnStatus());
                     runAvailable(x, y);
 
-                    player1.setScore((int) gL.getScore().x);
-                    player2.setScore((int) gL.getScore().y);
+                    player1.setScore((int) gL.getScore()[0].x);
+                    player2.setScore((int) gL.getScore()[0].y);
                 }
                 gL.changeTurn();
 
@@ -111,13 +111,13 @@ public class AIvsHuman extends GameState {
 
                                 if (gL.getTurnStatus() == 1) {
 
-                                    player1.setScore((int) gL.getScore().x);
-                                    player2.setScore((int) gL.getScore().y);
+                                    player1.setScore((int) gL.getScore()[1].x);
+                                    player2.setScore((int) gL.getScore()[1].y);
 
                                     gL.changeTurn();
                                 } else {
-                                    player1.setScore((int) gL.getScore().x);
-                                    player2.setScore((int) gL.getScore().y);
+                                    player1.setScore((int) gL.getScore()[1].x);
+                                    player2.setScore((int) gL.getScore()[1].y);
 
                                     gL.changeTurn();
                                 }

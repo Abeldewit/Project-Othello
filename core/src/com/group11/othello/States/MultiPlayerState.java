@@ -141,8 +141,8 @@ public class MultiPlayerState extends State {
                 gL.getBoard().setChip(y, x, gL.getTurnStatus());
                 runAvailable(x, y);
 
-                player1.setScore((int) gL.getScore().x);
-                player2.setScore((int) gL.getScore().y);
+                player1.setScore((int) gL.getScore()[0].x);
+                player2.setScore((int) gL.getScore()[0].y);
             }
             gL.changeTurn();
         }

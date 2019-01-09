@@ -660,8 +660,10 @@ public class GameLogic {
     }
 
     //use vector2 instead of 3
-    public Vector3 getScore()
+    public Vector3[] getScore()
     {
+        Vector3[] result = new Vector3[2];
+        Vector3 vMp= new Vector3();
         Vector3 v = new Vector3();
         for(int i = 0; i < board.getBoard().length -1; i++)
         {
@@ -676,9 +678,20 @@ public class GameLogic {
                 {
                     v.add(0,1,0);
                 }
+                if(board.getBoard()[i][j] == 3)
+                {
+                    vMp.add(1,0,0);
+                }
+
+                if(board.getBoard()[i][j] == 4)
+                {
+                    vMp.add(0,1,0);
+                }
             }
         }
-        return  v;
+        result[0] = v;
+        result[1]=vMp;
+        return  result;
     }
 
     public boolean endGame(int player)
@@ -717,13 +730,14 @@ public class GameLogic {
     }
 
     //lilly
-    public List<Vector2> getValidMoves(){
-        List<Vector2> moves = new ArrayList<Vector2>();
+    public List<Vector3> getValidMoves(){
+        List<Vector3> moves = new ArrayList<Vector3>();
 
         for(int i=0; i<8; i++){
             for(int j=0; j<8; j++){
-                if (board.getBoard()[i][j] == 0 && checkMoves(j,i, getTurnStatus()) > 0 ) {
-                    moves.add(new Vector2(j,i));
+                int flips =checkMoves(j,i, getTurnStatus());
+                if (board.getBoard()[i][j] == 0 && flips > 0 ) {
+                    moves.add(new Vector3(j,i,flips));
                 }
             }
         }
@@ -831,7 +845,7 @@ public class GameLogic {
     }
     public boolean gameOver(){
 
-        if(getScore().x+getScore().y == 64) return true;
+        if(getScore()[0].x+getScore()[0].y + getScore()[1].x+getScore()[1].y>= 64) return true;
         return false;
     }
 

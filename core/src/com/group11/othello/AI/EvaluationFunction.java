@@ -34,7 +34,7 @@ public class EvaluationFunction {
         */
 
         //disc minimization
-        if(isEv1) {
+       /* if(isEv1) {
             if (gL.getScore().x + gL.getScore().y < 40) {
                 if (player == 1) {
                     score -= 10 * gL.getScore().x;
@@ -49,6 +49,7 @@ public class EvaluationFunction {
                 }
             }
         }
+        */
         //more advanced evaluation functions
         int mob = evaluateMobility(gL);
         Vector2 corners = evaluateCorners(gL);

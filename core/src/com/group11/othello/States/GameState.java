@@ -18,7 +18,7 @@ public class GameState extends State {
     private Texture othelloBoard,scoreTable,menuButton;
     private Texture WChip,BChip,PChip,OChip;
     private BitmapFont font;
-    private GameLogicMP gL;
+    private GameLogic gL;
     private static Player1 player1;
     private static Player2 player2;
     private GameStateManager gsm;
@@ -30,7 +30,7 @@ public class GameState extends State {
         super(gsm);
         player1 = new Player1();
         player2 = new Player2();
-        gL = new GameLogicMP();
+        gL = new GameLogic();
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
         PChip = new Texture("PChip.png");
@@ -45,7 +45,7 @@ public class GameState extends State {
     public GameState(GameStateManager gsm, Player1 player1, Player2 player2)
     {
         super(gsm);
-        gL = new GameLogicMP();
+        gL = new GameLogic();
         othelloBoard = new Texture("Table.png");
     }
 
@@ -96,10 +96,8 @@ public class GameState extends State {
                             runAvailable(x, y);
 
 
-                                player1.setScore((int) gL.getScore().get(0));
-                                player2.setScore((int) gL.getScore().get(1));
-                                player2.setScore((int) gL.getScore().get(2));
-                                player2.setScore((int) gL.getScore().get(3));
+                                player1.setScore((int) gL.getScore()[0].x);
+                                player2.setScore((int) gL.getScore()[0].y);
 
                                 gL.changeTurn();
 
@@ -206,7 +204,7 @@ public class GameState extends State {
         return this;
     }
 
-    public GameLogicMP getgL() {
+    public GameLogic getgL() {
         return gL;
     }
 
