@@ -44,9 +44,13 @@ public class MultiPlayerState extends State {
         super(gsm);
 
         player1 = new Player1();
+        player1.setScore(4);
         player2 = new Player2();
+        player2.setScore(4);
         player3 = new Player1();
+        player3.setScore(4);
         player4 = new Player2();
+        player4.setScore(4);
 
         gL = new GameLogic(true);
         WChip = new Texture("WChip.png");
@@ -70,9 +74,13 @@ public class MultiPlayerState extends State {
         this.ai4 = ai4;
 
         player1 = new Player1();
+        player1.setScore(4);
         player2 = new Player2();
+        player2.setScore(4);
         player3 = new Player1();
+        player3.setScore(4);
         player4 = new Player2();
+        player4.setScore(4);
         gL = new GameLogic(true);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
@@ -194,18 +202,27 @@ public class MultiPlayerState extends State {
         sb.begin();
         sb.draw(scoreTable,0,800, 800,100);
         sb.draw(othelloBoard,0,0, 800,800);
-        sb.draw(BChip,105,823,30,30);
-        sb.draw(WChip,10,823, 30,30);
+        sb.draw(BChip,250,855,30,30);
+        sb.draw(PChip,250,810,30,30);
+        sb.draw(WChip,165,855, 30,30);
+        sb.draw(OChip,165,810, 30,30);
         sb.draw(menuButton,580,830,200,40);
-        font.draw(sb,String.valueOf(player1.getScore()), 80, 843);
-        font.draw(sb,String.valueOf(player2.getScore()), 175, 843);
+        font.draw(sb,String.valueOf(player1.getScore()), 230, 880);
+        font.draw(sb,String.valueOf(player3.getScore()), 230, 830);
+        font.draw(sb,String.valueOf(player2.getScore()), 320, 880);
+        font.draw(sb,String.valueOf(player4.getScore()), 320, 830);
         if(gL.getTurnStatus() == 1)
         {
             sb.draw(WChip,412,815,30,30);
         }
-        else
-        {
+        else if(gL.getTurnStatus() == 2) {
             sb.draw(BChip,412,815,30,30);
+        }
+        else if(gL.getTurnStatus() == 3){
+            sb.draw(OChip,412,815,30,30);
+        }
+        else{
+            sb.draw(PChip,412,815,30,30);
         }
 
         for(int i = 0; i < gL.getBoard().getBoard().length-1; i++)
