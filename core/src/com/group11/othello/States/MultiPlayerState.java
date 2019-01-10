@@ -30,8 +30,13 @@ public class MultiPlayerState extends State {
     private GameStateManager gsm;
     long player1Time = 0;
     long player2Time = 0;
+    long player3Time=0;
+    long player4Time=0;
+
     int player1moves = 0;
     int player2moves = 0;
+    int player3moves=0;
+    int player4moves=0;
 
     private AI ai1;
     private AI ai2;
@@ -106,11 +111,24 @@ public class MultiPlayerState extends State {
                 //Time calc
                 System.out.println("AI 1 runtime: " + (player1Time / player1moves));
                 System.out.println("AI 2 runtime: " + (player2Time / player2moves));
+                System.out.println("AI 3 runtime: " + player3Time/player3moves);
+                System.out.println("AI 4 runtime: " + player4Time/player4moves);
 
-                if (player1.getScore() > player2.getScore()) {
+                if (player1.getScore() > player2.getScore() && player1.getScore() > player3.getScore()
+                    && player1.getScore() > player4.getScore())
+                {
                     gsm.set(new EndState(gsm, 1, player1.getScore()));
-                } else {
+                } else if(player2.getScore() > player1.getScore() && player2.getScore() > player3.getScore()
+                        && player2.getScore() > player4.getScore()){
                     gsm.set(new EndState(gsm, 2, player2.getScore()));
+                } else if(player3.getScore() > player1.getScore() && player3.getScore() > player2.getScore()
+                        && player3.getScore() > player4.getScore())
+                {
+                    gsm.set(new EndState(gsm, 3, player1.getScore()));
+                } else if(player4.getScore() > player1.getScore() && player4.getScore() > player2.getScore()
+                        && player4.getScore() > player3.getScore())
+                {
+                    gsm.set(new EndState(gsm, 4, player1.getScore()));
                 }
 
             } else {
@@ -134,15 +152,15 @@ public class MultiPlayerState extends State {
                     long prevMillis = System.currentTimeMillis();
                     aiMove = ai3.nextMove(gL);
                     long currentMillis = System.currentTimeMillis();
-                    player2Time += currentMillis - prevMillis;
-                    player2moves++;
+                    player3Time += currentMillis - prevMillis;
+                    player3moves++;
                     System.out.println(currentMillis - prevMillis);
                 } else {
                     long prevMillis = System.currentTimeMillis();
                     aiMove = ai4.nextMove(gL);
                     long currentMillis = System.currentTimeMillis();
-                    player2Time += currentMillis - prevMillis;
-                    player2moves++;
+                    player4Time += currentMillis - prevMillis;
+                    player4moves++;
                     System.out.println(currentMillis - prevMillis);
                 }
 

@@ -48,6 +48,28 @@ public class EndState extends State {
                 yourScoreName = "Black Wins!";
                 winState = new Texture("WinMenuBlack.png");
             }
+            else if(player ==3)
+        {
+            //Not Working For Multiplayer testing yet
+            try {
+                testing.addRecords(testing.getfName(),testing.getsName(),testing.getEv1(),testing.getEv2(),testing.getEv3(),playerScore,testing.getfName());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            yourScoreName = "Orange Wins!";
+            winState = new Texture("WinMenuOrange.png");
+        }
+        else if(player ==4)
+        {
+            //Not Working For Multiplayer testing yet
+            try {
+                testing.addRecords(testing.getfName(),testing.getsName(),testing.getEv1(),testing.getEv2(),testing.getEv3(),playerScore,testing.getfName());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            yourScoreName = "Purple Wins!";
+            winState = new Texture("WinMenuPurple.png");
+        }
             else{
 
             try {
