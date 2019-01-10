@@ -102,7 +102,7 @@ public class MultiPlayerState extends State {
     public void handleInput()
     {
 
-        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+
             //why ?
             try {
                 TimeUnit.MILLISECONDS.sleep(300);
@@ -187,7 +187,7 @@ public class MultiPlayerState extends State {
                 }
                 gL.changeTurn();
             }
-        }
+
 
 
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
