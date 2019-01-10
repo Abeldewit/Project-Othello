@@ -313,14 +313,8 @@ public class GameLogic {
                     row++;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                       //  System.out.println("made it to NE direction");
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
 
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-
-                        }
+                            board.setChip(i, row,player);
 
                     } else {
                         break;
@@ -409,13 +403,8 @@ public class GameLogic {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                      //   System.out.println("made it to NW direction");
+                            board.setChip(i, row, player);
 
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-                        }
                     } else {
                         break;
                     }
@@ -494,13 +483,8 @@ public class GameLogic {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                      //   System.out.println("made it to SW direction");
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
+                            board.setChip(i, row, player);
 
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-                            }
 
                     } else {
                         break;
@@ -589,14 +573,7 @@ public class GameLogic {
                     row++;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                        // System.out.println("made it to SE direction");
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
-
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-
-                        }
+                            board.setChip(i, row, player);
 
                     } else {
                         break;

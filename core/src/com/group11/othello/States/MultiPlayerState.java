@@ -88,85 +88,80 @@ public class MultiPlayerState extends State {
     @Override
     public void handleInput()
     {
-        //why ?
-        try {
-            TimeUnit.MILLISECONDS.sleep(300);
-        } catch (Exception e) {
-            System.out.println("Error");
+
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            //why ?
+            try {
+                TimeUnit.MILLISECONDS.sleep(300);
+            } catch (Exception e) {
+                System.out.println("Error");
+            }
+
+
+            if (gL.getValidMoves().size() == 0) {
+                gL.changeTurn();
+
+            }
+            if (gL.gameOver() == true) {
+                //Time calc
+                System.out.println("AI 1 runtime: " + (player1Time / player1moves));
+                System.out.println("AI 2 runtime: " + (player2Time / player2moves));
+
+                if (player1.getScore() > player2.getScore()) {
+                    gsm.set(new EndState(gsm, 1, player1.getScore()));
+                } else {
+                    gsm.set(new EndState(gsm, 2, player2.getScore()));
+                }
+
+            } else {
+                Vector3 aiMove = new Vector3();
+                if (gL.getTurnStatus() == 1) {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai1.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player1Time += currentMillis - prevMillis;
+                    player1moves++;
+                    System.out.println(currentMillis - prevMillis);
+
+                } else if (gL.getTurnStatus() == 2) {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai2.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player2Time += currentMillis - prevMillis;
+                    player2moves++;
+                    System.out.println(currentMillis - prevMillis);
+                } else if (gL.getTurnStatus() == 3) {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai3.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player2Time += currentMillis - prevMillis;
+                    player2moves++;
+                    System.out.println(currentMillis - prevMillis);
+                } else {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai4.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player2Time += currentMillis - prevMillis;
+                    player2moves++;
+                    System.out.println(currentMillis - prevMillis);
+                }
+
+
+                int x = (int) aiMove.x;
+                int y = (int) aiMove.y;
+                if (x >= 0 && y >= 0) {
+                    gL.getBoard().setChip(y, x, gL.getTurnStatus());
+                    runAvailable(x, y);
+
+                    player1.setScore((int) gL.getScore()[0].x);
+                    player2.setScore((int) gL.getScore()[0].y);
+                    player3.setScore((int) gL.getScore()[1].x);
+                    player4.setScore((int) gL.getScore()[1].y);
+
+                }
+                gL.changeTurn();
+            }
         }
-
-
-        if(gL.getValidMoves().size()==0){
-            gL.changeTurn();
-
-        }
-        if(gL.gameOver() == true){
-            //Time calc
-            System.out.println("AI 1 runtime: " + (player1Time/player1moves));
-            System.out.println("AI 2 runtime: " + (player2Time/player2moves));
-
-            if(player1.getScore() > player2.getScore())
-            {
-                gsm.set(new EndState(gsm,1,player1.getScore()));
-            }
-            else
-            {
-                gsm.set(new EndState(gsm,2,player2.getScore()));
-            }
-
-        }
-        else {
-            Vector3 aiMove = new Vector3();
-            if(gL.getTurnStatus() == 1){
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai1.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player1Time += currentMillis - prevMillis;
-                player1moves++;
-                System.out.println(currentMillis - prevMillis);
-
-            }
-            else if(gL.getTurnStatus() == 2){
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai2.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player2Time += currentMillis - prevMillis;
-                player2moves++;
-                System.out.println(currentMillis - prevMillis);
-            }
-            else if(gL.getTurnStatus() == 3){
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai3.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player2Time += currentMillis - prevMillis;
-                player2moves++;
-                System.out.println(currentMillis - prevMillis);
-            }
-            else{
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai4.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player2Time += currentMillis - prevMillis;
-                player2moves++;
-                System.out.println(currentMillis - prevMillis);
-            }
-
-
-            int x = (int) aiMove.x;
-            int y = (int) aiMove.y;
-            if(x >= 0 && y >= 0) {
-                gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                runAvailable(x, y);
-
-                player1.setScore((int) gL.getScore()[0].x);
-                player2.setScore((int) gL.getScore()[0].y);
-                player3.setScore((int) gL.getScore()[1].x);
-                player4.setScore((int) gL.getScore()[1].y);
-
-            }
-            gL.changeTurn();
-        }
-
 
 
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
