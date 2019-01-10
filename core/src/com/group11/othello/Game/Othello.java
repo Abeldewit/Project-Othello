@@ -9,6 +9,7 @@ import com.group11.othello.AI.Testing;
 import com.group11.othello.States.GameState;
 import com.group11.othello.States.GameStateManager;
 import com.group11.othello.States.MenuState;
+import com.group11.othello.States.ScoreState;
 
 import java.io.IOException;
 
@@ -18,12 +19,13 @@ public class Othello extends ApplicationAdapter {
     public GameStateManager gsm;
     public SpriteBatch sb;
 
-
     @Override
     public void create () {
         sb = new SpriteBatch();
         gsm = new GameStateManager();
         Gdx.gl.glClearColor(1, 1, 1, 1);
+
+
         gsm.push(new MenuState(gsm));
 
         clickProcessor inputProcessor = new clickProcessor();

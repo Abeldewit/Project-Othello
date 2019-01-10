@@ -22,6 +22,8 @@ public class EndState extends State {
     boolean isTie=false;
     Testing testing;
     boolean isMultiplayer;
+    public String[] scores;
+
     public EndState(GameStateManager gsm , int player, int playerScore) {
         super(gsm);
         testing = super.getGsm().testing;
@@ -47,6 +49,7 @@ public class EndState extends State {
         scores[2]=""+player3Score;
         scores[3]=""+player4Score;
 
+        this.scores=scores;
         EndGame(playerScore);
     }
 
@@ -54,12 +57,10 @@ public class EndState extends State {
     public void handleInput() {
         if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
-            for(int i =0 ; i< getGsm().states.size();i++)
-            {
-                getGsm().pop();
-            }
+            getGsm().push(new ScoreState(getGsm(),scores));
             //getGsm().set(new MenuState(getGsm()));
         }
+
     }
 
     public void EndGame(int playerScore)
@@ -144,8 +145,6 @@ public class EndState extends State {
             sb.draw(winState, 0, 0, 800, 910);
             yourBitmapFontName.setColor(0.0f, 0.0f, 0.0f, 1.0f);
             yourBitmapFontName.draw(sb, playerScore, 500, 660);
-            yourBitmapFontName.draw(sb, secondScore, 500, 700);
-            yourBitmapFontName.draw(sb, thirdScore, 500, 750);
         }
         sb.end();
     }
