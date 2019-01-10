@@ -29,10 +29,25 @@ public class GameLogic {
         board = new Board();
         turnCnt =1;
         if(isMultiplayer) {
-            board.setChip(3, 3, WHITE);
-            board.setChip(3, 4, BLACK);
-            board.setChip(4, 3, PURPLE);
-            board.setChip(4, 4, ORANGE);
+            board.setChip(2,2,PURPLE);
+            board.setChip(2,3,ORANGE);
+            board.setChip(2,4,PURPLE);
+            board.setChip(2,5,ORANGE);
+
+            board.setChip(3,2,WHITE);
+            board.setChip(3,3,BLACK);
+            board.setChip(3,4,WHITE);
+            board.setChip(3,5,BLACK);
+
+            board.setChip(4,2,PURPLE);
+            board.setChip(4,3,ORANGE);
+            board.setChip(4,4,PURPLE);
+            board.setChip(4,5,ORANGE);
+
+            board.setChip(5,2,WHITE);
+            board.setChip(5,3,BLACK);
+            board.setChip(5,4,WHITE);
+            board.setChip(5,5,BLACK);
         }
         else{
             board.setChip(3, 3, WHITE);
