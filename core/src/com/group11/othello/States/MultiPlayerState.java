@@ -125,18 +125,18 @@ public class MultiPlayerState extends State {
                 if (player1.getScore() > player2.getScore() && player1.getScore() > player3.getScore()
                     && player1.getScore() > player4.getScore())
                 {
-                    gsm.set(new EndState(gsm, 1, player1.getScore()));
+                    gsm.set(new EndState(gsm, 1, player1.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
                 } else if(player2.getScore() > player1.getScore() && player2.getScore() > player3.getScore()
                         && player2.getScore() > player4.getScore()){
-                    gsm.set(new EndState(gsm, 2, player2.getScore()));
+                    gsm.set(new EndState(gsm, 2, player2.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
                 } else if(player3.getScore() > player1.getScore() && player3.getScore() > player2.getScore()
                         && player3.getScore() > player4.getScore())
                 {
-                    gsm.set(new EndState(gsm, 3, player1.getScore()));
+                    gsm.set(new EndState(gsm, 3, player3.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
                 } else if(player4.getScore() > player1.getScore() && player4.getScore() > player2.getScore()
                         && player4.getScore() > player3.getScore())
                 {
-                    gsm.set(new EndState(gsm, 4, player1.getScore()));
+                    gsm.set(new EndState(gsm, 4, player4.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
                 }
 
             } else {
