@@ -39,7 +39,8 @@ public class AlphaBeta extends AI {
                 aiPlayer = gl.getTurnStatus();
                 // runAvailable(gl,(int) move.x, (int) move.y);
                 int score = MinMaxAB(glCopy, Integer.MIN_VALUE, Integer.MAX_VALUE, maxDepth, 0,true);
-
+                move.z = score;
+                moves.set(i,(move));
 //            System.out.println(score);
                 if (maxScore < score) {
                     maxScore = score;
@@ -70,6 +71,7 @@ public class AlphaBeta extends AI {
 
         if (maxPlayer == true){
             //System.out.println("1111111111111111111111");
+            moves = sortDscending(moves);  // moves ordering
             int maxEval = Integer.MIN_VALUE;
             for (int i = 0; i < moves.size(); i++) {
                 //System.out.println("checking the max step" + i);
@@ -89,6 +91,7 @@ public class AlphaBeta extends AI {
         }
         else{
             // System.out.println("222222222222222222222");
+            moves= sortAscending(moves); // moves ordering
             int minEval = Integer.MAX_VALUE;
             for(int i = 0; i < moves.size(); i++){
                 //System.out.println("checking the min step" + i);
@@ -156,7 +159,32 @@ public class AlphaBeta extends AI {
             return (int) scores.y + eF.evaluateMobility(gl);
     }*/
 
+    private List<Vector3> sortDscending(List<Vector3> moves){
 
+            Vector3 tmp = null;
+            for(int i = 0; i < moves.size(); i++)
+                for(int j = 1; j < moves.size()-i; j++)
+                    if(moves.get(j-1).z < moves.get(j).z){
+                        tmp = moves.get(j-1);
+                       moves.set(j-1,moves.get(j));
+                        moves.set(j, tmp);
+                    }
+            return moves;
+
+    }
+    private List<Vector3> sortAscending(List<Vector3> moves){
+
+        Vector3 tmp = null;
+        for(int i = 0; i < moves.size(); i++)
+            for(int j = 1; j < moves.size()-i; j++)
+                if(moves.get(j-1).z > moves.get(j).z){
+                    tmp = moves.get(j-1);
+                    moves.set(j-1,moves.get(j));
+                    moves.set(j, tmp);
+                }
+        return moves;
+
+    }
 
     public void runAvailable(GameLogic gL, int x, int y) {
         gL.rightDirection(x, y, gL.getTurnStatus());
