@@ -131,7 +131,7 @@ public class MonteCarlo extends AI {
                 cn = childNode;
 
             } else {
-                System.out.println("Check5 = " + cn.getGameLogic().getTurnStatus());
+
                 setScore(cn);
                 return cn;
             }
