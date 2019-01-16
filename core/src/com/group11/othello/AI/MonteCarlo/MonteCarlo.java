@@ -10,6 +10,7 @@ import com.group11.othello.Logic.GameLogic;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
 
 public class MonteCarlo extends AI {
 
@@ -18,7 +19,6 @@ public class MonteCarlo extends AI {
     private EvaluationFunction eF;
     private final int SIMULATIONS = 10000;
     int constant = 2;
-
    public MonteCarlo (int player){
        root = null;
        this.playerTurn = player;
@@ -29,8 +29,9 @@ public class MonteCarlo extends AI {
         GameLogic glCopy = gameLogic.copy();
         root = new CarloNode(gameLogic.copy(),-1,-1);
         CarloNode cn = root;
-
-        while(root.getVisits() < SIMULATIONS){
+        long startTime=System.currentTimeMillis();
+        while(System.currentTimeMillis()<=startTime+100){
+        //while(root.getVisits() < SIMULATIONS){
 
             if(cn.getChildren().size() == 0){
                 if(cn.getVisits() == 0){
