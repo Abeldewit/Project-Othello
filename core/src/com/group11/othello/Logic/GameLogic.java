@@ -57,9 +57,10 @@ public class GameLogic {
         }
     }
 
-    public GameLogic(Board board, int turnCount){
+    public GameLogic(Board board, int turnCount, boolean isMultiplayer){
         this.board = board;
         this.turnCnt = turnCount;
+        this.isMultiplayer = isMultiplayer;
     }
     public void changeTurn() {
 
@@ -84,6 +85,8 @@ public class GameLogic {
 
         return turnCnt;
     }
+
+    public boolean getIsMultiplayer(){ return isMultiplayer;}
 
 
 
@@ -797,7 +800,7 @@ public class GameLogic {
     }
 
     public GameLogic copy(){
-        return new GameLogic(board.copy(), turnCnt);
+        return new GameLogic(board.copy(), turnCnt, isMultiplayer);
     }
 
 }

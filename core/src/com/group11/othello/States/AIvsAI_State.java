@@ -87,8 +87,8 @@ public class AIvsAI_State extends State {
             }
             if(gL.gameOver() == true){
                 //Time calc
-                System.out.println("AI 1 runtime: " + (player1Time/player1moves));
-                System.out.println("AI 2 runtime: " + (player2Time/player2moves));
+                //System.out.println("AI 1 runtime: " + (player1Time/player1moves));
+               // System.out.println("AI 2 runtime: " + (player2Time/player2moves));
 
                 if(player1.getScore() > player2.getScore())
                 {

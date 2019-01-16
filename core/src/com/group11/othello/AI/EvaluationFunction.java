@@ -53,7 +53,7 @@ public class EvaluationFunction {
             randomFactor();
         }
 
-        System.out.println("Score for player " + player + " evaluated at " + score);
+        //System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
     }
 

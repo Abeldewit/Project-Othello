@@ -61,7 +61,7 @@ public class AIvsHuman extends GameState {
 
         }
         if(gL.gameOver() == true){
-            System.out.println("AI Runtime : " + (aiTime/aiMoves));
+          //  System.out.println("AI Runtime : " + (aiTime/aiMoves));
             if(player1.getScore() > player2.getScore())
             {
                 gsm.set(new EndState(gsm,1,player1.getScore()));
