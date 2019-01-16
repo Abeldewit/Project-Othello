@@ -38,14 +38,17 @@ public class AlphaBeta extends AI {
                 //glCopy.changeTurn();
                 aiPlayer = gl.getTurnStatus();
                 // runAvailable(gl,(int) move.x, (int) move.y);
-                int score = MinMaxAB(glCopy, Integer.MIN_VALUE, Integer.MAX_VALUE, maxDepth, 0,true);
-                move.z = score;
-                moves.set(i,(move));
+                long startTime = System.currentTimeMillis();
+                while(System.currentTimeMillis()<=startTime+500) {
+                    int score = MinMaxAB(glCopy, Integer.MIN_VALUE, Integer.MAX_VALUE, maxDepth, 0, true);
+                    move.z = score;
+                    moves.set(i, (move));
 //            System.out.println(score);
-                if (maxScore < score) {
-                    maxScore = score;
-                    indexMaxScore = i;
+                    if (maxScore < score) {
+                        maxScore = score;
+                        indexMaxScore = i;
 
+                    }
                 }
             }
             //System.out.println("MOVE I : " + indexMaxScore);
