@@ -387,7 +387,7 @@ public class MenuState extends State {
                     if (Gdx.input.getX() >= 250 && Gdx.input.getX() <= 400 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                         StopTime(200);
                         System.out.println("First Ai Chosen: Alpha-Beta");
-                        firstAi = new MinMax(1);
+                        firstAi = new AlphaBeta(1);
                         testing.setfName("Alpha Beta");
                     }
 
@@ -408,7 +408,7 @@ public class MenuState extends State {
                     if (Gdx.input.getX() >= 430 && Gdx.input.getX() <= 580 && Gdx.input.getY() >= 190 && Gdx.input.getY() <= 240 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                         StopTime(200);
                         System.out.println("Second Ai Chosen: Alpha-Beta");
-                        secondAi = new MinMax(2);
+                        secondAi = new AlphaBeta(2);
                         testing.setsName("Alpha Beta");
                     }
 
