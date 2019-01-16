@@ -13,7 +13,7 @@ public class EvaluationFunction {
 
     final int mobilityReward = 100;
 
-    final int cornerReward = 100;
+    final int cornerReward = 100000;
     final int cornerPenalty = 800;
 
     final double randomizer = 0.2;

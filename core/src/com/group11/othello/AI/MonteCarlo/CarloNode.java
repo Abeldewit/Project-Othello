@@ -37,7 +37,7 @@ public class CarloNode {
     public void setChild(CarloNode child) {
         children.add(child);
     }
-    public void setScore(double score){this.score = score;}
+    public void setScore(double score){this.score += score;}
     public void setParent(CarloNode parent) { this.parent = parent; }
     public void addVisit(){ visits++;}
     public void setPlayerTurn(int playerTurn){this.playerTurn = playerTurn;}

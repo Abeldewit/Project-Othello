@@ -18,7 +18,7 @@ public class MonteCarlo extends AI {
     private EvaluationFunction eF;
     private final int SIMULATIONS = 10000;
     int constant = 2;
-    long timeConstraint = 100;
+    long timeConstraint = 1000;
 
     public MonteCarlo(int player) {
         root = null;
@@ -27,9 +27,7 @@ public class MonteCarlo extends AI {
     }
 
     public Vector3 nextMove(GameLogic gameLogic) {
-        System.out.println("Check1 = " + gameLogic.getIsMultiplayer());
         GameLogic glCopy = gameLogic.copy();
-        System.out.println("Check2 = " + glCopy.getIsMultiplayer());
         root = new CarloNode(gameLogic.copy(), -1, -1);
 
         for (int i = 0; i < root.getMoves().size(); i++) {
@@ -42,7 +40,6 @@ public class MonteCarlo extends AI {
 
         }
 
-
         CarloNode cn = root;
         long startTime = System.currentTimeMillis();
 
@@ -50,21 +47,16 @@ public class MonteCarlo extends AI {
 
             if (cn.getChildren().size() == 0) {
                 if (cn.getVisits() == 0) {
-
                     backPropagation(rollOut(cn));
-
                     updateVisits(cn);
 
                     while (cn.getParent() != null) {
                         cn = cn.getParent();
                     }
 
-                    // cn = root;
-
                 } else {
                     for (int i = 0; i < cn.getMoves().size(); i++) {
                         GameLogic gl = cn.getGameLogic().copy();
-                       // System.out.println("Check2 = " + gl.getTurnStatus());
                         gl.changeTurn();
                         gl.getBoard().setChip((int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x, gl.getTurnStatus());
                         CarloNode childNode = new CarloNode(gl, (int) cn.getMoves().get(i).y, (int) cn.getMoves().get(i).x);
@@ -79,7 +71,6 @@ public class MonteCarlo extends AI {
                     while (cn.getParent() != null) {
                         cn = cn.getParent();
                     }
-                    // cn = root;
                 }
             } else {
 
@@ -88,19 +79,14 @@ public class MonteCarlo extends AI {
             }
 
         }
-    /*
-        for (int i = 0; i < cn.getChildren().size(); i++) {
-            System.out.println(i + "-CN = " + evaluation(cn.getChildren().get(i)));
-        }
-        System.out.println("");
+
         for (int i = 0; i < root.getChildren().size(); i++) {
-            System.out.println(i + "-ROOT = " + evaluation(root.getChildren().get(i)));
+            root.getChildren().get(i).setScore(eF.bigEvaluation(root.getGameLogic(),playerTurn));
         }
-        */
+
         cn = selection(root);
 
         return new Vector3(cn.getColumn(), cn.getRow(), 0);
-
     }
 
 
@@ -128,21 +114,16 @@ public class MonteCarlo extends AI {
         GameLogic glCopy = cn.getGameLogic().copy();
         Random rand = new Random();
 
-        int k = 0;
-
         while (glCopy.gameOver() == false) {
 
-            k++;
             List<Vector2> moveList = cn.getMoves();
+            glCopy = cn.getGameLogic().copy();
             if (moveList.size() > 0) {
                 int n = 0;
 
                 n = rand.nextInt(moveList.size());
-              //  System.out.println("check3 = " + glCopy.getIsMultiplayer());
-                glCopy.changeTurn();
-              //  System.out.println("check4 = " + glCopy.getIsMultiplayer());
-
                 glCopy.getBoard().setChip((int) cn.getMoves().get(n).y, (int) cn.getMoves().get(n).x, glCopy.getTurnStatus());
+                glCopy.changeTurn();
                 CarloNode childNode = new CarloNode(glCopy, (int) cn.getMoves().get(n).y, (int) cn.getMoves().get(n).x);
 
                 childNode.setParent(cn);
@@ -150,6 +131,7 @@ public class MonteCarlo extends AI {
                 cn = childNode;
 
             } else {
+                System.out.println("Check5 = " + cn.getGameLogic().getTurnStatus());
                 setScore(cn);
                 return cn;
             }
@@ -196,9 +178,7 @@ public class MonteCarlo extends AI {
         double finalScore = 0;
         GameLogic glCopy = node.getGameLogic().copy();
 
-        System.out.println(".........................................Turn status is -" + glCopy.getTurnStatus());
-
-        if (playerTurn == 1) {
+        if (playerTurn == -1) {
             if (glCopy.getScore()[0].x > glCopy.getScore()[0].y && glCopy.getScore()[0].x > glCopy.getScore()[1].x && glCopy.getScore()[0].x > glCopy.getScore()[1].y) {
                 if(playerTurn == glCopy.getTurnStatus()){
                     finalScore = 1;
@@ -210,7 +190,7 @@ public class MonteCarlo extends AI {
             }
 
         }
-        if (playerTurn == 2) {
+        if (playerTurn == -2) {
             if (glCopy.getScore()[0].y > glCopy.getScore()[0].x && glCopy.getScore()[0].y > glCopy.getScore()[1].x && glCopy.getScore()[0].y > glCopy.getScore()[1].y) {
                 if(playerTurn == glCopy.getTurnStatus()){
                     finalScore = 1;
@@ -220,7 +200,7 @@ public class MonteCarlo extends AI {
                 }
             }
         }
-        if (playerTurn == 3) {
+        if (playerTurn == -3) {
             if (glCopy.getScore()[1].x > glCopy.getScore()[0].y && glCopy.getScore()[1].x > glCopy.getScore()[0].x && glCopy.getScore()[1].x > glCopy.getScore()[1].y) {
                 if(playerTurn == glCopy.getTurnStatus()){
                     finalScore = 1;
@@ -230,7 +210,7 @@ public class MonteCarlo extends AI {
                 }
             }
         }
-        if (playerTurn == 4) {
+        if (playerTurn == -4) {
             if (glCopy.getScore()[1].y > glCopy.getScore()[0].x && glCopy.getScore()[1].y > glCopy.getScore()[1].x && glCopy.getScore()[1].y > glCopy.getScore()[0].y) {
                 if(playerTurn == glCopy.getTurnStatus()){
                     finalScore = 1;
@@ -241,9 +221,7 @@ public class MonteCarlo extends AI {
             }
         }
 
-
         node.setScore(finalScore);
-
     }
 
     @Override
