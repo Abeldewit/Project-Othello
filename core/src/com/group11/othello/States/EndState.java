@@ -97,7 +97,7 @@ public class EndState extends State {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            yourScoreName = "Orange Wins!";
+            yourScoreName = "Red Wins!";
             winState = new Texture("WinMenuOrange.png");
         }
         else if(player ==4)

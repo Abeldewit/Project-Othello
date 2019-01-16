@@ -147,7 +147,7 @@ public class MultiPlayerState extends State {
                     long currentMillis = System.currentTimeMillis();
                     player1Time += currentMillis - prevMillis;
                     player1moves++;
-                    System.out.println(currentMillis - prevMillis);
+                   // System.out.println(currentMillis - prevMillis);
 
                 } else if (gL.getTurnStatus() == 2) {
                     long prevMillis = System.currentTimeMillis();
@@ -155,21 +155,21 @@ public class MultiPlayerState extends State {
                     long currentMillis = System.currentTimeMillis();
                     player2Time += currentMillis - prevMillis;
                     player2moves++;
-                    System.out.println(currentMillis - prevMillis);
+                   // System.out.println(currentMillis - prevMillis);
                 } else if (gL.getTurnStatus() == 3) {
                     long prevMillis = System.currentTimeMillis();
                     aiMove = ai3.nextMove(gL);
                     long currentMillis = System.currentTimeMillis();
                     player3Time += currentMillis - prevMillis;
                     player3moves++;
-                    System.out.println(currentMillis - prevMillis);
+                   // System.out.println(currentMillis - prevMillis);
                 } else {
                     long prevMillis = System.currentTimeMillis();
                     aiMove = ai4.nextMove(gL);
                     long currentMillis = System.currentTimeMillis();
                     player4Time += currentMillis - prevMillis;
                     player4moves++;
-                    System.out.println(currentMillis - prevMillis);
+                  //  System.out.println(currentMillis - prevMillis);
                 }
 
 
