@@ -13,7 +13,7 @@ public class EvaluationFunction {
 
     final int mobilityReward = 100;
 
-    final int cornerReward = 100;
+    final int cornerReward = 100000;
     final int cornerPenalty = 800;
 
     final double randomizer = 0.1;
@@ -55,7 +55,7 @@ public class EvaluationFunction {
             randomFactor();
         }
 
-        System.out.println("Score for player " + player + " evaluated at " + score);
+        //System.out.println("Score for player " + player + " evaluated at " + score);
         return score;
     }
 

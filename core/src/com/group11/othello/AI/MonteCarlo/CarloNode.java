@@ -24,7 +24,7 @@ public class CarloNode {
         moves = glCopy.getValidMoves(gl);
         playerTurn = glCopy.getTurnStatus();
         children = new ArrayList<CarloNode>();
-        visits = 0.0;
+        visits = 1.0;
         score = 0.0;
         this.row = row;
         this.column = column;
@@ -37,7 +37,7 @@ public class CarloNode {
     public void setChild(CarloNode child) {
         children.add(child);
     }
-    public void setScore(double score){this.score = score;}
+    public void setScore(double score){this.score += score;}
     public void setParent(CarloNode parent) { this.parent = parent; }
     public void addVisit(){ visits++;}
     public void setPlayerTurn(int playerTurn){this.playerTurn = playerTurn;}

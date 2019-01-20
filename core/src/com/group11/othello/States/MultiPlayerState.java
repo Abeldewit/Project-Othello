@@ -30,8 +30,13 @@ public class MultiPlayerState extends State {
     private GameStateManager gsm;
     long player1Time = 0;
     long player2Time = 0;
+    long player3Time=0;
+    long player4Time=0;
+
     int player1moves = 0;
     int player2moves = 0;
+    int player3moves=0;
+    int player4moves=0;
 
     private AI ai1;
     private AI ai2;
@@ -44,10 +49,15 @@ public class MultiPlayerState extends State {
         super(gsm);
 
         player1 = new Player1();
+        player1.setScore(4);
         player2 = new Player2();
+        player2.setScore(4);
         player3 = new Player1();
+        player3.setScore(4);
         player4 = new Player2();
-        gL = new GameLogic( true);
+        player4.setScore(4);
+
+        gL = new GameLogic(true);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
         OChip = new Texture("OChip.png");
@@ -69,14 +79,18 @@ public class MultiPlayerState extends State {
         this.ai4 = ai4;
 
         player1 = new Player1();
+        player1.setScore(4);
         player2 = new Player2();
+        player2.setScore(4);
         player3 = new Player1();
+        player3.setScore(4);
         player4 = new Player2();
+        player4.setScore(4);
         gL = new GameLogic(true);
         WChip = new Texture("WChip.png");
         BChip = new Texture("BChip.png");
-        OChip = new Texture("WChip.png");
-        PChip = new Texture("BChip.png");
+        OChip = new Texture("OChip.png");
+        PChip = new Texture("PChip.png");
         menuButton = new Texture("MenuButtonUp.png");
         othelloBoard = new Texture("Table2.png");
         scoreTable = new Texture("Score.png");
@@ -87,84 +101,92 @@ public class MultiPlayerState extends State {
     @Override
     public void handleInput()
     {
-        //why ?
-        try {
-            TimeUnit.MILLISECONDS.sleep(300);
-        } catch (Exception e) {
-            System.out.println("Error");
-        }
 
 
-        if(gL.getValidMoves().size()==0){
-            gL.changeTurn();
-
-        }
-        if(gL.gameOver() == true){
-            //Time calc
-            System.out.println("AI 1 runtime: " + (player1Time/player1moves));
-            System.out.println("AI 2 runtime: " + (player2Time/player2moves));
-
-            if(player1.getScore() > player2.getScore())
-            {
-                gsm.set(new EndState(gsm,1,player1.getScore()));
-            }
-            else
-            {
-                gsm.set(new EndState(gsm,2,player2.getScore()));
-            }
-
-        }
-        else {
-            Vector3 aiMove = new Vector3();
-            if(gL.getTurnStatus() == 1){
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai1.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player1Time += currentMillis - prevMillis;
-                player1moves++;
-                System.out.println(currentMillis - prevMillis);
-
-            }
-            else if(gL.getTurnStatus() == 2){
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai2.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player2Time += currentMillis - prevMillis;
-                player2moves++;
-                System.out.println(currentMillis - prevMillis);
-            }
-            else if(gL.getTurnStatus() == 3){
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai3.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player2Time += currentMillis - prevMillis;
-                player2moves++;
-                System.out.println(currentMillis - prevMillis);
-            }
-            else{
-                long prevMillis = System.currentTimeMillis();
-                aiMove = ai4.nextMove(gL);
-                long currentMillis = System.currentTimeMillis();
-                player2Time += currentMillis - prevMillis;
-                player2moves++;
-                System.out.println(currentMillis - prevMillis);
+            //why ?
+            try {
+                TimeUnit.MILLISECONDS.sleep(300);
+            } catch (Exception e) {
+                System.out.println("Error");
             }
 
 
-            int x = (int) aiMove.x;
-            int y = (int) aiMove.y;
-            if(x >= 0 && y >= 0) {
-                gL.getBoard().setChip(y, x, gL.getTurnStatus());
-                runAvailable(x, y);
-
-                player1.setScore((int) gL.getScore()[0].x);
-                player2.setScore((int) gL.getScore()[0].y);
-                player3.setScore((int) gL.getScore()[1].x);
-                player4.setScore((int) gL.getScore()[1].y);
+            if (gL.getValidMoves().size() == 0) {
+                gL.changeTurn();
 
             }
-            gL.changeTurn();
-        }
+            if (gL.gameOver() == true) {
+                //Time calc
+                System.out.println("AI 1 runtime: " + (player1Time / player1moves));
+                System.out.println("AI 2 runtime: " + (player2Time / player2moves));
+                System.out.println("AI 3 runtime: " + player3Time/player3moves);
+                System.out.println("AI 4 runtime: " + player4Time/player4moves);
+
+                if (player1.getScore() > player2.getScore() && player1.getScore() > player3.getScore()
+                    && player1.getScore() > player4.getScore())
+                {
+                    gsm.set(new EndState(gsm, 1, player1.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
+                } else if(player2.getScore() > player1.getScore() && player2.getScore() > player3.getScore()
+                        && player2.getScore() > player4.getScore()){
+                    gsm.set(new EndState(gsm, 2, player2.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
+                } else if(player3.getScore() > player1.getScore() && player3.getScore() > player2.getScore()
+                        && player3.getScore() > player4.getScore())
+                {
+                    gsm.set(new EndState(gsm, 3, player3.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
+                } else if(player4.getScore() > player1.getScore() && player4.getScore() > player2.getScore()
+                        && player4.getScore() > player3.getScore())
+                {
+                    gsm.set(new EndState(gsm, 4, player4.getScore(),player1.getScore(),player2.getScore(),player3.getScore(),player4.getScore()));
+                }
+
+            } else {
+                Vector3 aiMove = new Vector3();
+                if (gL.getTurnStatus() == 1) {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai1.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player1Time += currentMillis - prevMillis;
+                    player1moves++;
+                   // System.out.println(currentMillis - prevMillis);
+
+                } else if (gL.getTurnStatus() == 2) {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai2.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player2Time += currentMillis - prevMillis;
+                    player2moves++;
+                   // System.out.println(currentMillis - prevMillis);
+                } else if (gL.getTurnStatus() == 3) {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai3.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player3Time += currentMillis - prevMillis;
+                    player3moves++;
+                   // System.out.println(currentMillis - prevMillis);
+                } else {
+                    long prevMillis = System.currentTimeMillis();
+                    aiMove = ai4.nextMove(gL);
+                    long currentMillis = System.currentTimeMillis();
+                    player4Time += currentMillis - prevMillis;
+                    player4moves++;
+                  //  System.out.println(currentMillis - prevMillis);
+                }
+
+
+                int x = (int) aiMove.x;
+                int y = (int) aiMove.y;
+                if (x >= 0 && y >= 0) {
+                    gL.getBoard().setChip(y, x, gL.getTurnStatus());
+                    runAvailable(x, y);
+
+                    player1.setScore((int) gL.getScore()[0].x);
+                    player2.setScore((int) gL.getScore()[0].y);
+                    player3.setScore((int) gL.getScore()[1].x);
+                    player4.setScore((int) gL.getScore()[1].y);
+
+                }
+                gL.changeTurn();
+            }
 
 
 
@@ -178,6 +200,8 @@ public class MultiPlayerState extends State {
             if (Gdx.input.getX() >= 580 && Gdx.input.getX() <= 780 && Gdx.input.getY() >= 30 && Gdx.input.getY() <= 70 && Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                 WChip.dispose();
                 BChip.dispose();
+                OChip.dispose();
+                PChip.dispose();
                 gsm.set(new MenuState(gsm));
             }
         }
@@ -196,18 +220,27 @@ public class MultiPlayerState extends State {
         sb.begin();
         sb.draw(scoreTable,0,800, 800,100);
         sb.draw(othelloBoard,0,0, 800,800);
-        sb.draw(BChip,105,823,30,30);
-        sb.draw(WChip,10,823, 30,30);
+        sb.draw(BChip,250,855,30,30);
+        sb.draw(PChip,250,810,30,30);
+        sb.draw(WChip,165,855, 30,30);
+        sb.draw(OChip,165,810, 30,30);
         sb.draw(menuButton,580,830,200,40);
-        font.draw(sb,String.valueOf(player1.getScore()), 80, 843);
-        font.draw(sb,String.valueOf(player2.getScore()), 175, 843);
+        font.draw(sb,String.valueOf(player1.getScore()), 230, 880);
+        font.draw(sb,String.valueOf(player3.getScore()), 230, 830);
+        font.draw(sb,String.valueOf(player2.getScore()), 320, 880);
+        font.draw(sb,String.valueOf(player4.getScore()), 320, 830);
         if(gL.getTurnStatus() == 1)
         {
             sb.draw(WChip,412,815,30,30);
         }
-        else
-        {
+        else if(gL.getTurnStatus() == 2) {
             sb.draw(BChip,412,815,30,30);
+        }
+        else if(gL.getTurnStatus() == 3){
+            sb.draw(OChip,412,815,30,30);
+        }
+        else{
+            sb.draw(PChip,412,815,30,30);
         }
 
         for(int i = 0; i < gL.getBoard().getBoard().length-1; i++)

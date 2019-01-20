@@ -29,10 +29,25 @@ public class GameLogic {
         board = new Board();
         turnCnt =1;
         if(isMultiplayer) {
-            board.setChip(3, 3, WHITE);
-            board.setChip(3, 4, BLACK);
-            board.setChip(4, 3, PURPLE);
-            board.setChip(4, 4, ORANGE);
+            board.setChip(2,2,PURPLE);
+            board.setChip(2,3,ORANGE);
+            board.setChip(2,4,PURPLE);
+            board.setChip(2,5,ORANGE);
+
+            board.setChip(3,2,WHITE);
+            board.setChip(3,3,BLACK);
+            board.setChip(3,4,WHITE);
+            board.setChip(3,5,BLACK);
+
+            board.setChip(4,2,PURPLE);
+            board.setChip(4,3,ORANGE);
+            board.setChip(4,4,PURPLE);
+            board.setChip(4,5,ORANGE);
+
+            board.setChip(5,2,WHITE);
+            board.setChip(5,3,BLACK);
+            board.setChip(5,4,WHITE);
+            board.setChip(5,5,BLACK);
         }
         else{
             board.setChip(3, 3, WHITE);
@@ -42,9 +57,10 @@ public class GameLogic {
         }
     }
 
-    public GameLogic(Board board, int turnCount){
+    public GameLogic(Board board, int turnCount, boolean isMultiplayer){
         this.board = board;
         this.turnCnt = turnCount;
+        this.isMultiplayer = isMultiplayer;
     }
     public void changeTurn() {
 
@@ -69,6 +85,8 @@ public class GameLogic {
 
         return turnCnt;
     }
+
+    public boolean getIsMultiplayer(){ return isMultiplayer;}
 
 
 
@@ -298,14 +316,8 @@ public class GameLogic {
                     row++;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                       //  System.out.println("made it to NE direction");
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
 
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-
-                        }
+                            board.setChip(i, row,player);
 
                     } else {
                         break;
@@ -394,13 +406,8 @@ public class GameLogic {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                      //   System.out.println("made it to NW direction");
+                            board.setChip(i, row, player);
 
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-                        }
                     } else {
                         break;
                     }
@@ -479,13 +486,8 @@ public class GameLogic {
                     row--;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                      //   System.out.println("made it to SW direction");
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
+                            board.setChip(i, row, player);
 
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-                            }
 
                     } else {
                         break;
@@ -574,14 +576,7 @@ public class GameLogic {
                     row++;
                     if (board.getBoard()[i][row] != 0 && board.getBoard()[i][row] != player) {
                        // System.out.println("made it to SE direction");
-                        if (getTurnStatus() == 1) {
-                            board.setChip(i, row, 1);
-
-                        }
-                        if (getTurnStatus() == 2) {
-                            board.setChip(i, row, 2);
-
-                        }
+                            board.setChip(i, row, player);
 
                     } else {
                         break;
@@ -805,7 +800,7 @@ public class GameLogic {
     }
 
     public GameLogic copy(){
-        return new GameLogic(board.copy(), turnCnt);
+        return new GameLogic(board.copy(), turnCnt, isMultiplayer);
     }
 
 }
