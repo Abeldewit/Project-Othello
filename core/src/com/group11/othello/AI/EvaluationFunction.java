@@ -8,7 +8,7 @@ import com.group11.othello.Logic.GameLogic;
 public class EvaluationFunction {
 
     //All penalties and rewards for the heuristics
-    final int discMin = 40;
+    final int discMin = 25;
     final int discPenalty = 10;
 
     final int mobilityReward = 100;
@@ -16,7 +16,7 @@ public class EvaluationFunction {
     final int cornerReward = 100;
     final int cornerPenalty = 800;
 
-    final double randomizer = 0.2;
+    final double randomizer = 0.1;
     //-------------------------------------------
 
     GameLogic gameLogic;
@@ -48,6 +48,8 @@ public class EvaluationFunction {
         if(isEvMob) {
             evaluateMobility(gL, player);
         }
+
+        edgeRewards(gL, player);
 
         if(isRandom) {
             randomFactor();
@@ -117,7 +119,7 @@ public class EvaluationFunction {
             switch (i) {
                 //Upper left corner
                 case 1:
-                    if(currentBoard.getChip(0,1) == player && currentBoard.getChip(0,0) != player) {
+                    if(currentBoard.getChip(0,1) == player && currentBoard.getChip(0,0) == 0) {
                         playerPenalty -= penalty;
                     }
                     break;
@@ -184,8 +186,50 @@ public class EvaluationFunction {
         score += playerPenalty;
     }
 
+    public void edgeRewards(GameLogic gL, int player) {
+        Board board = gL.getBoard();
+        for(int x = 2; x < 6; x++){
+            int y = 0;
+            if(board.getChip(x,y) == player) {
+                score += 10;
+            }
+            if(board.getChip(y,x) == player) {
+                score += 10;
+            }
+            y = 7;
+            if(board.getChip(x,y) == player) {
+                score += 10;
+            }
+            if(board.getChip(y,x) == player) {
+                score += 10;
+            }
+        }
+    }
+
     public void randomFactor() {
         double scoreFraction = Math.floor((score * randomizer) * Math.random());
         score += scoreFraction;
+    }
+
+    public void arrayReward(GameLogic gL, int player) {
+        //Test but has no use because the other functions are more effective
+        Board board = gL.getBoard();
+        int[][] rewards =
+                {{800,  -200,  20, 10, 10, 20,  -200,   800},
+                 {-200, -200,   0,  0,  0,  0,  -200,  -200},
+                 {10,      0,   0,  0,  0,  0,     0,    10},
+                 {10,      0,   0,  0,  0,  0,     0,    10},
+                 {10,      0,   0,  0,  0,  0,     0,    10},
+                 {10,      0,   0,  0,  0,  0,     0,    10},
+                 {-200, -200,   0,  0,  0,  0,  -200,  -200},
+                 {800,  -200,  20, 10, 10, 20,  -200,  800}};
+
+        for(int x = 0; x < 8; x++){
+            for(int y = 0; y < 8; y++) {
+                if(board.getChip(x,y) == player) {
+                    score += rewards[x][y];
+                }
+            }
+        }
     }
 }
