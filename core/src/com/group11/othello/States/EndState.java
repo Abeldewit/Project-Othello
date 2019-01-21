@@ -4,6 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.group11.othello.AI.Greedy.Greedy;
+import com.group11.othello.AI.MinMaxBot.AlphaBeta;
+import com.group11.othello.AI.MonteCarlo.MonteCarlo;
 import com.group11.othello.AI.Testing;
 import com.group11.othello.Logic.Player;
 import com.badlogic.gdx.graphics.Texture;
@@ -55,12 +58,18 @@ public class EndState extends State {
 
     @Override
     public void handleInput() {
-        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        for(int i =0 ; i< getGsm().states.size();i++)
+        {
+            getGsm().pop();
+        }
+        getGsm().push(new AIvsAI_State(getGsm(), new MonteCarlo(1), new Greedy(2), testing));
+
+       /* if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
         {
             getGsm().push(new ScoreState(getGsm(),scores));
             //getGsm().set(new MenuState(getGsm()));
         }
-
+        */
     }
 
     public void EndGame(int playerScore)
@@ -81,7 +90,7 @@ public class EndState extends State {
         else if(player==2)
         {
             try {
-                testing.addRecords(testing.getfName(),testing.getsName(),testing.getEv1(),testing.getEv2(),testing.getEv3(),playerScore,testing.getfName());
+                testing.addRecords(testing.getfName(),testing.getsName(),testing.getEv1(),testing.getEv2(),testing.getEv3(),playerScore,testing.getsName());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -122,6 +131,9 @@ public class EndState extends State {
             winState=new Texture("TieMenu.png");
             isTie=true;
         }
+
+        //Attemp to automatize
+        //
 
         yourBitmapFontName = new BitmapFont();
         yourBitmapFontName.getData().scale(2);

@@ -101,6 +101,7 @@ public class AIvsAI_State extends State {
 
             }
             else {
+                System.out.println("Game still runs");
                 Vector3 aiMove = new Vector3();
                 if(gL.getTurnStatus() == 1){
                     long prevMillis = System.currentTimeMillis();
@@ -160,7 +161,7 @@ public class AIvsAI_State extends State {
     @Override
     public void render(SpriteBatch sb)
     {
-        sb.begin();
+       /* sb.begin();
         sb.draw(scoreTable,0,800, 800,100);
         sb.draw(othelloBoard,0,0, 800,800);
         sb.draw(BChip,105,823,30,30);
@@ -194,6 +195,7 @@ public class AIvsAI_State extends State {
             }
 
         sb.end();
+        */
     }
 
 

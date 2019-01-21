@@ -13,6 +13,7 @@ public class AlphaBeta extends AI {
     //    private int[][] board;
     private final static int maxDepth = 4;
     private  int aiPlayer;
+    private int timeConstrain = 1000;
 
     EvaluationFunction eF = new EvaluationFunction();
 
@@ -39,7 +40,7 @@ public class AlphaBeta extends AI {
                 aiPlayer = gl.getTurnStatus();
                 // runAvailable(gl,(int) move.x, (int) move.y);
                 long startTime = System.currentTimeMillis();
-                while(System.currentTimeMillis()<=startTime+500) {
+                while(System.currentTimeMillis()<=startTime+timeConstrain) {
                     int score = MinMaxAB(glCopy, Integer.MIN_VALUE, Integer.MAX_VALUE, maxDepth, 0, true);
                     move.z = score;
                     moves.set(i, (move));
